@@ -20,4 +20,7 @@ Fuzzing lab (exercise and categorized step by step) #fuzz #fuzzing #fuzzer
 
 Cyber news and explanations #website #blog #news #writeup #exploit #hack #cybersec #reference
 
+- https://googleprojectzero.blogspot.com/
+
+Cyber researches and writeups #important #writeup #cybersec #exploit #blog #website #reference
 
