@@ -2,7 +2,7 @@
 
 - https://blog.quarkslab.com/index.html
 
-Cyber security all in one blog and reference #important #kernel #everything #cybersec #allinone #binary #os #reference #qbdi #quarkslab
+Cyber security all in one blog and reference #important #kernel #everything #cybersec #allinone #binary #os #reference #qbdi #quarkslab #blog #website
 
 - https://blog.quarkslab.com/playing-around-with-the-fuchsia-operating-system.html
 
@@ -15,3 +15,9 @@ How much math and which topics are needed in computer science #math #mathematic
 - https://github.com/antonio-morales/Fuzzing101
 
 Fuzzing lab (exercise and categorized step by step) #fuzz #fuzzing #fuzzer
+
+- https://research.checkpoint.com/
+
+Cyber news and explanations #website #blog #news #writeup #exploit #hack #cybersec #reference
+
+
