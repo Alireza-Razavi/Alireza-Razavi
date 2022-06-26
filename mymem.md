@@ -24,3 +24,6 @@ Cyber news and explanations #website #blog #news #writeup #exploit #hack #cybers
 
 Cyber researches and writeups #important #writeup #cybersec #exploit #blog #website #reference
 
+- https://wiki.osdev.org/Main_Page
+
+All about the operating systems #os #kernel #compiler #assembly #cpu #architecture
