@@ -1,5 +1,5 @@
-[![My github stats](https://github-readme-stats.vercel.app/api?username=alireza-razavi&show_icons=true&theme=cobalt)](https://github.com/anuraghazra/github-readme-stats)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-razavi&theme=cobalt&layout=compact&langs_count=10)](https://github.com/anuraghazra/github-readme-stats)
+![My github stats](https://github-readme-stats.vercel.app/api?username=alireza-razavi&show_icons=true&theme=cobalt)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-razavi&theme=cobalt&langs_count=10)
 
 
 <!--
