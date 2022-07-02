@@ -1,6 +1,9 @@
-![My github stats](https://github-readme-stats.vercel.app/api?username=alireza-razavi&show_icons=true&theme=cobalt)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-razavi&theme=cobalt&langs_count=10)
+![My github stats](https://github-readme-stats.vercel.app/api?username=alireza-razavi&show_icons=true&theme=radical)
 
+
+<!--
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alireza-razavi&theme=cobalt&langs_count=10)
+-->
 
 <!--
 **Alireza-Razavi/Alireza-Razavi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
