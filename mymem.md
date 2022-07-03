@@ -34,4 +34,4 @@ Android code search without cloning its source on our local machine #os #android
 
 - https://www.youtube.com/c/BugBountyReportsExplained
 
-Bug bounty reports explainationed #cybersec #exploit #channel #youtube
+Bug bounty reports explained #cybersec #exploit #channel #youtube
