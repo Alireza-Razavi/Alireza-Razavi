@@ -31,3 +31,7 @@ All about the operating systems #os #kernel #compiler #assembly #cpu #architectu
 - https://cs.android.com/
 
 Android code search without cloning its source on our local machine #os #android #source-code
+
+- https://beta.hide01.ir/
+
+Free courses and tutorials #important #website #reference #tutorial #course #video
