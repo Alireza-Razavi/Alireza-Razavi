@@ -35,3 +35,7 @@ Android code search without cloning its source on our local machine #os #android
 - https://beta.hide01.ir/
 
 Free courses and tutorials #important #website #reference #tutorial #course #video
+
+- https://source.codeaurora.org/external/gigabyte/qrd-gb-ssss-7225/plain/android/bootable/bootloader/lk/
+
+Aboot (Android bootloader) #boot-loader #boot #aosp #android #os #low-level
