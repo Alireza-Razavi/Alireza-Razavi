@@ -43,3 +43,7 @@ Aboot (Android bootloader) #boot-loader #boot #aosp #android #os #low-level
 - https://dictionary.cambridge.org/browse/essential-american-english/
 
 Good reference for learning english #website #reference #tutorial #english #language 
+
+- https://www.apriorit.com/apriorit-technology-blogs
+
+#important #kernel #everything #cybersec #allinone #binary #os #reference #blog #website #boot #assembly #cpu #architecture
