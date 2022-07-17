@@ -39,3 +39,7 @@ Free courses and tutorials #important #website #reference #tutorial #course #vid
 - https://source.codeaurora.org/external/gigabyte/qrd-gb-ssss-7225/plain/android/bootable/bootloader/lk/
 
 Aboot (Android bootloader) #boot-loader #boot #aosp #android #os #low-level
+
+- https://dictionary.cambridge.org/browse/essential-american-english/
+
+Good reference for learning english #website #reference #tutorial #english #language 
