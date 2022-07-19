@@ -47,3 +47,7 @@ Good reference for learning english #website #reference #tutorial #english #lang
 - https://www.apriorit.com/apriorit-technology-blogs
 
 #important #kernel #everything #cybersec #allinone #binary #os #reference #blog #website #boot #assembly #cpu #architecture
+
+- https://nostarch.com/
+
+A website containis a lot of useful books in all fields #important #library #website #everything #cybersec #allinone #book #pdf
