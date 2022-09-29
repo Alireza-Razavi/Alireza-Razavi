@@ -1,7 +1,4 @@
-mahdieh.f
-<!-- 
 ![My github stats](https://github-readme-stats.vercel.app/api?username=alireza-razavi&show_icons=true&theme=radical)
- -->
 
 
 <!--
