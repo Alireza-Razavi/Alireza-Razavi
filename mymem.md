@@ -59,3 +59,11 @@ A website that contains a lot of useful books in all fields #important #library 
 - https://libgen.is/
 
 A big library which contains a lot of books - Just search and enjoy #book #lib #libgen #library
+
+- https://gsmclassic.com/
+
+Android GSM #gsm #android
+
+- https://alephsecurity.com/
+
+#security #exploit #hack
