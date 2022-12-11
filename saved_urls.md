@@ -1,5 +1,3 @@
-### Goals : learning & improvment - useful
-
 - https://blog.quarkslab.com/index.html
 
 Cyber security all in one blog and reference #important #kernel #everything #cybersec #allinone #binary #os #reference #qbdi #quarkslab #blog #website
