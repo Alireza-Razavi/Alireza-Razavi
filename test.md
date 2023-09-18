@@ -48,7 +48,7 @@
 
 
 <a name="GAS-1"></a> 
-### [GAS-1] Use calldata instead of memory for function arguments that do not get mutated
+#### [GAS-1] Use calldata instead of memory for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -72,7 +72,7 @@ File: contracts/treasury/Treasury.sol
 ---
 
 <a name="GAS-2"></a> 
-### [GAS-2] Use Custom Errors
+#### [GAS-2] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -143,7 +143,7 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="GAS-3"></a> 
-### [GAS-3] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+#### [GAS-3] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -172,7 +172,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 ---
 
 <a name="GAS-4"></a> 
-### [GAS-4] Long revert strings
+#### [GAS-4] Long revert strings
 
 <details>
 
@@ -211,7 +211,7 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="GAS-5"></a> 
-### [GAS-5] Functions guaranteed to revert when called by normal users can be marked `payable`
+#### [GAS-5] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -271,7 +271,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ---
 
 <a name="GAS-6"></a> 
-### [GAS-6] Use != 0 instead of > 0 for unsigned integer comparison
+#### [GAS-6] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 
@@ -323,7 +323,7 @@ File: contracts/bonding/BondingVotes.sol
 ---
 
 <a name="GAS-7"></a> 
-### [GAS-7] Using assembly to check for zero can save gas
+#### [GAS-7] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -410,7 +410,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 ---
 
 <a name="GAS-8"></a> 
-### [GAS-8] `internal` functions not called by the contract should be removed
+#### [GAS-8] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
@@ -449,7 +449,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 
 <a name="NC-1"></a> 
-### [NC-1] Event is missing `indexed` fields
+#### [NC-1] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -493,7 +493,7 @@ File: contracts/bonding/IBondingManager.sol
 ---
 
 <a name="NC-2"></a> 
-### [NC-2] Functions not used internally could be marked external
+#### [NC-2] Functions not used internally could be marked external
 
 <details>
 
@@ -555,7 +555,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 
 <a name="L-1"></a> 
-### [L-1] Empty Function Body - Consider commenting why
+#### [L-1] Empty Function Body - Consider commenting why
 
 <details>
 
@@ -583,7 +583,7 @@ File: contracts/bonding/BondingVotes.sol
 ---
 
 <a name="L-2"></a> 
-### [L-2] Initializers could be front-run
+#### [L-2] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -637,7 +637,7 @@ File: contracts/treasury/Treasury.sol
 ---
 
 <a name="L-3"></a> 
-### [L-3] Unsafe ERC20 operation(s)
+#### [L-3] Unsafe ERC20 operation(s)
 
 <details>
 
@@ -662,7 +662,7 @@ File: contracts/bonding/BondingManager.sol
 
 
 <a name="M-1"></a> 
-### [M-1] Centralization Risk for trusted owners
+#### [M-1] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
