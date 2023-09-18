@@ -54,7 +54,7 @@ Mark data types as `calldata` instead of `memory` where possible. This makes it 
 <details>
 
 <summary>
-There are <b>(2)</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -68,13 +68,14 @@ File: contracts/treasury/Treasury.sol
 
 </details>
 
+<br />
 <a name="GAS-2"></a> 
 ### [GAS-2] For Operations that will not overflow, you could use unchecked
 
 <details>
 
 <summary>
-There are <b>(210)</b> instances (click to show):
+There are <b>210</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -544,6 +545,7 @@ File: contracts/treasury/Treasury.sol
 
 </details>
 
+<br />
 <a name="GAS-3"></a> 
 ### [GAS-3] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
@@ -552,7 +554,7 @@ Instead of using error strings, to reduce deployment and runtime cost, you shoul
 <details>
 
 <summary>
-There are <b>(25)</b> instances (click to show):
+There are <b>25</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -612,6 +614,7 @@ File: contracts/bonding/BondingManager.sol
 
 </details>
 
+<br />
 <a name="GAS-4"></a> 
 ### [GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
@@ -619,7 +622,7 @@ Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redunda
 <details>
 
 <summary>
-There are <b>(2)</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -638,13 +641,14 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 </details>
 
+<br />
 <a name="GAS-5"></a> 
 ### [GAS-5] Long revert strings
 
 <details>
 
 <summary>
-There are <b>(10)</b> instances (click to show):
+There are <b>10</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -674,6 +678,7 @@ File: contracts/bonding/BondingManager.sol
 
 </details>
 
+<br />
 <a name="GAS-6"></a> 
 ### [GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
@@ -681,7 +686,7 @@ If a function modifier such as `onlyOwner` is used, the function will revert if 
 <details>
 
 <summary>
-There are <b>(15)</b> instances (click to show):
+There are <b>15</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -731,13 +736,14 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 </details>
 
+<br />
 <a name="GAS-7"></a> 
 ### [GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 
 <summary>
-There are <b>(14)</b> instances (click to show):
+There are <b>14</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -780,6 +786,7 @@ File: contracts/bonding/BondingVotes.sol
 
 </details>
 
+<br />
 <a name="GAS-8"></a> 
 ### [GAS-8] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
@@ -787,7 +794,7 @@ Using assembly to check for zero can save gas by allowing more direct access to 
 <details>
 
 <summary>
-There are <b>(26)</b> instances (click to show):
+There are <b>26</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -864,6 +871,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 </details>
 
+<br />
 <a name="GAS-9"></a> 
 ### [GAS-9] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
@@ -871,7 +879,7 @@ If the functions are required by an interface, the contract should inherit from 
 <details>
 
 <summary>
-There are <b>(5)</b> instances (click to show):
+There are <b>5</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -896,6 +904,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 </details>
 
+<br />
 
 
 ## Non Critical Issues
@@ -907,7 +916,7 @@ Index event fields make the field more quickly accessible to off-chain tools tha
 <details>
 
 <summary>
-There are <b>(12)</b> instances (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -941,13 +950,14 @@ File: contracts/bonding/IBondingManager.sol
 
 </details>
 
+<br />
 <a name="NC-2"></a> 
 ### [NC-2] Functions not used internally could be marked external
 
 <details>
 
 <summary>
-There are <b>(17)</b> instances (click to show):
+There are <b>17</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -996,6 +1006,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 </details>
 
+<br />
 
 
 ## Low Issues
@@ -1006,7 +1017,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 <details>
 
 <summary>
-There are <b>(2)</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1025,6 +1036,7 @@ File: contracts/bonding/BondingVotes.sol
 
 </details>
 
+<br />
 <a name="L-2"></a> 
 ### [L-2] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
@@ -1032,7 +1044,7 @@ Initializers could be front-run, allowing an attacker to either set their own va
 <details>
 
 <summary>
-There are <b>(12)</b> instances (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1076,13 +1088,14 @@ File: contracts/treasury/Treasury.sol
 
 </details>
 
+<br />
 <a name="L-3"></a> 
 ### [L-3] Unsafe ERC20 operation(s)
 
 <details>
 
 <summary>
-There is <b>(1)</b> instance (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -1094,6 +1107,7 @@ File: contracts/bonding/BondingManager.sol
 
 </details>
 
+<br />
 
 
 ## Medium Issues
@@ -1105,7 +1119,7 @@ Contracts have owners with privileged rights to perform admin tasks and need to 
 <details>
 
 <summary>
-There are <b>(11)</b> instances (click to show):
+There are <b>11</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1147,3 +1161,4 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 </details>
 
+<br />
