@@ -9,11 +9,12 @@
 | [GAS-1](#GAS-1) | Use calldata instead of memory for function arguments that do not get mutated | 2 |
 | [GAS-2](#GAS-2) | For Operations that will not overflow, you could use unchecked | 210 |
 | [GAS-3](#GAS-3) | Use Custom Errors | 25 |
-| [GAS-4](#GAS-4) | Long revert strings | 10 |
-| [GAS-5](#GAS-5) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 |
-| [GAS-6](#GAS-6) | Use != 0 instead of > 0 for unsigned integer comparison | 14 |
-| [GAS-7](#GAS-7) | Using assembly to check for zero can save gas | 26 |
-| [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 |
+| [GAS-4](#GAS-4) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 |
+| [GAS-5](#GAS-5) | Long revert strings | 10 |
+| [GAS-6](#GAS-6) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 |
+| [GAS-7](#GAS-7) | Use != 0 instead of > 0 for unsigned integer comparison | 14 |
+| [GAS-8](#GAS-8) | Using assembly to check for zero can save gas | 26 |
+| [GAS-9](#GAS-9) | `internal` functions not called by the contract should be removed | 5 |
 
 
 ## Non Critical Issues
@@ -587,7 +588,25 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
-### <a name="GAS-4"></a>[GAS-4] Long revert strings
+### <a name="GAS-4"></a>[GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
+
+*Instances (2)*:
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
+```
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
+```
+
+### <a name="GAS-5"></a>[GAS-5] Long revert strings
 
 *Instances (10)*:
 ```solidity
@@ -615,7 +634,7 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
-### <a name="GAS-5"></a>[GAS-5] Functions guaranteed to revert when called by normal users can be marked `payable`
+### <a name="GAS-6"></a>[GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 *Instances (15)*:
@@ -664,7 +683,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ```
 
-### <a name="GAS-6"></a>[GAS-6] Use != 0 instead of > 0 for unsigned integer comparison
+### <a name="GAS-7"></a>[GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
 
 *Instances (14)*:
 ```solidity
@@ -705,7 +724,7 @@ File: contracts/bonding/BondingVotes.sol
 
 ```
 
-### <a name="GAS-7"></a>[GAS-7] Using assembly to check for zero can save gas
+### <a name="GAS-8"></a>[GAS-8] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 *Instances (26)*:
@@ -781,7 +800,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ```
 
-### <a name="GAS-8"></a>[GAS-8] `internal` functions not called by the contract should be removed
+### <a name="GAS-9"></a>[GAS-9] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 *Instances (5)*:
