@@ -65,7 +65,7 @@ File: contracts/treasury/Treasury.sol
 19:         address[] memory executors,
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/Treasury.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol)
 
 </details>
 
@@ -136,7 +136,7 @@ File: contracts/bonding/BondingManager.sol
 1664:         require(roundsManager().currentRoundInitialized(), "current round is not initialized");
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 </details>
 
@@ -158,7 +158,7 @@ File: contracts/bonding/BondingManager.sol
 17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
@@ -166,7 +166,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/EarningsPoolLIP36.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 </details>
 
@@ -205,7 +205,7 @@ File: contracts/bonding/BondingManager.sol
 1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 </details>
 
@@ -241,7 +241,7 @@ File: contracts/bonding/BondingManager.sol
 1659:     function _onlyVerifier() internal view {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -257,7 +257,7 @@ File: contracts/bonding/BondingVotes.sol
 553:     function _onlyBondingManager() internal view {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
@@ -267,7 +267,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/GovernorCountingOverridable.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
 
@@ -306,7 +306,7 @@ File: contracts/bonding/BondingManager.sol
 1169:         return delegators[_delegator].unbondingLocks[_unbondingLockId].withdrawRound > 0;
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -320,7 +320,7 @@ File: contracts/bonding/BondingVotes.sol
 507:         if (rewardRound > 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
 
 </details>
 
@@ -368,7 +368,7 @@ File: contracts/bonding/BondingManager.sol
 1527:             if (endEarningsPool.cumulativeFeeFactor == 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -382,7 +382,7 @@ File: contracts/bonding/BondingVotes.sol
 510:             if (pool.cumulativeRewardFactor == 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
@@ -398,7 +398,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 83:         if (_endPool.cumulativeRewardFactor == 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/EarningsPoolLIP36.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
@@ -410,7 +410,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 65:         if (array.length == 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/SortedArrays.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol)
 
 </details>
 
@@ -436,7 +436,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 71:     function delegatorCumulativeStakeAndFees(
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/EarningsPoolLIP36.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
@@ -446,7 +446,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 64:     function pushSorted(uint256[] storage array, uint256 val) internal {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/SortedArrays.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol)
 
 </details>
 
@@ -494,7 +494,7 @@ File: contracts/bonding/IBondingManager.sol
 39:     event EarningsClaimed(
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/IBondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol)
 
 </details>
 
@@ -539,7 +539,7 @@ File: contracts/bonding/BondingManager.sol
 1136:     function getTotalBonded() public view returns (uint256) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
@@ -553,7 +553,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 160:     function supportsInterface(bytes4 interfaceId)
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/LivepeerGovernor.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol)
 
 </details>
 
@@ -578,7 +578,7 @@ File: contracts/bonding/BondingManager.sol
 149:     constructor(address _controller) Manager(_controller) {}
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -586,7 +586,7 @@ File: contracts/bonding/BondingVotes.sol
 107:     constructor(address _controller) Manager(_controller) {}
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
 
 </details>
 
@@ -608,7 +608,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/GovernorCountingOverridable.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol)
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
@@ -630,7 +630,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 71:         __GovernorCountingOverridable_init(quota);
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/LivepeerGovernor.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol)
 
 ```solidity
 File: contracts/treasury/Treasury.sol
@@ -642,7 +642,7 @@ File: contracts/treasury/Treasury.sol
 22:         __TimelockController_init(minDelay, proposers, executors, admin);
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/Treasury.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol)
 
 </details>
 
@@ -663,7 +663,7 @@ File: contracts/bonding/BondingManager.sol
 616:             livepeerToken().transferFrom(msg.sender, address(minter()), _amount);
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 </details>
 
@@ -701,7 +701,7 @@ File: contracts/bonding/BondingManager.sol
 462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -711,7 +711,7 @@ File: contracts/bonding/BondingVotes.sol
 303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
@@ -721,7 +721,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/GovernorCountingOverridable.sol)
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
 
