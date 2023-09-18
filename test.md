@@ -156,10 +156,6 @@ There are <b>2</b> instances (click to show):
 File: contracts/bonding/BondingManager.sol
 
 17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -239,10 +235,6 @@ File: contracts/bonding/BondingManager.sol
 1655:     function _onlyRoundsManager() internal view {
 
 1659:     function _onlyVerifier() internal view {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -255,10 +247,6 @@ File: contracts/bonding/BondingVotes.sol
 303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
 
 553:     function _onlyBondingManager() internal view {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingVotes.sol)
-
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -304,10 +292,6 @@ File: contracts/bonding/BondingManager.sol
 1158:         return d.delegateAddress == _transcoder && d.bondedAmount > 0;
 
 1169:         return delegators[_delegator].unbondingLocks[_unbondingLockId].withdrawRound > 0;
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -366,10 +350,6 @@ File: contracts/bonding/BondingManager.sol
 1520:             if (endEarningsPool.cumulativeRewardFactor == 0) {
 
 1527:             if (endEarningsPool.cumulativeFeeFactor == 0) {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -380,10 +360,6 @@ File: contracts/bonding/BondingVotes.sol
 372:         if (bond.bondedAmount == 0) {
 
 510:             if (pool.cumulativeRewardFactor == 0) {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingVotes.sol)
-
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -396,10 +372,6 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 78:         if (_startPool.cumulativeRewardFactor == 0) {
 
 83:         if (_endPool.cumulativeRewardFactor == 0) {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol)
-
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
 
@@ -434,10 +406,6 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 47:     function updateCumulativeRewardFactor(
 
 71:     function delegatorCumulativeStakeAndFees(
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol)
-
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
 
@@ -537,10 +505,6 @@ File: contracts/bonding/BondingManager.sol
 1128:     function getNextTranscoderInPool(address _transcoder) public view returns (address) {
 
 1136:     function getTotalBonded() public view returns (uint256) {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -576,10 +540,6 @@ There are <b>2</b> instances (click to show):
 File: contracts/bonding/BondingManager.sol
 
 149:     constructor(address _controller) Manager(_controller) {}
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -606,10 +566,6 @@ There are <b>12</b> instances (click to show):
 File: contracts/treasury/GovernorCountingOverridable.sol
 
 64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/GovernorCountingOverridable.sol)
-
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -628,10 +584,6 @@ File: contracts/treasury/LivepeerGovernor.sol
 69:         __GovernorVotesQuorumFraction_init(initialQuorum);
 
 71:         __GovernorCountingOverridable_init(quota);
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol)
-
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -699,20 +651,12 @@ File: contracts/bonding/BondingManager.sol
 399:     ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
 
 462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol)
-
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
 266:     ) external virtual onlyBondingManager {
 
 303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
-
-```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingVotes.sol)
-
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
