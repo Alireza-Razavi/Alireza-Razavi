@@ -7,14 +7,13 @@
 | |Issue|Instances|
 |-|:-|:-:|
 | [GAS-1](#GAS-1) | Use calldata instead of memory for function arguments that do not get mutated | 2 |
-| [GAS-2](#GAS-2) | For Operations that will not overflow, you could use unchecked | 210 |
-| [GAS-3](#GAS-3) | Use Custom Errors | 25 |
-| [GAS-4](#GAS-4) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 |
-| [GAS-5](#GAS-5) | Long revert strings | 10 |
-| [GAS-6](#GAS-6) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 |
-| [GAS-7](#GAS-7) | Use != 0 instead of > 0 for unsigned integer comparison | 14 |
-| [GAS-8](#GAS-8) | Using assembly to check for zero can save gas | 26 |
-| [GAS-9](#GAS-9) | `internal` functions not called by the contract should be removed | 5 |
+| [GAS-2](#GAS-2) | Use Custom Errors | 25 |
+| [GAS-3](#GAS-3) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 |
+| [GAS-4](#GAS-4) | Long revert strings | 10 |
+| [GAS-5](#GAS-5) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 |
+| [GAS-6](#GAS-6) | Use != 0 instead of > 0 for unsigned integer comparison | 14 |
+| [GAS-7](#GAS-7) | Using assembly to check for zero can save gas | 26 |
+| [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 |
 
 
 ## Non Critical Issues
@@ -66,491 +65,14 @@ File: contracts/treasury/Treasury.sol
 19:         address[] memory executors,
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/Treasury.sol)
 
 </details>
 
 ---
 
 <a name="GAS-2"></a> 
-### [GAS-2] For Operations that will not overflow, you could use unchecked
-
-<details>
-
-<summary>
-There are <b>210</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/bonding/BondingManager.sol
-
-4: import "../ManagerProxyTarget.sol";
-
-5: import "./IBondingManager.sol";
-
-6: import "../libraries/SortedDoublyLL.sol";
-
-6: import "../libraries/SortedDoublyLL.sol";
-
-7: import "../libraries/MathUtils.sol";
-
-7: import "../libraries/MathUtils.sol";
-
-8: import "../libraries/PreciseMathUtils.sol";
-
-8: import "../libraries/PreciseMathUtils.sol";
-
-9: import "./libraries/EarningsPool.sol";
-
-9: import "./libraries/EarningsPool.sol";
-
-10: import "./libraries/EarningsPoolLIP36.sol";
-
-10: import "./libraries/EarningsPoolLIP36.sol";
-
-11: import "../token/ILivepeerToken.sol";
-
-11: import "../token/ILivepeerToken.sol";
-
-12: import "../token/IMinter.sol";
-
-12: import "../token/IMinter.sol";
-
-13: import "../rounds/IRoundsManager.sol";
-
-13: import "../rounds/IRoundsManager.sol";
-
-14: import "../snapshots/IMerkleSnapshot.sol";
-
-14: import "../snapshots/IMerkleSnapshot.sol";
-
-15: import "./IBondingVotes.sol";
-
-17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-32:     uint256 constant MAX_FUTURE_ROUND = 2**256 - 1;
-
-32:     uint256 constant MAX_FUTURE_ROUND = 2**256 - 1;
-
-32:     uint256 constant MAX_FUTURE_ROUND = 2**256 - 1;
-
-39:         uint256 lastRewardRound; // Last round that the transcoder called reward
-
-39:         uint256 lastRewardRound; // Last round that the transcoder called reward
-
-40:         uint256 rewardCut; // % of reward paid to transcoder by a delegator
-
-40:         uint256 rewardCut; // % of reward paid to transcoder by a delegator
-
-41:         uint256 feeShare; // % of fees paid to delegators by transcoder
-
-41:         uint256 feeShare; // % of fees paid to delegators by transcoder
-
-42:         mapping(uint256 => EarningsPool.Data) earningsPoolPerRound; // Mapping of round => earnings pool for the round
-
-42:         mapping(uint256 => EarningsPool.Data) earningsPoolPerRound; // Mapping of round => earnings pool for the round
-
-43:         uint256 lastActiveStakeUpdateRound; // Round for which the stake was last updated while the transcoder is active
-
-43:         uint256 lastActiveStakeUpdateRound; // Round for which the stake was last updated while the transcoder is active
-
-44:         uint256 activationRound; // Round in which the transcoder became active - 0 if inactive
-
-44:         uint256 activationRound; // Round in which the transcoder became active - 0 if inactive
-
-44:         uint256 activationRound; // Round in which the transcoder became active - 0 if inactive
-
-45:         uint256 deactivationRound; // Round in which the transcoder will become inactive
-
-45:         uint256 deactivationRound; // Round in which the transcoder will become inactive
-
-46:         uint256 activeCumulativeRewards; // The transcoder's cumulative rewards that are active in the current round
-
-46:         uint256 activeCumulativeRewards; // The transcoder's cumulative rewards that are active in the current round
-
-47:         uint256 cumulativeRewards; // The transcoder's cumulative rewards (earned via the its active staked rewards and its reward cut).
-
-47:         uint256 cumulativeRewards; // The transcoder's cumulative rewards (earned via the its active staked rewards and its reward cut).
-
-48:         uint256 cumulativeFees; // The transcoder's cumulative fees (earned via the its active staked rewards and its fee share)
-
-48:         uint256 cumulativeFees; // The transcoder's cumulative fees (earned via the its active staked rewards and its fee share)
-
-49:         uint256 lastFeeRound; // Latest round in which the transcoder received fees
-
-49:         uint256 lastFeeRound; // Latest round in which the transcoder received fees
-
-60:         uint256 bondedAmount; // The amount of bonded tokens
-
-60:         uint256 bondedAmount; // The amount of bonded tokens
-
-61:         uint256 fees; // The amount of fees collected
-
-61:         uint256 fees; // The amount of fees collected
-
-62:         address delegateAddress; // The address delegated to
-
-62:         address delegateAddress; // The address delegated to
-
-63:         uint256 delegatedAmount; // The amount of tokens delegated to the delegator
-
-63:         uint256 delegatedAmount; // The amount of tokens delegated to the delegator
-
-64:         uint256 startRound; // The round the delegator transitions to bonded phase and is delegated to someone
-
-64:         uint256 startRound; // The round the delegator transitions to bonded phase and is delegated to someone
-
-65:         uint256 lastClaimRound; // The last round during which the delegator claimed its earnings
-
-65:         uint256 lastClaimRound; // The last round during which the delegator claimed its earnings
-
-66:         uint256 nextUnbondingLockId; // ID for the next unbonding lock created
-
-66:         uint256 nextUnbondingLockId; // ID for the next unbonding lock created
-
-67:         mapping(uint256 => UnbondingLock) unbondingLocks; // Mapping of unbonding lock ID => unbonding lock
-
-67:         mapping(uint256 => UnbondingLock) unbondingLocks; // Mapping of unbonding lock ID => unbonding lock
-
-79:         uint256 amount; // Amount of tokens being unbonded
-
-79:         uint256 amount; // Amount of tokens being unbonded
-
-80:         uint256 withdrawRound; // Round at which unbonding period is over and tokens can be withdrawn
-
-80:         uint256 withdrawRound; // Round at which unbonding period is over and tokens can be withdrawn
-
-1599:         uint256 startRound = roundsManager().currentRound() + 1;
-
-```
-
-```solidity
-File: contracts/bonding/BondingVotes.sol
-
-4: import "@openzeppelin/contracts/utils/Arrays.sol";
-
-4: import "@openzeppelin/contracts/utils/Arrays.sol";
-
-4: import "@openzeppelin/contracts/utils/Arrays.sol";
-
-5: import "@openzeppelin/contracts/utils/math/SafeCast.sol";
-
-5: import "@openzeppelin/contracts/utils/math/SafeCast.sol";
-
-5: import "@openzeppelin/contracts/utils/math/SafeCast.sol";
-
-5: import "@openzeppelin/contracts/utils/math/SafeCast.sol";
-
-7: import "./libraries/EarningsPool.sol";
-
-7: import "./libraries/EarningsPool.sol";
-
-8: import "./libraries/EarningsPoolLIP36.sol";
-
-8: import "./libraries/EarningsPoolLIP36.sol";
-
-9: import "./libraries/SortedArrays.sol";
-
-9: import "./libraries/SortedArrays.sol";
-
-11: import "../ManagerProxyTarget.sol";
-
-12: import "./IBondingVotes.sol";
-
-13: import "./IBondingManager.sol";
-
-14: import "../rounds/IRoundsManager.sol";
-
-14: import "../rounds/IRoundsManager.sol";
-
-98:             revert FutureLookup(_round, currentRound == 0 ? 0 : currentRound - 1);
-
-156:         (uint256 amount, ) = getBondingStateAt(_account, clock() + 1);
-
-168:         (uint256 amount, ) = getBondingStateAt(_account, _round + 1);
-
-182:         return getTotalActiveStakeAt(clock() + 1);
-
-195:         return getTotalActiveStakeAt(_round + 1);
-
-206:         (, address delegateAddress) = getBondingStateAt(_account, clock() + 1);
-
-219:         (, address delegateAddress) = getBondingStateAt(_account, _round + 1);
-
-267:         if (_startRound != clock() + 1) {
-
-268:             revert InvalidStartRound(_startRound, clock() + 1);
-
-270:             revert FutureLastClaimRound(_lastClaimRound, _startRound - 1);
-
-326:         if (_round > clock() + 1) {
-
-327:             revert FutureLookup(_round, clock() + 1);
-
-427:         if (_round > clock() + 1) {
-
-428:             revert FutureLookup(_round, clock() + 1);
-
-```
-
-```solidity
-File: contracts/bonding/IBondingVotes.sol
-
-4: import "../treasury/IVotes.sol";
-
-4: import "../treasury/IVotes.sol";
-
-```
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-4: import "./EarningsPool.sol";
-
-5: import "../../libraries/PreciseMathUtils.sol";
-
-5: import "../../libraries/PreciseMathUtils.sol";
-
-5: import "../../libraries/PreciseMathUtils.sol";
-
-7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
-```
-
-```solidity
-File: contracts/bonding/libraries/SortedArrays.sol
-
-4: import "../../libraries/MathUtils.sol";
-
-4: import "../../libraries/MathUtils.sol";
-
-4: import "../../libraries/MathUtils.sol";
-
-6: import "@openzeppelin/contracts/utils/Arrays.sol";
-
-6: import "@openzeppelin/contracts/utils/Arrays.sol";
-
-6: import "@openzeppelin/contracts/utils/Arrays.sol";
-
-34:         if (_array[len - 1] <= _val) {
-
-35:             return len - 1;
-
-54:         return upperIdx - 1;
-
-68:             uint256 last = array[array.length - 1];
-
-```
-
-```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-8: import "../bonding/libraries/EarningsPool.sol";
-
-8: import "../bonding/libraries/EarningsPool.sol";
-
-8: import "../bonding/libraries/EarningsPool.sol";
-
-9: import "../bonding/libraries/EarningsPoolLIP36.sol";
-
-9: import "../bonding/libraries/EarningsPoolLIP36.sol";
-
-9: import "../bonding/libraries/EarningsPoolLIP36.sol";
-
-11: import "../Manager.sol";
-
-12: import "../IController.sol";
-
-13: import "../rounds/IRoundsManager.sol";
-
-13: import "../rounds/IRoundsManager.sol";
-
-14: import "./IVotes.sol";
-
-110:         uint256 totalVotes = againstVotes + forVotes + abstainVotes;
-
-110:         uint256 totalVotes = againstVotes + forVotes + abstainVotes;
-
-122:         uint256 opinionatedVotes = againstVotes + forVotes;
-
-135:         bytes memory // params
-
-135:         bytes memory // params
-
-154:             tally.againstVotes += _weight;
-
-156:             tally.forVotes += _weight;
-
-158:             tally.abstainVotes += _weight;
-
-188:             return _weight - _voter.deductions;
-
-193:         delegateVoter.deductions += _weight;
-
-202:                 _tally.againstVotes -= _weight;
-
-204:                 _tally.forVotes -= _weight;
-
-207:                 _tally.abstainVotes -= _weight;
-
-```
-
-```solidity
-File: contracts/treasury/IVotes.sol
-
-4: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol";
-
-```
-
-```solidity
-File: contracts/treasury/LivepeerGovernor.sol
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-5: import "@openzeppelin/contracts-upgradeable/governance/GovernorUpgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesUpgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesUpgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesUpgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesUpgradeable.sol";
-
-6: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesUpgradeable.sol";
-
-7: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
-
-7: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
-
-7: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
-
-7: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
-
-7: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
-
-8: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorSettingsUpgradeable.sol";
-
-8: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorSettingsUpgradeable.sol";
-
-8: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorSettingsUpgradeable.sol";
-
-8: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorSettingsUpgradeable.sol";
-
-8: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorSettingsUpgradeable.sol";
-
-9: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorTimelockControlUpgradeable.sol";
-
-9: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorTimelockControlUpgradeable.sol";
-
-9: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorTimelockControlUpgradeable.sol";
-
-9: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorTimelockControlUpgradeable.sol";
-
-9: import "@openzeppelin/contracts-upgradeable/governance/extensions/GovernorTimelockControlUpgradeable.sol";
-
-11: import "../bonding/libraries/EarningsPool.sol";
-
-11: import "../bonding/libraries/EarningsPool.sol";
-
-11: import "../bonding/libraries/EarningsPool.sol";
-
-12: import "../bonding/libraries/EarningsPoolLIP36.sol";
-
-12: import "../bonding/libraries/EarningsPoolLIP36.sol";
-
-12: import "../bonding/libraries/EarningsPoolLIP36.sol";
-
-14: import "../ManagerProxyTarget.sol";
-
-15: import "../IController.sol";
-
-16: import "../rounds/IRoundsManager.sol";
-
-16: import "../rounds/IRoundsManager.sol";
-
-17: import "./GovernorCountingOverridable.sol";
-
-18: import "./Treasury.sol";
-
-```
-
-```solidity
-File: contracts/treasury/Treasury.sol
-
-4: import "@openzeppelin/contracts-upgradeable/governance/TimelockControllerUpgradeable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/governance/TimelockControllerUpgradeable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/governance/TimelockControllerUpgradeable.sol";
-
-4: import "@openzeppelin/contracts-upgradeable/governance/TimelockControllerUpgradeable.sol";
-
-```
-
-</details>
-
----
-
-<a name="GAS-3"></a> 
-### [GAS-3] Use Custom Errors
+### [GAS-2] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -614,13 +136,14 @@ File: contracts/bonding/BondingManager.sol
 1664:         require(roundsManager().currentRoundInitialized(), "current round is not initialized");
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 </details>
 
 ---
 
-<a name="GAS-4"></a> 
-### [GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-3"></a> 
+### [GAS-3] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -635,6 +158,7 @@ File: contracts/bonding/BondingManager.sol
 17: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
@@ -642,13 +166,14 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 </details>
 
 ---
 
-<a name="GAS-5"></a> 
-### [GAS-5] Long revert strings
+<a name="GAS-4"></a> 
+### [GAS-4] Long revert strings
 
 <details>
 
@@ -680,13 +205,14 @@ File: contracts/bonding/BondingManager.sol
 1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 </details>
 
 ---
 
-<a name="GAS-6"></a> 
-### [GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-5"></a> 
+### [GAS-5] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -715,6 +241,7 @@ File: contracts/bonding/BondingManager.sol
 1659:     function _onlyVerifier() internal view {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -730,6 +257,7 @@ File: contracts/bonding/BondingVotes.sol
 553:     function _onlyBondingManager() internal view {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
@@ -739,13 +267,14 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
 
 ---
 
-<a name="GAS-7"></a> 
-### [GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-6"></a> 
+### [GAS-6] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 
@@ -777,6 +306,7 @@ File: contracts/bonding/BondingManager.sol
 1169:         return delegators[_delegator].unbondingLocks[_unbondingLockId].withdrawRound > 0;
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -790,13 +320,14 @@ File: contracts/bonding/BondingVotes.sol
 507:         if (rewardRound > 0) {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
 
 </details>
 
 ---
 
-<a name="GAS-8"></a> 
-### [GAS-8] Using assembly to check for zero can save gas
+<a name="GAS-7"></a> 
+### [GAS-7] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -837,6 +368,7 @@ File: contracts/bonding/BondingManager.sol
 1527:             if (endEarningsPool.cumulativeFeeFactor == 0) {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -850,6 +382,7 @@ File: contracts/bonding/BondingVotes.sol
 510:             if (pool.cumulativeRewardFactor == 0) {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
@@ -865,6 +398,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 83:         if (_endPool.cumulativeRewardFactor == 0) {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
@@ -876,13 +410,14 @@ File: contracts/bonding/libraries/SortedArrays.sol
 65:         if (array.length == 0) {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/SortedArrays.sol)
 
 </details>
 
 ---
 
-<a name="GAS-9"></a> 
-### [GAS-9] `internal` functions not called by the contract should be removed
+<a name="GAS-8"></a> 
+### [GAS-8] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
@@ -901,6 +436,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 71:     function delegatorCumulativeStakeAndFees(
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
@@ -910,6 +446,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 64:     function pushSorted(uint256[] storage array, uint256 val) internal {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/libraries/SortedArrays.sol)
 
 </details>
 
@@ -957,6 +494,7 @@ File: contracts/bonding/IBondingManager.sol
 39:     event EarningsClaimed(
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/IBondingManager.sol)
 
 </details>
 
@@ -1001,6 +539,7 @@ File: contracts/bonding/BondingManager.sol
 1136:     function getTotalBonded() public view returns (uint256) {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
@@ -1014,6 +553,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 160:     function supportsInterface(bytes4 interfaceId)
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/LivepeerGovernor.sol)
 
 </details>
 
@@ -1038,6 +578,7 @@ File: contracts/bonding/BondingManager.sol
 149:     constructor(address _controller) Manager(_controller) {}
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -1045,6 +586,7 @@ File: contracts/bonding/BondingVotes.sol
 107:     constructor(address _controller) Manager(_controller) {}
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
 
 </details>
 
@@ -1066,6 +608,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/GovernorCountingOverridable.sol)
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
@@ -1087,6 +630,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 71:         __GovernorCountingOverridable_init(quota);
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/LivepeerGovernor.sol)
 
 ```solidity
 File: contracts/treasury/Treasury.sol
@@ -1098,6 +642,7 @@ File: contracts/treasury/Treasury.sol
 22:         __TimelockController_init(minDelay, proposers, executors, admin);
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/Treasury.sol)
 
 </details>
 
@@ -1118,6 +663,7 @@ File: contracts/bonding/BondingManager.sol
 616:             livepeerToken().transferFrom(msg.sender, address(minter()), _amount);
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 </details>
 
@@ -1155,6 +701,7 @@ File: contracts/bonding/BondingManager.sol
 462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingManager.sol)
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -1164,6 +711,7 @@ File: contracts/bonding/BondingVotes.sol
 303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/bonding/BondingVotes.sol)
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
@@ -1173,6 +721,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 ```
+[Link to code](https://github.com/code-423n4/2023-08-livepeer/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
 
