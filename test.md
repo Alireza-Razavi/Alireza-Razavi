@@ -47,10 +47,10 @@
 
 ## Gas Optimizations
 
-### <a name="GAS-1"></a>
+
 <details>
 <summary>
-[GAS-1] Use calldata instead of memory for function arguments that do not get mutated
+<a name="GAS-1"></a>[GAS-1] Use calldata instead of memory for function arguments that do not get mutated
 </summary>
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
@@ -65,10 +65,10 @@ File: contracts/treasury/Treasury.sol
 ```
 </details>
 
-### <a name="GAS-2"></a>
+
 <details>
 <summary>
-[GAS-2] For Operations that will not overflow, you could use unchecked
+<a name="GAS-2"></a>[GAS-2] For Operations that will not overflow, you could use unchecked
 </summary>
 
 *Instances (210)*:
@@ -538,10 +538,10 @@ File: contracts/treasury/Treasury.sol
 ```
 </details>
 
-### <a name="GAS-3"></a>
+
 <details>
 <summary>
-[GAS-3] Use Custom Errors
+<a name="GAS-3"></a>[GAS-3] Use Custom Errors
 </summary>
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
@@ -603,10 +603,10 @@ File: contracts/bonding/BondingManager.sol
 ```
 </details>
 
-### <a name="GAS-4"></a>
+
 <details>
 <summary>
-[GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-4"></a>[GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 </summary>
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
@@ -626,10 +626,10 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 ```
 </details>
 
-### <a name="GAS-5"></a>
+
 <details>
 <summary>
-[GAS-5] Long revert strings
+<a name="GAS-5"></a>[GAS-5] Long revert strings
 </summary>
 
 *Instances (10)*:
@@ -659,10 +659,10 @@ File: contracts/bonding/BondingManager.sol
 ```
 </details>
 
-### <a name="GAS-6"></a>
+
 <details>
 <summary>
-[GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-6"></a>[GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
 </summary>
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
@@ -713,10 +713,10 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```
 </details>
 
-### <a name="GAS-7"></a>
+
 <details>
 <summary>
-[GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-7"></a>[GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
 </summary>
 
 *Instances (14)*:
@@ -759,10 +759,10 @@ File: contracts/bonding/BondingVotes.sol
 ```
 </details>
 
-### <a name="GAS-8"></a>
+
 <details>
 <summary>
-[GAS-8] Using assembly to check for zero can save gas
+<a name="GAS-8"></a>[GAS-8] Using assembly to check for zero can save gas
 </summary>
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
@@ -840,10 +840,10 @@ File: contracts/bonding/libraries/SortedArrays.sol
 ```
 </details>
 
-### <a name="GAS-9"></a>
+
 <details>
 <summary>
-[GAS-9] `internal` functions not called by the contract should be removed
+<a name="GAS-9"></a>[GAS-9] `internal` functions not called by the contract should be removed
 </summary>
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
@@ -873,10 +873,10 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ## Non Critical Issues
 
-### <a name="NC-1"></a>
+
 <details>
 <summary>
-[NC-1] Event is missing `indexed` fields
+<a name="NC-1"></a>[NC-1] Event is missing `indexed` fields
 </summary>
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
@@ -911,10 +911,10 @@ File: contracts/bonding/IBondingManager.sol
 ```
 </details>
 
-### <a name="NC-2"></a>
+
 <details>
 <summary>
-[NC-2] Functions not used internally could be marked external
+<a name="NC-2"></a>[NC-2] Functions not used internally could be marked external
 </summary>
 
 *Instances (17)*:
@@ -967,10 +967,10 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ## Low Issues
 
-### <a name="L-1"></a>
+
 <details>
 <summary>
-[L-1] Empty Function Body - Consider commenting why
+<a name="L-1"></a>[L-1] Empty Function Body - Consider commenting why
 </summary>
 
 *Instances (2)*:
@@ -989,10 +989,10 @@ File: contracts/bonding/BondingVotes.sol
 ```
 </details>
 
-### <a name="L-2"></a>
+
 <details>
 <summary>
-[L-2] Initializers could be front-run
+<a name="L-2"></a>[L-2] Initializers could be front-run
 </summary>
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
@@ -1037,10 +1037,10 @@ File: contracts/treasury/Treasury.sol
 ```
 </details>
 
-### <a name="L-3"></a>
+
 <details>
 <summary>
-[L-3] Unsafe ERC20 operation(s)
+<a name="L-3"></a>[L-3] Unsafe ERC20 operation(s)
 </summary>
 
 *Instances (1)*:
@@ -1056,10 +1056,10 @@ File: contracts/bonding/BondingManager.sol
 
 ## Medium Issues
 
-### <a name="M-1"></a>
+
 <details>
 <summary>
-[M-1] Centralization Risk for trusted owners
+<a name="M-1"></a>[M-1] Centralization Risk for trusted owners
 </summary>
 
 #### Impact:
