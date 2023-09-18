@@ -57,6 +57,8 @@ Mark data types as `calldata` instead of `memory` where possible. This makes it 
 There are <b>2</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -81,6 +83,8 @@ Instead of using error strings, to reduce deployment and runtime cost, you shoul
 <summary>
 There are <b>25</b> instances (click to show):
 </summary>
+
+
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
@@ -152,6 +156,8 @@ Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redunda
 There are <b>2</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -159,6 +165,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -179,6 +187,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 <summary>
 There are <b>10</b> instances (click to show):
 </summary>
+
+
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
@@ -220,6 +230,8 @@ If a function modifier such as `onlyOwner` is used, the function will revert if 
 There are <b>15</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -241,6 +253,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -256,6 +270,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -278,6 +294,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 <summary>
 There are <b>14</b> instances (click to show):
 </summary>
+
+
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
@@ -304,6 +322,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -331,6 +351,8 @@ Using assembly to check for zero can save gas by allowing more direct access to 
 <summary>
 There are <b>26</b> instances (click to show):
 </summary>
+
+
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
@@ -365,6 +387,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -378,6 +402,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -393,6 +419,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
 
@@ -419,6 +447,8 @@ If the functions are required by an interface, the contract should inherit from 
 There are <b>5</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -430,6 +460,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ```
 
+
+ salam  salam  salam 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
 
@@ -457,6 +489,8 @@ Index event fields make the field more quickly accessible to off-chain tools tha
 <summary>
 There are <b>12</b> instances (click to show):
 </summary>
+
+
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
@@ -501,6 +535,8 @@ File: contracts/bonding/IBondingManager.sol
 There are <b>17</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -532,6 +568,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -563,6 +601,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 There are <b>2</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -570,6 +610,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -592,6 +634,8 @@ Initializers could be front-run, allowing an attacker to either set their own va
 There are <b>12</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -599,6 +643,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ```
 
+
+ salam 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -620,6 +666,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -644,6 +692,8 @@ File: contracts/treasury/Treasury.sol
 <summary>
 There is <b>1</b> instance (click to show):
 </summary>
+
+
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
@@ -671,6 +721,8 @@ Contracts have owners with privileged rights to perform admin tasks and need to 
 There are <b>11</b> instances (click to show):
 </summary>
 
+
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -690,6 +742,8 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
@@ -699,6 +753,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ```
 
+
+ salam  salam  salam  salam  salam  salam  salam  salam  salam 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
