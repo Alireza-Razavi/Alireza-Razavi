@@ -65,7 +65,7 @@ File: contracts/treasury/Treasury.sol
 19:         address[] memory executors,
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol)
+[#L18](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L19](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) 
 
 </details>
 
@@ -136,7 +136,7 @@ File: contracts/bonding/BondingManager.sol
 1664:         require(roundsManager().currentRoundInitialized(), "current round is not initialized");
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
+[#L253](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L279](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L281](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L310](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L491](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L492](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L493](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L494](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L563](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L565](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L582](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L606](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L722](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L750](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L754](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L755](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L801](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L824](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L850](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1177](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1573](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1652](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1656](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1660](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1664](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) 
 
 </details>
 
@@ -166,7 +166,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 7: import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/EarningsPoolLIP36.sol)
+[#L17](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/EarningsPoolLIP36.sol) [#L7](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/EarningsPoolLIP36.sol) 
 
 </details>
 
@@ -205,7 +205,7 @@ File: contracts/bonding/BondingManager.sol
 1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
+[#L491](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L582](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L606](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L754](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L755](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L850](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1177](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1652](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1656](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) [#L1660](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) 
 
 </details>
 
@@ -267,7 +267,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol)
+[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L176](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L186](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L1651](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L1655](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L1659](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L553](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L64](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) 
 
 </details>
 
@@ -320,7 +320,7 @@ File: contracts/bonding/BondingVotes.sol
 507:         if (rewardRound > 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
+[#L402](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L576](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L606](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L614](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L754](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L871](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L873](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L884](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L1158](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L1169](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L316](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L331](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L436](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L507](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) 
 
 </details>
 
@@ -410,7 +410,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 65:         if (array.length == 0) {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol)
+[#L279](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L343](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L424](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L595](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L599](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L719](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L719](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L769](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L959](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L1215](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L1221](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L1512](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L1520](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L1527](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L98](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L337](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L372](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L510](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L24](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L29](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L52](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L78](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L30](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L49](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L65](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) 
 
 </details>
 
@@ -446,7 +446,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 64:     function pushSorted(uint256[] storage array, uint256 val) internal {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol)
+[#L18](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L47](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L28](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) [#L64](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/libraries/SortedArrays.sol) 
 
 </details>
 
@@ -494,7 +494,7 @@ File: contracts/bonding/IBondingManager.sol
 39:     event EarningsClaimed(
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol)
+[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L10](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L11](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L12](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L13](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L14](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L22](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L29](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L30](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L37](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L38](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) [#L39](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/IBondingManager.sol) 
 
 </details>
 
@@ -553,7 +553,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 160:     function supportsInterface(bytes4 interfaceId)
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol)
+[#L679](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L908](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L923](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L946](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L987](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1027](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1058](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1089](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1103](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1111](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1119](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1128](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L1136](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/LivepeerGovernor.sol) 
 
 </details>
 
@@ -586,7 +586,7 @@ File: contracts/bonding/BondingVotes.sol
 107:     constructor(address _controller) Manager(_controller) {}
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol)
+[#L149](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingVotes.sol) 
 
 </details>
 
@@ -642,7 +642,7 @@ File: contracts/treasury/Treasury.sol
 22:         __TimelockController_init(minDelay, proposers, executors, admin);
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol)
+[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L60](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L61](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L62](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L63](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L67](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L69](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L21](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) [#L22](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/Treasury.sol) 
 
 </details>
 
@@ -663,7 +663,7 @@ File: contracts/bonding/BondingManager.sol
 616:             livepeerToken().transferFrom(msg.sender, address(minter()), _amount);
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol)
+[#L616](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/bonding/BondingManager.sol) 
 
 </details>
 
@@ -721,7 +721,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 ```
-[Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol)
+[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L176](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L186](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L306](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L399](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L266](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L64](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/main/contracts/treasury/GovernorCountingOverridable.sol) 
 
 </details>
 
