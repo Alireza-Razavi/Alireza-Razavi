@@ -54,7 +54,7 @@ Mark data types as `calldata` instead of `memory` where possible. This makes it 
 <details>
 
 <summary>
-*Instances (2)* (click to show):
+There are <b>(2)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -74,7 +74,7 @@ File: contracts/treasury/Treasury.sol
 <details>
 
 <summary>
-*Instances (210)* (click to show):
+There are <b>(210)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -552,7 +552,7 @@ Instead of using error strings, to reduce deployment and runtime cost, you shoul
 <details>
 
 <summary>
-*Instances (25)* (click to show):
+There are <b>(25)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -619,7 +619,7 @@ Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redunda
 <details>
 
 <summary>
-*Instances (2)* (click to show):
+There are <b>(2)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -644,7 +644,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 <details>
 
 <summary>
-*Instances (10)* (click to show):
+There are <b>(10)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -681,7 +681,7 @@ If a function modifier such as `onlyOwner` is used, the function will revert if 
 <details>
 
 <summary>
-*Instances (15)* (click to show):
+There are <b>(15)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -737,7 +737,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 <details>
 
 <summary>
-*Instances (14)* (click to show):
+There are <b>(14)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -787,7 +787,7 @@ Using assembly to check for zero can save gas by allowing more direct access to 
 <details>
 
 <summary>
-*Instances (26)* (click to show):
+There are <b>(26)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -871,7 +871,7 @@ If the functions are required by an interface, the contract should inherit from 
 <details>
 
 <summary>
-*Instances (5)* (click to show):
+There are <b>(5)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -907,7 +907,7 @@ Index event fields make the field more quickly accessible to off-chain tools tha
 <details>
 
 <summary>
-*Instances (12)* (click to show):
+There are <b>(12)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -947,7 +947,7 @@ File: contracts/bonding/IBondingManager.sol
 <details>
 
 <summary>
-*Instances (17)* (click to show):
+There are <b>(17)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1006,7 +1006,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 <details>
 
 <summary>
-*Instances (2)* (click to show):
+There are <b>(2)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1032,7 +1032,7 @@ Initializers could be front-run, allowing an attacker to either set their own va
 <details>
 
 <summary>
-*Instances (12)* (click to show):
+There are <b>(12)</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1082,7 +1082,7 @@ File: contracts/treasury/Treasury.sol
 <details>
 
 <summary>
-*Instances (1)* (click to show):
+There is <b>(1)</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -1105,7 +1105,7 @@ Contracts have owners with privileged rights to perform admin tasks and need to 
 <details>
 
 <summary>
-*Instances (11)* (click to show):
+There are <b>(11)</b> instances (click to show):
 </summary>
 
 ```solidity
