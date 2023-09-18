@@ -69,7 +69,7 @@ File: contracts/treasury/Treasury.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-2"></a> 
 ### [GAS-2] For Operations that will not overflow, you could use unchecked
@@ -547,7 +547,7 @@ File: contracts/treasury/Treasury.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-3"></a> 
 ### [GAS-3] Use Custom Errors
@@ -617,7 +617,7 @@ File: contracts/bonding/BondingManager.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-4"></a> 
 ### [GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
@@ -645,7 +645,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-5"></a> 
 ### [GAS-5] Long revert strings
@@ -683,7 +683,7 @@ File: contracts/bonding/BondingManager.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-6"></a> 
 ### [GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
@@ -742,7 +742,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-7"></a> 
 ### [GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
@@ -793,7 +793,7 @@ File: contracts/bonding/BondingVotes.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-8"></a> 
 ### [GAS-8] Using assembly to check for zero can save gas
@@ -879,7 +879,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="GAS-9"></a> 
 ### [GAS-9] `internal` functions not called by the contract should be removed
@@ -913,7 +913,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 </details>
 
-<br />
+<hr />
 
 
 ## Non Critical Issues
@@ -960,7 +960,7 @@ File: contracts/bonding/IBondingManager.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="NC-2"></a> 
 ### [NC-2] Functions not used internally could be marked external
@@ -1017,7 +1017,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 </details>
 
-<br />
+<hr />
 
 
 ## Low Issues
@@ -1048,7 +1048,7 @@ File: contracts/bonding/BondingVotes.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="L-2"></a> 
 ### [L-2] Initializers could be front-run
@@ -1101,7 +1101,7 @@ File: contracts/treasury/Treasury.sol
 
 </details>
 
-<br />
+<hr />
 
 <a name="L-3"></a> 
 ### [L-3] Unsafe ERC20 operation(s)
@@ -1121,7 +1121,7 @@ File: contracts/bonding/BondingManager.sol
 
 </details>
 
-<br />
+<hr />
 
 
 ## Medium Issues
@@ -1176,4 +1176,4 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 </details>
 
-<br />
+<hr />
