@@ -33,7 +33,7 @@
 | [L-1](#L-1) | Governance functions should be controlled by time locks | 4 |
 | [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
 | [L-3](#L-3) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
-| [L-4](#L-4) | Using zero as a parameter | 13 |
+| [L-4](#L-4) | Using zero as a parameter | 40 |
 | [L-5](#L-5) | Zero address check in initializer | 4 |
 | [L-6](#L-6) | Empty Function Body - Consider commenting why | 2 |
 | [L-7](#L-7) | Initializers could be front-run | 2 |
@@ -647,7 +647,7 @@ Taking `0` as a valid argument in Solidity without checks can lead to severe sec
 <details>
 
 <summary>
-There are <b>13</b> instances (click to show):
+There are <b>40</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -655,11 +655,49 @@ File: contracts/bonding/BondingManager.sol
 
 199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
 
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
 208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
 
 216:         unbondWithHint(_amount, address(0), address(0));
 
+216:         unbondWithHint(_amount, address(0), address(0));
+
+216:         unbondWithHint(_amount, address(0), address(0));
+
+216:         unbondWithHint(_amount, address(0), address(0));
+
 224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
 
 233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
 
@@ -667,17 +705,38 @@ File: contracts/bonding/BondingManager.sol
 
 294:         rewardWithHint(address(0), address(0));
 
+294:         rewardWithHint(address(0), address(0));
+
+294:         rewardWithHint(address(0), address(0));
+
+294:         rewardWithHint(address(0), address(0));
+
+424:             if (_finder != address(0)) {
+
+436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
+
+436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
+
 436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
 
 439:             emit TranscoderSlashed(_transcoder, _finder, 0, 0);
 
-606:         require(delegationAmount > 0, "delegation amount must be greater than 0");
+439:             emit TranscoderSlashed(_transcoder, _finder, 0, 0);
 
-754:         require(_amount > 0, "unbond amount must be greater than 0");
+719:         if (newDel.delegateAddress == address(0) && newDel.bondedAmount == 0) {
 
 771:             del.delegateAddress = address(0);
 
 875:                 _setTreasuryRewardCutRate(0);
+
+1512:         if (del.delegateAddress != address(0)) {
+
+```
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+480:         (uint256 stakeWithRewards, ) = EarningsPoolLIP36.delegatorCumulativeStakeAndFees(
 
 ```
 
