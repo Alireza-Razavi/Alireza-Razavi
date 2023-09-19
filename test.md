@@ -34,6 +34,7 @@
 | [L-2](#L-2) | Initializers could be front-run | 2 |
 | [L-3](#L-3) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
 | [L-4](#L-4) | Unsafe ERC20 operation(s) | 1 |
+| [L-5](#L-5) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
 
 
 ## Medium Issues
@@ -674,6 +675,37 @@ File: contracts/bonding/BondingManager.sol
 
 ```
  [#L616](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol#L616) 
+
+
+</details>
+
+---
+
+<a name="L-5"></a> 
+#### [L-5] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
+An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job.](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56)
+
+<details>
+
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+21: abstract contract GovernorCountingOverridable is Initializable, GovernorUpgradeable {
+
+```
+
+ [#L21](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/GovernorCountingOverridable.sol#L21) 
+```solidity
+File: contracts/treasury/Treasury.sol
+
+15: contract Treasury is Initializable, TimelockControllerUpgradeable {
+
+```
+ [#L15](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L15) 
 
 
 </details>
