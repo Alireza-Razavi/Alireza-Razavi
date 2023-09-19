@@ -31,12 +31,13 @@
 | |Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Missing storage gap for upgradable contracts | 2 |
-| [L-2](#L-2) | Zero address check in initializer | 4 |
-| [L-3](#L-3) | Empty Function Body - Consider commenting why | 2 |
-| [L-4](#L-4) | Initializers could be front-run | 2 |
-| [L-5](#L-5) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
-| [L-6](#L-6) | Unsafe ERC20 operation(s) | 1 |
-| [L-7](#L-7) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
+| [L-2](#L-2) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
+| [L-3](#L-3) | Zero address check in initializer | 4 |
+| [L-4](#L-4) | Empty Function Body - Consider commenting why | 2 |
+| [L-5](#L-5) | Initializers could be front-run | 2 |
+| [L-6](#L-6) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
+| [L-7](#L-7) | Unsafe ERC20 operation(s) | 1 |
+| [L-8](#L-8) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
 
 
 ## Medium Issues
@@ -588,7 +589,29 @@ File: contracts/treasury/Treasury.sol
 ---
 
 <a name="L-2"></a> 
-#### [L-2] Zero address check in initializer
+#### [L-2] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
+Solidity version 0.8.20 or above uses the new [Shanghai EVM](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/#important-note) which introduces the PUSH0 opcode. This op code may not yet be implemented on all evm-chains or Layer2s, so deployment on these chains will fail. Consider using an earlier solidity version.
+
+<details>
+
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/IBondingVotes.sol
+
+2: pragma solidity ^0.8.9;
+
+```
+
+
+</details>
+
+---
+
+<a name="L-3"></a> 
+#### [L-3] Zero address check in initializer
 
 <details>
 
@@ -614,8 +637,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="L-3"></a> 
-#### [L-3] Empty Function Body - Consider commenting why
+<a name="L-4"></a> 
+#### [L-4] Empty Function Body - Consider commenting why
 
 <details>
 
@@ -642,8 +665,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="L-4"></a> 
-#### [L-4] Initializers could be front-run
+<a name="L-5"></a> 
+#### [L-5] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -671,8 +694,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="L-5"></a> 
-#### [L-5] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
+<a name="L-6"></a> 
+#### [L-6] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
 Even if the function follows the best practice of check-effects-interaction, not using a reentrancy guard when there may be transfer hooks opens the users of this protocol up to [read-only reentrancy vulnerability](https://chainsecurity.com/curve-lp-oracle-manipulation-post-mortem/) with no way to protect them except by block-listing the entire protocol.
 
 <details>
@@ -693,8 +716,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="L-6"></a> 
-#### [L-6] Unsafe ERC20 operation(s)
+<a name="L-7"></a> 
+#### [L-7] Unsafe ERC20 operation(s)
 
 <details>
 
@@ -714,8 +737,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="L-7"></a> 
-#### [L-7] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
+<a name="L-8"></a> 
+#### [L-8] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
 An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job.](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56)
 
 <details>
