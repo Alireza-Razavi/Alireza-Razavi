@@ -24,7 +24,7 @@
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
 | [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Visibility of state variables is not explicitly defined | 11 |
+| [NC-4](#NC-4) | Visibility of state variables is not explicitly defined | 1 |
 | [NC-5](#NC-5) | Event is missing `indexed` fields | 12 |
 | [NC-6](#NC-6) | Functions not used internally could be marked external | 17 |
 
@@ -717,7 +717,7 @@ To avoid misunderstandings and unexpected state accesses, it is recommended to e
 <details>
 
 <summary>
-There are <b>11</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -726,45 +726,7 @@ File: contracts/bonding/BondingManager.sol
 32:     uint256 constant MAX_FUTURE_ROUND = 2**256 - 1;
 
 ```
-
  [#L32](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol#L32) 
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-50:         uint256 _rewards
-
-52:         uint256 prevCumulativeRewardFactor = _prevEarningsPool.cumulativeRewardFactor != 0
-
-74:         uint256 _stake,
-
-75:         uint256 _fees
-
-```
-
- [#L50](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L50)  [#L52](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L52)  [#L74](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L74)  [#L75](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L75) 
-```solidity
-File: contracts/bonding/libraries/SortedArrays.sol
-
-29:         uint256 len = _array.length;
-
-```
-
- [#L29](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/SortedArrays.sol#L29) 
-```solidity
-File: contracts/treasury/LivepeerGovernor.sol
-
-55:         uint256 initialVotingDelay,
-
-56:         uint256 initialVotingPeriod,
-
-57:         uint256 initialProposalThreshold,
-
-58:         uint256 initialQuorum,
-
-59:         uint256 quota
-
-```
- [#L55](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L55)  [#L56](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L56)  [#L57](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L57)  [#L58](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L58)  [#L59](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L59) 
 
 
 </details>
