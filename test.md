@@ -31,7 +31,7 @@
 | |Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Empty Function Body - Consider commenting why | 2 |
-| [L-2](#L-2) | Initializers could be front-run | 12 |
+| [L-2](#L-2) | Initializers could be front-run | 2 |
 | [L-3](#L-3) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
 | [L-4](#L-4) | Unsafe ERC20 operation(s) | 1 |
 
@@ -611,50 +611,24 @@ Initializers could be front-run, allowing an attacker to either set their own va
 <details>
 
 <summary>
-There are <b>12</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
-```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
-
-64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
-
-```
-
- [#L64](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/GovernorCountingOverridable.sol#L64) 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
 54:     function initialize(
 
-60:     ) public initializer {
-
-61:         __Governor_init("LivepeerGovernor");
-
-62:         __GovernorSettings_init(initialVotingDelay, initialVotingPeriod, initialProposalThreshold);
-
-63:         __GovernorTimelockControl_init(treasury());
-
-67:         __GovernorVotes_init(votes());
-
-69:         __GovernorVotesQuorumFraction_init(initialQuorum);
-
-71:         __GovernorCountingOverridable_init(quota);
-
 ```
 
- [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L54)  [#L60](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L60)  [#L61](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L61)  [#L62](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L62)  [#L63](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L63)  [#L67](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L67)  [#L69](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L69)  [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L71) 
+ [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L54) 
 ```solidity
 File: contracts/treasury/Treasury.sol
 
 16:     function initialize(
 
-21:     ) external initializer {
-
-22:         __TimelockController_init(minDelay, proposers, executors, admin);
-
 ```
- [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L16)  [#L21](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L21)  [#L22](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L22) 
+ [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L16) 
 
 
 </details>
