@@ -32,7 +32,8 @@
 |-|:-|:-:|
 | [L-1](#L-1) | Empty Function Body - Consider commenting why | 2 |
 | [L-2](#L-2) | Initializers could be front-run | 12 |
-| [L-3](#L-3) | Unsafe ERC20 operation(s) | 1 |
+| [L-3](#L-3) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 5 |
+| [L-4](#L-4) | Unsafe ERC20 operation(s) | 1 |
 
 
 ## Medium Issues
@@ -661,7 +662,44 @@ File: contracts/treasury/Treasury.sol
 ---
 
 <a name="L-3"></a> 
-#### [L-3] Unsafe ERC20 operation(s)
+#### [L-3] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
+Even if the function follows the best practice of check-effects-interaction, not using a reentrancy guard when there may be transfer hooks opens the users of this protocol up to [read-only reentrancy vulnerability](https://chainsecurity.com/curve-lp-oracle-manipulation-post-mortem/) with no way to protect them except by block-listing the entire protocol.
+
+<details>
+
+<summary>
+There are <b>5</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+267:         emit WithdrawStake(msg.sender, _unbondingLockId, amount, withdrawRound);
+
+285:         minter().trustedWithdrawETH(_recipient, _amount);
+
+287:         emit WithdrawFees(msg.sender, _recipient, _amount);
+
+```
+
+ [#L267](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol#L267)  [#L285](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol#L285)  [#L287](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol#L287) 
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+37:     event WithdrawStake(address indexed delegator, uint256 unbondingLockId, uint256 amount, uint256 withdrawRound);
+
+38:     event WithdrawFees(address indexed delegator, address recipient, uint256 amount);
+
+```
+ [#L37](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L37)  [#L38](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L38) 
+
+
+</details>
+
+---
+
+<a name="L-4"></a> 
+#### [L-4] Unsafe ERC20 operation(s)
 
 <details>
 
