@@ -24,7 +24,7 @@
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
 | [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Visibility of state variables is not explicitly defined | 45 |
+| [NC-4](#NC-4) | Visibility of state variables is not explicitly defined | 11 |
 | [NC-5](#NC-5) | Event is missing `indexed` fields | 12 |
 | [NC-6](#NC-6) | Functions not used internally could be marked external | 17 |
 
@@ -717,7 +717,7 @@ To avoid misunderstandings and unexpected state accesses, it is recommended to e
 <details>
 
 <summary>
-There are <b>45</b> instances (click to show):
+There are <b>11</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -729,87 +729,27 @@ File: contracts/bonding/BondingManager.sol
 
  [#L32](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/BondingManager.sol#L32) 
 ```solidity
-File: contracts/bonding/IBondingManager.sol
-
-16:         address indexed newDelegate,
-
-17:         address indexed oldDelegate,
-
-18:         address indexed delegator,
-
-19:         uint256 additionalAmount,
-
-20:         uint256 bondedAmount
-
-23:         address indexed delegate,
-
-24:         address indexed delegator,
-
-25:         uint256 unbondingLockId,
-
-26:         uint256 amount,
-
-27:         uint256 withdrawRound
-
-31:         address indexed oldDelegator,
-
-32:         address indexed newDelegator,
-
-33:         uint256 oldUnbondingLockId,
-
-34:         uint256 newUnbondingLockId,
-
-35:         uint256 amount
-
-40:         address indexed delegate,
-
-41:         address indexed delegator,
-
-42:         uint256 rewards,
-
-43:         uint256 fees,
-
-44:         uint256 startRound,
-
-45:         uint256 endRound
-
-60:         address _transcoder,
-
-61:         uint256 _fees,
-
-62:         uint256 _round
-
-66:         address _transcoder,
-
-67:         address _finder,
-
-68:         uint256 _slashAmount,
-
-69:         uint256 _finderFee
-
-89:             uint256 totalStake,
-
-90:             uint256 transcoderRewardCut,
-
-91:             uint256 transcoderFeeShare,
-
-92:             uint256 cumulativeRewardFactor,
-
-93:             uint256 cumulativeFeeFactor
-
-```
-
- [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L16)  [#L17](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L17)  [#L18](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L18)  [#L19](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L19)  [#L20](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L20)  [#L23](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L23)  [#L24](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L24)  [#L25](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L25)  [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L26)  [#L27](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L27)  [#L31](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L31)  [#L32](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L32)  [#L33](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L33)  [#L34](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L34)  [#L35](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L35)  [#L40](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L40)  [#L41](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L41)  [#L42](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L42)  [#L43](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L43)  [#L44](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L44)  [#L45](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L45)  [#L60](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L60)  [#L61](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L61)  [#L62](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L62)  [#L66](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L66)  [#L67](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L67)  [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L68)  [#L69](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L69)  [#L89](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L89)  [#L90](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L90)  [#L91](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L91)  [#L92](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L92)  [#L93](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/IBondingManager.sol#L93) 
-```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-21:         uint256 _fees
 
 50:         uint256 _rewards
 
+52:         uint256 prevCumulativeRewardFactor = _prevEarningsPool.cumulativeRewardFactor != 0
+
+74:         uint256 _stake,
+
+75:         uint256 _fees
+
 ```
 
- [#L21](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L21)  [#L50](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L50) 
+ [#L50](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L50)  [#L52](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L52)  [#L74](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L74)  [#L75](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/EarningsPoolLIP36.sol#L75) 
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+29:         uint256 len = _array.length;
+
+```
+
+ [#L29](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/bonding/libraries/SortedArrays.sol#L29) 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -824,21 +764,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 59:         uint256 quota
 
 ```
-
  [#L55](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L55)  [#L56](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L56)  [#L57](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L57)  [#L58](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L58)  [#L59](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/LivepeerGovernor.sol#L59) 
-```solidity
-File: contracts/treasury/Treasury.sol
-
-17:         uint256 minDelay,
-
-18:         address[] memory proposers,
-
-19:         address[] memory executors,
-
-20:         address admin
-
-```
- [#L17](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L17)  [#L18](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L18)  [#L19](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L19)  [#L20](https://github.com/code-423n4/2023-08-livepeer/blob/a3d801fa4690119b6f96aeb5508e58d752bda5bc/contracts/treasury/Treasury.sol#L20) 
 
 
 </details>
