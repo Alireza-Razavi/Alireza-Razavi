@@ -31,7 +31,7 @@
 | |Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Missing storage gap for upgradable contracts | 2 |
-| [L-2](#L-2) | Zero address check in initializer | 5 |
+| [L-2](#L-2) | Zero address check in initializer | 4 |
 | [L-3](#L-3) | Empty Function Body - Consider commenting why | 2 |
 | [L-4](#L-4) | Initializers could be front-run | 2 |
 | [L-5](#L-5) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
@@ -593,15 +593,8 @@ File: contracts/treasury/Treasury.sol
 <details>
 
 <summary>
-There are <b>5</b> instances (click to show):
+There are <b>4</b> instances (click to show):
 </summary>
-
-```solidity
-File: contracts/treasury/LivepeerGovernor.sol
-
-54:     function initialize(
-
-```
 
 ```solidity
 File: contracts/treasury/Treasury.sol
