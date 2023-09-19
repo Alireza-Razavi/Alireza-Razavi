@@ -21,8 +21,9 @@
 
 | |Issue|Instances|
 |-|:-|:-:|
-| [NC-1](#NC-1) | Event is missing `indexed` fields | 12 |
-| [NC-2](#NC-2) | Functions not used internally could be marked external | 17 |
+| [NC-1](#NC-1) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-2](#NC-2) | Event is missing `indexed` fields | 12 |
+| [NC-3](#NC-3) | Functions not used internally could be marked external | 17 |
 
 
 ## Low Issues
@@ -456,7 +457,45 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 
 <a name="NC-1"></a> 
-#### [NC-1] Event is missing `indexed` fields
+#### [NC-1] Consider moving `msg.sender` checks to `modifier`s
+If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
+
+<details>
+
+<summary>
+There are <b>9</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+253:         require(isValidUnbondingLock(msg.sender, _unbondingLockId), "invalid unbonding lock ID");
+
+494:         require(isRegisteredTranscoder(msg.sender), "transcoder must be registered");
+
+750:         require(delegatorStatus(msg.sender) == DelegatorStatus.Bonded, "caller must be bonded");
+
+801:         require(delegatorStatus(msg.sender) != DelegatorStatus.Unbonded, "caller must be bonded");
+
+824:         require(delegatorStatus(msg.sender) == DelegatorStatus.Unbonded, "caller must be unbonded");
+
+850:         require(isActiveTranscoder(msg.sender), "caller must be an active transcoder");
+
+1652:         require(msg.sender == controller.getContract(keccak256("TicketBroker")), "caller must be TicketBroker");
+
+1656:         require(msg.sender == controller.getContract(keccak256("RoundsManager")), "caller must be RoundsManager");
+
+1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
+
+```
+
+
+</details>
+
+---
+
+<a name="NC-2"></a> 
+#### [NC-2] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -499,8 +538,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-2"></a> 
-#### [NC-2] Functions not used internally could be marked external
+<a name="NC-3"></a> 
+#### [NC-3] Functions not used internally could be marked external
 
 <details>
 
