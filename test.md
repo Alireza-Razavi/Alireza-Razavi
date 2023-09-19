@@ -33,12 +33,13 @@
 | [L-1](#L-1) | Governance functions should be controlled by time locks | 4 |
 | [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
 | [L-3](#L-3) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
-| [L-4](#L-4) | Zero address check in initializer | 4 |
-| [L-5](#L-5) | Empty Function Body - Consider commenting why | 2 |
-| [L-6](#L-6) | Initializers could be front-run | 2 |
-| [L-7](#L-7) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
-| [L-8](#L-8) | Unsafe ERC20 operation(s) | 1 |
-| [L-9](#L-9) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
+| [L-4](#L-4) | Using zero as a parameter | 13 |
+| [L-5](#L-5) | Zero address check in initializer | 4 |
+| [L-6](#L-6) | Empty Function Body - Consider commenting why | 2 |
+| [L-7](#L-7) | Initializers could be front-run | 2 |
+| [L-8](#L-8) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
+| [L-9](#L-9) | Unsafe ERC20 operation(s) | 1 |
+| [L-10](#L-10) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
 
 
 ## Medium Issues
@@ -640,7 +641,53 @@ File: contracts/bonding/IBondingVotes.sol
 ---
 
 <a name="L-4"></a> 
-#### [L-4] Zero address check in initializer
+#### [L-4] Using zero as a parameter
+Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, 0 as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like 0 appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
+
+<details>
+
+<summary>
+There are <b>13</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+216:         unbondWithHint(_amount, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
+
+279:         require(_recipient != address(0), "invalid recipient");
+
+294:         rewardWithHint(address(0), address(0));
+
+436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
+
+439:             emit TranscoderSlashed(_transcoder, _finder, 0, 0);
+
+606:         require(delegationAmount > 0, "delegation amount must be greater than 0");
+
+754:         require(_amount > 0, "unbond amount must be greater than 0");
+
+771:             del.delegateAddress = address(0);
+
+875:                 _setTreasuryRewardCutRate(0);
+
+```
+
+
+</details>
+
+---
+
+<a name="L-5"></a> 
+#### [L-5] Zero address check in initializer
 
 <details>
 
@@ -666,8 +713,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="L-5"></a> 
-#### [L-5] Empty Function Body - Consider commenting why
+<a name="L-6"></a> 
+#### [L-6] Empty Function Body - Consider commenting why
 
 <details>
 
@@ -694,8 +741,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="L-6"></a> 
-#### [L-6] Initializers could be front-run
+<a name="L-7"></a> 
+#### [L-7] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -723,8 +770,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="L-7"></a> 
-#### [L-7] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
+<a name="L-8"></a> 
+#### [L-8] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
 Even if the function follows the best practice of check-effects-interaction, not using a reentrancy guard when there may be transfer hooks opens the users of this protocol up to [read-only reentrancy vulnerability](https://chainsecurity.com/curve-lp-oracle-manipulation-post-mortem/) with no way to protect them except by block-listing the entire protocol.
 
 <details>
@@ -745,8 +792,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="L-8"></a> 
-#### [L-8] Unsafe ERC20 operation(s)
+<a name="L-9"></a> 
+#### [L-9] Unsafe ERC20 operation(s)
 
 <details>
 
@@ -766,8 +813,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="L-9"></a> 
-#### [L-9] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
+<a name="L-10"></a> 
+#### [L-10] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
 An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job.](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56)
 
 <details>
