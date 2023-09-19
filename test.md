@@ -24,7 +24,7 @@
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
 | [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Visibility of state variables is not explicitly defined | 299 |
+| [NC-4](#NC-4) | Visibility of state variables is not explicitly defined | 80 |
 | [NC-5](#NC-5) | Event is missing `indexed` fields | 12 |
 | [NC-6](#NC-6) | Functions not used internally could be marked external | 17 |
 
@@ -690,7 +690,7 @@ To avoid misunderstandings and unexpected state accesses, it is recommended to e
 <details>
 
 <summary>
-There are <b>299</b> instances (click to show):
+There are <b>80</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -736,26 +736,6 @@ File: contracts/bonding/BondingManager.sol
 
 80:         uint256 withdrawRound; // Round at which unbonding period is over and tokens can be withdrawn
 
-259:         uint256 amount = lock.amount;
-
-260:         uint256 withdrawRound = lock.withdrawRound;
-
-280:         uint256 fees = delegators[msg.sender].fees;
-
-303:         address _transcoder,
-
-304:         uint256 _fees,
-
-305:         uint256 _round
-
-312:         uint256 currentRound = roundsManager().currentRound();
-
-316:         uint256 lastRewardRound = t.lastRewardRound;
-
-317:         uint256 activeCumulativeRewards = t.activeCumulativeRewards;
-
-330:             uint256 lastUpdateRound = t.lastActiveStakeUpdateRound;
-
 342:         uint256 totalStake = earningsPool.totalStake;
 
 348:             uint256 rewards = PreciseMathUtils.percOf(
@@ -772,119 +752,9 @@ File: contracts/bonding/BondingManager.sol
 
 371:         uint256 transcoderRewardStakeFees = PreciseMathUtils.percOf(
 
-395:         address _transcoder,
-
-396:         address _finder,
-
-397:         uint256 _slashAmount,
-
-398:         uint256 _finderFee
-
-403:             uint256 penalty = MathUtils.percOf(delegators[_transcoder].bondedAmount, _slashAmount);
-
 421:             uint256 burnAmount = penalty;
 
 425:                 uint256 finderAmount = MathUtils.percOf(penalty, _finderFee);
-
-486:         uint256 _rewardCut,
-
-487:         uint256 _feeShare,
-
-488:         address _newPosPrev,
-
-489:         address _newPosNext
-
-497:         uint256 currentRound = roundsManager().currentRound();
-
-538:         uint256 _amount,
-
-539:         address _owner,
-
-540:         address _to,
-
-541:         address _oldDelegateNewPosPrev,
-
-542:         address _oldDelegateNewPosNext,
-
-543:         address _currDelegateNewPosPrev,
-
-544:         address _currDelegateNewPosNext
-
-550:         uint256 currentRound = roundsManager().currentRound();
-
-552:         uint256 delegationAmount = _amount;
-
-554:         address currentDelegate = del.delegateAddress;
-
-556:         uint256 currentBondedAmount = del.bondedAmount;
-
-641:         uint256 _amount,
-
-642:         address _to,
-
-643:         address _oldDelegateNewPosPrev,
-
-644:         address _oldDelegateNewPosNext,
-
-645:         address _currDelegateNewPosPrev,
-
-646:         address _currDelegateNewPosNext
-
-680:         address _delegator,
-
-681:         uint256 _amount,
-
-682:         address _oldDelegateNewPosPrev,
-
-683:         address _oldDelegateNewPosNext,
-
-684:         address _newDelegateNewPosPrev,
-
-685:         address _newDelegateNewPosNext
-
-693:         address oldDelDelegate = oldDel.delegateAddress;
-
-697:         uint256 oldDelUnbondingLockId = oldDel.nextUnbondingLockId.sub(1);
-
-698:         uint256 withdrawRound = oldDel.unbondingLocks[oldDelUnbondingLockId].withdrawRound;
-
-704:         uint256 newDelUnbondingLockId = newDel.nextUnbondingLockId;
-
-712:         uint256 currentRound = roundsManager().currentRound();
-
-713:         uint256 lastClaimRound = newDel.lastClaimRound;
-
-746:         uint256 _amount,
-
-747:         address _newPosPrev,
-
-748:         address _newPosNext
-
-757:         address currentDelegate = del.delegateAddress;
-
-758:         uint256 currentRound = roundsManager().currentRound();
-
-759:         uint256 withdrawRound = currentRound.add(unbondingPeriod);
-
-760:         uint256 unbondingLockId = del.nextUnbondingLockId;
-
-797:         uint256 _unbondingLockId,
-
-798:         address _newPosPrev,
-
-799:         address _newPosNext
-
-819:         address _to,
-
-820:         uint256 _unbondingLockId,
-
-821:         address _newPosPrev,
-
-822:         address _newPosNext
-
-848:         uint256 currentRound = roundsManager().currentRound();
-
-866:         uint256 lastUpdateRound = t.lastActiveStakeUpdateRound;
 
 872:             uint256 treasuryBalance = livepeerToken().balanceOf(treasury());
 
@@ -896,179 +766,9 @@ File: contracts/bonding/BondingManager.sol
 
 892:         uint256 transcoderRewards = totalRewardTokens.sub(treasuryRewards);
 
-912:         uint256 endRound = roundsManager().currentRound();
-
-927:         uint256 endRound = roundsManager().currentRound();
-
-991:             uint256 lastRewardRound,
-
-992:             uint256 rewardCut,
-
-993:             uint256 feeShare,
-
-994:             uint256 lastActiveStakeUpdateRound,
-
-995:             uint256 activationRound,
-
-996:             uint256 deactivationRound,
-
-997:             uint256 activeCumulativeRewards,
-
-998:             uint256 cumulativeRewards,
-
-999:             uint256 cumulativeFees,
-
-1000:             uint256 lastFeeRound
-
-1031:             uint256 totalStake,
-
-1032:             uint256 transcoderRewardCut,
-
-1033:             uint256 transcoderFeeShare,
-
-1034:             uint256 cumulativeRewardFactor,
-
-1035:             uint256 cumulativeFeeFactor
-
-1062:             uint256 bondedAmount,
-
-1063:             uint256 fees,
-
-1064:             address delegateAddress,
-
-1065:             uint256 delegatedAmount,
-
-1066:             uint256 startRound,
-
-1067:             uint256 lastClaimRound,
-
-1068:             uint256 nextUnbondingLockId
-
-1147:         uint256 currentRound = roundsManager().currentRound();
-
-1213:         uint256 lastRewardRound = _transcoder.lastRewardRound;
-
 1219:         uint256 lastFeeRound = _transcoder.lastFeeRound;
 
-1240:         uint256 _startRound,
-
-1241:         uint256 _endRound,
-
-1242:         uint256 _stake,
-
-1243:         uint256 _fees
-
-1270:         uint256 startRound = del.lastClaimRound.add(1);
-
-1271:         address delegateAddr = del.delegateAddress;
-
-1295:         address _delegate,
-
-1296:         uint256 _amount,
-
-1297:         address _newPosPrev,
-
-1298:         address _newPosNext
-
-1308:         address _delegate,
-
-1309:         uint256 _amount,
-
-1310:         address _newPosPrev,
-
-1311:         address _newPosNext
-
-1315:         uint256 currStake = transcoderTotalStake(_delegate);
-
-1316:         uint256 newStake = currStake.add(_amount);
-
-1319:             uint256 currRound = roundsManager().currentRound();
-
-1320:             uint256 nextRound = currRound.add(1);
-
-1353:         address _delegate,
-
-1354:         uint256 _amount,
-
-1355:         address _newPosPrev,
-
-1356:         address _newPosNext
-
-1360:         uint256 currStake = transcoderTotalStake(_delegate);
-
-1361:         uint256 newStake = currStake.sub(_amount);
-
-1364:             uint256 currRound = roundsManager().currentRound();
-
-1365:             uint256 nextRound = currRound.add(1);
-
-1393:         address _transcoder,
-
-1394:         uint256 _totalStake,
-
-1395:         uint256 _activationRound,
-
-1396:         address _newPosPrev,
-
-1397:         address _newPosNext
-
-1399:         uint256 pendingNextRoundTotalActiveStake = nextRoundTotalActiveStake;
-
-1402:             address lastTranscoder = transcoderPool.getLast();
-
-1403:             uint256 lastStake = transcoderTotalStake(lastTranscoder);
-
-1444:         uint256 deactivationRound = roundsManager().currentRound().add(1);
-
-1460:         address _transcoder,
-
-1461:         uint256 _rewards,
-
-1462:         uint256 _round,
-
-1463:         address _newPosPrev,
-
-1464:         address _newPosNext
-
-1472:         uint256 transcoderCommissionRewards = MathUtils.percOf(_rewards, earningsPool.transcoderRewardCut);
-
-1473:         uint256 delegatorsRewards = _rewards.sub(transcoderCommissionRewards);
-
-1475:         uint256 transcoderRewardStakeRewards = PreciseMathUtils.percOf(
-
-1501:         address _delegator,
-
-1502:         uint256 _endRound,
-
-1503:         uint256 _lastClaimRound
-
-1506:         uint256 startRound = _lastClaimRound.add(1);
-
-1507:         uint256 currentBondedAmount = del.bondedAmount;
-
-1508:         uint256 currentFees = del.fees;
-
-1521:                 uint256 lastRewardRound = t.lastRewardRound;
-
 1528:                 uint256 lastFeeRound = t.lastFeeRound;
-
-1565:         address _delegator,
-
-1566:         uint256 _unbondingLockId,
-
-1567:         address _newPosPrev,
-
-1568:         address _newPosNext
-
-1575:         uint256 amount = lock.amount;
-
-1592:         address _owner,
-
-1599:         uint256 startRound = roundsManager().currentRound() + 1;
-
-1668:         uint256 currentRound = roundsManager().currentRound();
-
-1669:         uint256 lastClaimRound = delegators[_delegator].lastClaimRound;
 
 ```
 
@@ -1091,32 +791,6 @@ File: contracts/bonding/BondingVotes.sol
 
 96:         uint256 currentRound = clock();
 
-234:         address,
-
-235:         uint256,
-
-236:         uint256,
-
-237:         uint8,
-
-238:         bytes32,
-
-239:         bytes32
-
-259:         address _account,
-
-260:         uint256 _startRound,
-
-261:         uint256 _bondedAmount,
-
-262:         address _delegateAddress,
-
-263:         uint256 _delegatedAmount,
-
-264:         uint256 _lastClaimRound,
-
-265:         uint256 _lastRewardRound
-
 330:         uint256 exactCheckpoint = totalStakeCheckpoints.data[_round];
 
 335:         uint256[] storage initializedRounds = totalStakeCheckpoints.rounds;
@@ -1124,12 +798,6 @@ File: contracts/bonding/BondingVotes.sol
 336:         uint256 upper = initializedRounds.findUpperBound(_round);
 
 343:             uint256 nextInitedRound = initializedRounds[upper];
-
-388:         address _account,
-
-392:         address previousDelegate = previous.delegateAddress;
-
-393:         address newDelegate = current.delegateAddress;
 
 401:         uint256 previousDelegateVotes = wasTranscoder ? previous.delegatedAmount : 0;
 
@@ -1186,55 +854,10 @@ File: contracts/bonding/IBondingManager.sol
 
 45:         uint256 endRound
 
-60:         address _transcoder,
-
-61:         uint256 _fees,
-
-62:         uint256 _round
-
-66:         address _transcoder,
-
-67:         address _finder,
-
-68:         uint256 _slashAmount,
-
-69:         uint256 _finderFee
-
-89:             uint256 totalStake,
-
-90:             uint256 transcoderRewardCut,
-
-91:             uint256 transcoderFeeShare,
-
-92:             uint256 cumulativeRewardFactor,
-
-93:             uint256 cumulativeFeeFactor
-
-```
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-21:         uint256 _fees
-
-23:         uint256 prevCumulativeFeeFactor = _prevEarningsPool.cumulativeFeeFactor;
-
-24:         uint256 prevCumulativeRewardFactor = _prevEarningsPool.cumulativeRewardFactor != 0
-
-50:         uint256 _rewards
-
-52:         uint256 prevCumulativeRewardFactor = _prevEarningsPool.cumulativeRewardFactor != 0
-
-74:         uint256 _stake,
-
-75:         uint256 _fees
-
 ```
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
-
-29:         uint256 len = _array.length;
 
 38:         uint256 upperIdx = _array.findUpperBound(_val);
 
@@ -1252,82 +875,6 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 50:         uint256 forVotes;
 
 51:         uint256 abstainVotes;
-
-95:             uint256 againstVotes,
-
-96:             uint256 forVotes,
-
-97:             uint256 abstainVotes
-
-110:         uint256 totalVotes = againstVotes + forVotes + abstainVotes;
-
-122:         uint256 opinionatedVotes = againstVotes + forVotes;
-
-131:         uint256 _proposalId,
-
-132:         address _account,
-
-133:         uint8 _supportInt,
-
-134:         uint256 _weight,
-
-135:         bytes memory // params
-
-175:         uint256 _proposalId,
-
-178:         address _account,
-
-179:         uint256 _weight
-
-181:         uint256 timepoint = proposalSnapshot(_proposalId);
-
-182:         address delegate = votes().delegatedAt(_account, timepoint);
-
-```
-
-```solidity
-File: contracts/treasury/LivepeerGovernor.sol
-
-55:         uint256 initialVotingDelay,
-
-56:         uint256 initialVotingPeriod,
-
-57:         uint256 initialProposalThreshold,
-
-58:         uint256 initialQuorum,
-
-59:         uint256 quota
-
-133:         uint256 proposalId,
-
-134:         address[] memory targets,
-
-135:         uint256[] memory values,
-
-136:         bytes[] memory calldatas,
-
-137:         bytes32 descriptionHash
-
-143:         address[] memory targets,
-
-144:         uint256[] memory values,
-
-145:         bytes[] memory calldatas,
-
-146:         bytes32 descriptionHash
-
-```
-
-```solidity
-File: contracts/treasury/Treasury.sol
-
-17:         uint256 minDelay,
-
-18:         address[] memory proposers,
-
-19:         address[] memory executors,
-
-20:         address admin
 
 ```
 
