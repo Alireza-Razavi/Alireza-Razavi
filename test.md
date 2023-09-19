@@ -15,7 +15,7 @@
 | |Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
-| [L-2](#L-2) | Using zero as a parameter | 2 |
+| [L-2](#L-2) | Using zero as a parameter | 1 |
 | [L-3](#L-3) | Initializers could be front-run | 1 |
 
 
@@ -78,13 +78,11 @@ Taking `0` as a valid argument in Solidity without checks can lead to severe sec
 <details>
 
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
 File: test.sol
-
-17: 		callme(address(0));
 
 18: 		callme2(0);
 
