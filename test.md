@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>163</b> instances over <b>13</b> issues:
+Total <b>161</b> instances over <b>13</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -42,7 +42,7 @@ Total <b>163</b> instances over <b>13</b> issues:
 | [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
 | [NC-7](#NC-7) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-8](#NC-8) | Common functions should be refactored to a common base contract | 4 |
+| [NC-8](#NC-8) | Common functions should be refactored to a common base contract | 2 |
 | [NC-9](#NC-9) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
 | [NC-10](#NC-10) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
 | [NC-11](#NC-11) | Variables should be named in mixedCase style | 1 |
@@ -773,32 +773,26 @@ The functions below have the same implementation as is seen in other files. The 
 
 <details>
 <summary>
-There are <b>4</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
 // Seen in contracts/bonding/BondingVotes.sol
-149:     constructor(address _controller) Manager(_controller) {}
-
-// Seen in contracts/bonding/BondingVotes.sol
 1639:     function roundsManager() internal view returns (IRoundsManager) {
 
 ```
-[#L149](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L149) [#L1639](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1639) 
+[#L1639](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1639) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
 // Seen in contracts/bonding/BondingManager.sol
-107:     constructor(address _controller) Manager(_controller) {}
-
-// Seen in contracts/bonding/BondingManager.sol
 546:     function roundsManager() internal view returns (IRoundsManager) {
 
 ```
-[#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L107) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) 
+[#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) 
 
 </details>
 
