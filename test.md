@@ -31,14 +31,14 @@ Total <b>56</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>93</b> instances over <b>7</b> issues:
+Total <b>101</b> instances over <b>7</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
 | [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Redundant inheritance specifier | 1 |
+| [NC-4](#NC-4) | Redundant inheritance specifier | 9 |
 | [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
 | [NC-6](#NC-6) | Event is missing `indexed` fields | 12 |
 | [NC-7](#NC-7) | Functions not used internally could be marked external | 17 |
@@ -688,12 +688,70 @@ The contracts below already extend the specified contract, so there is no need t
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>9</b> instances (click to show):
 </summary>
 
 ```solidity
+File: contracts/bonding/BondingManager.sol
+
+23: contract BondingManager is ManagerProxyTarget, IBondingManager {
+
+```
+[#L23](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L23) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+20: contract BondingVotes is ManagerProxyTarget, IBondingVotes {
+
+```
+[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L20) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+8: interface IBondingManager {
+
+```
+[#L8](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L8) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+9: library EarningsPoolLIP36 {
+
+```
+[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L9) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+12: library SortedArrays {
+
+```
+[#L12](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L12) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+21: abstract contract GovernorCountingOverridable is Initializable, GovernorUpgradeable {
+
+```
+[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L21) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+6: interface IVotes is IERC5805Upgradeable {
+
+```
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
+
+```solidity
 File: contracts/treasury/LivepeerGovernor.sol
-/// No need for LivepeerGovernor to extend from GovernorCountingOverridable, GovernorCountingOverridable is already extended from GovernorCountingOverridable
+
+// No need for LivepeerGovernor to extend from Initializable, GovernorCountingOverridable is already extended from Initializable
+// No need for LivepeerGovernor to extend from GovernorUpgradeable, GovernorCountingOverridable is already extended from GovernorUpgradeable
 26: contract LivepeerGovernor is
         ManagerProxyTarget,
         Initializable,
@@ -706,6 +764,14 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ```
 [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+15: contract Treasury is Initializable, TimelockControllerUpgradeable {
+
+```
+[#L15](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L15) 
 
 </details>
 
