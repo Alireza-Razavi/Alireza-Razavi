@@ -694,8 +694,8 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-// No need for LivepeerGovernor to extend from Initializable, GovernorCountingOverridable is already extended from Initializable
-// No need for LivepeerGovernor to extend from GovernorUpgradeable, GovernorCountingOverridable is already extended from GovernorUpgradeable
+// No need for LivepeerGovernor to inherit from Initializable, GovernorCountingOverridable is already inherited from Initializable
+// No need for LivepeerGovernor to inherit from GovernorUpgradeable, GovernorCountingOverridable is already inherited from GovernorUpgradeable
 26: contract LivepeerGovernor is
         ManagerProxyTarget,
         Initializable,
