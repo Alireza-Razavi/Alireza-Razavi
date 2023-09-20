@@ -4,7 +4,7 @@
 ## Medium Issues
 
 
-Total <b>11</b> instances over <b>1</b> issue:
+Total <b>11</b> instances over <b>1</b> issues:
 
 | |Issue|Instances|
 |-|:-|:-:|
@@ -13,7 +13,7 @@ Total <b>11</b> instances over <b>1</b> issue:
 ## Low Issues
 
 
-Total <b>56</b> instances over <b>10</b> issue:
+Total <b>56</b> instances over <b>10</b> issues:
 
 | |Issue|Instances|
 |-|:-|:-:|
@@ -31,7 +31,7 @@ Total <b>56</b> instances over <b>10</b> issue:
 ## Non Critical Issues
 
 
-Total <b>94</b> instances over <b>7</b> issue:
+Total <b>94</b> instances over <b>7</b> issues:
 
 | |Issue|Instances|
 |-|:-|:-:|
@@ -46,7 +46,7 @@ Total <b>94</b> instances over <b>7</b> issue:
 ## Gas Optimizations
 
 
-Total <b>99</b> instances over <b>8</b> issue:
+Total <b>99</b> instances over <b>8</b> issues:
 
 | |Issue|Instances|
 |-|:-|:-:|
