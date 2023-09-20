@@ -31,22 +31,23 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>159</b> instances over <b>12</b> issues:
+Total <b>207</b> instances over <b>13</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | `assert()` should be replaced with `require()` or `revert()` | 2 |
-| [NC-2](#NC-2) | Custom errors has no error details | 1 |
-| [NC-3](#NC-3) | Custom errors should be used rather than `revert()`/`require()` | 25 |
-| [NC-4](#NC-4) | Import declarations should import specific identifiers, rather than the whole file | 52 |
-| [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
-| [NC-7](#NC-7) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-8](#NC-8) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-9](#NC-9) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-10](#NC-10) | Variables should be named in mixedCase style | 1 |
-| [NC-11](#NC-11) | Event is missing `indexed` fields | 12 |
-| [NC-12](#NC-12) | Functions not used internally could be marked external | 17 |
+| [NC-2](#NC-2) | Avoid double casting | 48 |
+| [NC-3](#NC-3) | Custom errors has no error details | 1 |
+| [NC-4](#NC-4) | Custom errors should be used rather than `revert()`/`require()` | 25 |
+| [NC-5](#NC-5) | Import declarations should import specific identifiers, rather than the whole file | 52 |
+| [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-7](#NC-7) | Redundant inheritance specifier | 1 |
+| [NC-8](#NC-8) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-9](#NC-9) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-10](#NC-10) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-11](#NC-11) | Variables should be named in mixedCase style | 1 |
+| [NC-12](#NC-12) | Event is missing `indexed` fields | 12 |
+| [NC-13](#NC-13) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -417,7 +418,140 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ---
 
 <a name="NC-2"></a> 
-#### [NC-2] Custom errors has no error details
+#### [NC-2] Avoid double casting
+Double type casting should be avoided in Solidity contracts to prevent unintended consequences and ensure accurate data representation. Performing multiple type casts in succession can lead to unexpected truncation, rounding errors, or loss of precision, potentially compromising the contract's functionality and reliability. Furthermore, double type casting can make the code less readable and harder to maintain, increasing the likelihood of errors and misunderstandings during development and debugging. To ensure precise and consistent data handling, developers should use appropriate data types and avoid unnecessary or excessive type casting, promoting a more robust and dependable contract execution.
+
+<details>
+<summary>
+There are <b>48</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+216:         unbondWithHint(_amount, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
+
+294:         rewardWithHint(address(0), address(0));
+
+322:         EarningsPool.Data memory prevEarningsPool = latestCumulativeFactorsPool(t, currentRound.sub(1));
+
+349:                 mtr.currentMintableTokens().add(mtr.currentMintedTokens()),
+
+406:             if (transcoderPool.contains(_transcoder)) {
+
+424:             if (_finder != address(0)) {
+
+429:                 minter().trustedBurnTokens(burnAmount.sub(finderAmount));
+
+471:         bondingVotes().checkpointTotalActiveStake(currentRoundTotalActiveStake, roundsManager().currentRound());
+
+507:         if (!transcoderPool.contains(msg.sender)) {
+
+559:         if (msg.sender != _owner && msg.sender != l2Migrator()) {
+
+616:             livepeerToken().transferFrom(msg.sender, address(minter()), _amount);
+
+775:             if (transcoderPool.contains(msg.sender)) {
+
+872:             uint256 treasuryBalance = livepeerToken().balanceOf(treasury());
+
+947:         if (isRegisteredTranscoder(_transcoder)) return TranscoderStatus.Registered;
+
+962:         } else if (del.startRound > roundsManager().currentRound()) {
+
+1318:         if (isRegisteredTranscoder(_delegate)) {
+
+1323:             if (transcoderPool.contains(_delegate)) {
+
+1363:         if (transcoderPool.contains(_delegate)) {
+
+1401:         if (transcoderPool.isFull()) {
+
+1443:         nextRoundTotalActiveStake = nextRoundTotalActiveStake.sub(transcoderTotalStake(_transcoder));
+
+1512:         if (del.delegateAddress != address(0)) {
+
+1616:         return ILivepeerToken(controller.getContract(keccak256("LivepeerToken")));
+
+1624:         return IMinter(controller.getContract(keccak256("Minter")));
+
+1632:         return controller.getContract(keccak256("L2Migrator"));
+
+1640:         return IRoundsManager(controller.getContract(keccak256("RoundsManager")));
+
+1644:         return controller.getContract(keccak256("Treasury"));
+
+1648:         return IBondingVotes(controller.getContract(keccak256("BondingVotes")));
+
+1652:         require(msg.sender == controller.getContract(keccak256("TicketBroker")), "caller must be TicketBroker");
+
+1656:         require(msg.sender == controller.getContract(keccak256("RoundsManager")), "caller must be RoundsManager");
+
+1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
+
+```
+[#L199](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L199) [#L208](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L208) [#L216](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L216) [#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L224) [#L233](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L233) [#L294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L294) [#L322](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L322) [#L349](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L349) [#L406](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L406) [#L424](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L424) [#L429](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L429) [#L471](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L471) [#L507](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L507) [#L559](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L559) [#L616](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L616) [#L775](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L775) [#L872](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L872) [#L947](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L947) [#L962](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L962) [#L1318](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1318) [#L1323](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1323) [#L1363](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1363) [#L1401](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1401) [#L1443](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1443) [#L1512](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1512) [#L1616](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1616) [#L1624](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1624) [#L1632](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1632) [#L1640](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1640) [#L1644](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1644) [#L1648](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1648) [#L1652](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1652) [#L1656](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1656) [#L1660](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1660) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+138:         return SafeCast.toUint48(roundsManager().currentRound());
+
+274:         if (hasCheckpoint(_account)) {
+
+304:         if (_round != clock()) {
+
+305:             revert InvalidTotalStakeCheckpointRound(_round, clock());
+
+540:         return IBondingManager(controller.getContract(keccak256("BondingManager")));
+
+547:         return IRoundsManager(controller.getContract(keccak256("RoundsManager")));
+
+554:         if (msg.sender != address(bondingManager())) {
+
+555:             revert InvalidCaller(msg.sender, address(bondingManager()));
+
+```
+[#L138](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L138) [#L274](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L274) [#L304](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L304) [#L305](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L305) [#L540](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L540) [#L547](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L547) [#L554](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L554) [#L555](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L555) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+112:         return totalVotes >= quorum(proposalSnapshot(_proposalId));
+
+137:         if (_supportInt > uint8(VoteType.Abstain)) {
+
+```
+[#L112](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L112) [#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L137) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+63:         __GovernorTimelockControl_init(treasury());
+
+67:         __GovernorVotes_init(votes());
+
+102:         return IVotes(controller.getContract(keccak256("BondingVotes")));
+
+109:         return Treasury(payable(controller.getContract(keccak256("Treasury"))));
+
+```
+[#L63](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L63) [#L67](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L67) [#L102](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L102) [#L109](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L109) 
+
+</details>
+
+---
+
+<a name="NC-3"></a> 
+#### [NC-3] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
 <details>
@@ -437,8 +571,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-3"></a> 
-#### [NC-3] Custom errors should be used rather than `revert()`/`require()`
+<a name="NC-4"></a> 
+#### [NC-4] Custom errors should be used rather than `revert()`/`require()`
 Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
 <details>
@@ -506,8 +640,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-4"></a> 
-#### [NC-4] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-5"></a> 
+#### [NC-5] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
@@ -677,8 +811,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="NC-5"></a> 
-#### [NC-5] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-6"></a> 
+#### [NC-6] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -714,8 +848,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-6"></a> 
-#### [NC-6] Redundant inheritance specifier
+<a name="NC-7"></a> 
+#### [NC-7] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
 <details>
@@ -745,8 +879,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-7"></a> 
-#### [NC-7] Visibility of state variables is not explicitly defined
+<a name="NC-8"></a> 
+#### [NC-8] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -766,8 +900,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-9"></a> 
+#### [NC-9] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -960,8 +1094,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-10"></a> 
+#### [NC-10] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -997,8 +1131,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Variables should be named in mixedCase style
+<a name="NC-11"></a> 
+#### [NC-11] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1018,8 +1152,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Event is missing `indexed` fields
+<a name="NC-12"></a> 
+#### [NC-12] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1061,8 +1195,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Functions not used internally could be marked external
+<a name="NC-13"></a> 
+#### [NC-13] Functions not used internally could be marked external
 
 <details>
 <summary>
