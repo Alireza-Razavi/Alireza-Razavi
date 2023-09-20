@@ -6,7 +6,7 @@
 
 Total <b>11</b> instances over <b>1</b> issue:
 
-| |Issue|Instances|
+|ID|Issue|Instances|
 |-|:-|:-:|
 | [M-1](#M-1) | Centralization Risk for trusted owners | 11 |
 
@@ -15,7 +15,7 @@ Total <b>11</b> instances over <b>1</b> issue:
 
 Total <b>56</b> instances over <b>10</b> issues:
 
-| |Issue|Instances|
+|ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Governance functions should be controlled by time locks | 4 |
 | [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
@@ -33,7 +33,7 @@ Total <b>56</b> instances over <b>10</b> issues:
 
 Total <b>94</b> instances over <b>7</b> issues:
 
-| |Issue|Instances|
+|ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
 | [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
@@ -48,7 +48,7 @@ Total <b>94</b> instances over <b>7</b> issues:
 
 Total <b>99</b> instances over <b>8</b> issues:
 
-| |Issue|Instances|
+|ID|Issue|Instances|
 |-|:-|:-:|
 | [GAS-1](#GAS-1) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 |
 | [GAS-2](#GAS-2) | Use Custom Errors | 25 |
