@@ -50,6 +50,8 @@
 | [GAS-6](#GAS-6) | Use != 0 instead of > 0 for unsigned integer comparison | 14 |
 | [GAS-7](#GAS-7) | Using assembly to check for zero can save gas | 26 |
 | [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 |
+
+### Medium Issues
 <a name="M-1"></a> 
 #### [M-1] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
@@ -95,6 +97,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
+
+### Low Issues
 <a name="L-1"></a> 
 #### [L-1] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
@@ -348,6 +352,8 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+
+### Non Critical Issues
 <a name="NC-1"></a> 
 #### [NC-1] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
@@ -682,6 +688,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol)
 
+
+### Gas Optimizations
 <a name="GAS-1"></a> 
 #### [GAS-1] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
