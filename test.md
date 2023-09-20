@@ -864,7 +864,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 | [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
 | [L-3](#L-3) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
 | [L-4](#L-4) | Using zero as a parameter | 40 |
-| [L-5](#L-5) | Zero address check in initializer | 4 |
+| [L-5](#L-5) | Zero address check in initializer | 1 |
 | [L-6](#L-6) | Empty Function Body - Consider commenting why | 2 |
 | [L-7](#L-7) | Initializers could be front-run | 2 |
 | [L-8](#L-8) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
@@ -1072,22 +1072,20 @@ File: contracts/bonding/BondingVotes.sol
 <details>
 
 <summary>
-There are <b>4</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
 File: contracts/treasury/Treasury.sol
 
 16:     function initialize(
-
-18:         address[] memory proposers,
-
-19:         address[] memory executors,
-
-20:         address admin
+            uint256 minDelay,
+            address[] memory proposers,
+            address[] memory executors,
+            address admin
 
 ```
- [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16)  [#L18](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L18)  [#L19](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L19)  [#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L20) 
+ [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
 
 
 </details>
