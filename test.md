@@ -4,7 +4,7 @@
 ## Medium Issues
 
 
-Total <b>11</b> instances over <b>1</b> issues:
+Total <b>11</b> instances over <b>1</b> issue:
 
 | |Issue|Instances|
 |-|:-|:-:|
