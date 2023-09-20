@@ -16,45 +16,6 @@
 | [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 |
 
 
-## Non Critical Issues
-
-
-| |Issue|Instances|
-|-|:-|:-:|
-| [NC-1](#NC-1) | Custom errors has no error details | 1 |
-| [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
-| [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Redundant inheritance specifier | 2 |
-| [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-6](#NC-6) | Event is missing `indexed` fields | 12 |
-| [NC-7](#NC-7) | Functions not used internally could be marked external | 17 |
-
-
-## Low Issues
-
-
-| |Issue|Instances|
-|-|:-|:-:|
-| [L-1](#L-1) | Governance functions should be controlled by time locks | 4 |
-| [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
-| [L-3](#L-3) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
-| [L-4](#L-4) | Using zero as a parameter | 40 |
-| [L-5](#L-5) | Zero address check in initializer | 4 |
-| [L-6](#L-6) | Empty Function Body - Consider commenting why | 2 |
-| [L-7](#L-7) | Initializers could be front-run | 2 |
-| [L-8](#L-8) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
-| [L-9](#L-9) | Unsafe ERC20 operation(s) | 1 |
-| [L-10](#L-10) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
-
-
-## Medium Issues
-
-
-| |Issue|Instances|
-|-|:-|:-:|
-| [M-1](#M-1) | Centralization Risk for trusted owners | 11 |
-
-
 
 ## Gas Optimizations
 
@@ -472,6 +433,20 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
+## Non Critical Issues
+
+
+| |Issue|Instances|
+|-|:-|:-:|
+| [NC-1](#NC-1) | Custom errors has no error details | 1 |
+| [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
+| [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-4](#NC-4) | Redundant inheritance specifier | 2 |
+| [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-6](#NC-6) | Event is missing `indexed` fields | 12 |
+| [NC-7](#NC-7) | Functions not used internally could be marked external | 17 |
+
+
 
 ## Non Critical Issues
 
@@ -725,8 +700,24 @@ There are <b>2</b> instances (click to show):
 File: contracts/treasury/LivepeerGovernor.sol
 
 26: contract LivepeerGovernor is
+        ManagerProxyTarget,
+        Initializable,
+        GovernorUpgradeable,
+        GovernorSettingsUpgradeable,
+        GovernorTimelockControlUpgradeable,
+        GovernorVotesUpgradeable,
+        GovernorVotesQuorumFractionUpgradeable,
+        GovernorCountingOverridable
 
 26: contract LivepeerGovernor is
+        ManagerProxyTarget,
+        Initializable,
+        GovernorUpgradeable,
+        GovernorSettingsUpgradeable,
+        GovernorTimelockControlUpgradeable,
+        GovernorVotesUpgradeable,
+        GovernorVotesQuorumFractionUpgradeable,
+        GovernorCountingOverridable
 
 ```
  [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26)  [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) 
@@ -863,6 +854,23 @@ File: contracts/treasury/LivepeerGovernor.sol
 </details>
 
 ---
+
+## Low Issues
+
+
+| |Issue|Instances|
+|-|:-|:-:|
+| [L-1](#L-1) | Governance functions should be controlled by time locks | 4 |
+| [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
+| [L-3](#L-3) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
+| [L-4](#L-4) | Using zero as a parameter | 40 |
+| [L-5](#L-5) | Zero address check in initializer | 4 |
+| [L-6](#L-6) | Empty Function Body - Consider commenting why | 2 |
+| [L-7](#L-7) | Initializers could be front-run | 2 |
+| [L-8](#L-8) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
+| [L-9](#L-9) | Unsafe ERC20 operation(s) | 1 |
+| [L-10](#L-10) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
+
 
 
 ## Low Issues
@@ -1222,6 +1230,14 @@ File: contracts/treasury/Treasury.sol
 </details>
 
 ---
+
+## Medium Issues
+
+
+| |Issue|Instances|
+|-|:-|:-:|
+| [M-1](#M-1) | Centralization Risk for trusted owners | 11 |
+
 
 
 ## Medium Issues
