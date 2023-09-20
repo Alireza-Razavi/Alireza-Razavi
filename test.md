@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>159</b> instances over <b>12</b> issues:
+Total <b>163</b> instances over <b>13</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -42,11 +42,12 @@ Total <b>159</b> instances over <b>12</b> issues:
 | [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
 | [NC-7](#NC-7) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-8](#NC-8) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-9](#NC-9) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-10](#NC-10) | Variables should be named in mixedCase style | 1 |
-| [NC-11](#NC-11) | Event is missing `indexed` fields | 12 |
-| [NC-12](#NC-12) | Functions not used internally could be marked external | 17 |
+| [NC-8](#NC-8) | Common functions should be refactored to a common base contract | 4 |
+| [NC-9](#NC-9) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-10](#NC-10) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-11](#NC-11) | Variables should be named in mixedCase style | 1 |
+| [NC-12](#NC-12) | Event is missing `indexed` fields | 12 |
+| [NC-13](#NC-13) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -767,7 +768,44 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-8"></a> 
-#### [NC-8] Names of `private`/`internal` functions should be prefixed with an underscore
+#### [NC-8] Common functions should be refactored to a common base contract
+The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+// Seen in contracts/bonding/BondingVotes.sol
+149:     constructor(address _controller) Manager(_controller) {}
+
+// Seen in contracts/bonding/BondingVotes.sol
+1639:     function roundsManager() internal view returns (IRoundsManager) {
+
+```
+[#L149](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L149) [#L1639](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1639) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+// Seen in contracts/bonding/BondingManager.sol
+107:     constructor(address _controller) Manager(_controller) {}
+
+// Seen in contracts/bonding/BondingManager.sol
+546:     function roundsManager() internal view returns (IRoundsManager) {
+
+```
+[#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L107) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) 
+
+</details>
+
+---
+
+<a name="NC-9"></a> 
+#### [NC-9] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -960,8 +998,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-10"></a> 
+#### [NC-10] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -997,8 +1035,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Variables should be named in mixedCase style
+<a name="NC-11"></a> 
+#### [NC-11] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1018,8 +1056,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Event is missing `indexed` fields
+<a name="NC-12"></a> 
+#### [NC-12] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1061,8 +1099,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Functions not used internally could be marked external
+<a name="NC-13"></a> 
+#### [NC-13] Functions not used internally could be marked external
 
 <details>
 <summary>
