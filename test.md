@@ -4,7 +4,7 @@
 ## Medium Issues
 
 
-<b>Total:</b> 11 instances over 1 issue:
+Total <b>11</b> instances over <b>1</b> issue:
 
 | |Issue|Instances|
 |-|:-|:-:|
@@ -12,6 +12,8 @@
 
 ## Low Issues
 
+
+Total <b>56</b> instances over <b>10</b> issue:
 
 | |Issue|Instances|
 |-|:-|:-:|
@@ -29,6 +31,8 @@
 ## Non Critical Issues
 
 
+Total <b>94</b> instances over <b>7</b> issue:
+
 | |Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
@@ -41,6 +45,8 @@
 
 ## Gas Optimizations
 
+
+Total <b>99</b> instances over <b>8</b> issue:
 
 | |Issue|Instances|
 |-|:-|:-:|
