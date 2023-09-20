@@ -177,7 +177,11 @@ File: contracts/treasury/Treasury.sol
 #### [L-3] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
 Solidity version 0.8.20 or above uses the new [Shanghai EVM](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/#important-note) which introduces the PUSH0 opcode. This op code may not yet be implemented on all evm-chains or Layer2s, so deployment on these chains will fail. Consider using an earlier solidity version.
 
-<details><summary>There is <b>1</b> instance (click to show):</summary>
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
 ```solidity
 File: contracts/bonding/IBondingVotes.sol
 
@@ -298,7 +302,11 @@ File: contracts/bonding/BondingVotes.sol
 <a name="L-5"></a> 
 #### [L-5] Zero address check in initializer
 
-<details><summary>There is <b>1</b> instance (click to show):</summary>
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -376,7 +384,11 @@ File: contracts/treasury/Treasury.sol
 #### [L-8] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
 Even if the function follows the best practice of check-effects-interaction, not using a reentrancy guard when there may be transfer hooks opens the users of this protocol up to [read-only reentrancy vulnerability](https://chainsecurity.com/curve-lp-oracle-manipulation-post-mortem/) with no way to protect them except by block-listing the entire protocol.
 
-<details><summary>There is <b>1</b> instance (click to show):</summary>
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -392,7 +404,11 @@ File: contracts/bonding/BondingManager.sol
 <a name="L-9"></a> 
 #### [L-9] Unsafe ERC20 operation(s)
 
-<details><summary>There is <b>1</b> instance (click to show):</summary>
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -441,7 +457,11 @@ File: contracts/treasury/Treasury.sol
 #### [NC-1] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
-<details><summary>There is <b>1</b> instance (click to show):</summary>
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -705,7 +725,11 @@ File: contracts/treasury/LivepeerGovernor.sol
 #### [NC-5] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
-<details><summary>There is <b>1</b> instance (click to show):</summary>
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
