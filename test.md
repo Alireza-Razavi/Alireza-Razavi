@@ -4,11 +4,11 @@
 ## Medium Issues
 
 
-Total <b>11</b> instances over <b>1</b> issue:
+Total <b>12</b> instances over <b>1</b> issue:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [M-1](#M-1) | Centralization Risk for trusted owners | 11 |
+| [M-1](#M-1) | Centralization Risk for trusted owners | 12 |
 
 ## Low Issues
 
@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>93</b> instances over <b>7</b> issues:
+Total <b>94</b> instances over <b>8</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -40,8 +40,9 @@ Total <b>93</b> instances over <b>7</b> issues:
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-4](#NC-4) | Redundant inheritance specifier | 1 |
 | [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-6](#NC-6) | Event is missing `indexed` fields | 12 |
-| [NC-7](#NC-7) | Functions not used internally could be marked external | 17 |
+| [NC-6](#NC-6) | Variables should be named in mixedCase style | 1 |
+| [NC-7](#NC-7) | Event is missing `indexed` fields | 12 |
+| [NC-8](#NC-8) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -67,7 +68,7 @@ Contracts have owners with privileged rights to perform admin tasks and need to 
 
 <details>
 <summary>
-There are <b>11</b> instances (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -93,22 +94,18 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
+167:     function getPastVotes(address _account, uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
+
+194:     function getPastTotalSupply(uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
+
+218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
+
 266:     ) external virtual onlyBondingManager {
 
 303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
 
 ```
-[#L266](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L266) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) 
-
-```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
-
-64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
-
-68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
-
-```
-[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L64) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L68) 
+[#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L266](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L266) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) 
 
 </details>
 
@@ -667,7 +664,28 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-6"></a> 
-#### [NC-6] Event is missing `indexed` fields
+#### [NC-6] Variables should be named in mixedCase style
+As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+224:     uint256[48] private __gap;
+
+```
+[#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L224) 
+
+</details>
+
+---
+
+<a name="NC-7"></a> 
+#### [NC-7] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -709,8 +727,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-7"></a> 
-#### [NC-7] Functions not used internally could be marked external
+<a name="NC-8"></a> 
+#### [NC-8] Functions not used internally could be marked external
 
 <details>
 <summary>
