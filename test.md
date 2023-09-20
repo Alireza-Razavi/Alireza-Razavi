@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>161</b> instances over <b>13</b> issues:
+Total <b>163</b> instances over <b>14</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,13 +41,14 @@ Total <b>161</b> instances over <b>13</b> issues:
 | [NC-4](#NC-4) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
-| [NC-7](#NC-7) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-8](#NC-8) | Common functions should be refactored to a common base contract | 2 |
-| [NC-9](#NC-9) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-10](#NC-10) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-11](#NC-11) | Variables should be named in mixedCase style | 1 |
-| [NC-12](#NC-12) | Event is missing `indexed` fields | 12 |
-| [NC-13](#NC-13) | Functions not used internally could be marked external | 17 |
+| [NC-7](#NC-7) | Lines are too long | 2 |
+| [NC-8](#NC-8) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-9](#NC-9) | Common functions should be refactored to a common base contract | 2 |
+| [NC-10](#NC-10) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-11](#NC-11) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-12](#NC-12) | Variables should be named in mixedCase style | 1 |
+| [NC-13](#NC-13) | Event is missing `indexed` fields | 12 |
+| [NC-14](#NC-14) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -747,7 +748,30 @@ File: contracts/treasury/LivepeerGovernor.sol
 ---
 
 <a name="NC-7"></a> 
-#### [NC-7] Visibility of state variables is not explicitly defined
+#### [NC-7] Lines are too long
+The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+47:         uint256 cumulativeRewards; // The transcoder's cumulative rewards (earned via the its active staked rewards and its reward cut).
+
+48:         uint256 cumulativeFees; // The transcoder's cumulative fees (earned via the its active staked rewards and its fee share)
+
+```
+[#L47](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L47) [#L48](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L48) 
+
+</details>
+
+---
+
+<a name="NC-8"></a> 
+#### [NC-8] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -767,8 +791,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Common functions should be refactored to a common base contract
+<a name="NC-9"></a> 
+#### [NC-9] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -798,8 +822,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-10"></a> 
+#### [NC-10] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -992,8 +1016,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-11"></a> 
+#### [NC-11] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1029,8 +1053,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Variables should be named in mixedCase style
+<a name="NC-12"></a> 
+#### [NC-12] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1050,8 +1074,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Event is missing `indexed` fields
+<a name="NC-13"></a> 
+#### [NC-13] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1093,8 +1117,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-13"></a> 
-#### [NC-13] Functions not used internally could be marked external
+<a name="NC-14"></a> 
+#### [NC-14] Functions not used internally could be marked external
 
 <details>
 <summary>
