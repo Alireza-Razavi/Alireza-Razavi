@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>126</b> instances over <b>9</b> issues:
+Total <b>145</b> instances over <b>10</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,9 +41,10 @@ Total <b>126</b> instances over <b>9</b> issues:
 | [NC-4](#NC-4) | Redundant inheritance specifier | 1 |
 | [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
 | [NC-6](#NC-6) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-7](#NC-7) | Variables should be named in mixedCase style | 1 |
-| [NC-8](#NC-8) | Event is missing `indexed` fields | 12 |
-| [NC-9](#NC-9) | Functions not used internally could be marked external | 17 |
+| [NC-7](#NC-7) | Names of `private`/`internal` state variables should be prefixed with an underscore | 19 |
+| [NC-8](#NC-8) | Variables should be named in mixedCase style | 1 |
+| [NC-9](#NC-9) | Event is missing `indexed` fields | 12 |
+| [NC-10](#NC-10) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -859,7 +860,76 @@ File: contracts/treasury/LivepeerGovernor.sol
 ---
 
 <a name="NC-7"></a> 
-#### [NC-7] Variables should be named in mixedCase style
+#### [NC-7] Names of `private`/`internal` state variables should be prefixed with an underscore
+It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
+
+<details>
+<summary>
+There are <b>19</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+42:         mapping(uint256 => EarningsPool.Data) earningsPoolPerRound; // Mapping of round => earnings pool for the round
+
+67:         mapping(uint256 => UnbondingLock) unbondingLocks; // Mapping of unbonding lock ID => unbonding lock
+
+84:     mapping(address => Delegator) private delegators;
+
+85:     mapping(address => Transcoder) private transcoders;
+
+95:     SortedDoublyLL.Data private transcoderPool;
+
+```
+[#L42](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L42) [#L67](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L67) [#L84](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L84) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L85) [#L95](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L95) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+28:         uint256 bondedAmount;
+
+37:         uint256 delegatedAmount;
+
+42:         uint256 lastClaimRound;
+
+51:         uint256 lastRewardRound;
+
+60:         uint256[] startRounds;
+
+61:         mapping(uint256 => BondingCheckpoint) data;
+
+71:         uint256[] rounds;
+
+72:         mapping(uint256 => uint256) data;
+
+78:     mapping(address => BondingCheckpointsByRound) private bondingCheckpoints;
+
+82:     TotalActiveStakeByRound private totalStakeCheckpoints;
+
+96:         uint256 currentRound = clock();
+
+```
+[#L28](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L28) [#L37](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L37) [#L42](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L42) [#L51](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L51) [#L60](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L60) [#L61](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L61) [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L71) [#L72](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L72) [#L78](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L78) [#L82](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L82) [#L96](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L96) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+38:         bool hasVoted;
+
+42:         uint256 deductions;
+
+52:         mapping(address => ProposalVoterState) voters;
+
+```
+[#L38](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L38) [#L42](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L42) [#L52](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L52) 
+
+</details>
+
+---
+
+<a name="NC-8"></a> 
+#### [NC-8] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -879,8 +949,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Event is missing `indexed` fields
+<a name="NC-9"></a> 
+#### [NC-9] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -922,8 +992,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Functions not used internally could be marked external
+<a name="NC-10"></a> 
+#### [NC-10] Functions not used internally could be marked external
 
 <details>
 <summary>
