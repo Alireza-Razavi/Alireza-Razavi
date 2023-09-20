@@ -4,6 +4,8 @@
 ## Medium Issues
 
 
+<b>Total:</b> 11 instances over 1 issue:
+
 | |Issue|Instances|
 |-|:-|:-:|
 | [M-1](#M-1) | Centralization Risk for trusted owners | 11 |
