@@ -694,6 +694,8 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
+// No need for LivepeerGovernor to extend from GovernorCountingOverridable
+
 26: contract LivepeerGovernor is
         ManagerProxyTarget,
         Initializable,
