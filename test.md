@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>94</b> instances over <b>8</b> issues:
+Total <b>126</b> instances over <b>9</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -40,9 +40,10 @@ Total <b>94</b> instances over <b>8</b> issues:
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-4](#NC-4) | Redundant inheritance specifier | 1 |
 | [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-6](#NC-6) | Variables should be named in mixedCase style | 1 |
-| [NC-7](#NC-7) | Event is missing `indexed` fields | 12 |
-| [NC-8](#NC-8) | Functions not used internally could be marked external | 17 |
+| [NC-6](#NC-6) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-7](#NC-7) | Variables should be named in mixedCase style | 1 |
+| [NC-8](#NC-8) | Event is missing `indexed` fields | 12 |
+| [NC-9](#NC-9) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -664,7 +665,201 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-6"></a> 
-#### [NC-6] Variables should be named in mixedCase style
+#### [NC-6] Names of `private`/`internal` functions should be prefixed with an underscore
+It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
+
+<details>
+<summary>
+There are <b>32</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+1189:     function cumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
+              internal
+              view
+              returns (EarningsPool.Data memory pool)
+          {
+
+1206:     function latestCumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
+              internal
+              view
+              returns (EarningsPool.Data memory pool)
+          {
+
+1238:     function delegatorCumulativeStakeAndFees(
+              Transcoder storage _transcoder,
+              uint256 _startRound,
+              uint256 _endRound,
+              uint256 _stake,
+              uint256 _fees
+          ) internal view returns (uint256 cStake, uint256 cFees) {
+
+1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
+              internal
+              view
+              returns (uint256 stake, uint256 fees)
+          {
+
+1294:     function increaseTotalStake(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegate) {
+
+1307:     function increaseTotalStakeUncheckpointed(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+1352:     function decreaseTotalStake(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegate) {
+
+1392:     function tryToJoinActiveSet(
+              address _transcoder,
+              uint256 _totalStake,
+              uint256 _activationRound,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+1437:     function resignTranscoder(address _transcoder) internal {
+
+1459:     function updateTranscoderWithRewards(
+              address _transcoder,
+              uint256 _rewards,
+              uint256 _round,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+1500:     function updateDelegatorWithEarnings(
+              address _delegator,
+              uint256 _endRound,
+              uint256 _lastClaimRound
+          ) internal {
+
+1564:     function processRebond(
+              address _delegator,
+              uint256 _unbondingLockId,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegator) {
+
+1615:     function livepeerToken() internal view returns (ILivepeerToken) {
+
+1623:     function minter() internal view returns (IMinter) {
+
+1631:     function l2Migrator() internal view returns (address) {
+
+1639:     function roundsManager() internal view returns (IRoundsManager) {
+
+1643:     function treasury() internal view returns (address) {
+
+1647:     function bondingVotes() internal view returns (IBondingVotes) {
+
+```
+[#L1189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1189) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) [#L1259](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1259) [#L1294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1294) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1459) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1615](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1615) [#L1623](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1623) [#L1631](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1631) [#L1639](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1639) [#L1643](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1643) [#L1647](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1647) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+387:     function onBondingCheckpointChanged(
+             address _account,
+             BondingCheckpoint memory previous,
+             BondingCheckpoint memory current
+         ) internal {
+
+422:     function getBondingCheckpointAt(address _account, uint256 _round)
+             internal
+             view
+             returns (BondingCheckpoint storage)
+         {
+
+459:     function delegatorCumulativeStakeAt(BondingCheckpoint storage bond, uint256 _round)
+             internal
+             view
+             returns (uint256)
+         {
+
+499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (uint256 rewardRound, EarningsPool.Data memory pool)
+         {
+
+520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (EarningsPool.Data memory pool)
+         {
+
+539:     function bondingManager() internal view returns (IBondingManager) {
+
+546:     function roundsManager() internal view returns (IRoundsManager) {
+
+```
+[#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L422](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L422) [#L459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L459) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) [#L539](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L539) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+18:     function updateCumulativeFeeFactor(
+            EarningsPool.Data storage earningsPool,
+            EarningsPool.Data memory _prevEarningsPool,
+            uint256 _fees
+        ) internal {
+
+47:     function updateCumulativeRewardFactor(
+            EarningsPool.Data storage earningsPool,
+            EarningsPool.Data memory _prevEarningsPool,
+            uint256 _rewards
+        ) internal {
+
+71:     function delegatorCumulativeStakeAndFees(
+            EarningsPool.Data memory _startPool,
+            EarningsPool.Data memory _endPool,
+            uint256 _stake,
+            uint256 _fees
+        ) internal pure returns (uint256 cStake, uint256 cFees) {
+
+```
+[#L18](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L18) [#L47](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L47) [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L71) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+28:     function findLowerBound(uint256[] storage _array, uint256 _val) internal view returns (uint256) {
+
+64:     function pushSorted(uint256[] storage array, uint256 val) internal {
+
+```
+[#L28](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L28) [#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L64) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+101:     function bondingVotes() internal view returns (IVotes) {
+
+108:     function treasury() internal view returns (Treasury) {
+
+```
+[#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L101) [#L108](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L108) 
+
+</details>
+
+---
+
+<a name="NC-7"></a> 
+#### [NC-7] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -684,8 +879,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-7"></a> 
-#### [NC-7] Event is missing `indexed` fields
+<a name="NC-8"></a> 
+#### [NC-8] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -727,8 +922,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Functions not used internally could be marked external
+<a name="NC-9"></a> 
+#### [NC-9] Functions not used internally could be marked external
 
 <details>
 <summary>
