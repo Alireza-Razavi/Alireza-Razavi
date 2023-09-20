@@ -725,24 +725,8 @@ There are <b>2</b> instances (click to show):
 File: contracts/treasury/LivepeerGovernor.sol
 
 26: contract LivepeerGovernor is
-        ManagerProxyTarget,
-        Initializable,
-        GovernorUpgradeable,
-        GovernorSettingsUpgradeable,
-        GovernorTimelockControlUpgradeable,
-        GovernorVotesUpgradeable,
-        GovernorVotesQuorumFractionUpgradeable,
-        GovernorCountingOverridable
 
 26: contract LivepeerGovernor is
-        ManagerProxyTarget,
-        Initializable,
-        GovernorUpgradeable,
-        GovernorSettingsUpgradeable,
-        GovernorTimelockControlUpgradeable,
-        GovernorVotesUpgradeable,
-        GovernorVotesQuorumFractionUpgradeable,
-        GovernorCountingOverridable
 
 ```
  [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26)  [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) 
