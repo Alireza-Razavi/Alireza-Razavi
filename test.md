@@ -31,14 +31,14 @@ Total <b>56</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>94</b> instances over <b>7</b> issues:
+Total <b>93</b> instances over <b>7</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | Custom errors has no error details | 1 |
 | [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Redundant inheritance specifier | 2 |
+| [NC-4](#NC-4) | Redundant inheritance specifier | 1 |
 | [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
 | [NC-6](#NC-6) | Event is missing `indexed` fields | 12 |
 | [NC-7](#NC-7) | Functions not used internally could be marked external | 17 |
@@ -688,7 +688,7 @@ The contracts below already extend the specified contract, so there is no need t
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -704,18 +704,8 @@ File: contracts/treasury/LivepeerGovernor.sol
         GovernorVotesQuorumFractionUpgradeable,
         GovernorCountingOverridable
 
-26: contract LivepeerGovernor is
-        ManagerProxyTarget,
-        Initializable,
-        GovernorUpgradeable,
-        GovernorSettingsUpgradeable,
-        GovernorTimelockControlUpgradeable,
-        GovernorVotesUpgradeable,
-        GovernorVotesQuorumFractionUpgradeable,
-        GovernorCountingOverridable
-
 ```
-[#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) 
+[#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) 
 
 </details>
 
