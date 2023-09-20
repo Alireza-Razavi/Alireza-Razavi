@@ -51,12 +51,16 @@
 | [GAS-7](#GAS-7) | Using assembly to check for zero can save gas | 26 |
 | [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 |
 
-### Medium Issues
+## Medium Issues
+
 <a name="M-1"></a> 
 #### [M-1] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
-*Instances (11)*:
+<details>
+<summary>
+There are <b>11</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -97,13 +101,20 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
+</details>
+---
 
-### Low Issues
+
+## Low Issues
+
 <a name="L-1"></a> 
 #### [L-1] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
-*Instances (4)*:
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -118,11 +129,17 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="L-2"></a> 
 #### [L-2] Missing storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -139,11 +156,14 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+</details>
+---
+
 <a name="L-3"></a> 
 #### [L-3] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
 Solidity version 0.8.20 or above uses the new [Shanghai EVM](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/#important-note) which introduces the PUSH0 opcode. This op code may not yet be implemented on all evm-chains or Layer2s, so deployment on these chains will fail. Consider using an earlier solidity version.
 
-*Instances (1)*:
+<details><summary>There is <b>1</b> instance (click to show):</summary>
 ```solidity
 File: contracts/bonding/IBondingVotes.sol
 
@@ -152,11 +172,17 @@ File: contracts/bonding/IBondingVotes.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingVotes.sol)
 
+</details>
+---
+
 <a name="L-4"></a> 
 #### [L-4] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
-*Instances (40)*:
+<details>
+<summary>
+There are <b>40</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -249,10 +275,13 @@ File: contracts/bonding/BondingVotes.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol)
 
+</details>
+---
+
 <a name="L-5"></a> 
 #### [L-5] Zero address check in initializer
 
-*Instances (1)*:
+<details><summary>There is <b>1</b> instance (click to show):</summary>
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -265,10 +294,16 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+</details>
+---
+
 <a name="L-6"></a> 
 #### [L-6] Empty Function Body - Consider commenting why
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -285,11 +320,17 @@ File: contracts/bonding/BondingVotes.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol)
 
+</details>
+---
+
 <a name="L-7"></a> 
 #### [L-7] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -306,11 +347,14 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+</details>
+---
+
 <a name="L-8"></a> 
 #### [L-8] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
 Even if the function follows the best practice of check-effects-interaction, not using a reentrancy guard when there may be transfer hooks opens the users of this protocol up to [read-only reentrancy vulnerability](https://chainsecurity.com/curve-lp-oracle-manipulation-post-mortem/) with no way to protect them except by block-listing the entire protocol.
 
-*Instances (1)*:
+<details><summary>There is <b>1</b> instance (click to show):</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -319,10 +363,13 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="L-9"></a> 
 #### [L-9] Unsafe ERC20 operation(s)
 
-*Instances (1)*:
+<details><summary>There is <b>1</b> instance (click to show):</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -331,11 +378,17 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="L-10"></a> 
 #### [L-10] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
 An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job.](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56)
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -352,13 +405,17 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+</details>
+---
 
-### Non Critical Issues
+
+## Non Critical Issues
+
 <a name="NC-1"></a> 
 #### [NC-1] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
-*Instances (1)*:
+<details><summary>There is <b>1</b> instance (click to show):</summary>
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -367,11 +424,17 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
+</details>
+---
+
 <a name="NC-2"></a> 
 #### [NC-2] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
-*Instances (52)*:
+<details>
+<summary>
+There are <b>52</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -530,11 +593,17 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+</details>
+---
+
 <a name="NC-3"></a> 
 #### [NC-3] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
-*Instances (9)*:
+<details>
+<summary>
+There are <b>9</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -559,11 +628,17 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="NC-4"></a> 
 #### [NC-4] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -590,11 +665,14 @@ File: contracts/treasury/LivepeerGovernor.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol)
 
+</details>
+---
+
 <a name="NC-5"></a> 
 #### [NC-5] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
-*Instances (1)*:
+<details><summary>There is <b>1</b> instance (click to show):</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -603,11 +681,17 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="NC-6"></a> 
 #### [NC-6] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
-*Instances (12)*:
+<details>
+<summary>
+There are <b>12</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
@@ -638,10 +722,16 @@ File: contracts/bonding/IBondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol)
 
+</details>
+---
+
 <a name="NC-7"></a> 
 #### [NC-7] Functions not used internally could be marked external
 
-*Instances (17)*:
+<details>
+<summary>
+There are <b>17</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -688,13 +778,20 @@ File: contracts/treasury/LivepeerGovernor.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol)
 
+</details>
+---
 
-### Gas Optimizations
+
+## Gas Optimizations
+
 <a name="GAS-1"></a> 
 #### [GAS-1] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -705,12 +802,18 @@ File: contracts/treasury/Treasury.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
+</details>
+---
+
 <a name="GAS-2"></a> 
 #### [GAS-2] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
-*Instances (25)*:
+<details>
+<summary>
+There are <b>25</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -767,11 +870,17 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="GAS-3"></a> 
 #### [GAS-3] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
-*Instances (2)*:
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -788,10 +897,16 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
+</details>
+---
+
 <a name="GAS-4"></a> 
 #### [GAS-4] Long revert strings
 
-*Instances (10)*:
+<details>
+<summary>
+There are <b>10</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -818,11 +933,17 @@ File: contracts/bonding/BondingManager.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
+</details>
+---
+
 <a name="GAS-5"></a> 
 #### [GAS-5] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
-*Instances (15)*:
+<details>
+<summary>
+There are <b>15</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -871,10 +992,16 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
+</details>
+---
+
 <a name="GAS-6"></a> 
 #### [GAS-6] Use != 0 instead of > 0 for unsigned integer comparison
 
-*Instances (14)*:
+<details>
+<summary>
+There are <b>14</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -915,11 +1042,17 @@ File: contracts/bonding/BondingVotes.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol)
 
+</details>
+---
+
 <a name="GAS-7"></a> 
 #### [GAS-7] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
-*Instances (26)*:
+<details>
+<summary>
+There are <b>26</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -996,11 +1129,17 @@ File: contracts/bonding/libraries/SortedArrays.sol
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol)
 
+</details>
+---
+
 <a name="GAS-8"></a> 
 #### [GAS-8] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
-*Instances (5)*:
+<details>
+<summary>
+There are <b>5</b> instances (click to show):
+</summary>
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -1022,4 +1161,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ```
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol)
+
+</details>
+---
 
