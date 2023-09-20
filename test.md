@@ -61,6 +61,7 @@ Contracts have owners with privileged rights to perform admin tasks and need to 
 <summary>
 There are <b>11</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -102,6 +103,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
+
 ---
 
 
@@ -115,6 +117,7 @@ Governance functions (such as upgrading contracts, setting critical parameters) 
 <summary>
 There are <b>4</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -130,6 +133,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="L-2"></a> 
@@ -140,6 +144,7 @@ Each upgradable contract should include a state variable (usually named `__gap`)
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -157,6 +162,7 @@ File: contracts/treasury/Treasury.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
 </details>
+
 ---
 
 <a name="L-3"></a> 
@@ -173,6 +179,7 @@ File: contracts/bonding/IBondingVotes.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingVotes.sol)
 
 </details>
+
 ---
 
 <a name="L-4"></a> 
@@ -183,6 +190,7 @@ Taking `0` as a valid argument in Solidity without checks can lead to severe sec
 <summary>
 There are <b>40</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -276,6 +284,7 @@ File: contracts/bonding/BondingVotes.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol)
 
 </details>
+
 ---
 
 <a name="L-5"></a> 
@@ -295,6 +304,7 @@ File: contracts/treasury/Treasury.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
 </details>
+
 ---
 
 <a name="L-6"></a> 
@@ -304,6 +314,7 @@ File: contracts/treasury/Treasury.sol
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -321,6 +332,7 @@ File: contracts/bonding/BondingVotes.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol)
 
 </details>
+
 ---
 
 <a name="L-7"></a> 
@@ -331,6 +343,7 @@ Initializers could be front-run, allowing an attacker to either set their own va
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -348,6 +361,7 @@ File: contracts/treasury/Treasury.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
 </details>
+
 ---
 
 <a name="L-8"></a> 
@@ -364,6 +378,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="L-9"></a> 
@@ -379,6 +394,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="L-10"></a> 
@@ -389,6 +405,7 @@ An uninitialized contract can be taken over by an attacker. For an upgradable co
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
@@ -406,6 +423,7 @@ File: contracts/treasury/Treasury.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
 </details>
+
 ---
 
 
@@ -425,6 +443,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
+
 ---
 
 <a name="NC-2"></a> 
@@ -435,6 +454,7 @@ Using import declarations of the form `import {<identifier_name>} from "some/fil
 <summary>
 There are <b>52</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -594,6 +614,7 @@ File: contracts/treasury/Treasury.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
 </details>
+
 ---
 
 <a name="NC-3"></a> 
@@ -604,6 +625,7 @@ If some functions are only allowed to be called by some specific users, consider
 <summary>
 There are <b>9</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -629,6 +651,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="NC-4"></a> 
@@ -639,6 +662,7 @@ The contracts below already extend the specified contract, so there is no need t
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
@@ -666,6 +690,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol)
 
 </details>
+
 ---
 
 <a name="NC-5"></a> 
@@ -682,6 +707,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="NC-6"></a> 
@@ -692,6 +718,7 @@ Index event fields make the field more quickly accessible to off-chain tools tha
 <summary>
 There are <b>12</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
@@ -723,6 +750,7 @@ File: contracts/bonding/IBondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol)
 
 </details>
+
 ---
 
 <a name="NC-7"></a> 
@@ -732,6 +760,7 @@ File: contracts/bonding/IBondingManager.sol
 <summary>
 There are <b>17</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -779,6 +808,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol)
 
 </details>
+
 ---
 
 
@@ -792,6 +822,7 @@ Mark data types as `calldata` instead of `memory` where possible. This makes it 
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/treasury/Treasury.sol
 
@@ -803,6 +834,7 @@ File: contracts/treasury/Treasury.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol)
 
 </details>
+
 ---
 
 <a name="GAS-2"></a> 
@@ -814,6 +846,7 @@ Instead of using error strings, to reduce deployment and runtime cost, you shoul
 <summary>
 There are <b>25</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -871,6 +904,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="GAS-3"></a> 
@@ -881,6 +915,7 @@ Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redunda
 <summary>
 There are <b>2</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -898,6 +933,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol)
 
 </details>
+
 ---
 
 <a name="GAS-4"></a> 
@@ -907,6 +943,7 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 <summary>
 There are <b>10</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -934,6 +971,7 @@ File: contracts/bonding/BondingManager.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol)
 
 </details>
+
 ---
 
 <a name="GAS-5"></a> 
@@ -944,6 +982,7 @@ If a function modifier such as `onlyOwner` is used, the function will revert if 
 <summary>
 There are <b>15</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -993,6 +1032,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol)
 
 </details>
+
 ---
 
 <a name="GAS-6"></a> 
@@ -1002,6 +1042,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 <summary>
 There are <b>14</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -1043,6 +1084,7 @@ File: contracts/bonding/BondingVotes.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol)
 
 </details>
+
 ---
 
 <a name="GAS-7"></a> 
@@ -1053,6 +1095,7 @@ Using assembly to check for zero can save gas by allowing more direct access to 
 <summary>
 There are <b>26</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
@@ -1130,6 +1173,7 @@ File: contracts/bonding/libraries/SortedArrays.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol)
 
 </details>
+
 ---
 
 <a name="GAS-8"></a> 
@@ -1140,6 +1184,7 @@ If the functions are required by an interface, the contract should inherit from 
 <summary>
 There are <b>5</b> instances (click to show):
 </summary>
+
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
@@ -1163,5 +1208,6 @@ File: contracts/bonding/libraries/SortedArrays.sol
 [Link to code](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol)
 
 </details>
+
 ---
 
