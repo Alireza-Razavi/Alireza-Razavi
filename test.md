@@ -31,20 +31,22 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>132</b> instances over <b>10</b> issues:
+Total <b>159</b> instances over <b>12</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [NC-1](#NC-1) | Custom errors has no error details | 1 |
-| [NC-2](#NC-2) | Import declarations should import specific identifiers, rather than the whole file | 52 |
-| [NC-3](#NC-3) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-4](#NC-4) | Redundant inheritance specifier | 1 |
-| [NC-5](#NC-5) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-6](#NC-6) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-7](#NC-7) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-8](#NC-8) | Variables should be named in mixedCase style | 1 |
-| [NC-9](#NC-9) | Event is missing `indexed` fields | 12 |
-| [NC-10](#NC-10) | Functions not used internally could be marked external | 17 |
+| [NC-1](#NC-1) | `assert()` should be replaced with `require()` or `revert()` | 2 |
+| [NC-2](#NC-2) | Custom errors has no error details | 1 |
+| [NC-3](#NC-3) | Custom errors should be used rather than `revert()`/`require()` | 25 |
+| [NC-4](#NC-4) | Import declarations should import specific identifiers, rather than the whole file | 52 |
+| [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
+| [NC-7](#NC-7) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-8](#NC-8) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-9](#NC-9) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-10](#NC-10) | Variables should be named in mixedCase style | 1 |
+| [NC-11](#NC-11) | Event is missing `indexed` fields | 12 |
+| [NC-12](#NC-12) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -385,7 +387,37 @@ File: contracts/treasury/Treasury.sol
 ## Non Critical Issues
 
 <a name="NC-1"></a> 
-#### [NC-1] Custom errors has no error details
+#### [NC-1] `assert()` should be replaced with `require()` or `revert()`
+In versions of Solidity prior to 0.8.0, when encountering an assert all the remaining gas will be consumed. Even after solidity 0.8.0, the assert function is still not recommended, as described in the [documentation](https://docs.soliditylang.org/en/v0.8.20/control-structures.html#panic-via-assert-and-error-via-require):
+> Assert should only be used to test for internal errors, and to check invariants. Properly functioning code should never create a Panic, not even on invalid external input. If this happens, then there is a bug in your contract which you should fix.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+41:         assert(upperIdx < len);
+
+```
+[#L41](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L41) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+206:                 assert(delegateSupport == VoteType.Abstain);
+
+```
+[#L206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L206) 
+
+</details>
+
+---
+
+<a name="NC-2"></a> 
+#### [NC-2] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
 <details>
@@ -405,8 +437,77 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-2"></a> 
-#### [NC-2] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-3"></a> 
+#### [NC-3] Custom errors should be used rather than `revert()`/`require()`
+Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
+
+<details>
+<summary>
+There are <b>25</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+253:         require(isValidUnbondingLock(msg.sender, _unbondingLockId), "invalid unbonding lock ID");
+
+279:         require(_recipient != address(0), "invalid recipient");
+
+281:         require(fees >= _amount, "insufficient fees to withdraw");
+
+310:         require(isRegisteredTranscoder(_transcoder), "transcoder must be registered");
+
+491:         require(!roundsManager().currentRoundLocked(), "can't update transcoder params, current round is locked");
+
+492:         require(MathUtils.validPerc(_rewardCut), "invalid rewardCut percentage");
+
+493:         require(MathUtils.validPerc(_feeShare), "invalid feeShare percentage");
+
+494:         require(isRegisteredTranscoder(msg.sender), "transcoder must be registered");
+
+563:                 require(_to != _owner, "INVALID_DELEGATE");
+
+565:                 require(currentDelegate == _to, "INVALID_DELEGATE_CHANGE");
+
+582:             require(!isRegisteredTranscoder(_owner), "registered transcoders can't delegate towards other addresses");
+
+606:         require(delegationAmount > 0, "delegation amount must be greater than 0");
+
+722:             require(oldDelDelegate != _delegator, "INVALID_DELEGATOR");
+
+750:         require(delegatorStatus(msg.sender) == DelegatorStatus.Bonded, "caller must be bonded");
+
+754:         require(_amount > 0, "unbond amount must be greater than 0");
+
+755:         require(_amount <= del.bondedAmount, "amount is greater than bonded amount");
+
+801:         require(delegatorStatus(msg.sender) != DelegatorStatus.Unbonded, "caller must be bonded");
+
+824:         require(delegatorStatus(msg.sender) == DelegatorStatus.Unbonded, "caller must be unbonded");
+
+850:         require(isActiveTranscoder(msg.sender), "caller must be an active transcoder");
+
+1177:         require(PreciseMathUtils.validPerc(_cutRate), "_cutRate is invalid precise percentage");
+
+1573:         require(isValidUnbondingLock(_delegator, _unbondingLockId), "invalid unbonding lock ID");
+
+1652:         require(msg.sender == controller.getContract(keccak256("TicketBroker")), "caller must be TicketBroker");
+
+1656:         require(msg.sender == controller.getContract(keccak256("RoundsManager")), "caller must be RoundsManager");
+
+1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
+
+1664:         require(roundsManager().currentRoundInitialized(), "current round is not initialized");
+
+```
+[#L253](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L253) [#L279](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L279) [#L281](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L281) [#L310](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L310) [#L491](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L491) [#L492](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L492) [#L493](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L493) [#L494](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L494) [#L563](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L563) [#L565](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L565) [#L582](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L582) [#L606](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L606) [#L722](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L722) [#L750](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L750) [#L754](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L754) [#L755](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L755) [#L801](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L801) [#L824](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L824) [#L850](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L850) [#L1177](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1177) [#L1573](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1573) [#L1652](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1652) [#L1656](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1656) [#L1660](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1660) [#L1664](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1664) 
+
+</details>
+
+---
+
+<a name="NC-4"></a> 
+#### [NC-4] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
@@ -576,8 +677,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="NC-3"></a> 
-#### [NC-3] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-5"></a> 
+#### [NC-5] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -613,8 +714,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-4"></a> 
-#### [NC-4] Redundant inheritance specifier
+<a name="NC-6"></a> 
+#### [NC-6] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
 <details>
@@ -644,8 +745,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-5"></a> 
-#### [NC-5] Visibility of state variables is not explicitly defined
+<a name="NC-7"></a> 
+#### [NC-7] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -665,8 +766,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-6"></a> 
-#### [NC-6] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-8"></a> 
+#### [NC-8] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -859,8 +960,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-7"></a> 
-#### [NC-7] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-9"></a> 
+#### [NC-9] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -896,8 +997,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Variables should be named in mixedCase style
+<a name="NC-10"></a> 
+#### [NC-10] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -917,8 +1018,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Event is missing `indexed` fields
+<a name="NC-11"></a> 
+#### [NC-11] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -960,8 +1061,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Functions not used internally could be marked external
+<a name="NC-12"></a> 
+#### [NC-12] Functions not used internally could be marked external
 
 <details>
 <summary>
