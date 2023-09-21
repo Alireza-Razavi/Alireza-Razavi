@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>299</b> instances over <b>22</b> issues:
+Total <b>297</b> instances over <b>22</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -44,7 +44,7 @@ Total <b>299</b> instances over <b>22</b> issues:
 | [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
 | [NC-8](#NC-8) | Event declarations should have NatSpec descriptions | 13 |
 | [NC-9](#NC-9) | NatSpec documentation for function is missing | 31 |
-| [NC-10](#NC-10) | Missing NatSpec `@param` | 72 |
+| [NC-10](#NC-10) | Missing NatSpec `@param` | 70 |
 | [NC-11](#NC-11) | Redundant inheritance specifier | 1 |
 | [NC-12](#NC-12) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-13](#NC-13) | Lines are too long | 2 |
@@ -998,7 +998,7 @@ Some functions have an incomplete NatSpec: add a `@param` notation to describe t
 
 <details>
 <summary>
-There are <b>72</b> instances (click to show):
+There are <b>70</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1289,24 +1289,6 @@ File: contracts/bonding/BondingVotes.sol
 // Missing @param for _round
 218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
 
-// Missing @param for 
-226:     function delegate(address) external pure {
-
-// Missing @param for 
-// Missing @param for 
-// Missing @param for 
-// Missing @param for 
-// Missing @param for 
-// Missing @param for 
-233:     function delegateBySig(
-             address,
-             uint256,
-             uint256,
-             uint8,
-             bytes32,
-             bytes32
-         ) external pure {
-
 // Missing @param for _startRound
 // Missing @param for _bondedAmount
 // Missing @param for _delegateAddress
@@ -1347,7 +1329,7 @@ File: contracts/bonding/BondingVotes.sol
          {
 
 ```
-[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L226](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L226) [#L233](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L233) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
+[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
@@ -1442,7 +1424,6 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 // Missing @param for _account
 // Missing @param for _supportInt
 // Missing @param for _weight
-// Missing @param for 
 130:     function _countVote(
              uint256 _proposalId,
              address _account,
