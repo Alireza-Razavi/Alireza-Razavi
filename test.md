@@ -42,7 +42,7 @@ Total <b>196</b> instances over <b>20</b> issues:
 | [NC-5](#NC-5) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
-| [NC-8](#NC-8) | Visibility of state variables is not explicitly defined | 13 |
+| [NC-8](#NC-8) | Event declarations should have NatSpec descriptions | 13 |
 | [NC-9](#NC-9) | Redundant inheritance specifier | 1 |
 | [NC-10](#NC-10) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-11](#NC-11) | Lines are too long | 2 |
@@ -836,8 +836,7 @@ File: contracts/treasury/IVotes.sol
 ---
 
 <a name="NC-8"></a> 
-#### [NC-8] Visibility of state variables is not explicitly defined
-To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
+#### [NC-8] Event declarations should have NatSpec descriptions
 
 <details>
 <summary>
