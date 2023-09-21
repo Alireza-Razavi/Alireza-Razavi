@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>376</b> instances over <b>24</b> issues:
+Total <b>317</b> instances over <b>24</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -46,7 +46,7 @@ Total <b>376</b> instances over <b>24</b> issues:
 | [NC-9](#NC-9) | NatSpec documentation for function is missing | 31 |
 | [NC-10](#NC-10) | Missing NatSpec `@param` | 38 |
 | [NC-11](#NC-11) | Public variable declarations should have NatSpec descriptions | 6 |
-| [NC-12](#NC-12) | NatSpec `@return` is missing | 105 |
+| [NC-12](#NC-12) | NatSpec `@return` is missing | 46 |
 | [NC-13](#NC-13) | Redundant inheritance specifier | 1 |
 | [NC-14](#NC-14) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-15](#NC-15) | Lines are too long | 2 |
@@ -1369,127 +1369,11 @@ It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
 <summary>
-There are <b>105</b> instances (click to show):
+There are <b>46</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
-
-155:     function setUnbondingPeriod(uint64 _unbondingPeriod) external onlyControllerOwner {
-
-167:     function setTreasuryRewardCutRate(uint256 _cutRate) external onlyControllerOwner {
-
-176:     function setTreasuryBalanceCeiling(uint256 _ceiling) external onlyControllerOwner {
-
-186:     function setNumActiveTranscoders(uint256 _numActiveTranscoders) external onlyControllerOwner {
-
-198:     function transcoder(uint256 _rewardCut, uint256 _feeShare) external {
-
-207:     function bond(uint256 _amount, address _to) external {
-
-215:     function unbond(uint256 _amount) external {
-
-223:     function rebond(uint256 _unbondingLockId) external {
-
-232:     function rebondFromUnbonded(address _to, uint256 _unbondingLockId) external {
-
-241:     function checkpointBondingState(address _account) external {
-
-249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
-
-273:     function withdrawFees(address payable _recipient, uint256 _amount)
-             external
-             whenSystemNotPaused
-             currentRoundInitialized
-             autoClaimEarnings(msg.sender)
-         {
-
-293:     function reward() external {
-
-302:     function updateTranscoderWithFees(
-             address _transcoder,
-             uint256 _fees,
-             uint256 _round
-         ) external whenSystemNotPaused onlyTicketBroker {
-
-394:     function slashTranscoder(
-             address _transcoder,
-             address _finder,
-             uint256 _slashAmount,
-             uint256 _finderFee
-         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
-
-447:     function claimEarnings(uint256 _endRound)
-             external
-             whenSystemNotPaused
-             currentRoundInitialized
-             autoCheckpoint(msg.sender)
-         {
-
-462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
-
-485:     function transcoderWithHint(
-             uint256 _rewardCut,
-             uint256 _feeShare,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized {
-
-537:     function bondForWithHint(
-             uint256 _amount,
-             address _owner,
-             address _to,
-             address _oldDelegateNewPosPrev,
-             address _oldDelegateNewPosNext,
-             address _currDelegateNewPosPrev,
-             address _currDelegateNewPosNext
-         ) public whenSystemNotPaused currentRoundInitialized {
-
-640:     function bondWithHint(
-             uint256 _amount,
-             address _to,
-             address _oldDelegateNewPosPrev,
-             address _oldDelegateNewPosNext,
-             address _currDelegateNewPosPrev,
-             address _currDelegateNewPosNext
-         ) public {
-
-679:     function transferBond(
-             address _delegator,
-             uint256 _amount,
-             address _oldDelegateNewPosPrev,
-             address _oldDelegateNewPosNext,
-             address _newDelegateNewPosPrev,
-             address _newDelegateNewPosNext
-         ) public whenSystemNotPaused currentRoundInitialized {
-
-745:     function unbondWithHint(
-             uint256 _amount,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
-
-796:     function rebondWithHint(
-             uint256 _unbondingLockId,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
-
-818:     function rebondFromUnbondedWithHint(
-             address _to,
-             uint256 _unbondingLockId,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
-
-842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
-             public
-             whenSystemNotPaused
-             currentRoundInitialized
-             autoCheckpoint(msg.sender)
-         {
-
-1176:     function _setTreasuryRewardCutRate(uint256 _cutRate) internal {
 
 1189:     function cumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
               internal
@@ -1497,80 +1381,12 @@ File: contracts/bonding/BondingManager.sol
               returns (EarningsPool.Data memory pool)
           {
 
-1294:     function increaseTotalStake(
-              address _delegate,
-              uint256 _amount,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal autoCheckpoint(_delegate) {
-
-1307:     function increaseTotalStakeUncheckpointed(
-              address _delegate,
-              uint256 _amount,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal {
-
-1352:     function decreaseTotalStake(
-              address _delegate,
-              uint256 _amount,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal autoCheckpoint(_delegate) {
-
-1392:     function tryToJoinActiveSet(
-              address _transcoder,
-              uint256 _totalStake,
-              uint256 _activationRound,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal {
-
-1437:     function resignTranscoder(address _transcoder) internal {
-
-1459:     function updateTranscoderWithRewards(
-              address _transcoder,
-              uint256 _rewards,
-              uint256 _round,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal {
-
-1500:     function updateDelegatorWithEarnings(
-              address _delegator,
-              uint256 _endRound,
-              uint256 _lastClaimRound
-          ) internal {
-
-1564:     function processRebond(
-              address _delegator,
-              uint256 _unbondingLockId,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal autoCheckpoint(_delegator) {
-
-1591:     function _checkpointBondingState(
-              address _owner,
-              Delegator storage _delegator,
-              Transcoder storage _transcoder
-          ) internal {
-
 1643:     function treasury() internal view returns (address) {
 
 1647:     function bondingVotes() internal view returns (IBondingVotes) {
 
-1651:     function _onlyTicketBroker() internal view {
-
-1655:     function _onlyRoundsManager() internal view {
-
-1659:     function _onlyVerifier() internal view {
-
-1663:     function _currentRoundInitialized() internal view {
-
-1667:     function _autoClaimEarnings(address _delegator) internal {
-
 ```
-[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L167) [#L176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L176) [#L186](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L186) [#L198](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L198) [#L207](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L207) [#L215](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L215) [#L223](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L223) [#L232](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L232) [#L241](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L241) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L293](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L293) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L447](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L447) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L462) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L640](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L640) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L796](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L796) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L1176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1176) [#L1189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1189) [#L1294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1294) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1459) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1591](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1591) [#L1643](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1643) [#L1647](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1647) [#L1651](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1651) [#L1655](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1655) [#L1659](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1659) [#L1663](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1663) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) 
+[#L1189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1189) [#L1643](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1643) [#L1647](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1647) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -1597,38 +1413,9 @@ File: contracts/bonding/BondingVotes.sol
 
 218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
 
-226:     function delegate(address) external pure {
-
-233:     function delegateBySig(
-             address,
-             uint256,
-             uint256,
-             uint8,
-             bytes32,
-             bytes32
-         ) external pure {
-
-258:     function checkpointBondingState(
-             address _account,
-             uint256 _startRound,
-             uint256 _bondedAmount,
-             address _delegateAddress,
-             uint256 _delegatedAmount,
-             uint256 _lastClaimRound,
-             uint256 _lastRewardRound
-         ) external virtual onlyBondingManager {
-
-303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
-
 315:     function hasCheckpoint(address _account) public view returns (bool) {
 
 325:     function getTotalActiveStakeAt(uint256 _round) public view virtual returns (uint256) {
-
-387:     function onBondingCheckpointChanged(
-             address _account,
-             BondingCheckpoint memory previous,
-             BondingCheckpoint memory current
-         ) internal {
 
 520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
              internal
@@ -1640,19 +1427,11 @@ File: contracts/bonding/BondingVotes.sol
 
 546:     function roundsManager() internal view returns (IRoundsManager) {
 
-553:     function _onlyBondingManager() internal view {
-
 ```
-[#L115](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L115) [#L122](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L122) [#L129](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L129) [#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L137) [#L145](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L145) [#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L181) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L226](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L226) [#L233](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L233) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L325) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) [#L539](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L539) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) [#L553](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L553) 
+[#L115](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L115) [#L122](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L122) [#L129](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L129) [#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L137) [#L145](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L145) [#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L181) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L325) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) [#L539](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L539) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) 
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
-
-59:     function updateTranscoderWithFees(
-
-65:     function slashTranscoder(
-
-72:     function setCurrentRoundTotalActiveStake() external;
 
 75:     function getTranscoderPoolSize() external view returns (uint256);
 
@@ -1667,40 +1446,10 @@ File: contracts/bonding/IBondingManager.sol
 85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
 
 ```
-[#L59](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L59) [#L65](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L65) [#L72](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L72) [#L75](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L75) [#L77](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L77) [#L79](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L79) [#L81](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L81) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L83) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-18:     function updateCumulativeFeeFactor(
-            EarningsPool.Data storage earningsPool,
-            EarningsPool.Data memory _prevEarningsPool,
-            uint256 _fees
-        ) internal {
-
-47:     function updateCumulativeRewardFactor(
-            EarningsPool.Data storage earningsPool,
-            EarningsPool.Data memory _prevEarningsPool,
-            uint256 _rewards
-        ) internal {
-
-```
-[#L18](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L18) [#L47](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L47) 
-
-```solidity
-File: contracts/bonding/libraries/SortedArrays.sol
-
-64:     function pushSorted(uint256[] storage array, uint256 val) internal {
-
-```
-[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L64) 
+[#L75](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L75) [#L77](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L77) [#L79](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L79) [#L81](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L81) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L83) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
-
-64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
-
-68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
 76:     function COUNTING_MODE() public pure virtual override returns (string memory) {
 
@@ -1721,14 +1470,6 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 118:     function _voteSucceeded(uint256 _proposalId) internal view virtual override returns (bool) {
 
-130:     function _countVote(
-             uint256 _proposalId,
-             address _account,
-             uint8 _supportInt,
-             uint256 _weight,
-             bytes memory // params
-         ) internal virtual override {
-
 174:     function _handleVoteOverrides(
              uint256 _proposalId,
              ProposalTally storage _tally,
@@ -1740,7 +1481,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 217:     function votes() public view virtual returns (IVotes);
 
 ```
-[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L64) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L68) [#L76](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L76) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L83) [#L90](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L90) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L118](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L118) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) [#L217](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L217) 
+[#L76](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L76) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L83) [#L90](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L90) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L118](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L118) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) [#L217](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L217) 
 
 ```solidity
 File: contracts/treasury/IVotes.sol
@@ -1761,19 +1502,9 @@ File: contracts/treasury/IVotes.sol
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-54:     function initialize(
-            uint256 initialVotingDelay,
-            uint256 initialVotingPeriod,
-            uint256 initialProposalThreshold,
-            uint256 initialQuorum,
-            uint256 quota
-        ) public initializer {
-
 78:     function quorumDenominator() public view virtual override returns (uint256) {
 
 85:     function votes() public view override returns (IVotes) {
-
-94:     function bumpGovernorVotesTokenAddress() external {
 
 101:     function bondingVotes() internal view returns (IVotes) {
 
@@ -1792,14 +1523,6 @@ File: contracts/treasury/LivepeerGovernor.sol
              override(GovernorUpgradeable, GovernorTimelockControlUpgradeable)
              returns (ProposalState)
          {
-
-132:     function _execute(
-             uint256 proposalId,
-             address[] memory targets,
-             uint256[] memory values,
-             bytes[] memory calldatas,
-             bytes32 descriptionHash
-         ) internal override(GovernorUpgradeable, GovernorTimelockControlUpgradeable) {
 
 142:     function _cancel(
              address[] memory targets,
@@ -1823,20 +1546,7 @@ File: contracts/treasury/LivepeerGovernor.sol
          {
 
 ```
-[#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L78](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L78) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L85) [#L94](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L94) [#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L101) [#L108](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L108) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L123) [#L132](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L132) [#L142](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L142) [#L151](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L151) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L160) 
-
-```solidity
-File: contracts/treasury/Treasury.sol
-
-16:     function initialize(
-            uint256 minDelay,
-            address[] memory proposers,
-            address[] memory executors,
-            address admin
-        ) external initializer {
-
-```
-[#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
+[#L78](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L78) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L85) [#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L101) [#L108](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L108) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L123) [#L142](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L142) [#L151](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L151) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L160) 
 
 </details>
 
