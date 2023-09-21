@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>401</b> instances over <b>31</b> issues:
+Total <b>402</b> instances over <b>31</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -50,7 +50,7 @@ Total <b>401</b> instances over <b>31</b> issues:
 | [NC-13](#NC-13) | Public variable declarations should have NatSpec descriptions | 6 |
 | [NC-14](#NC-14) | NatSpec `@return` is missing | 46 |
 | [NC-15](#NC-15) | Redundant inheritance specifier | 1 |
-| [NC-16](#NC-16) | Redundant `return` statement in a function with named return variables | 1 |
+| [NC-16](#NC-16) | Redundant `return` statement in a function with named return variables | 2 |
 | [NC-17](#NC-17) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-18](#NC-18) | Lines are too long | 2 |
 | [NC-19](#NC-19) | Unused contract variables | 7 |
@@ -2096,11 +2096,21 @@ Because the return variable (or its default value) has been assigned, explicit r
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
+
+1189:     function cumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
+              internal
+              view
+              returns (EarningsPool.Data memory pool)
+          {
+              pool.cumulativeRewardFactor = _transcoder.earningsPoolPerRound[_round].cumulativeRewardFactor;
+              pool.cumulativeFeeFactor = _transcoder.earningsPoolPerRound[_round].cumulativeFeeFactor;
+      
+              return pool;
 
 1206:     function latestCumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
               internal
@@ -2124,7 +2134,7 @@ File: contracts/bonding/BondingManager.sol
               return pool;
 
 ```
-[#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) 
+[#L1189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1189) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) 
 
 </details>
 
