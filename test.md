@@ -433,18 +433,18 @@ There are <b>9</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-141:      * @notice BondingManager constructor. Only invokes constructor of base Manager contract with provided Controller address
+23: contract BondingManager is ManagerProxyTarget, IBondingManager {
 
 ```
-[#L141](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L141) 
+[#L23](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L23) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-104:      * @notice BondingVotes constructor. Only invokes constructor of base Manager contract with provided Controller address
+20: contract BondingVotes is ManagerProxyTarget, IBondingVotes {
 
 ```
-[#L104](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L104) 
+[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L20) 
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
