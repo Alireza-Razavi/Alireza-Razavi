@@ -31,26 +31,28 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>170</b> instances over <b>16</b> issues:
+Total <b>182</b> instances over <b>18</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | `assert()` should be replaced with `require()` or `revert()` | 2 |
-| [NC-2](#NC-2) | Custom errors has no error details | 1 |
-| [NC-3](#NC-3) | Custom errors should be used rather than `revert()`/`require()` | 25 |
-| [NC-4](#NC-4) | Import declarations should import specific identifiers, rather than the whole file | 52 |
-| [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
-| [NC-7](#NC-7) | Lines are too long | 2 |
-| [NC-8](#NC-8) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-9](#NC-9) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-10](#NC-10) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-11](#NC-11) | Common functions should be refactored to a common base contract | 2 |
-| [NC-12](#NC-12) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-13](#NC-13) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-14](#NC-14) | Variables should be named in mixedCase style | 1 |
-| [NC-15](#NC-15) | Event is missing `indexed` fields | 12 |
-| [NC-16](#NC-16) | Functions not used internally could be marked external | 17 |
+| [NC-2](#NC-2) | Contract declarations should have NatSpec `@author` annotations | 9 |
+| [NC-3](#NC-3) | Custom errors has no error details | 1 |
+| [NC-4](#NC-4) | Custom errors should be used rather than `revert()`/`require()` | 25 |
+| [NC-5](#NC-5) | Import declarations should import specific identifiers, rather than the whole file | 52 |
+| [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
+| [NC-8](#NC-8) | Redundant inheritance specifier | 1 |
+| [NC-9](#NC-9) | Lines are too long | 2 |
+| [NC-10](#NC-10) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-11](#NC-11) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-12](#NC-12) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-13](#NC-13) | Common functions should be refactored to a common base contract | 2 |
+| [NC-14](#NC-14) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-15](#NC-15) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-16](#NC-16) | Variables should be named in mixedCase style | 1 |
+| [NC-17](#NC-17) | Event is missing `indexed` fields | 12 |
+| [NC-18](#NC-18) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -421,7 +423,91 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ---
 
 <a name="NC-2"></a> 
-#### [NC-2] Custom errors has no error details
+#### [NC-2] Contract declarations should have NatSpec `@author` annotations
+
+<details>
+<summary>
+There are <b>9</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+141:      * @notice BondingManager constructor. Only invokes constructor of base Manager contract with provided Controller address
+
+```
+[#L141](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L141) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+104:      * @notice BondingVotes constructor. Only invokes constructor of base Manager contract with provided Controller address
+
+```
+[#L104](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L104) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+97: undefined
+
+```
+[#L97](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L97) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+101: undefined
+
+```
+[#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L101) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+83: undefined
+
+```
+[#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L83) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+21: abstract contract GovernorCountingOverridable is Initializable, GovernorUpgradeable {
+
+```
+[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L21) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+20: undefined
+
+```
+[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L20) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+22:  * @notice Core contract for Livepeer governance, starting as the treasury governor.
+
+```
+[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L22) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+12:  * Even though this contract is upgradeable to fit with the rest of the contracts that expect upgradeable instances, it
+
+```
+[#L12](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L12) 
+
+</details>
+
+---
+
+<a name="NC-3"></a> 
+#### [NC-3] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
 <details>
@@ -441,8 +527,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-3"></a> 
-#### [NC-3] Custom errors should be used rather than `revert()`/`require()`
+<a name="NC-4"></a> 
+#### [NC-4] Custom errors should be used rather than `revert()`/`require()`
 Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
 <details>
@@ -510,8 +596,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-4"></a> 
-#### [NC-4] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-5"></a> 
+#### [NC-5] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
@@ -681,8 +767,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="NC-5"></a> 
-#### [NC-5] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-6"></a> 
+#### [NC-6] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -718,8 +804,45 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-6"></a> 
-#### [NC-6] Redundant inheritance specifier
+<a name="NC-7"></a> 
+#### [NC-7] NatSpec documentation for contract is missing
+e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
+
+<details>
+<summary>
+There are <b>3</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+97: undefined
+
+```
+[#L97](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L97) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+20: undefined
+
+```
+[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L20) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+22:  * @notice Core contract for Livepeer governance, starting as the treasury governor.
+
+```
+[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L22) 
+
+</details>
+
+---
+
+<a name="NC-8"></a> 
+#### [NC-8] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
 <details>
@@ -749,8 +872,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-7"></a> 
-#### [NC-7] Lines are too long
+<a name="NC-9"></a> 
+#### [NC-9] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -772,8 +895,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-10"></a> 
+#### [NC-10] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -793,8 +916,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Use `@inheritdoc` for overridden functions
+<a name="NC-11"></a> 
+#### [NC-11] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -829,8 +952,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Visibility of state variables is not explicitly defined
+<a name="NC-12"></a> 
+#### [NC-12] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -850,8 +973,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Common functions should be refactored to a common base contract
+<a name="NC-13"></a> 
+#### [NC-13] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -881,8 +1004,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-14"></a> 
+#### [NC-14] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1075,8 +1198,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-13"></a> 
-#### [NC-13] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-15"></a> 
+#### [NC-15] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1112,8 +1235,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-14"></a> 
-#### [NC-14] Variables should be named in mixedCase style
+<a name="NC-16"></a> 
+#### [NC-16] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1133,8 +1256,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-15"></a> 
-#### [NC-15] Event is missing `indexed` fields
+<a name="NC-17"></a> 
+#### [NC-17] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1176,8 +1299,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-16"></a> 
-#### [NC-16] Functions not used internally could be marked external
+<a name="NC-18"></a> 
+#### [NC-18] Functions not used internally could be marked external
 
 <details>
 <summary>
