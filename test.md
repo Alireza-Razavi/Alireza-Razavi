@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>403</b> instances over <b>32</b> issues:
+Total <b>417</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -53,20 +53,21 @@ Total <b>403</b> instances over <b>32</b> issues:
 | [NC-16](#NC-16) | Redundant `return` statement in a function with named return variables | 2 |
 | [NC-17](#NC-17) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-18](#NC-18) | Lines are too long | 2 |
-| [NC-19](#NC-19) | Unused contract variables | 7 |
-| [NC-20](#NC-20) | Consider using `delete` rather than assigning zero to clear values | 5 |
-| [NC-21](#NC-21) | Solidity compiler version is not fixed | 1 |
-| [NC-22](#NC-22) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-23](#NC-23) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-24](#NC-24) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-25](#NC-25) | Whitespace in Expressions | 5 |
-| [NC-26](#NC-26) | Common functions should be refactored to a common base contract | 2 |
-| [NC-27](#NC-27) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-28](#NC-28) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-29](#NC-29) | Variables should be named in mixedCase style | 1 |
-| [NC-30](#NC-30) | `TODO`s left in the code | 1 |
-| [NC-31](#NC-31) | Event is missing `indexed` fields | 12 |
-| [NC-32](#NC-32) | Functions not used internally could be marked external | 17 |
+| [NC-19](#NC-19) | Unused named return | 14 |
+| [NC-20](#NC-20) | Unused contract variables | 7 |
+| [NC-21](#NC-21) | Consider using `delete` rather than assigning zero to clear values | 5 |
+| [NC-22](#NC-22) | Solidity compiler version is not fixed | 1 |
+| [NC-23](#NC-23) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-24](#NC-24) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-25](#NC-25) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-26](#NC-26) | Whitespace in Expressions | 5 |
+| [NC-27](#NC-27) | Common functions should be refactored to a common base contract | 2 |
+| [NC-28](#NC-28) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-29](#NC-29) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-30](#NC-30) | Variables should be named in mixedCase style | 1 |
+| [NC-31](#NC-31) | `TODO`s left in the code | 1 |
+| [NC-32](#NC-32) | Event is missing `indexed` fields | 12 |
+| [NC-33](#NC-33) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -2194,7 +2195,217 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-19"></a> 
-#### [NC-19] Unused contract variables
+#### [NC-19] Unused named return
+Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
+
+<details>
+<summary>
+There are <b>14</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+// `lastRewardRound` not used
+// `rewardCut` not used
+// `feeShare` not used
+// `lastActiveStakeUpdateRound` not used
+// `activationRound` not used
+// `deactivationRound` not used
+// `activeCumulativeRewards` not used
+// `cumulativeRewards` not used
+// `cumulativeFees` not used
+// `lastFeeRound` not used
+987:     function getTranscoder(address _transcoder)
+             public
+             view
+             returns (
+                 uint256 lastRewardRound,
+                 uint256 rewardCut,
+                 uint256 feeShare,
+                 uint256 lastActiveStakeUpdateRound,
+                 uint256 activationRound,
+                 uint256 deactivationRound,
+                 uint256 activeCumulativeRewards,
+                 uint256 cumulativeRewards,
+                 uint256 cumulativeFees,
+                 uint256 lastFeeRound
+             )
+         {
+
+// `totalStake` not used
+// `transcoderRewardCut` not used
+// `transcoderFeeShare` not used
+// `cumulativeRewardFactor` not used
+// `cumulativeFeeFactor` not used
+1027:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+              public
+              view
+              returns (
+                  uint256 totalStake,
+                  uint256 transcoderRewardCut,
+                  uint256 transcoderFeeShare,
+                  uint256 cumulativeRewardFactor,
+                  uint256 cumulativeFeeFactor
+              )
+          {
+
+// `bondedAmount` not used
+// `fees` not used
+// `delegateAddress` not used
+// `delegatedAmount` not used
+// `startRound` not used
+// `lastClaimRound` not used
+// `nextUnbondingLockId` not used
+1058:     function getDelegator(address _delegator)
+              public
+              view
+              returns (
+                  uint256 bondedAmount,
+                  uint256 fees,
+                  address delegateAddress,
+                  uint256 delegatedAmount,
+                  uint256 startRound,
+                  uint256 lastClaimRound,
+                  uint256 nextUnbondingLockId
+              )
+          {
+
+// `amount` not used
+// `withdrawRound` not used
+1089:     function getDelegatorUnbondingLock(address _delegator, uint256 _unbondingLockId)
+              public
+              view
+              returns (uint256 amount, uint256 withdrawRound)
+          {
+
+// `pool` not used
+1189:     function cumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
+              internal
+              view
+              returns (EarningsPool.Data memory pool)
+          {
+
+// `pool` not used
+1206:     function latestCumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
+              internal
+              view
+              returns (EarningsPool.Data memory pool)
+          {
+
+// `cStake` not used
+// `cFees` not used
+1238:     function delegatorCumulativeStakeAndFees(
+              Transcoder storage _transcoder,
+              uint256 _startRound,
+              uint256 _endRound,
+              uint256 _stake,
+              uint256 _fees
+          ) internal view returns (uint256 cStake, uint256 cFees) {
+
+// `stake` not used
+// `fees` not used
+1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
+              internal
+              view
+              returns (uint256 stake, uint256 fees)
+          {
+
+```
+[#L987](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L987) [#L1027](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1027) [#L1058](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1058) [#L1089](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1089) [#L1189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1189) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) [#L1259](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1259) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+// `amount` not used
+// `delegateAddress` not used
+361:     function getBondingStateAt(address _account, uint256 _round)
+             public
+             view
+             virtual
+             returns (uint256 amount, address delegateAddress)
+         {
+
+// `rewardRound` not used
+// `pool` not used
+499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (uint256 rewardRound, EarningsPool.Data memory pool)
+         {
+
+// `pool` not used
+520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (EarningsPool.Data memory pool)
+         {
+
+```
+[#L361](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L361) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+// `totalStake` not used
+// `transcoderRewardCut` not used
+// `transcoderFeeShare` not used
+// `cumulativeRewardFactor` not used
+// `cumulativeFeeFactor` not used
+85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+            external
+            view
+            returns (
+                uint256 totalStake,
+                uint256 transcoderRewardCut,
+                uint256 transcoderFeeShare,
+                uint256 cumulativeRewardFactor,
+                uint256 cumulativeFeeFactor
+
+```
+[#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+// `cStake` not used
+// `cFees` not used
+71:     function delegatorCumulativeStakeAndFees(
+            EarningsPool.Data memory _startPool,
+            EarningsPool.Data memory _endPool,
+            uint256 _stake,
+            uint256 _fees
+        ) internal pure returns (uint256 cStake, uint256 cFees) {
+
+```
+[#L71](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L71) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+// `againstVotes` not used
+// `forVotes` not used
+// `abstainVotes` not used
+90:     function proposalVotes(uint256 _proposalId)
+            public
+            view
+            virtual
+            returns (
+                uint256 againstVotes,
+                uint256 forVotes,
+                uint256 abstainVotes
+            )
+        {
+
+```
+[#L90](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L90) 
+
+</details>
+
+---
+
+<a name="NC-20"></a> 
+#### [NC-20] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 <details>
@@ -2238,8 +2449,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-20"></a> 
-#### [NC-20] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-21"></a> 
+#### [NC-21] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -2273,8 +2484,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-21"></a> 
-#### [NC-21] Solidity compiler version is not fixed
+<a name="NC-22"></a> 
+#### [NC-22] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 <details>
@@ -2294,8 +2505,8 @@ File: contracts/bonding/IBondingVotes.sol
 
 ---
 
-<a name="NC-22"></a> 
-#### [NC-22] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-23"></a> 
+#### [NC-23] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -2315,8 +2526,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-23"></a> 
-#### [NC-23] Use `@inheritdoc` for overridden functions
+<a name="NC-24"></a> 
+#### [NC-24] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -2351,8 +2562,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-24"></a> 
-#### [NC-24] Visibility of state variables is not explicitly defined
+<a name="NC-25"></a> 
+#### [NC-25] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -2372,8 +2583,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-25"></a> 
-#### [NC-25] Whitespace in Expressions
+<a name="NC-26"></a> 
+#### [NC-26] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 <details>
@@ -2413,8 +2624,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-26"></a> 
-#### [NC-26] Common functions should be refactored to a common base contract
+<a name="NC-27"></a> 
+#### [NC-27] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -2444,8 +2655,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-27"></a> 
-#### [NC-27] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-28"></a> 
+#### [NC-28] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2638,8 +2849,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-28"></a> 
-#### [NC-28] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-29"></a> 
+#### [NC-29] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2675,8 +2886,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-29"></a> 
-#### [NC-29] Variables should be named in mixedCase style
+<a name="NC-30"></a> 
+#### [NC-30] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -2696,8 +2907,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-30"></a> 
-#### [NC-30] `TODO`s left in the code
+<a name="NC-31"></a> 
+#### [NC-31] `TODO`s left in the code
 TODOs may signal that a feature is missing or not ready for audit, consider resolving the issue and removing the TODO comment.
 
 <details>
@@ -2717,8 +2928,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-31"></a> 
-#### [NC-31] Event is missing `indexed` fields
+<a name="NC-32"></a> 
+#### [NC-32] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -2760,8 +2971,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-32"></a> 
-#### [NC-32] Functions not used internally could be marked external
+<a name="NC-33"></a> 
+#### [NC-33] Functions not used internally could be marked external
 
 <details>
 <summary>
