@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>183</b> instances over <b>18</b> issues:
+Total <b>182</b> instances over <b>18</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,7 +41,7 @@ Total <b>183</b> instances over <b>18</b> issues:
 | [NC-4](#NC-4) | Custom errors should be used rather than `revert()`/`require()` | 25 |
 | [NC-5](#NC-5) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-7](#NC-7) | NatSpec documentation for contract is missing | 4 |
+| [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
 | [NC-8](#NC-8) | Redundant inheritance specifier | 1 |
 | [NC-9](#NC-9) | Lines are too long | 2 |
 | [NC-10](#NC-10) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
@@ -449,10 +449,10 @@ File: contracts/bonding/BondingVotes.sol
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-6:  * TODO: switch to interface type
+8: interface IBondingManager {
 
 ```
-[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L6) 
+[#L8](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L8) 
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
@@ -489,18 +489,18 @@ File: contracts/treasury/IVotes.sol
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-22:  * @notice Core contract for Livepeer governance, starting as the treasury governor.
+170: undefined
 
 ```
-[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L22) 
+[#L170](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L170) 
 
 ```solidity
 File: contracts/treasury/Treasury.sol
 
-12:  * Even though this contract is upgradeable to fit with the rest of the contracts that expect upgradeable instances, it
+15: contract Treasury is Initializable, TimelockControllerUpgradeable {
 
 ```
-[#L12](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L12) 
+[#L15](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L15) 
 
 </details>
 
@@ -810,16 +810,16 @@ e.g. `@dev` or `@notice`, and it must appear above the contract definition brace
 
 <details>
 <summary>
-There are <b>4</b> instances (click to show):
+There are <b>3</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-6:  * TODO: switch to interface type
+8: interface IBondingManager {
 
 ```
-[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L6) 
+[#L8](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L8) 
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
@@ -836,14 +836,6 @@ File: contracts/treasury/IVotes.sol
 
 ```
 [#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
-
-```solidity
-File: contracts/treasury/LivepeerGovernor.sol
-
-22:  * @notice Core contract for Livepeer governance, starting as the treasury governor.
-
-```
-[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L22) 
 
 </details>
 
