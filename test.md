@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>405</b> instances over <b>33</b> issues:
+Total <b>404</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -53,7 +53,7 @@ Total <b>405</b> instances over <b>33</b> issues:
 | [NC-16](#NC-16) | Redundant `return` statement in a function with named return variables | 2 |
 | [NC-17](#NC-17) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-18](#NC-18) | Lines are too long | 2 |
-| [NC-19](#NC-19) | Unused named return | 2 |
+| [NC-19](#NC-19) | Unused named return | 1 |
 | [NC-20](#NC-20) | Unused contract variables | 7 |
 | [NC-21](#NC-21) | Consider using `delete` rather than assigning zero to clear values | 5 |
 | [NC-22](#NC-22) | Solidity compiler version is not fixed | 1 |
@@ -2200,7 +2200,7 @@ Declaring named returns, but not using them, is confusing to the reader. Conside
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -2218,27 +2218,6 @@ File: contracts/bonding/BondingManager.sol
 
 ```
 [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) 
-
-```solidity
-File: contracts/bonding/IBondingManager.sol
-
-// `totalStake` not used
-// `transcoderRewardCut` not used
-// `transcoderFeeShare` not used
-// `cumulativeRewardFactor` not used
-// `cumulativeFeeFactor` not used
-85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
-            external
-            view
-            returns (
-                uint256 totalStake,
-                uint256 transcoderRewardCut,
-                uint256 transcoderFeeShare,
-                uint256 cumulativeRewardFactor,
-                uint256 cumulativeFeeFactor
-
-```
-[#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
 
 </details>
 
