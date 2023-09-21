@@ -433,74 +433,74 @@ There are <b>9</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-141:      * @notice BondingManager constructor. Only invokes constructor of base Manager contract with provided Controller address
+142:      * @dev This constructor will not initialize any state variables besides `controller`. The following setter functions
 
 ```
-[#L141](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L141) 
+[#L142](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L142) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-104:      * @notice BondingVotes constructor. Only invokes constructor of base Manager contract with provided Controller address
+105:      * @param _controller Address of Controller that this contract will be registered with
 
 ```
-[#L104](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L104) 
+[#L105](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L105) 
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-97: undefined
+98: undefined
 
 ```
-[#L97](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L97) 
+[#L98](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L98) 
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
-101: undefined
+102: undefined
 
 ```
-[#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L101) 
+[#L102](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L102) 
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
 
-83: undefined
+84: undefined
 
 ```
-[#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L83) 
+[#L84](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L84) 
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
-21: abstract contract GovernorCountingOverridable is Initializable, GovernorUpgradeable {
+22:     error InvalidVoteType(uint8 voteType);
 
 ```
-[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L21) 
+[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L22) 
 
 ```solidity
 File: contracts/treasury/IVotes.sol
 
-20: undefined
+21: undefined
 
 ```
-[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L20) 
+[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L21) 
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-22:  * @notice Core contract for Livepeer governance, starting as the treasury governor.
+23:  * @dev If we ever add fields to this class or more extensions, make sure to add a storage gap to our custom
 
 ```
-[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L22) 
+[#L23](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L23) 
 
 ```solidity
 File: contracts/treasury/Treasury.sol
 
-12:  * Even though this contract is upgradeable to fit with the rest of the contracts that expect upgradeable instances, it
+13:  * is not used with a proxy, so we don't need to disable initializers in the constructor.
 
 ```
-[#L12](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L12) 
+[#L13](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L13) 
 
 </details>
 
@@ -816,26 +816,26 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-97: undefined
+98: undefined
 
 ```
-[#L97](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L97) 
+[#L98](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L98) 
 
 ```solidity
 File: contracts/treasury/IVotes.sol
 
-20: undefined
+21: undefined
 
 ```
-[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L20) 
+[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L21) 
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-22:  * @notice Core contract for Livepeer governance, starting as the treasury governor.
+23:  * @dev If we ever add fields to this class or more extensions, make sure to add a storage gap to our custom
 
 ```
-[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L22) 
+[#L23](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L23) 
 
 </details>
 
