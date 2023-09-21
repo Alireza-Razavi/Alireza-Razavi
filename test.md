@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>182</b> instances over <b>18</b> issues:
+Total <b>183</b> instances over <b>18</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,7 +41,7 @@ Total <b>182</b> instances over <b>18</b> issues:
 | [NC-4](#NC-4) | Custom errors should be used rather than `revert()`/`require()` | 25 |
 | [NC-5](#NC-5) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
+| [NC-7](#NC-7) | NatSpec documentation for contract is missing | 4 |
 | [NC-8](#NC-8) | Redundant inheritance specifier | 1 |
 | [NC-9](#NC-9) | Lines are too long | 2 |
 | [NC-10](#NC-10) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
@@ -449,26 +449,26 @@ File: contracts/bonding/BondingVotes.sol
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-97: undefined
+6:  * TODO: switch to interface type
 
 ```
-[#L97](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L97) 
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L6) 
 
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
-101: undefined
+9: library EarningsPoolLIP36 {
 
 ```
-[#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L101) 
+[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L9) 
 
 ```solidity
 File: contracts/bonding/libraries/SortedArrays.sol
 
-83: undefined
+12: library SortedArrays {
 
 ```
-[#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L83) 
+[#L12](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L12) 
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
@@ -481,10 +481,10 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```solidity
 File: contracts/treasury/IVotes.sol
 
-20: undefined
+6: interface IVotes is IERC5805Upgradeable {
 
 ```
-[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L20) 
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
@@ -810,24 +810,32 @@ e.g. `@dev` or `@notice`, and it must appear above the contract definition brace
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There are <b>4</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-97: undefined
+6:  * TODO: switch to interface type
 
 ```
-[#L97](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L97) 
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L6) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+9: library EarningsPoolLIP36 {
+
+```
+[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L9) 
 
 ```solidity
 File: contracts/treasury/IVotes.sol
 
-20: undefined
+6: interface IVotes is IERC5805Upgradeable {
 
 ```
-[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L20) 
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
