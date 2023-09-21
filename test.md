@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>325</b> instances over <b>27</b> issues:
+Total <b>329</b> instances over <b>28</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -51,17 +51,18 @@ Total <b>325</b> instances over <b>27</b> issues:
 | [NC-14](#NC-14) | Redundant inheritance specifier | 1 |
 | [NC-15](#NC-15) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-16](#NC-16) | Lines are too long | 2 |
-| [NC-17](#NC-17) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-18](#NC-18) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-19](#NC-19) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-20](#NC-20) | Whitespace in Expressions | 5 |
-| [NC-21](#NC-21) | Common functions should be refactored to a common base contract | 2 |
-| [NC-22](#NC-22) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-23](#NC-23) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-24](#NC-24) | Variables should be named in mixedCase style | 1 |
-| [NC-25](#NC-25) | `TODO`s left in the code | 1 |
-| [NC-26](#NC-26) | Event is missing `indexed` fields | 12 |
-| [NC-27](#NC-27) | Functions not used internally could be marked external | 17 |
+| [NC-17](#NC-17) | Consider using `delete` rather than assigning zero to clear values | 4 |
+| [NC-18](#NC-18) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-19](#NC-19) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-20](#NC-20) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-21](#NC-21) | Whitespace in Expressions | 5 |
+| [NC-22](#NC-22) | Common functions should be refactored to a common base contract | 2 |
+| [NC-23](#NC-23) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-24](#NC-24) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-25](#NC-25) | Variables should be named in mixedCase style | 1 |
+| [NC-26](#NC-26) | `TODO`s left in the code | 1 |
+| [NC-27](#NC-27) | Event is missing `indexed` fields | 12 |
+| [NC-28](#NC-28) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -1668,7 +1669,40 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-17"></a> 
-#### [NC-17] Expressions for constant values should use `immutable` rather than `constant`
+#### [NC-17] Consider using `delete` rather than assigning zero to clear values
+The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+773:             del.startRound = 0;
+
+1535:                 t.cumulativeFees = 0;
+
+1536:                 t.cumulativeRewards = 0;
+
+```
+[#L773](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L773) [#L1535](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1535) [#L1536](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1536) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+373:             amount = 0;
+
+```
+[#L373](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L373) 
+
+</details>
+
+---
+
+<a name="NC-18"></a> 
+#### [NC-18] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -1688,8 +1722,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-18"></a> 
-#### [NC-18] Use `@inheritdoc` for overridden functions
+<a name="NC-19"></a> 
+#### [NC-19] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -1724,8 +1758,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-19"></a> 
-#### [NC-19] Visibility of state variables is not explicitly defined
+<a name="NC-20"></a> 
+#### [NC-20] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -1745,8 +1779,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-20"></a> 
-#### [NC-20] Whitespace in Expressions
+<a name="NC-21"></a> 
+#### [NC-21] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 <details>
@@ -1786,8 +1820,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-21"></a> 
-#### [NC-21] Common functions should be refactored to a common base contract
+<a name="NC-22"></a> 
+#### [NC-22] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -1817,8 +1851,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-22"></a> 
-#### [NC-22] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-23"></a> 
+#### [NC-23] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2011,8 +2045,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-23"></a> 
-#### [NC-23] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-24"></a> 
+#### [NC-24] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2048,8 +2082,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-24"></a> 
-#### [NC-24] Variables should be named in mixedCase style
+<a name="NC-25"></a> 
+#### [NC-25] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -2069,8 +2103,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-25"></a> 
-#### [NC-25] `TODO`s left in the code
+<a name="NC-26"></a> 
+#### [NC-26] `TODO`s left in the code
 TODOs may signal that a feature is missing or not ready for audit, consider resolving the issue and removing the TODO comment.
 
 <details>
@@ -2090,8 +2124,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-26"></a> 
-#### [NC-26] Event is missing `indexed` fields
+<a name="NC-27"></a> 
+#### [NC-27] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -2133,8 +2167,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-27"></a> 
-#### [NC-27] Functions not used internally could be marked external
+<a name="NC-28"></a> 
+#### [NC-28] Functions not used internally could be marked external
 
 <details>
 <summary>
