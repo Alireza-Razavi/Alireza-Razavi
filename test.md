@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>417</b> instances over <b>33</b> issues:
+Total <b>405</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -53,7 +53,7 @@ Total <b>417</b> instances over <b>33</b> issues:
 | [NC-16](#NC-16) | Redundant `return` statement in a function with named return variables | 2 |
 | [NC-17](#NC-17) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-18](#NC-18) | Lines are too long | 2 |
-| [NC-19](#NC-19) | Unused named return | 14 |
+| [NC-19](#NC-19) | Unused named return | 2 |
 | [NC-20](#NC-20) | Unused contract variables | 7 |
 | [NC-21](#NC-21) | Consider using `delete` rather than assigning zero to clear values | 5 |
 | [NC-22](#NC-22) | Solidity compiler version is not fixed | 1 |
@@ -2200,98 +2200,11 @@ Declaring named returns, but not using them, is confusing to the reader. Conside
 
 <details>
 <summary>
-There are <b>14</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
-
-// `lastRewardRound` not used
-// `rewardCut` not used
-// `feeShare` not used
-// `lastActiveStakeUpdateRound` not used
-// `activationRound` not used
-// `deactivationRound` not used
-// `activeCumulativeRewards` not used
-// `cumulativeRewards` not used
-// `cumulativeFees` not used
-// `lastFeeRound` not used
-987:     function getTranscoder(address _transcoder)
-             public
-             view
-             returns (
-                 uint256 lastRewardRound,
-                 uint256 rewardCut,
-                 uint256 feeShare,
-                 uint256 lastActiveStakeUpdateRound,
-                 uint256 activationRound,
-                 uint256 deactivationRound,
-                 uint256 activeCumulativeRewards,
-                 uint256 cumulativeRewards,
-                 uint256 cumulativeFees,
-                 uint256 lastFeeRound
-             )
-         {
-
-// `totalStake` not used
-// `transcoderRewardCut` not used
-// `transcoderFeeShare` not used
-// `cumulativeRewardFactor` not used
-// `cumulativeFeeFactor` not used
-1027:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
-              public
-              view
-              returns (
-                  uint256 totalStake,
-                  uint256 transcoderRewardCut,
-                  uint256 transcoderFeeShare,
-                  uint256 cumulativeRewardFactor,
-                  uint256 cumulativeFeeFactor
-              )
-          {
-
-// `bondedAmount` not used
-// `fees` not used
-// `delegateAddress` not used
-// `delegatedAmount` not used
-// `startRound` not used
-// `lastClaimRound` not used
-// `nextUnbondingLockId` not used
-1058:     function getDelegator(address _delegator)
-              public
-              view
-              returns (
-                  uint256 bondedAmount,
-                  uint256 fees,
-                  address delegateAddress,
-                  uint256 delegatedAmount,
-                  uint256 startRound,
-                  uint256 lastClaimRound,
-                  uint256 nextUnbondingLockId
-              )
-          {
-
-// `amount` not used
-// `withdrawRound` not used
-1089:     function getDelegatorUnbondingLock(address _delegator, uint256 _unbondingLockId)
-              public
-              view
-              returns (uint256 amount, uint256 withdrawRound)
-          {
-
-// `pool` not used
-1189:     function cumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
-              internal
-              view
-              returns (EarningsPool.Data memory pool)
-          {
-
-// `pool` not used
-1206:     function latestCumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
-              internal
-              view
-              returns (EarningsPool.Data memory pool)
-          {
 
 // `cStake` not used
 // `cFees` not used
@@ -2303,46 +2216,8 @@ File: contracts/bonding/BondingManager.sol
               uint256 _fees
           ) internal view returns (uint256 cStake, uint256 cFees) {
 
-// `stake` not used
-// `fees` not used
-1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
-              internal
-              view
-              returns (uint256 stake, uint256 fees)
-          {
-
 ```
-[#L987](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L987) [#L1027](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1027) [#L1058](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1058) [#L1089](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1089) [#L1189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1189) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) [#L1259](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1259) 
-
-```solidity
-File: contracts/bonding/BondingVotes.sol
-
-// `amount` not used
-// `delegateAddress` not used
-361:     function getBondingStateAt(address _account, uint256 _round)
-             public
-             view
-             virtual
-             returns (uint256 amount, address delegateAddress)
-         {
-
-// `rewardRound` not used
-// `pool` not used
-499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
-             internal
-             view
-             returns (uint256 rewardRound, EarningsPool.Data memory pool)
-         {
-
-// `pool` not used
-520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
-             internal
-             view
-             returns (EarningsPool.Data memory pool)
-         {
-
-```
-[#L361](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L361) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
+[#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) 
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
@@ -2364,41 +2239,6 @@ File: contracts/bonding/IBondingManager.sol
 
 ```
 [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-// `cStake` not used
-// `cFees` not used
-71:     function delegatorCumulativeStakeAndFees(
-            EarningsPool.Data memory _startPool,
-            EarningsPool.Data memory _endPool,
-            uint256 _stake,
-            uint256 _fees
-        ) internal pure returns (uint256 cStake, uint256 cFees) {
-
-```
-[#L71](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L71) 
-
-```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
-
-// `againstVotes` not used
-// `forVotes` not used
-// `abstainVotes` not used
-90:     function proposalVotes(uint256 _proposalId)
-            public
-            view
-            virtual
-            returns (
-                uint256 againstVotes,
-                uint256 forVotes,
-                uint256 abstainVotes
-            )
-        {
-
-```
-[#L90](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L90) 
 
 </details>
 
