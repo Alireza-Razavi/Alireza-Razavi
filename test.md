@@ -964,18 +964,55 @@ File: contracts/treasury/IVotes.sol
 File: contracts/treasury/LivepeerGovernor.sol
 
 54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
 
 114:     function proposalThreshold()
+             public
+             view
+             override(GovernorUpgradeable, GovernorSettingsUpgradeable)
+             returns (uint256)
+         {
 
 123:     function state(uint256 proposalId)
+             public
+             view
+             override(GovernorUpgradeable, GovernorTimelockControlUpgradeable)
+             returns (ProposalState)
+         {
 
 132:     function _execute(
+             uint256 proposalId,
+             address[] memory targets,
+             uint256[] memory values,
+             bytes[] memory calldatas,
+             bytes32 descriptionHash
+         ) internal override(GovernorUpgradeable, GovernorTimelockControlUpgradeable) {
 
 142:     function _cancel(
+             address[] memory targets,
+             uint256[] memory values,
+             bytes[] memory calldatas,
+             bytes32 descriptionHash
+         ) internal override(GovernorUpgradeable, GovernorTimelockControlUpgradeable) returns (uint256) {
 
 151:     function _executor()
+             internal
+             view
+             override(GovernorUpgradeable, GovernorTimelockControlUpgradeable)
+             returns (address)
+         {
 
 160:     function supportsInterface(bytes4 interfaceId)
+             public
+             view
+             override(GovernorUpgradeable, GovernorTimelockControlUpgradeable)
+             returns (bool)
+         {
 
 ```
 [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L123) [#L132](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L132) [#L142](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L142) [#L151](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L151) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L160) 
@@ -984,6 +1021,11 @@ File: contracts/treasury/LivepeerGovernor.sol
 File: contracts/treasury/Treasury.sol
 
 16:     function initialize(
+            uint256 minDelay,
+            address[] memory proposers,
+            address[] memory executors,
+            address admin
+        ) external initializer {
 
 ```
 [#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
