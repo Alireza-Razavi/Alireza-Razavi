@@ -13,7 +13,7 @@ Total <b>12</b> instances over <b>1</b> issue:
 ## Low Issues
 
 
-Total <b>25</b> instances over <b>10</b> issues:
+Total <b>24</b> instances over <b>9</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -21,17 +21,16 @@ Total <b>25</b> instances over <b>10</b> issues:
 | [L-2](#L-2) | Missing storage gap for upgradable contracts | 2 |
 | [L-3](#L-3) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 1 |
 | [L-4](#L-4) | Using zero as a parameter | 9 |
-| [L-5](#L-5) | Zero address check in initializer | 1 |
-| [L-6](#L-6) | Empty Function Body - Consider commenting why | 2 |
-| [L-7](#L-7) | Initializers could be front-run | 2 |
-| [L-8](#L-8) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
-| [L-9](#L-9) | Unsafe ERC20 operation(s) | 1 |
-| [L-10](#L-10) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
+| [L-5](#L-5) | Empty Function Body - Consider commenting why | 2 |
+| [L-6](#L-6) | Initializers could be front-run | 2 |
+| [L-7](#L-7) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
+| [L-8](#L-8) | Unsafe ERC20 operation(s) | 1 |
+| [L-9](#L-9) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
 
 ## Non Critical Issues
 
 
-Total <b>400</b> instances over <b>30</b> issues:
+Total <b>401</b> instances over <b>31</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -65,6 +64,7 @@ Total <b>400</b> instances over <b>30</b> issues:
 | [NC-28](#NC-28) | `TODO`s left in the code | 1 |
 | [NC-29](#NC-29) | Event is missing `indexed` fields | 12 |
 | [NC-30](#NC-30) | Functions not used internally could be marked external | 17 |
+| [NC-31](#NC-31) | Missing zero address check in initializer | 1 |
 
 ## Gas Optimizations
 
@@ -251,32 +251,7 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="L-5"></a> 
-#### [L-5] Zero address check in initializer
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/treasury/Treasury.sol
-
-16:     function initialize(
-            uint256 minDelay,
-            address[] memory proposers,
-            address[] memory executors,
-            address admin
-        ) external initializer {
-
-```
-[#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
-
-</details>
-
----
-
-<a name="L-6"></a> 
-#### [L-6] Empty Function Body - Consider commenting why
+#### [L-5] Empty Function Body - Consider commenting why
 
 <details>
 <summary>
@@ -303,8 +278,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="L-7"></a> 
-#### [L-7] Initializers could be front-run
+<a name="L-6"></a> 
+#### [L-6] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -332,8 +307,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="L-8"></a> 
-#### [L-8] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
+<a name="L-7"></a> 
+#### [L-7] Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard
 Even if the function follows the best practice of check-effects-interaction, not using a reentrancy guard when there may be transfer hooks opens the users of this protocol up to [read-only reentrancy vulnerability](https://chainsecurity.com/curve-lp-oracle-manipulation-post-mortem/) with no way to protect them except by block-listing the entire protocol.
 
 <details>
@@ -353,8 +328,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="L-9"></a> 
-#### [L-9] Unsafe ERC20 operation(s)
+<a name="L-8"></a> 
+#### [L-8] Unsafe ERC20 operation(s)
 
 <details>
 <summary>
@@ -373,8 +348,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="L-10"></a> 
-#### [L-10] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
+<a name="L-9"></a> 
+#### [L-9] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
 An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job.](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56)
 
 <details>
@@ -2739,6 +2714,32 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ```
 [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L123) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L160) 
+
+</details>
+
+---
+
+<a name="NC-31"></a> 
+#### [NC-31] Missing zero address check in initializer
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+// Missing zero check for `admin`
+16:     function initialize(
+            uint256 minDelay,
+            address[] memory proposers,
+            address[] memory executors,
+            address admin
+        ) external initializer {
+
+```
+[#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
 
 </details>
 
