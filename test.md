@@ -31,12 +31,12 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>182</b> instances over <b>18</b> issues:
+Total <b>174</b> instances over <b>18</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | `assert()` should be replaced with `require()` or `revert()` | 2 |
-| [NC-2](#NC-2) | Contract declarations should have NatSpec `@author` annotations | 9 |
+| [NC-2](#NC-2) | Contract declarations should have NatSpec `@author` annotations | 1 |
 | [NC-3](#NC-3) | Custom errors has no error details | 1 |
 | [NC-4](#NC-4) | Custom errors should be used rather than `revert()`/`require()` | 25 |
 | [NC-5](#NC-5) | Import declarations should import specific identifiers, rather than the whole file | 52 |
@@ -427,64 +427,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 <details>
 <summary>
-There are <b>9</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
-
-```solidity
-File: contracts/bonding/BondingManager.sol
-
-23: contract BondingManager is ManagerProxyTarget, IBondingManager {
-
-```
-[#L23](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L23) 
-
-```solidity
-File: contracts/bonding/BondingVotes.sol
-
-20: contract BondingVotes is ManagerProxyTarget, IBondingVotes {
-
-```
-[#L20](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L20) 
-
-```solidity
-File: contracts/bonding/IBondingManager.sol
-
-8: interface IBondingManager {
-
-```
-[#L8](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L8) 
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-9: library EarningsPoolLIP36 {
-
-```
-[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L9) 
-
-```solidity
-File: contracts/bonding/libraries/SortedArrays.sol
-
-12: library SortedArrays {
-
-```
-[#L12](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L12) 
-
-```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
-
-21: abstract contract GovernorCountingOverridable is Initializable, GovernorUpgradeable {
-
-```
-[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L21) 
-
-```solidity
-File: contracts/treasury/IVotes.sol
-
-6: interface IVotes is IERC5805Upgradeable {
-
-```
-[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
 
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
@@ -493,14 +437,6 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ```
 [#L170](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L170) 
-
-```solidity
-File: contracts/treasury/Treasury.sol
-
-15: contract Treasury is Initializable, TimelockControllerUpgradeable {
-
-```
-[#L15](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L15) 
 
 </details>
 
