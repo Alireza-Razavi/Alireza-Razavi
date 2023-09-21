@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>196</b> instances over <b>20</b> issues:
+Total <b>227</b> instances over <b>21</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -43,18 +43,19 @@ Total <b>196</b> instances over <b>20</b> issues:
 | [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
 | [NC-8](#NC-8) | Event declarations should have NatSpec descriptions | 13 |
-| [NC-9](#NC-9) | Redundant inheritance specifier | 1 |
-| [NC-10](#NC-10) | Contract declarations should have NatSpec `@title` annotations | 2 |
-| [NC-11](#NC-11) | Lines are too long | 2 |
-| [NC-12](#NC-12) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-13](#NC-13) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-14](#NC-14) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-15](#NC-15) | Common functions should be refactored to a common base contract | 2 |
-| [NC-16](#NC-16) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-17](#NC-17) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-18](#NC-18) | Variables should be named in mixedCase style | 1 |
-| [NC-19](#NC-19) | Event is missing `indexed` fields | 12 |
-| [NC-20](#NC-20) | Functions not used internally could be marked external | 17 |
+| [NC-9](#NC-9) | NatSpec documentation for function is missing | 31 |
+| [NC-10](#NC-10) | Redundant inheritance specifier | 1 |
+| [NC-11](#NC-11) | Contract declarations should have NatSpec `@title` annotations | 2 |
+| [NC-12](#NC-12) | Lines are too long | 2 |
+| [NC-13](#NC-13) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-14](#NC-14) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-15](#NC-15) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-16](#NC-16) | Common functions should be refactored to a common base contract | 2 |
+| [NC-17](#NC-17) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-18](#NC-18) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-19](#NC-19) | Variables should be named in mixedCase style | 1 |
+| [NC-20](#NC-20) | Event is missing `indexed` fields | 12 |
+| [NC-21](#NC-21) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -880,7 +881,118 @@ File: contracts/bonding/IBondingManager.sol
 ---
 
 <a name="NC-9"></a> 
-#### [NC-9] Redundant inheritance specifier
+#### [NC-9] NatSpec documentation for function is missing
+It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
+
+<details>
+<summary>
+There are <b>31</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+1643:     function treasury() internal view returns (address) {
+
+1647:     function bondingVotes() internal view returns (IBondingVotes) {
+
+1651:     function _onlyTicketBroker() internal view {
+
+1655:     function _onlyRoundsManager() internal view {
+
+1659:     function _onlyVerifier() internal view {
+
+1663:     function _currentRoundInitialized() internal view {
+
+1667:     function _autoClaimEarnings(address _delegator) internal {
+
+```
+[#L1643](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1643) [#L1647](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1647) [#L1651](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1651) [#L1655](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1655) [#L1659](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1659) [#L1663](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1663) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+59:     function updateTranscoderWithFees(
+
+65:     function slashTranscoder(
+
+72:     function setCurrentRoundTotalActiveStake() external;
+
+75:     function getTranscoderPoolSize() external view returns (uint256);
+
+77:     function transcoderTotalStake(address _transcoder) external view returns (uint256);
+
+79:     function isActiveTranscoder(address _transcoder) external view returns (bool);
+
+81:     function getTotalBonded() external view returns (uint256);
+
+83:     function nextRoundTotalActiveStake() external view returns (uint256);
+
+85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+
+```
+[#L59](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L59) [#L65](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L65) [#L72](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L72) [#L75](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L75) [#L77](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L77) [#L79](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L79) [#L81](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L81) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L83) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
+
+68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
+
+```
+[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L64) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L68) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+7:     function totalSupply() external view returns (uint256);
+
+9:     function delegatedAt(address account, uint256 timepoint) external returns (address);
+
+13:     function name() external view returns (string memory);
+
+15:     function symbol() external view returns (string memory);
+
+17:     function decimals() external view returns (uint8);
+
+```
+[#L7](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L7) [#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L9) [#L13](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L13) [#L15](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L15) [#L17](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L17) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+54:     function initialize(
+
+114:     function proposalThreshold()
+
+123:     function state(uint256 proposalId)
+
+132:     function _execute(
+
+142:     function _cancel(
+
+151:     function _executor()
+
+160:     function supportsInterface(bytes4 interfaceId)
+
+```
+[#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L123) [#L132](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L132) [#L142](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L142) [#L151](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L151) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L160) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+16:     function initialize(
+
+```
+[#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
+
+</details>
+
+---
+
+<a name="NC-10"></a> 
+#### [NC-10] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
 <details>
@@ -910,8 +1022,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-11"></a> 
+#### [NC-11] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -939,8 +1051,8 @@ File: contracts/treasury/IVotes.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Lines are too long
+<a name="NC-12"></a> 
+#### [NC-12] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -962,8 +1074,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-13"></a> 
+#### [NC-13] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -983,8 +1095,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-13"></a> 
-#### [NC-13] Use `@inheritdoc` for overridden functions
+<a name="NC-14"></a> 
+#### [NC-14] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -1019,8 +1131,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-14"></a> 
-#### [NC-14] Visibility of state variables is not explicitly defined
+<a name="NC-15"></a> 
+#### [NC-15] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -1040,8 +1152,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-15"></a> 
-#### [NC-15] Common functions should be refactored to a common base contract
+<a name="NC-16"></a> 
+#### [NC-16] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -1071,8 +1183,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-16"></a> 
-#### [NC-16] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-17"></a> 
+#### [NC-17] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1265,8 +1377,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-17"></a> 
-#### [NC-17] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-18"></a> 
+#### [NC-18] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1302,8 +1414,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-18"></a> 
-#### [NC-18] Variables should be named in mixedCase style
+<a name="NC-19"></a> 
+#### [NC-19] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1323,8 +1435,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-19"></a> 
-#### [NC-19] Event is missing `indexed` fields
+<a name="NC-20"></a> 
+#### [NC-20] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1366,8 +1478,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-20"></a> 
-#### [NC-20] Functions not used internally could be marked external
+<a name="NC-21"></a> 
+#### [NC-21] Functions not used internally could be marked external
 
 <details>
 <summary>
