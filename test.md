@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>337</b> instances over <b>29</b> issues:
+Total <b>397</b> instances over <b>30</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,29 +41,30 @@ Total <b>337</b> instances over <b>29</b> issues:
 | [NC-4](#NC-4) | Custom errors should be used rather than `revert()`/`require()` | 25 |
 | [NC-5](#NC-5) | Functions and modifiers should be named in mixedCase style | 2 |
 | [NC-6](#NC-6) | Import declarations should import specific identifiers, rather than the whole file | 52 |
-| [NC-7](#NC-7) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-8](#NC-8) | NatSpec documentation for contract is missing | 3 |
-| [NC-9](#NC-9) | Event declarations should have NatSpec descriptions | 13 |
-| [NC-10](#NC-10) | NatSpec documentation for function is missing | 31 |
-| [NC-11](#NC-11) | Missing NatSpec `@param` | 38 |
-| [NC-12](#NC-12) | Public variable declarations should have NatSpec descriptions | 6 |
-| [NC-13](#NC-13) | NatSpec `@return` is missing | 46 |
-| [NC-14](#NC-14) | Redundant inheritance specifier | 1 |
-| [NC-15](#NC-15) | Contract declarations should have NatSpec `@title` annotations | 2 |
-| [NC-16](#NC-16) | Lines are too long | 2 |
-| [NC-17](#NC-17) | Unused contract variables | 7 |
-| [NC-18](#NC-18) | Consider using `delete` rather than assigning zero to clear values | 5 |
-| [NC-19](#NC-19) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-20](#NC-20) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-21](#NC-21) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-22](#NC-22) | Whitespace in Expressions | 5 |
-| [NC-23](#NC-23) | Common functions should be refactored to a common base contract | 2 |
-| [NC-24](#NC-24) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-25](#NC-25) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-26](#NC-26) | Variables should be named in mixedCase style | 1 |
-| [NC-27](#NC-27) | `TODO`s left in the code | 1 |
-| [NC-28](#NC-28) | Event is missing `indexed` fields | 12 |
-| [NC-29](#NC-29) | Functions not used internally could be marked external | 17 |
+| [NC-7](#NC-7) | Missing zero address check in functions with address parameters | 60 |
+| [NC-8](#NC-8) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-9](#NC-9) | NatSpec documentation for contract is missing | 3 |
+| [NC-10](#NC-10) | Event declarations should have NatSpec descriptions | 13 |
+| [NC-11](#NC-11) | NatSpec documentation for function is missing | 31 |
+| [NC-12](#NC-12) | Missing NatSpec `@param` | 38 |
+| [NC-13](#NC-13) | Public variable declarations should have NatSpec descriptions | 6 |
+| [NC-14](#NC-14) | NatSpec `@return` is missing | 46 |
+| [NC-15](#NC-15) | Redundant inheritance specifier | 1 |
+| [NC-16](#NC-16) | Contract declarations should have NatSpec `@title` annotations | 2 |
+| [NC-17](#NC-17) | Lines are too long | 2 |
+| [NC-18](#NC-18) | Unused contract variables | 7 |
+| [NC-19](#NC-19) | Consider using `delete` rather than assigning zero to clear values | 5 |
+| [NC-20](#NC-20) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-21](#NC-21) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-22](#NC-22) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-23](#NC-23) | Whitespace in Expressions | 5 |
+| [NC-24](#NC-24) | Common functions should be refactored to a common base contract | 2 |
+| [NC-25](#NC-25) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-26](#NC-26) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-27](#NC-27) | Variables should be named in mixedCase style | 1 |
+| [NC-28](#NC-28) | `TODO`s left in the code | 1 |
+| [NC-29](#NC-29) | Event is missing `indexed` fields | 12 |
+| [NC-30](#NC-30) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -801,7 +802,461 @@ File: contracts/treasury/Treasury.sol
 ---
 
 <a name="NC-7"></a> 
-#### [NC-7] Consider moving `msg.sender` checks to `modifier`s
+#### [NC-7] Missing zero address check in functions with address parameters
+Adding a zero address check for each address type parameter can prevent errors.
+
+<details>
+<summary>
+There are <b>60</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+// Missing zero check for `_to`
+207:     function bond(uint256 _amount, address _to) external {
+
+// Missing zero check for `_to`
+232:     function rebondFromUnbonded(address _to, uint256 _unbondingLockId) external {
+
+// Missing zero check for `_account`
+241:     function checkpointBondingState(address _account) external {
+
+// Missing zero check for `_transcoder`
+302:     function updateTranscoderWithFees(
+             address _transcoder,
+             uint256 _fees,
+             uint256 _round
+         ) external whenSystemNotPaused onlyTicketBroker {
+
+// Missing zero check for `_transcoder`
+394:     function slashTranscoder(
+             address _transcoder,
+             address _finder,
+             uint256 _slashAmount,
+             uint256 _finderFee
+         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
+
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+// Missing zero check for `_owner`
+// Missing zero check for `_to`
+// Missing zero check for `_oldDelegateNewPosPrev`
+// Missing zero check for `_oldDelegateNewPosNext`
+// Missing zero check for `_currDelegateNewPosPrev`
+// Missing zero check for `_currDelegateNewPosNext`
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+// Missing zero check for `_to`
+// Missing zero check for `_oldDelegateNewPosPrev`
+// Missing zero check for `_oldDelegateNewPosNext`
+// Missing zero check for `_currDelegateNewPosPrev`
+// Missing zero check for `_currDelegateNewPosNext`
+640:     function bondWithHint(
+             uint256 _amount,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public {
+
+// Missing zero check for `_delegator`
+// Missing zero check for `_oldDelegateNewPosPrev`
+// Missing zero check for `_oldDelegateNewPosNext`
+// Missing zero check for `_newDelegateNewPosPrev`
+// Missing zero check for `_newDelegateNewPosNext`
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+796:     function rebondWithHint(
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+// Missing zero check for `_to`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+818:     function rebondFromUnbondedWithHint(
+             address _to,
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+// Missing zero check for `_delegator`
+908:     function pendingStake(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+// Missing zero check for `_delegator`
+923:     function pendingFees(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+// Missing zero check for `_transcoder`
+937:     function transcoderTotalStake(address _transcoder) public view returns (uint256) {
+
+// Missing zero check for `_transcoder`
+946:     function transcoderStatus(address _transcoder) public view returns (TranscoderStatus) {
+
+// Missing zero check for `_delegator`
+956:     function delegatorStatus(address _delegator) public view returns (DelegatorStatus) {
+
+// Missing zero check for `_transcoder`
+987:     function getTranscoder(address _transcoder)
+             public
+             view
+             returns (
+                 uint256 lastRewardRound,
+                 uint256 rewardCut,
+                 uint256 feeShare,
+                 uint256 lastActiveStakeUpdateRound,
+                 uint256 activationRound,
+                 uint256 deactivationRound,
+                 uint256 activeCumulativeRewards,
+                 uint256 cumulativeRewards,
+                 uint256 cumulativeFees,
+                 uint256 lastFeeRound
+             )
+         {
+
+// Missing zero check for `_transcoder`
+1027:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+              public
+              view
+              returns (
+                  uint256 totalStake,
+                  uint256 transcoderRewardCut,
+                  uint256 transcoderFeeShare,
+                  uint256 cumulativeRewardFactor,
+                  uint256 cumulativeFeeFactor
+              )
+          {
+
+// Missing zero check for `_delegator`
+1058:     function getDelegator(address _delegator)
+              public
+              view
+              returns (
+                  uint256 bondedAmount,
+                  uint256 fees,
+                  address delegateAddress,
+                  uint256 delegatedAmount,
+                  uint256 startRound,
+                  uint256 lastClaimRound,
+                  uint256 nextUnbondingLockId
+              )
+          {
+
+// Missing zero check for `_delegator`
+1089:     function getDelegatorUnbondingLock(address _delegator, uint256 _unbondingLockId)
+              public
+              view
+              returns (uint256 amount, uint256 withdrawRound)
+          {
+
+// Missing zero check for `_transcoder`
+1128:     function getNextTranscoderInPool(address _transcoder) public view returns (address) {
+
+// Missing zero check for `_transcoder`
+1145:     function isActiveTranscoder(address _transcoder) public view returns (bool) {
+
+// Missing zero check for `_transcoder`
+1156:     function isRegisteredTranscoder(address _transcoder) public view returns (bool) {
+
+// Missing zero check for `_delegator`
+1167:     function isValidUnbondingLock(address _delegator, uint256 _unbondingLockId) public view returns (bool) {
+
+// Missing zero check for `_delegator`
+1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
+              internal
+              view
+              returns (uint256 stake, uint256 fees)
+          {
+
+// Missing zero check for `_delegate`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+1294:     function increaseTotalStake(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegate) {
+
+// Missing zero check for `_delegate`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+1307:     function increaseTotalStakeUncheckpointed(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+// Missing zero check for `_delegate`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+1352:     function decreaseTotalStake(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegate) {
+
+// Missing zero check for `_transcoder`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+1392:     function tryToJoinActiveSet(
+              address _transcoder,
+              uint256 _totalStake,
+              uint256 _activationRound,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+// Missing zero check for `_transcoder`
+1437:     function resignTranscoder(address _transcoder) internal {
+
+// Missing zero check for `_transcoder`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+1459:     function updateTranscoderWithRewards(
+              address _transcoder,
+              uint256 _rewards,
+              uint256 _round,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+// Missing zero check for `_delegator`
+1500:     function updateDelegatorWithEarnings(
+              address _delegator,
+              uint256 _endRound,
+              uint256 _lastClaimRound
+          ) internal {
+
+// Missing zero check for `_delegator`
+// Missing zero check for `_newPosPrev`
+// Missing zero check for `_newPosNext`
+1564:     function processRebond(
+              address _delegator,
+              uint256 _unbondingLockId,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegator) {
+
+// Missing zero check for `_owner`
+1591:     function _checkpointBondingState(
+              address _owner,
+              Delegator storage _delegator,
+              Transcoder storage _transcoder
+          ) internal {
+
+// Missing zero check for `_delegator`
+1667:     function _autoClaimEarnings(address _delegator) internal {
+
+```
+[#L207](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L207) [#L232](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L232) [#L241](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L241) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L640](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L640) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L796](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L796) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L908](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L908) [#L923](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L923) [#L937](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L937) [#L946](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L946) [#L956](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L956) [#L987](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L987) [#L1027](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1027) [#L1058](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1058) [#L1089](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1089) [#L1128](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1128) [#L1145](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1145) [#L1156](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1156) [#L1167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1167) [#L1259](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1259) [#L1294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1294) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1459) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1591](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1591) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+// Missing zero check for `_account`
+155:     function getVotes(address _account) external view returns (uint256) {
+
+// Missing zero check for `_account`
+167:     function getPastVotes(address _account, uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
+
+// Missing zero check for `_account`
+205:     function delegates(address _account) external view returns (address) {
+
+// Missing zero check for `_account`
+218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
+
+// Missing zero check for ``
+226:     function delegate(address) external pure {
+
+// Missing zero check for ``
+233:     function delegateBySig(
+             address,
+             uint256,
+             uint256,
+             uint8,
+             bytes32,
+             bytes32
+         ) external pure {
+
+// Missing zero check for `_account`
+// Missing zero check for `_delegateAddress`
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+// Missing zero check for `_account`
+315:     function hasCheckpoint(address _account) public view returns (bool) {
+
+// Missing zero check for `_account`
+361:     function getBondingStateAt(address _account, uint256 _round)
+             public
+             view
+             virtual
+             returns (uint256 amount, address delegateAddress)
+         {
+
+// Missing zero check for `_account`
+387:     function onBondingCheckpointChanged(
+             address _account,
+             BondingCheckpoint memory previous,
+             BondingCheckpoint memory current
+         ) internal {
+
+// Missing zero check for `_account`
+422:     function getBondingCheckpointAt(address _account, uint256 _round)
+             internal
+             view
+             returns (BondingCheckpoint storage)
+         {
+
+// Missing zero check for `_transcoder`
+499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (uint256 rewardRound, EarningsPool.Data memory pool)
+         {
+
+// Missing zero check for `_transcoder`
+520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (EarningsPool.Data memory pool)
+         {
+
+```
+[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L226](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L226) [#L233](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L233) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L361](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L361) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L422](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L422) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+// Missing zero check for `_transcoder`
+59:     function updateTranscoderWithFees(
+
+// Missing zero check for `_transcoder`
+// Missing zero check for `_finder`
+65:     function slashTranscoder(
+
+// Missing zero check for `_transcoder`
+77:     function transcoderTotalStake(address _transcoder) external view returns (uint256);
+
+// Missing zero check for `_transcoder`
+79:     function isActiveTranscoder(address _transcoder) external view returns (bool);
+
+// Missing zero check for `_transcoder`
+85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+
+```
+[#L59](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L59) [#L65](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L65) [#L77](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L77) [#L79](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L79) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+// Missing zero check for `_account`
+83:     function hasVoted(uint256 _proposalId, address _account) public view virtual override returns (bool) {
+
+// Missing zero check for `_account`
+130:     function _countVote(
+             uint256 _proposalId,
+             address _account,
+             uint8 _supportInt,
+             uint256 _weight,
+             bytes memory // params
+         ) internal virtual override {
+
+// Missing zero check for `_account`
+174:     function _handleVoteOverrides(
+             uint256 _proposalId,
+             ProposalTally storage _tally,
+             ProposalVoterState storage _voter,
+             address _account,
+             uint256 _weight
+         ) internal returns (uint256) {
+
+```
+[#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L83) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+// Missing zero check for `account`
+9:     function delegatedAt(address account, uint256 timepoint) external returns (address);
+
+```
+[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L9) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+// Missing zero check for `admin`
+16:     function initialize(
+            uint256 minDelay,
+            address[] memory proposers,
+            address[] memory executors,
+            address admin
+        ) external initializer {
+
+```
+[#L16](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L16) 
+
+</details>
+
+---
+
+<a name="NC-8"></a> 
+#### [NC-8] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -837,8 +1292,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] NatSpec documentation for contract is missing
+<a name="NC-9"></a> 
+#### [NC-9] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
 <details>
@@ -874,8 +1329,8 @@ File: contracts/treasury/IVotes.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Event declarations should have NatSpec descriptions
+<a name="NC-10"></a> 
+#### [NC-10] Event declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -918,8 +1373,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] NatSpec documentation for function is missing
+<a name="NC-11"></a> 
+#### [NC-11] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 <details>
@@ -1071,8 +1526,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Missing NatSpec `@param`
+<a name="NC-12"></a> 
+#### [NC-12] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 <details>
@@ -1368,8 +1823,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Public variable declarations should have NatSpec descriptions
+<a name="NC-13"></a> 
+#### [NC-13] Public variable declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -1398,8 +1853,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-13"></a> 
-#### [NC-13] NatSpec `@return` is missing
+<a name="NC-14"></a> 
+#### [NC-14] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
@@ -1587,8 +2042,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-14"></a> 
-#### [NC-14] Redundant inheritance specifier
+<a name="NC-15"></a> 
+#### [NC-15] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
 <details>
@@ -1618,8 +2073,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-15"></a> 
-#### [NC-15] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-16"></a> 
+#### [NC-16] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -1647,8 +2102,8 @@ File: contracts/treasury/IVotes.sol
 
 ---
 
-<a name="NC-16"></a> 
-#### [NC-16] Lines are too long
+<a name="NC-17"></a> 
+#### [NC-17] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -1670,8 +2125,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-17"></a> 
-#### [NC-17] Unused contract variables
+<a name="NC-18"></a> 
+#### [NC-18] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 <details>
@@ -1715,8 +2170,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-18"></a> 
-#### [NC-18] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-19"></a> 
+#### [NC-19] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -1750,8 +2205,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-19"></a> 
-#### [NC-19] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-20"></a> 
+#### [NC-20] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -1771,8 +2226,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-20"></a> 
-#### [NC-20] Use `@inheritdoc` for overridden functions
+<a name="NC-21"></a> 
+#### [NC-21] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -1807,8 +2262,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-21"></a> 
-#### [NC-21] Visibility of state variables is not explicitly defined
+<a name="NC-22"></a> 
+#### [NC-22] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -1828,8 +2283,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-22"></a> 
-#### [NC-22] Whitespace in Expressions
+<a name="NC-23"></a> 
+#### [NC-23] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 <details>
@@ -1869,8 +2324,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-23"></a> 
-#### [NC-23] Common functions should be refactored to a common base contract
+<a name="NC-24"></a> 
+#### [NC-24] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -1900,8 +2355,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-24"></a> 
-#### [NC-24] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-25"></a> 
+#### [NC-25] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2094,8 +2549,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-25"></a> 
-#### [NC-25] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-26"></a> 
+#### [NC-26] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2131,8 +2586,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-26"></a> 
-#### [NC-26] Variables should be named in mixedCase style
+<a name="NC-27"></a> 
+#### [NC-27] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -2152,8 +2607,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-27"></a> 
-#### [NC-27] `TODO`s left in the code
+<a name="NC-28"></a> 
+#### [NC-28] `TODO`s left in the code
 TODOs may signal that a feature is missing or not ready for audit, consider resolving the issue and removing the TODO comment.
 
 <details>
@@ -2173,8 +2628,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-28"></a> 
-#### [NC-28] Event is missing `indexed` fields
+<a name="NC-29"></a> 
+#### [NC-29] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -2216,8 +2671,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-29"></a> 
-#### [NC-29] Functions not used internally could be marked external
+<a name="NC-30"></a> 
+#### [NC-30] Functions not used internally could be marked external
 
 <details>
 <summary>
