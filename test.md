@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>319</b> instances over <b>25</b> issues:
+Total <b>324</b> instances over <b>26</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -54,12 +54,13 @@ Total <b>319</b> instances over <b>25</b> issues:
 | [NC-17](#NC-17) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
 | [NC-18](#NC-18) | Use `@inheritdoc` for overridden functions | 6 |
 | [NC-19](#NC-19) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-20](#NC-20) | Common functions should be refactored to a common base contract | 2 |
-| [NC-21](#NC-21) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-22](#NC-22) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-23](#NC-23) | Variables should be named in mixedCase style | 1 |
-| [NC-24](#NC-24) | Event is missing `indexed` fields | 12 |
-| [NC-25](#NC-25) | Functions not used internally could be marked external | 17 |
+| [NC-20](#NC-20) | Whitespace in Expressions | 5 |
+| [NC-21](#NC-21) | Common functions should be refactored to a common base contract | 2 |
+| [NC-22](#NC-22) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-23](#NC-23) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-24](#NC-24) | Variables should be named in mixedCase style | 1 |
+| [NC-25](#NC-25) | Event is missing `indexed` fields | 12 |
+| [NC-26](#NC-26) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -1744,7 +1745,48 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-20"></a> 
-#### [NC-20] Common functions should be refactored to a common base contract
+#### [NC-20] Whitespace in Expressions
+See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
+
+<details>
+<summary>
+There are <b>5</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+913:         (uint256 stake, ) = pendingStakeAndFees(_delegator, endRound);
+
+```
+[#L913](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L913) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+156:         (uint256 amount, ) = getBondingStateAt(_account, clock() + 1);
+
+168:         (uint256 amount, ) = getBondingStateAt(_account, _round + 1);
+
+480:         (uint256 stakeWithRewards, ) = EarningsPoolLIP36.delegatorCumulativeStakeAndFees(
+
+```
+[#L156](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L156) [#L168](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L168) [#L480](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L480) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+119:         (uint256 againstVotes, uint256 forVotes, ) = proposalVotes(_proposalId);
+
+```
+[#L119](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L119) 
+
+</details>
+
+---
+
+<a name="NC-21"></a> 
+#### [NC-21] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -1774,8 +1816,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-21"></a> 
-#### [NC-21] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-22"></a> 
+#### [NC-22] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1968,8 +2010,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-22"></a> 
-#### [NC-22] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-23"></a> 
+#### [NC-23] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2005,8 +2047,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-23"></a> 
-#### [NC-23] Variables should be named in mixedCase style
+<a name="NC-24"></a> 
+#### [NC-24] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -2026,8 +2068,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-24"></a> 
-#### [NC-24] Event is missing `indexed` fields
+<a name="NC-25"></a> 
+#### [NC-25] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -2069,8 +2111,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-25"></a> 
-#### [NC-25] Functions not used internally could be marked external
+<a name="NC-26"></a> 
+#### [NC-26] Functions not used internally could be marked external
 
 <details>
 <summary>
