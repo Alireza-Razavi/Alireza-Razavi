@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>181</b> instances over <b>18</b> issues:
+Total <b>183</b> instances over <b>19</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -43,16 +43,17 @@ Total <b>181</b> instances over <b>18</b> issues:
 | [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
 | [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
 | [NC-8](#NC-8) | Redundant inheritance specifier | 1 |
-| [NC-9](#NC-9) | Lines are too long | 2 |
-| [NC-10](#NC-10) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-11](#NC-11) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-12](#NC-12) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-13](#NC-13) | Common functions should be refactored to a common base contract | 2 |
-| [NC-14](#NC-14) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-15](#NC-15) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-16](#NC-16) | Variables should be named in mixedCase style | 1 |
-| [NC-17](#NC-17) | Event is missing `indexed` fields | 12 |
-| [NC-18](#NC-18) | Functions not used internally could be marked external | 17 |
+| [NC-9](#NC-9) | Contract declarations should have NatSpec `@title` annotations | 2 |
+| [NC-10](#NC-10) | Lines are too long | 2 |
+| [NC-11](#NC-11) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-12](#NC-12) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-13](#NC-13) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-14](#NC-14) | Common functions should be refactored to a common base contract | 2 |
+| [NC-15](#NC-15) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-16](#NC-16) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-17](#NC-17) | Variables should be named in mixedCase style | 1 |
+| [NC-18](#NC-18) | Event is missing `indexed` fields | 12 |
+| [NC-19](#NC-19) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -865,7 +866,36 @@ File: contracts/treasury/LivepeerGovernor.sol
 ---
 
 <a name="NC-9"></a> 
-#### [NC-9] Lines are too long
+#### [NC-9] Contract declarations should have NatSpec `@title` annotations
+Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+9: library EarningsPoolLIP36 {
+
+```
+[#L9](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L9) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+6: interface IVotes is IERC5805Upgradeable {
+
+```
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
+
+</details>
+
+---
+
+<a name="NC-10"></a> 
+#### [NC-10] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -887,8 +917,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-11"></a> 
+#### [NC-11] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -908,8 +938,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Use `@inheritdoc` for overridden functions
+<a name="NC-12"></a> 
+#### [NC-12] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -944,8 +974,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Visibility of state variables is not explicitly defined
+<a name="NC-13"></a> 
+#### [NC-13] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -965,8 +995,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-13"></a> 
-#### [NC-13] Common functions should be refactored to a common base contract
+<a name="NC-14"></a> 
+#### [NC-14] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -996,8 +1026,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-14"></a> 
-#### [NC-14] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-15"></a> 
+#### [NC-15] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1190,8 +1220,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-15"></a> 
-#### [NC-15] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-16"></a> 
+#### [NC-16] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1227,8 +1257,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-16"></a> 
-#### [NC-16] Variables should be named in mixedCase style
+<a name="NC-17"></a> 
+#### [NC-17] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1248,8 +1278,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-17"></a> 
-#### [NC-17] Event is missing `indexed` fields
+<a name="NC-18"></a> 
+#### [NC-18] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1291,8 +1321,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-18"></a> 
-#### [NC-18] Functions not used internally could be marked external
+<a name="NC-19"></a> 
+#### [NC-19] Functions not used internally could be marked external
 
 <details>
 <summary>
