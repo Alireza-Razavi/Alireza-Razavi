@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>163</b> instances over <b>14</b> issues:
+Total <b>301</b> instances over <b>15</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -39,16 +39,17 @@ Total <b>163</b> instances over <b>14</b> issues:
 | [NC-2](#NC-2) | Custom errors has no error details | 1 |
 | [NC-3](#NC-3) | Custom errors should be used rather than `revert()`/`require()` | 25 |
 | [NC-4](#NC-4) | Import declarations should import specific identifiers, rather than the whole file | 52 |
-| [NC-5](#NC-5) | Consider moving `msg.sender` checks to `modifier`s | 9 |
-| [NC-6](#NC-6) | Redundant inheritance specifier | 1 |
-| [NC-7](#NC-7) | Lines are too long | 2 |
-| [NC-8](#NC-8) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-9](#NC-9) | Common functions should be refactored to a common base contract | 2 |
-| [NC-10](#NC-10) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-11](#NC-11) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-12](#NC-12) | Variables should be named in mixedCase style | 1 |
-| [NC-13](#NC-13) | Event is missing `indexed` fields | 12 |
-| [NC-14](#NC-14) | Functions not used internally could be marked external | 17 |
+| [NC-5](#NC-5) | Magic numbers should be replaced with constants | 138 |
+| [NC-6](#NC-6) | Consider moving `msg.sender` checks to `modifier`s | 9 |
+| [NC-7](#NC-7) | Redundant inheritance specifier | 1 |
+| [NC-8](#NC-8) | Lines are too long | 2 |
+| [NC-9](#NC-9) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-10](#NC-10) | Common functions should be refactored to a common base contract | 2 |
+| [NC-11](#NC-11) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-12](#NC-12) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-13](#NC-13) | Variables should be named in mixedCase style | 1 |
+| [NC-14](#NC-14) | Event is missing `indexed` fields | 12 |
+| [NC-15](#NC-15) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -680,7 +681,356 @@ File: contracts/treasury/Treasury.sol
 ---
 
 <a name="NC-5"></a> 
-#### [NC-5] Consider moving `msg.sender` checks to `modifier`s
+#### [NC-5] Magic numbers should be replaced with constants
+Magic numbers are hard-coded values in code that can make it difficult for developers and maintainers to understand the code, and can also cause confusion or errors. To improve the readability and maintainability of code, it is recommended to replace magic numbers with constants that have good readability.
+
+<details>
+<summary>
+There are <b>138</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+2: pragma solidity 0.8.9;
+
+24:     using SafeMath for uint256;
+
+32:     uint256 constant MAX_FUTURE_ROUND = 2**256 - 1;
+
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+199:         transcoderWithHint(_rewardCut, _feeShare, address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+208:         bondWithHint(_amount, _to, address(0), address(0), address(0), address(0));
+
+216:         unbondWithHint(_amount, address(0), address(0));
+
+216:         unbondWithHint(_amount, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+224:         rebondWithHint(_unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
+
+233:         rebondFromUnbondedWithHint(_to, _unbondingLockId, address(0), address(0));
+
+279:         require(_recipient != address(0), "invalid recipient");
+
+294:         rewardWithHint(address(0), address(0));
+
+294:         rewardWithHint(address(0), address(0));
+
+322:         EarningsPool.Data memory prevEarningsPool = latestCumulativeFactorsPool(t, currentRound.sub(1));
+
+402:         if (del.bondedAmount > 0) {
+
+424:             if (_finder != address(0)) {
+
+436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
+
+436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
+
+439:             emit TranscoderSlashed(_transcoder, _finder, 0, 0);
+
+511:                 currentRound.add(1),
+
+573:             del.startRound = currentRound.add(1);
+
+585:             del.startRound = currentRound.add(1);
+
+595:             if (currPool.cumulativeRewardFactor == 0) {
+
+599:             if (currPool.cumulativeFeeFactor == 0) {
+
+614:         if (_amount > 0) {
+
+697:         uint256 oldDelUnbondingLockId = oldDel.nextUnbondingLockId.sub(1);
+
+707:         newDel.nextUnbondingLockId = newDel.nextUnbondingLockId.add(1);
+
+719:         if (newDel.delegateAddress == address(0) && newDel.bondedAmount == 0) {
+
+719:         if (newDel.delegateAddress == address(0) && newDel.bondedAmount == 0) {
+
+729:             newDel.startRound = currentRound.add(1);
+
+765:         del.nextUnbondingLockId = unbondingLockId.add(1);
+
+769:         if (del.bondedAmount == 0) {
+
+771:             del.delegateAddress = address(0);
+
+773:             del.startRound = 0;
+
+827:         delegators[msg.sender].startRound = roundsManager().currentRound().add(1);
+
+871:         if (treasuryBalanceCeiling > 0) {
+
+873:             if (treasuryBalance >= treasuryBalanceCeiling && nextRoundTreasuryRewardCutRate > 0) {
+
+875:                 _setTreasuryRewardCutRate(0);
+
+884:         if (treasuryRewards > 0) {
+
+908:     function pendingStake(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+923:     function pendingFees(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+937:     function transcoderTotalStake(address _transcoder) public view returns (uint256) {
+
+959:         if (del.bondedAmount == 0) {
+
+1103:     function getTranscoderPoolMaxSize() public view returns (uint256) {
+
+1111:     function getTranscoderPoolSize() public view returns (uint256) {
+
+1136:     function getTotalBonded() public view returns (uint256) {
+
+1158:         return d.delegateAddress == _transcoder && d.bondedAmount > 0;
+
+1169:         return delegators[_delegator].unbondingLocks[_unbondingLockId].withdrawRound > 0;
+
+1270:         uint256 startRound = del.lastClaimRound.add(1);
+
+1276:             (stake, fees) = delegatorCumulativeStakeAndFees(t, startRound.sub(1), _endRound, stake, fees);
+
+1320:             uint256 nextRound = currRound.add(1);
+
+1365:             uint256 nextRound = currRound.add(1);
+
+1444:         uint256 deactivationRound = roundsManager().currentRound().add(1);
+
+1506:         uint256 startRound = _lastClaimRound.add(1);
+
+1512:         if (del.delegateAddress != address(0)) {
+
+1520:             if (endEarningsPool.cumulativeRewardFactor == 0) {
+
+1527:             if (endEarningsPool.cumulativeFeeFactor == 0) {
+
+1535:                 t.cumulativeFees = 0;
+
+1536:                 t.cumulativeRewards = 0;
+
+1599:         uint256 startRound = roundsManager().currentRound() + 1;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L2) [#L24](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L24) [#L32](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L32) [#L199](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L199) [#L199](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L199) [#L208](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L208) [#L208](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L208) [#L208](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L208) [#L208](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L208) [#L216](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L216) [#L216](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L216) [#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L224) [#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L224) [#L233](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L233) [#L233](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L233) [#L279](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L279) [#L294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L294) [#L294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L294) [#L322](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L322) [#L402](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L402) [#L424](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L424) [#L436](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L436) [#L436](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L436) [#L439](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L439) [#L511](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L511) [#L573](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L573) [#L585](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L585) [#L595](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L595) [#L599](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L599) [#L614](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L614) [#L697](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L697) [#L707](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L707) [#L719](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L719) [#L719](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L719) [#L729](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L729) [#L765](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L765) [#L769](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L769) [#L771](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L771) [#L773](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L773) [#L827](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L827) [#L871](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L871) [#L873](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L873) [#L875](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L875) [#L884](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L884) [#L908](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L908) [#L923](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L923) [#L937](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L937) [#L959](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L959) [#L1103](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1103) [#L1111](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1111) [#L1136](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1136) [#L1158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1158) [#L1169](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1169) [#L1270](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1270) [#L1276](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1276) [#L1320](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1320) [#L1365](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1365) [#L1444](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1444) [#L1506](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1506) [#L1512](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1512) [#L1520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1520) [#L1527](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1527) [#L1535](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1535) [#L1536](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1536) [#L1599](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1599) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+2: pragma solidity 0.8.9;
+
+72:         mapping(uint256 => uint256) data;
+
+98:             revert FutureLookup(_round, currentRound == 0 ? 0 : currentRound - 1);
+
+129:     function decimals() external pure returns (uint8) {
+
+130:         return 18;
+
+137:     function clock() public view returns (uint48) {
+
+155:     function getVotes(address _account) external view returns (uint256) {
+
+156:         (uint256 amount, ) = getBondingStateAt(_account, clock() + 1);
+
+167:     function getPastVotes(address _account, uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
+
+168:         (uint256 amount, ) = getBondingStateAt(_account, _round + 1);
+
+181:     function totalSupply() external view returns (uint256) {
+
+182:         return getTotalActiveStakeAt(clock() + 1);
+
+194:     function getPastTotalSupply(uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
+
+195:         return getTotalActiveStakeAt(_round + 1);
+
+206:         (, address delegateAddress) = getBondingStateAt(_account, clock() + 1);
+
+219:         (, address delegateAddress) = getBondingStateAt(_account, _round + 1);
+
+267:         if (_startRound != clock() + 1) {
+
+268:             revert InvalidStartRound(_startRound, clock() + 1);
+
+270:             revert FutureLastClaimRound(_lastClaimRound, _startRound - 1);
+
+316:         return bondingCheckpoints[_account].startRounds.length > 0;
+
+325:     function getTotalActiveStakeAt(uint256 _round) public view virtual returns (uint256) {
+
+326:         if (_round > clock() + 1) {
+
+327:             revert FutureLookup(_round, clock() + 1);
+
+331:         if (exactCheckpoint > 0) {
+
+337:         if (upper == 0) {
+
+340:             return 0;
+
+372:         if (bond.bondedAmount == 0) {
+
+373:             amount = 0;
+
+401:         uint256 previousDelegateVotes = wasTranscoder ? previous.delegatedAmount : 0;
+
+402:         uint256 currentDelegateVotes = isTranscoder ? current.delegatedAmount : 0;
+
+427:         if (_round > clock() + 1) {
+
+428:             revert FutureLookup(_round, clock() + 1);
+
+436:         if (bond.bondedAmount > 0) {
+
+462:         returns (uint256)
+
+507:         if (rewardRound > 0) {
+
+510:             if (pool.cumulativeRewardFactor == 0) {
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L2) [#L72](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L72) [#L98](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L98) [#L129](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L129) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L130) [#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L137) [#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L156](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L156) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L168](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L168) [#L181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L181) [#L182](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L182) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L195](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L195) [#L206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L206) [#L219](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L219) [#L267](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L267) [#L268](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L268) [#L270](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L270) [#L316](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L316) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L325) [#L326](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L326) [#L327](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L327) [#L331](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L331) [#L337](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L337) [#L340](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L340) [#L372](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L372) [#L373](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L373) [#L401](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L401) [#L402](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L402) [#L427](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L427) [#L428](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L428) [#L436](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L436) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L462) [#L507](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L507) [#L510](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L510) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+2: pragma solidity 0.8.9;
+
+75:     function getTranscoderPoolSize() external view returns (uint256);
+
+77:     function transcoderTotalStake(address _transcoder) external view returns (uint256);
+
+81:     function getTotalBonded() external view returns (uint256);
+
+83:     function nextRoundTotalActiveStake() external view returns (uint256);
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L2) [#L75](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L75) [#L77](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L77) [#L81](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L81) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L83) 
+
+```solidity
+File: contracts/bonding/IBondingVotes.sol
+
+2: pragma solidity ^0.8.9;
+
+47:     function getTotalActiveStakeAt(uint256 _round) external view returns (uint256);
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingVotes.sol#L2) [#L47](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingVotes.sol#L47) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+2: pragma solidity 0.8.9;
+
+10:     using SafeMath for uint256;
+
+26:             : PreciseMathUtils.percPoints(1, 1);
+
+29:         if (earningsPool.cumulativeFeeFactor == 0) {
+
+54:             : PreciseMathUtils.percPoints(1, 1);
+
+78:         if (_startPool.cumulativeRewardFactor == 0) {
+
+79:             _startPool.cumulativeRewardFactor = PreciseMathUtils.percPoints(1, 1);
+
+83:         if (_endPool.cumulativeRewardFactor == 0) {
+
+84:             _endPool.cumulativeRewardFactor = PreciseMathUtils.percPoints(1, 1);
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L2) [#L10](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L10) [#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L26) [#L29](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L29) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L54) [#L78](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L78) [#L79](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L79) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L83) [#L84](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L84) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+2: pragma solidity 0.8.9;
+
+28:     function findLowerBound(uint256[] storage _array, uint256 _val) internal view returns (uint256) {
+
+30:         if (len == 0) {
+
+31:             return 0;
+
+34:         if (_array[len - 1] <= _val) {
+
+35:             return len - 1;
+
+49:         if (upperIdx == 0) {
+
+54:         return upperIdx - 1;
+
+65:         if (array.length == 0) {
+
+68:             uint256 last = array[array.length - 1];
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L2) [#L28](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L28) [#L30](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L30) [#L31](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L31) [#L34](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L34) [#L35](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L35) [#L49](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L49) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L54) [#L65](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L65) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L68) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+2: pragma solidity 0.8.9;
+
+180:     ) internal returns (uint256) {
+
+224:     uint256[48] private __gap;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L2) [#L180](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L180) [#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L224) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+2: pragma solidity 0.8.9;
+
+7:     function totalSupply() external view returns (uint256);
+
+17:     function decimals() external view returns (uint8);
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L2) [#L7](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L7) [#L17](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L17) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+2: pragma solidity 0.8.9;
+
+78:     function quorumDenominator() public view virtual override returns (uint256) {
+
+118:         returns (uint256)
+
+147:     ) internal override(GovernorUpgradeable, GovernorTimelockControlUpgradeable) returns (uint256) {
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L2) [#L78](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L78) [#L118](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L118) [#L147](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L147) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L2) 
+
+</details>
+
+---
+
+<a name="NC-6"></a> 
+#### [NC-6] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -716,8 +1066,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-6"></a> 
-#### [NC-6] Redundant inheritance specifier
+<a name="NC-7"></a> 
+#### [NC-7] Redundant inheritance specifier
 The contracts below already extend the specified contract, so there is no need to list it in the inheritance list again.
 
 <details>
@@ -747,8 +1097,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-7"></a> 
-#### [NC-7] Lines are too long
+<a name="NC-8"></a> 
+#### [NC-8] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -770,8 +1120,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-8"></a> 
-#### [NC-8] Visibility of state variables is not explicitly defined
+<a name="NC-9"></a> 
+#### [NC-9] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -791,8 +1141,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-9"></a> 
-#### [NC-9] Common functions should be refactored to a common base contract
+<a name="NC-10"></a> 
+#### [NC-10] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -822,8 +1172,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-10"></a> 
-#### [NC-10] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-11"></a> 
+#### [NC-11] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1016,8 +1366,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-11"></a> 
-#### [NC-11] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-12"></a> 
+#### [NC-12] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -1053,8 +1403,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-12"></a> 
-#### [NC-12] Variables should be named in mixedCase style
+<a name="NC-13"></a> 
+#### [NC-13] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -1074,8 +1424,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-13"></a> 
-#### [NC-13] Event is missing `indexed` fields
+<a name="NC-14"></a> 
+#### [NC-14] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -1117,8 +1467,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-14"></a> 
-#### [NC-14] Functions not used internally could be marked external
+<a name="NC-15"></a> 
+#### [NC-15] Functions not used internally could be marked external
 
 <details>
 <summary>
