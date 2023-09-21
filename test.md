@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>297</b> instances over <b>22</b> issues:
+Total <b>265</b> instances over <b>22</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -44,7 +44,7 @@ Total <b>297</b> instances over <b>22</b> issues:
 | [NC-7](#NC-7) | NatSpec documentation for contract is missing | 3 |
 | [NC-8](#NC-8) | Event declarations should have NatSpec descriptions | 13 |
 | [NC-9](#NC-9) | NatSpec documentation for function is missing | 31 |
-| [NC-10](#NC-10) | Missing NatSpec `@param` | 70 |
+| [NC-10](#NC-10) | Missing NatSpec `@param` | 38 |
 | [NC-11](#NC-11) | Redundant inheritance specifier | 1 |
 | [NC-12](#NC-12) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-13](#NC-13) | Lines are too long | 2 |
@@ -998,33 +998,11 @@ Some functions have an incomplete NatSpec: add a `@param` notation to describe t
 
 <details>
 <summary>
-There are <b>70</b> instances (click to show):
+There are <b>38</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
-
-// Missing @param for _unbondingPeriod
-155:     function setUnbondingPeriod(uint64 _unbondingPeriod) external onlyControllerOwner {
-
-// Missing @param for _cutRate
-167:     function setTreasuryRewardCutRate(uint256 _cutRate) external onlyControllerOwner {
-
-// Missing @param for _numActiveTranscoders
-186:     function setNumActiveTranscoders(uint256 _numActiveTranscoders) external onlyControllerOwner {
-
-// Missing @param for _rewardCut
-// Missing @param for _feeShare
-198:     function transcoder(uint256 _rewardCut, uint256 _feeShare) external {
-
-// Missing @param for _unbondingLockId
-223:     function rebond(uint256 _unbondingLockId) external {
-
-// Missing @param for _unbondingLockId
-232:     function rebondFromUnbonded(address _to, uint256 _unbondingLockId) external {
-
-// Missing @param for _unbondingLockId
-249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
 
 // Missing @param for _recipient
 // Missing @param for _amount
@@ -1042,145 +1020,8 @@ File: contracts/bonding/BondingManager.sol
              uint256 _round
          ) external whenSystemNotPaused onlyTicketBroker {
 
-// Missing @param for _slashAmount
-// Missing @param for _finderFee
-394:     function slashTranscoder(
-             address _transcoder,
-             address _finder,
-             uint256 _slashAmount,
-             uint256 _finderFee
-         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
-
-// Missing @param for _endRound
-447:     function claimEarnings(uint256 _endRound)
-             external
-             whenSystemNotPaused
-             currentRoundInitialized
-             autoCheckpoint(msg.sender)
-         {
-
-// Missing @param for _rewardCut
-// Missing @param for _feeShare
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-485:     function transcoderWithHint(
-             uint256 _rewardCut,
-             uint256 _feeShare,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized {
-
-// Missing @param for _oldDelegateNewPosPrev
-// Missing @param for _oldDelegateNewPosNext
-// Missing @param for _currDelegateNewPosPrev
-// Missing @param for _currDelegateNewPosNext
-537:     function bondForWithHint(
-             uint256 _amount,
-             address _owner,
-             address _to,
-             address _oldDelegateNewPosPrev,
-             address _oldDelegateNewPosNext,
-             address _currDelegateNewPosPrev,
-             address _currDelegateNewPosNext
-         ) public whenSystemNotPaused currentRoundInitialized {
-
-// Missing @param for _oldDelegateNewPosPrev
-// Missing @param for _oldDelegateNewPosNext
-// Missing @param for _currDelegateNewPosPrev
-// Missing @param for _currDelegateNewPosNext
-640:     function bondWithHint(
-             uint256 _amount,
-             address _to,
-             address _oldDelegateNewPosPrev,
-             address _oldDelegateNewPosNext,
-             address _currDelegateNewPosPrev,
-             address _currDelegateNewPosNext
-         ) public {
-
-// Missing @param for _oldDelegateNewPosPrev
-// Missing @param for _oldDelegateNewPosNext
-// Missing @param for _newDelegateNewPosPrev
-// Missing @param for _newDelegateNewPosNext
-679:     function transferBond(
-             address _delegator,
-             uint256 _amount,
-             address _oldDelegateNewPosPrev,
-             address _oldDelegateNewPosNext,
-             address _newDelegateNewPosPrev,
-             address _newDelegateNewPosNext
-         ) public whenSystemNotPaused currentRoundInitialized {
-
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-745:     function unbondWithHint(
-             uint256 _amount,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
-
-// Missing @param for _unbondingLockId
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-796:     function rebondWithHint(
-             uint256 _unbondingLockId,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
-
-// Missing @param for _unbondingLockId
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-818:     function rebondFromUnbondedWithHint(
-             address _to,
-             uint256 _unbondingLockId,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
-
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
-             public
-             whenSystemNotPaused
-             currentRoundInitialized
-             autoCheckpoint(msg.sender)
-         {
-
-// Missing @param for _endRound
-908:     function pendingStake(address _delegator, uint256 _endRound) public view returns (uint256) {
-
-// Missing @param for _endRound
-923:     function pendingFees(address _delegator, uint256 _endRound) public view returns (uint256) {
-
-// Missing @param for _unbondingLockId
-1089:     function getDelegatorUnbondingLock(address _delegator, uint256 _unbondingLockId)
-              public
-              view
-              returns (uint256 amount, uint256 withdrawRound)
-          {
-
-// Missing @param for _unbondingLockId
-1167:     function isValidUnbondingLock(address _delegator, uint256 _unbondingLockId) public view returns (bool) {
-
 // Missing @param for _cutRate
 1176:     function _setTreasuryRewardCutRate(uint256 _cutRate) internal {
-
-// Missing @param for _startRound
-// Missing @param for _endRound
-1238:     function delegatorCumulativeStakeAndFees(
-              Transcoder storage _transcoder,
-              uint256 _startRound,
-              uint256 _endRound,
-              uint256 _stake,
-              uint256 _fees
-          ) internal view returns (uint256 cStake, uint256 cFees) {
-
-// Missing @param for _endRound
-1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
-              internal
-              view
-              returns (uint256 stake, uint256 fees)
-          {
 
 // Missing @param for _newPosPrev
 // Missing @param for _newPosNext
@@ -1211,8 +1052,6 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal autoCheckpoint(_delegate) {
 
-// Missing @param for _totalStake
-// Missing @param for _activationRound
 // Missing @param for _newPosPrev
 // Missing @param for _newPosNext
 1392:     function tryToJoinActiveSet(
@@ -1225,34 +1064,6 @@ File: contracts/bonding/BondingManager.sol
 
 // Missing @param for _transcoder
 1437:     function resignTranscoder(address _transcoder) internal {
-
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-1459:     function updateTranscoderWithRewards(
-              address _transcoder,
-              uint256 _rewards,
-              uint256 _round,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal {
-
-// Missing @param for _endRound
-// Missing @param for _lastClaimRound
-1500:     function updateDelegatorWithEarnings(
-              address _delegator,
-              uint256 _endRound,
-              uint256 _lastClaimRound
-          ) internal {
-
-// Missing @param for _unbondingLockId
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
-1564:     function processRebond(
-              address _delegator,
-              uint256 _unbondingLockId,
-              address _newPosPrev,
-              address _newPosNext
-          ) internal autoCheckpoint(_delegator) {
 
 // Missing @param for _owner
 // Missing @param for _delegator
@@ -1267,7 +1078,7 @@ File: contracts/bonding/BondingManager.sol
 1667:     function _autoClaimEarnings(address _delegator) internal {
 
 ```
-[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L167) [#L186](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L186) [#L198](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L198) [#L223](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L223) [#L232](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L232) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L447](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L447) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L640](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L640) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L796](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L796) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L908](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L908) [#L923](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L923) [#L1089](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1089) [#L1167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1167) [#L1176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1176) [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) [#L1259](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1259) [#L1294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1294) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1459) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1591](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1591) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) 
+[#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L1176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1176) [#L1294](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1294) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1591](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1591) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -1288,25 +1099,6 @@ File: contracts/bonding/BondingVotes.sol
 // Missing @param for _account
 // Missing @param for _round
 218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
-
-// Missing @param for _startRound
-// Missing @param for _bondedAmount
-// Missing @param for _delegateAddress
-// Missing @param for _delegatedAmount
-// Missing @param for _lastClaimRound
-// Missing @param for _lastRewardRound
-258:     function checkpointBondingState(
-             address _account,
-             uint256 _startRound,
-             uint256 _bondedAmount,
-             address _delegateAddress,
-             uint256 _delegatedAmount,
-             uint256 _lastClaimRound,
-             uint256 _lastRewardRound
-         ) external virtual onlyBondingManager {
-
-// Missing @param for _totalStake
-303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
 
 // Missing @param for _account
 315:     function hasCheckpoint(address _account) public view returns (bool) {
@@ -1329,7 +1121,7 @@ File: contracts/bonding/BondingVotes.sol
          {
 
 ```
-[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
+[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L315) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) 
 
 ```solidity
 File: contracts/bonding/IBondingManager.sol
@@ -1357,37 +1149,6 @@ File: contracts/bonding/IBondingManager.sol
 
 ```
 [#L59](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L59) [#L65](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L65) [#L77](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L77) [#L79](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L79) [#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L85) 
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-// Missing @param for earningsPool
-// Missing @param for _prevEarningsPool
-18:     function updateCumulativeFeeFactor(
-            EarningsPool.Data storage earningsPool,
-            EarningsPool.Data memory _prevEarningsPool,
-            uint256 _fees
-        ) internal {
-
-// Missing @param for earningsPool
-// Missing @param for _prevEarningsPool
-47:     function updateCumulativeRewardFactor(
-            EarningsPool.Data storage earningsPool,
-            EarningsPool.Data memory _prevEarningsPool,
-            uint256 _rewards
-        ) internal {
-
-// Missing @param for _startPool
-// Missing @param for _endPool
-71:     function delegatorCumulativeStakeAndFees(
-            EarningsPool.Data memory _startPool,
-            EarningsPool.Data memory _endPool,
-            uint256 _stake,
-            uint256 _fees
-        ) internal pure returns (uint256 cStake, uint256 cFees) {
-
-```
-[#L18](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L18) [#L47](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L47) [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L71) 
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
@@ -1432,17 +1193,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
              bytes memory // params
          ) internal virtual override {
 
-// Missing @param for _proposalId
-174:     function _handleVoteOverrides(
-             uint256 _proposalId,
-             ProposalTally storage _tally,
-             ProposalVoterState storage _voter,
-             address _account,
-             uint256 _weight
-         ) internal returns (uint256) {
-
 ```
-[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L64) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L68) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L83) [#L90](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L90) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L118](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L118) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) 
+[#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L64) [#L68](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L68) [#L83](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L83) [#L90](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L90) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L118](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L118) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) 
 
 ```solidity
 File: contracts/treasury/IVotes.sol
