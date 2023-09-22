@@ -86,16 +86,16 @@ Total <b>469</b> instances over <b>45</b> issues:
 
 Total <b>99</b> instances over <b>8</b> issues:
 
-|ID|Issue|Instances|
+|ID|Issue|Instances|Gas|
 |-|:-|:-:|
-| [GAS-1](#GAS-1) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 |
-| [GAS-2](#GAS-2) | Use Custom Errors | 25 |
-| [GAS-3](#GAS-3) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 |
-| [GAS-4](#GAS-4) | Long revert strings | 10 |
-| [GAS-5](#GAS-5) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 |
-| [GAS-6](#GAS-6) | Use != 0 instead of > 0 for unsigned integer comparison | 14 |
-| [GAS-7](#GAS-7) | Using assembly to check for zero can save gas | 26 |
-| [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 |
+| [GAS-1](#GAS-1) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-2](#GAS-2) | Use Custom Errors | 25 | - |
+| [GAS-3](#GAS-3) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-4](#GAS-4) | Long revert strings | 10 | - |
+| [GAS-5](#GAS-5) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 | - |
+| [GAS-6](#GAS-6) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-7](#GAS-7) | Using assembly to check for zero can save gas | 26 | - |
+| [GAS-8](#GAS-8) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
