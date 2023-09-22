@@ -87,7 +87,7 @@ Total <b>469</b> instances over <b>45</b> issues:
 Total <b>99</b> instances over <b>8</b> issues:
 
 |ID|Issue|Instances|Gas|
-|-|:-|:-:|
+|-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
 | [GAS-2](#GAS-2) | Use Custom Errors | 25 | - |
 | [GAS-3](#GAS-3) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
