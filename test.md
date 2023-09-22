@@ -276,7 +276,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/treasury/Treasury.sol
 
-// Missing zero check for `admin`
+/// Missing zero check for `admin`
 16:     function initialize(
             uint256 minDelay,
             address[] memory proposers,
@@ -1073,26 +1073,26 @@ There are <b>63</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-// Missing zero check for `_controller`
+/// Missing zero check for `_controller`
 149:     constructor(address _controller) Manager(_controller) {}
 
-// Missing zero check for `_to`
+/// Missing zero check for `_to`
 207:     function bond(uint256 _amount, address _to) external {
 
-// Missing zero check for `_to`
+/// Missing zero check for `_to`
 232:     function rebondFromUnbonded(address _to, uint256 _unbondingLockId) external {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 241:     function checkpointBondingState(address _account) external {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 302:     function updateTranscoderWithFees(
              address _transcoder,
              uint256 _fees,
              uint256 _round
          ) external whenSystemNotPaused onlyTicketBroker {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 394:     function slashTranscoder(
              address _transcoder,
              address _finder,
@@ -1100,8 +1100,8 @@ File: contracts/bonding/BondingManager.sol
              uint256 _finderFee
          ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
 
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 485:     function transcoderWithHint(
              uint256 _rewardCut,
              uint256 _feeShare,
@@ -1109,12 +1109,12 @@ File: contracts/bonding/BondingManager.sol
              address _newPosNext
          ) public whenSystemNotPaused currentRoundInitialized {
 
-// Missing zero check for `_owner`
-// Missing zero check for `_to`
-// Missing zero check for `_oldDelegateNewPosPrev`
-// Missing zero check for `_oldDelegateNewPosNext`
-// Missing zero check for `_currDelegateNewPosPrev`
-// Missing zero check for `_currDelegateNewPosNext`
+/// Missing zero check for `_owner`
+/// Missing zero check for `_to`
+/// Missing zero check for `_oldDelegateNewPosPrev`
+/// Missing zero check for `_oldDelegateNewPosNext`
+/// Missing zero check for `_currDelegateNewPosPrev`
+/// Missing zero check for `_currDelegateNewPosNext`
 537:     function bondForWithHint(
              uint256 _amount,
              address _owner,
@@ -1125,11 +1125,11 @@ File: contracts/bonding/BondingManager.sol
              address _currDelegateNewPosNext
          ) public whenSystemNotPaused currentRoundInitialized {
 
-// Missing zero check for `_to`
-// Missing zero check for `_oldDelegateNewPosPrev`
-// Missing zero check for `_oldDelegateNewPosNext`
-// Missing zero check for `_currDelegateNewPosPrev`
-// Missing zero check for `_currDelegateNewPosNext`
+/// Missing zero check for `_to`
+/// Missing zero check for `_oldDelegateNewPosPrev`
+/// Missing zero check for `_oldDelegateNewPosNext`
+/// Missing zero check for `_currDelegateNewPosPrev`
+/// Missing zero check for `_currDelegateNewPosNext`
 640:     function bondWithHint(
              uint256 _amount,
              address _to,
@@ -1139,11 +1139,11 @@ File: contracts/bonding/BondingManager.sol
              address _currDelegateNewPosNext
          ) public {
 
-// Missing zero check for `_delegator`
-// Missing zero check for `_oldDelegateNewPosPrev`
-// Missing zero check for `_oldDelegateNewPosNext`
-// Missing zero check for `_newDelegateNewPosPrev`
-// Missing zero check for `_newDelegateNewPosNext`
+/// Missing zero check for `_delegator`
+/// Missing zero check for `_oldDelegateNewPosPrev`
+/// Missing zero check for `_oldDelegateNewPosNext`
+/// Missing zero check for `_newDelegateNewPosPrev`
+/// Missing zero check for `_newDelegateNewPosNext`
 679:     function transferBond(
              address _delegator,
              uint256 _amount,
@@ -1153,25 +1153,25 @@ File: contracts/bonding/BondingManager.sol
              address _newDelegateNewPosNext
          ) public whenSystemNotPaused currentRoundInitialized {
 
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 745:     function unbondWithHint(
              uint256 _amount,
              address _newPosPrev,
              address _newPosNext
          ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
 
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 796:     function rebondWithHint(
              uint256 _unbondingLockId,
              address _newPosPrev,
              address _newPosNext
          ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
 
-// Missing zero check for `_to`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_to`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 818:     function rebondFromUnbondedWithHint(
              address _to,
              uint256 _unbondingLockId,
@@ -1179,8 +1179,8 @@ File: contracts/bonding/BondingManager.sol
              address _newPosNext
          ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
 
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
              public
              whenSystemNotPaused
@@ -1188,22 +1188,22 @@ File: contracts/bonding/BondingManager.sol
              autoCheckpoint(msg.sender)
          {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 908:     function pendingStake(address _delegator, uint256 _endRound) public view returns (uint256) {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 923:     function pendingFees(address _delegator, uint256 _endRound) public view returns (uint256) {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 937:     function transcoderTotalStake(address _transcoder) public view returns (uint256) {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 946:     function transcoderStatus(address _transcoder) public view returns (TranscoderStatus) {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 956:     function delegatorStatus(address _delegator) public view returns (DelegatorStatus) {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 987:     function getTranscoder(address _transcoder)
              public
              view
@@ -1221,7 +1221,7 @@ File: contracts/bonding/BondingManager.sol
              )
          {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 1027:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
               public
               view
@@ -1234,7 +1234,7 @@ File: contracts/bonding/BondingManager.sol
               )
           {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 1058:     function getDelegator(address _delegator)
               public
               view
@@ -1249,35 +1249,35 @@ File: contracts/bonding/BondingManager.sol
               )
           {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 1089:     function getDelegatorUnbondingLock(address _delegator, uint256 _unbondingLockId)
               public
               view
               returns (uint256 amount, uint256 withdrawRound)
           {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 1128:     function getNextTranscoderInPool(address _transcoder) public view returns (address) {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 1145:     function isActiveTranscoder(address _transcoder) public view returns (bool) {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 1156:     function isRegisteredTranscoder(address _transcoder) public view returns (bool) {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 1167:     function isValidUnbondingLock(address _delegator, uint256 _unbondingLockId) public view returns (bool) {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
               internal
               view
               returns (uint256 stake, uint256 fees)
           {
 
-// Missing zero check for `_delegate`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_delegate`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 1294:     function increaseTotalStake(
               address _delegate,
               uint256 _amount,
@@ -1285,9 +1285,9 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal autoCheckpoint(_delegate) {
 
-// Missing zero check for `_delegate`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_delegate`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 1307:     function increaseTotalStakeUncheckpointed(
               address _delegate,
               uint256 _amount,
@@ -1295,9 +1295,9 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal {
 
-// Missing zero check for `_delegate`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_delegate`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 1352:     function decreaseTotalStake(
               address _delegate,
               uint256 _amount,
@@ -1305,9 +1305,9 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal autoCheckpoint(_delegate) {
 
-// Missing zero check for `_transcoder`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_transcoder`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 1392:     function tryToJoinActiveSet(
               address _transcoder,
               uint256 _totalStake,
@@ -1316,12 +1316,12 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 1437:     function resignTranscoder(address _transcoder) internal {
 
-// Missing zero check for `_transcoder`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_transcoder`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 1459:     function updateTranscoderWithRewards(
               address _transcoder,
               uint256 _rewards,
@@ -1330,16 +1330,16 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 1500:     function updateDelegatorWithEarnings(
               address _delegator,
               uint256 _endRound,
               uint256 _lastClaimRound
           ) internal {
 
-// Missing zero check for `_delegator`
-// Missing zero check for `_newPosPrev`
-// Missing zero check for `_newPosNext`
+/// Missing zero check for `_delegator`
+/// Missing zero check for `_newPosPrev`
+/// Missing zero check for `_newPosNext`
 1564:     function processRebond(
               address _delegator,
               uint256 _unbondingLockId,
@@ -1347,14 +1347,14 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal autoCheckpoint(_delegator) {
 
-// Missing zero check for `_owner`
+/// Missing zero check for `_owner`
 1591:     function _checkpointBondingState(
               address _owner,
               Delegator storage _delegator,
               Transcoder storage _transcoder
           ) internal {
 
-// Missing zero check for `_delegator`
+/// Missing zero check for `_delegator`
 1667:     function _autoClaimEarnings(address _delegator) internal {
 
 ```
@@ -1363,25 +1363,25 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-// Missing zero check for `_controller`
+/// Missing zero check for `_controller`
 107:     constructor(address _controller) Manager(_controller) {}
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 155:     function getVotes(address _account) external view returns (uint256) {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 167:     function getPastVotes(address _account, uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 205:     function delegates(address _account) external view returns (address) {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
 
-// Missing zero check for ``
+/// Missing zero check for ``
 226:     function delegate(address) external pure {
 
-// Missing zero check for ``
+/// Missing zero check for ``
 233:     function delegateBySig(
              address,
              uint256,
@@ -1391,8 +1391,8 @@ File: contracts/bonding/BondingVotes.sol
              bytes32
          ) external pure {
 
-// Missing zero check for `_account`
-// Missing zero check for `_delegateAddress`
+/// Missing zero check for `_account`
+/// Missing zero check for `_delegateAddress`
 258:     function checkpointBondingState(
              address _account,
              uint256 _startRound,
@@ -1403,10 +1403,10 @@ File: contracts/bonding/BondingVotes.sol
              uint256 _lastRewardRound
          ) external virtual onlyBondingManager {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 315:     function hasCheckpoint(address _account) public view returns (bool) {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 361:     function getBondingStateAt(address _account, uint256 _round)
              public
              view
@@ -1414,28 +1414,28 @@ File: contracts/bonding/BondingVotes.sol
              returns (uint256 amount, address delegateAddress)
          {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 387:     function onBondingCheckpointChanged(
              address _account,
              BondingCheckpoint memory previous,
              BondingCheckpoint memory current
          ) internal {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 422:     function getBondingCheckpointAt(address _account, uint256 _round)
              internal
              view
              returns (BondingCheckpoint storage)
          {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
              internal
              view
              returns (uint256 rewardRound, EarningsPool.Data memory pool)
          {
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
              internal
              view
@@ -1448,20 +1448,20 @@ File: contracts/bonding/BondingVotes.sol
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 59:     function updateTranscoderWithFees(
 
-// Missing zero check for `_transcoder`
-// Missing zero check for `_finder`
+/// Missing zero check for `_transcoder`
+/// Missing zero check for `_finder`
 65:     function slashTranscoder(
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 77:     function transcoderTotalStake(address _transcoder) external view returns (uint256);
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 79:     function isActiveTranscoder(address _transcoder) external view returns (bool);
 
-// Missing zero check for `_transcoder`
+/// Missing zero check for `_transcoder`
 85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
 
 ```
@@ -1470,10 +1470,10 @@ File: contracts/bonding/IBondingManager.sol
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 83:     function hasVoted(uint256 _proposalId, address _account) public view virtual override returns (bool) {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 130:     function _countVote(
              uint256 _proposalId,
              address _account,
@@ -1482,7 +1482,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
              bytes memory // params
          ) internal virtual override {
 
-// Missing zero check for `_account`
+/// Missing zero check for `_account`
 174:     function _handleVoteOverrides(
              uint256 _proposalId,
              ProposalTally storage _tally,
@@ -1497,7 +1497,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```solidity
 File: contracts/treasury/IVotes.sol
 
-// Missing zero check for `account`
+/// Missing zero check for `account`
 9:     function delegatedAt(address account, uint256 timepoint) external returns (address);
 
 ```
@@ -1506,7 +1506,7 @@ File: contracts/treasury/IVotes.sol
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-// Missing zero check for `_controller`
+/// Missing zero check for `_controller`
 43:     constructor(address _controller) Manager(_controller) {
 
 ```
@@ -1515,7 +1515,7 @@ File: contracts/treasury/LivepeerGovernor.sol
 ```solidity
 File: contracts/treasury/Treasury.sol
 
-// Missing zero check for `admin`
+/// Missing zero check for `admin`
 16:     function initialize(
             uint256 minDelay,
             address[] memory proposers,
@@ -1892,8 +1892,8 @@ There are <b>38</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-// Missing @param for _recipient
-// Missing @param for _amount
+/// Missing @param for _recipient
+/// Missing @param for _amount
 273:     function withdrawFees(address payable _recipient, uint256 _amount)
              external
              whenSystemNotPaused
@@ -1901,18 +1901,18 @@ File: contracts/bonding/BondingManager.sol
              autoClaimEarnings(msg.sender)
          {
 
-// Missing @param for _round
+/// Missing @param for _round
 302:     function updateTranscoderWithFees(
              address _transcoder,
              uint256 _fees,
              uint256 _round
          ) external whenSystemNotPaused onlyTicketBroker {
 
-// Missing @param for _cutRate
+/// Missing @param for _cutRate
 1176:     function _setTreasuryRewardCutRate(uint256 _cutRate) internal {
 
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
+/// Missing @param for _newPosPrev
+/// Missing @param for _newPosNext
 1294:     function increaseTotalStake(
               address _delegate,
               uint256 _amount,
@@ -1920,10 +1920,10 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal autoCheckpoint(_delegate) {
 
-// Missing @param for _delegate
-// Missing @param for _amount
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
+/// Missing @param for _delegate
+/// Missing @param for _amount
+/// Missing @param for _newPosPrev
+/// Missing @param for _newPosNext
 1307:     function increaseTotalStakeUncheckpointed(
               address _delegate,
               uint256 _amount,
@@ -1931,8 +1931,8 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal {
 
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
+/// Missing @param for _newPosPrev
+/// Missing @param for _newPosNext
 1352:     function decreaseTotalStake(
               address _delegate,
               uint256 _amount,
@@ -1940,8 +1940,8 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal autoCheckpoint(_delegate) {
 
-// Missing @param for _newPosPrev
-// Missing @param for _newPosNext
+/// Missing @param for _newPosPrev
+/// Missing @param for _newPosNext
 1392:     function tryToJoinActiveSet(
               address _transcoder,
               uint256 _totalStake,
@@ -1950,19 +1950,19 @@ File: contracts/bonding/BondingManager.sol
               address _newPosNext
           ) internal {
 
-// Missing @param for _transcoder
+/// Missing @param for _transcoder
 1437:     function resignTranscoder(address _transcoder) internal {
 
-// Missing @param for _owner
-// Missing @param for _delegator
-// Missing @param for _transcoder
+/// Missing @param for _owner
+/// Missing @param for _delegator
+/// Missing @param for _transcoder
 1591:     function _checkpointBondingState(
               address _owner,
               Delegator storage _delegator,
               Transcoder storage _transcoder
           ) internal {
 
-// Missing @param for _delegator
+/// Missing @param for _delegator
 1667:     function _autoClaimEarnings(address _delegator) internal {
 
 ```
@@ -1971,37 +1971,37 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-// Missing @param for _account
+/// Missing @param for _account
 155:     function getVotes(address _account) external view returns (uint256) {
 
-// Missing @param for _account
-// Missing @param for _round
+/// Missing @param for _account
+/// Missing @param for _round
 167:     function getPastVotes(address _account, uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
 
-// Missing @param for _round
+/// Missing @param for _round
 194:     function getPastTotalSupply(uint256 _round) external view onlyPastRounds(_round) returns (uint256) {
 
-// Missing @param for _account
+/// Missing @param for _account
 205:     function delegates(address _account) external view returns (address) {
 
-// Missing @param for _account
-// Missing @param for _round
+/// Missing @param for _account
+/// Missing @param for _round
 218:     function delegatedAt(address _account, uint256 _round) external view onlyPastRounds(_round) returns (address) {
 
-// Missing @param for _account
+/// Missing @param for _account
 315:     function hasCheckpoint(address _account) public view returns (bool) {
 
-// Missing @param for _account
-// Missing @param for previous
-// Missing @param for current
+/// Missing @param for _account
+/// Missing @param for previous
+/// Missing @param for current
 387:     function onBondingCheckpointChanged(
              address _account,
              BondingCheckpoint memory previous,
              BondingCheckpoint memory current
          ) internal {
 
-// Missing @param for _transcoder
-// Missing @param for _round
+/// Missing @param for _transcoder
+/// Missing @param for _round
 520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
              internal
              view
@@ -2014,25 +2014,25 @@ File: contracts/bonding/BondingVotes.sol
 ```solidity
 File: contracts/bonding/IBondingManager.sol
 
-// Missing @param for _transcoder
-// Missing @param for _fees
-// Missing @param for _round
+/// Missing @param for _transcoder
+/// Missing @param for _fees
+/// Missing @param for _round
 59:     function updateTranscoderWithFees(
 
-// Missing @param for _transcoder
-// Missing @param for _finder
-// Missing @param for _slashAmount
-// Missing @param for _finderFee
+/// Missing @param for _transcoder
+/// Missing @param for _finder
+/// Missing @param for _slashAmount
+/// Missing @param for _finderFee
 65:     function slashTranscoder(
 
-// Missing @param for _transcoder
+/// Missing @param for _transcoder
 77:     function transcoderTotalStake(address _transcoder) external view returns (uint256);
 
-// Missing @param for _transcoder
+/// Missing @param for _transcoder
 79:     function isActiveTranscoder(address _transcoder) external view returns (bool);
 
-// Missing @param for _transcoder
-// Missing @param for _round
+/// Missing @param for _transcoder
+/// Missing @param for _round
 85:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
 
 ```
@@ -2041,17 +2041,17 @@ File: contracts/bonding/IBondingManager.sol
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
-// Missing @param for _quota
+/// Missing @param for _quota
 64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
 
-// Missing @param for _quota
+/// Missing @param for _quota
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
-// Missing @param for _proposalId
-// Missing @param for _account
+/// Missing @param for _proposalId
+/// Missing @param for _account
 83:     function hasVoted(uint256 _proposalId, address _account) public view virtual override returns (bool) {
 
-// Missing @param for _proposalId
+/// Missing @param for _proposalId
 90:     function proposalVotes(uint256 _proposalId)
             public
             view
@@ -2063,16 +2063,16 @@ File: contracts/treasury/GovernorCountingOverridable.sol
             )
         {
 
-// Missing @param for _proposalId
+/// Missing @param for _proposalId
 107:     function _quorumReached(uint256 _proposalId) internal view virtual override returns (bool) {
 
-// Missing @param for _proposalId
+/// Missing @param for _proposalId
 118:     function _voteSucceeded(uint256 _proposalId) internal view virtual override returns (bool) {
 
-// Missing @param for _proposalId
-// Missing @param for _account
-// Missing @param for _supportInt
-// Missing @param for _weight
+/// Missing @param for _proposalId
+/// Missing @param for _account
+/// Missing @param for _supportInt
+/// Missing @param for _weight
 130:     function _countVote(
              uint256 _proposalId,
              address _account,
@@ -2087,8 +2087,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ```solidity
 File: contracts/treasury/IVotes.sol
 
-// Missing @param for account
-// Missing @param for timepoint
+/// Missing @param for account
+/// Missing @param for timepoint
 9:     function delegatedAt(address account, uint256 timepoint) external returns (address);
 
 ```
@@ -2097,14 +2097,14 @@ File: contracts/treasury/IVotes.sol
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-// Missing @param for _controller
+/// Missing @param for _controller
 43:     constructor(address _controller) Manager(_controller) {
 
-// Missing @param for initialVotingDelay
-// Missing @param for initialVotingPeriod
-// Missing @param for initialProposalThreshold
-// Missing @param for initialQuorum
-// Missing @param for quota
+/// Missing @param for initialVotingDelay
+/// Missing @param for initialVotingPeriod
+/// Missing @param for initialProposalThreshold
+/// Missing @param for initialQuorum
+/// Missing @param for quota
 54:     function initialize(
             uint256 initialVotingDelay,
             uint256 initialVotingPeriod,
@@ -2113,7 +2113,7 @@ File: contracts/treasury/LivepeerGovernor.sol
             uint256 quota
         ) public initializer {
 
-// Missing @param for proposalId
+/// Missing @param for proposalId
 123:     function state(uint256 proposalId)
              public
              view
@@ -2121,11 +2121,11 @@ File: contracts/treasury/LivepeerGovernor.sol
              returns (ProposalState)
          {
 
-// Missing @param for proposalId
-// Missing @param for targets
-// Missing @param for values
-// Missing @param for calldatas
-// Missing @param for descriptionHash
+/// Missing @param for proposalId
+/// Missing @param for targets
+/// Missing @param for values
+/// Missing @param for calldatas
+/// Missing @param for descriptionHash
 132:     function _execute(
              uint256 proposalId,
              address[] memory targets,
@@ -2134,10 +2134,10 @@ File: contracts/treasury/LivepeerGovernor.sol
              bytes32 descriptionHash
          ) internal override(GovernorUpgradeable, GovernorTimelockControlUpgradeable) {
 
-// Missing @param for targets
-// Missing @param for values
-// Missing @param for calldatas
-// Missing @param for descriptionHash
+/// Missing @param for targets
+/// Missing @param for values
+/// Missing @param for calldatas
+/// Missing @param for descriptionHash
 142:     function _cancel(
              address[] memory targets,
              uint256[] memory values,
@@ -2145,7 +2145,7 @@ File: contracts/treasury/LivepeerGovernor.sol
              bytes32 descriptionHash
          ) internal override(GovernorUpgradeable, GovernorTimelockControlUpgradeable) returns (uint256) {
 
-// Missing @param for interfaceId
+/// Missing @param for interfaceId
 160:     function supportsInterface(bytes4 interfaceId)
              public
              view
@@ -2159,10 +2159,10 @@ File: contracts/treasury/LivepeerGovernor.sol
 ```solidity
 File: contracts/treasury/Treasury.sol
 
-// Missing @param for minDelay
-// Missing @param for proposers
-// Missing @param for executors
-// Missing @param for admin
+/// Missing @param for minDelay
+/// Missing @param for proposers
+/// Missing @param for executors
+/// Missing @param for admin
 16:     function initialize(
             uint256 minDelay,
             address[] memory proposers,
@@ -2408,8 +2408,8 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/treasury/LivepeerGovernor.sol
 
-// No need for LivepeerGovernor to inherit from Initializable, GovernorCountingOverridable is already inherited from Initializable
-// No need for LivepeerGovernor to inherit from GovernorUpgradeable, GovernorCountingOverridable is already inherited from GovernorUpgradeable
+/// No need for LivepeerGovernor to inherit from Initializable, GovernorCountingOverridable is already inherited from Initializable
+/// No need for LivepeerGovernor to inherit from GovernorUpgradeable, GovernorCountingOverridable is already inherited from GovernorUpgradeable
 26: contract LivepeerGovernor is
         ManagerProxyTarget,
         Initializable,
@@ -2562,8 +2562,8 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-// `cStake` not used
-// `cFees` not used
+/// `cStake` not used
+/// `cFees` not used
 1238:     function delegatorCumulativeStakeAndFees(
               Transcoder storage _transcoder,
               uint256 _startRound,
@@ -2917,7 +2917,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-// Seen in contracts/bonding/BondingVotes.sol
+/// Seen in contracts/bonding/BondingVotes.sol
 1639:     function roundsManager() internal view returns (IRoundsManager) {
 
 ```
@@ -2926,7 +2926,7 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-// Seen in contracts/bonding/BondingManager.sol
+/// Seen in contracts/bonding/BondingManager.sol
 546:     function roundsManager() internal view returns (IRoundsManager) {
 
 ```
