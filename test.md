@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>449</b> instances over <b>38</b> issues:
+Total <b>450</b> instances over <b>39</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -55,24 +55,25 @@ Total <b>449</b> instances over <b>38</b> issues:
 | [NC-18](#NC-18) | NatSpec `@return` is missing | 46 |
 | [NC-19](#NC-19) | Redundant inheritance specifier | 1 |
 | [NC-20](#NC-20) | Redundant `return` statement in a function with named return variables | 2 |
-| [NC-21](#NC-21) | Contract declarations should have NatSpec `@title` annotations | 2 |
-| [NC-22](#NC-22) | Lines are too long | 2 |
-| [NC-23](#NC-23) | Unused named return | 1 |
-| [NC-24](#NC-24) | Unused contract variables | 7 |
-| [NC-25](#NC-25) | Consider using `delete` rather than assigning zero to clear values | 5 |
-| [NC-26](#NC-26) | Solidity compiler version is not fixed | 1 |
-| [NC-27](#NC-27) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
-| [NC-28](#NC-28) | Use `@inheritdoc` for overridden functions | 6 |
-| [NC-29](#NC-29) | Use `type(X).max` instead of constant formulas like `2**n` | 1 |
-| [NC-30](#NC-30) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-31](#NC-31) | Whitespace in Expressions | 5 |
-| [NC-32](#NC-32) | Common functions should be refactored to a common base contract | 2 |
-| [NC-33](#NC-33) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
-| [NC-34](#NC-34) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
-| [NC-35](#NC-35) | Variables should be named in mixedCase style | 1 |
-| [NC-36](#NC-36) | `TODO`s left in the code | 1 |
-| [NC-37](#NC-37) | Event is missing `indexed` fields | 12 |
-| [NC-38](#NC-38) | Functions not used internally could be marked external | 17 |
+| [NC-21](#NC-21) | State variables should include comments | 1 |
+| [NC-22](#NC-22) | Contract declarations should have NatSpec `@title` annotations | 2 |
+| [NC-23](#NC-23) | Lines are too long | 2 |
+| [NC-24](#NC-24) | Unused named return | 1 |
+| [NC-25](#NC-25) | Unused contract variables | 7 |
+| [NC-26](#NC-26) | Consider using `delete` rather than assigning zero to clear values | 5 |
+| [NC-27](#NC-27) | Solidity compiler version is not fixed | 1 |
+| [NC-28](#NC-28) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
+| [NC-29](#NC-29) | Use `@inheritdoc` for overridden functions | 6 |
+| [NC-30](#NC-30) | Use `type(X).max` instead of constant formulas like `2**n` | 1 |
+| [NC-31](#NC-31) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-32](#NC-32) | Whitespace in Expressions | 5 |
+| [NC-33](#NC-33) | Common functions should be refactored to a common base contract | 2 |
+| [NC-34](#NC-34) | Names of `private`/`internal` functions should be prefixed with an underscore | 32 |
+| [NC-35](#NC-35) | Names of `private`/`internal` state variables should be prefixed with an underscore | 6 |
+| [NC-36](#NC-36) | Variables should be named in mixedCase style | 1 |
+| [NC-37](#NC-37) | `TODO`s left in the code | 1 |
+| [NC-38](#NC-38) | Event is missing `indexed` fields | 12 |
+| [NC-39](#NC-39) | Functions not used internally could be marked external | 17 |
 
 ## Gas Optimizations
 
@@ -2359,7 +2360,28 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-21"></a> 
-#### [NC-21] Contract declarations should have NatSpec `@title` annotations
+#### [NC-21] State variables should include comments
+Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+85:     mapping(address => Transcoder) private transcoders;
+
+```
+[#L85](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L85) 
+
+</details>
+
+---
+
+<a name="NC-22"></a> 
+#### [NC-22] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -2387,8 +2409,8 @@ File: contracts/treasury/IVotes.sol
 
 ---
 
-<a name="NC-22"></a> 
-#### [NC-22] Lines are too long
+<a name="NC-23"></a> 
+#### [NC-23] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -2410,8 +2432,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-23"></a> 
-#### [NC-23] Unused named return
+<a name="NC-24"></a> 
+#### [NC-24] Unused named return
 Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
 
 <details>
@@ -2439,8 +2461,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-24"></a> 
-#### [NC-24] Unused contract variables
+<a name="NC-25"></a> 
+#### [NC-25] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 <details>
@@ -2484,8 +2506,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-25"></a> 
-#### [NC-25] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-26"></a> 
+#### [NC-26] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -2519,8 +2541,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-26"></a> 
-#### [NC-26] Solidity compiler version is not fixed
+<a name="NC-27"></a> 
+#### [NC-27] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 <details>
@@ -2540,8 +2562,8 @@ File: contracts/bonding/IBondingVotes.sol
 
 ---
 
-<a name="NC-27"></a> 
-#### [NC-27] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-28"></a> 
+#### [NC-28] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -2561,8 +2583,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-28"></a> 
-#### [NC-28] Use `@inheritdoc` for overridden functions
+<a name="NC-29"></a> 
+#### [NC-29] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -2597,8 +2619,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-29"></a> 
-#### [NC-29] Use `type(X).max` instead of constant formulas like `2**n`
+<a name="NC-30"></a> 
+#### [NC-30] Use `type(X).max` instead of constant formulas like `2**n`
 Earlier versions of solidity can use `uint<n>(-1)` instead. Expressions `2**n -1` can often be rewritten to accommodate the change (e.g. by using a `>` instead of a `>=`, which will also saves gas).
 
 <details>
@@ -2618,8 +2640,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-30"></a> 
-#### [NC-30] Visibility of state variables is not explicitly defined
+<a name="NC-31"></a> 
+#### [NC-31] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -2639,8 +2661,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="NC-31"></a> 
-#### [NC-31] Whitespace in Expressions
+<a name="NC-32"></a> 
+#### [NC-32] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 <details>
@@ -2680,8 +2702,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-32"></a> 
-#### [NC-32] Common functions should be refactored to a common base contract
+<a name="NC-33"></a> 
+#### [NC-33] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -2711,8 +2733,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-33"></a> 
-#### [NC-33] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-34"></a> 
+#### [NC-34] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2905,8 +2927,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-34"></a> 
-#### [NC-34] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-35"></a> 
+#### [NC-35] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2942,8 +2964,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="NC-35"></a> 
-#### [NC-35] Variables should be named in mixedCase style
+<a name="NC-36"></a> 
+#### [NC-36] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -2963,8 +2985,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="NC-36"></a> 
-#### [NC-36] `TODO`s left in the code
+<a name="NC-37"></a> 
+#### [NC-37] `TODO`s left in the code
 TODOs may signal that a feature is missing or not ready for audit, consider resolving the issue and removing the TODO comment.
 
 <details>
@@ -2984,8 +3006,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-37"></a> 
-#### [NC-37] Event is missing `indexed` fields
+<a name="NC-38"></a> 
+#### [NC-38] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -3027,8 +3049,8 @@ File: contracts/bonding/IBondingManager.sol
 
 ---
 
-<a name="NC-38"></a> 
-#### [NC-38] Functions not used internally could be marked external
+<a name="NC-39"></a> 
+#### [NC-39] Functions not used internally could be marked external
 
 <details>
 <summary>
