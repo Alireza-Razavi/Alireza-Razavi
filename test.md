@@ -695,7 +695,6 @@ There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/bonding/BondingManager.sol
 
 Global finding
 
