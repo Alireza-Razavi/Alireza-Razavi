@@ -40,7 +40,7 @@ Total <b>446</b> instances over <b>37</b> issues:
 | [NC-3](#NC-3) | Events that mark critical parameter changes should contain both the old and the new value | 23 |
 | [NC-4](#NC-4) | Custom errors has no error details | 1 |
 | [NC-5](#NC-5) | Custom errors should be used rather than `revert()`/`require()` | 25 |
-| [NC-6](#NC-6) | Solidity version is different in some files | 9 |
+| [NC-6](#NC-6) | Events are emitted without the sender information | 9 |
 | [NC-7](#NC-7) | Functions and modifiers should be named in mixedCase style | 2 |
 | [NC-8](#NC-8) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-9](#NC-9) | Missing zero address check in functions with address parameters | 63 |
@@ -681,7 +681,8 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-6"></a> 
-#### [NC-6] Solidity version is different in some files
+#### [NC-6] Events are emitted without the sender information
+When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
 
 <details>
 <summary>
