@@ -694,8 +694,10 @@ The IR-based code generator was introduced with an aim to not only allow code ge
 There is <b>1</b> instance (click to show):
 </summary>
 
+```solidity
+File: contracts/bonding/BondingManager.sol
 
-- Global finding
+Global finding
 
 ```
 
