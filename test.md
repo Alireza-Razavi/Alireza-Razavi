@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>454</b> instances over <b>37</b> issues:
+Total <b>446</b> instances over <b>37</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -40,7 +40,7 @@ Total <b>454</b> instances over <b>37</b> issues:
 | [NC-3](#NC-3) | Events that mark critical parameter changes should contain both the old and the new value | 23 |
 | [NC-4](#NC-4) | Custom errors has no error details | 1 |
 | [NC-5](#NC-5) | Custom errors should be used rather than `revert()`/`require()` | 25 |
-| [NC-6](#NC-6) | Events are emitted without the sender information | 17 |
+| [NC-6](#NC-6) | Solidity version is different in some files | 9 |
 | [NC-7](#NC-7) | Functions and modifiers should be named in mixedCase style | 2 |
 | [NC-8](#NC-8) | Import declarations should import specific identifiers, rather than the whole file | 52 |
 | [NC-9](#NC-9) | Missing zero address check in functions with address parameters | 63 |
@@ -681,12 +681,11 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="NC-6"></a> 
-#### [NC-6] Events are emitted without the sender information
-When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
+#### [NC-6] Solidity version is different in some files
 
 <details>
 <summary>
-There are <b>17</b> instances (click to show):
+There are <b>9</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -698,42 +697,20 @@ File: contracts/bonding/BondingManager.sol
 
 189:         emit ParameterUpdate("numActiveTranscoders");
 
-431:                 emit TranscoderSlashed(_transcoder, _finder, penalty, finderAmount);
-
-436:                 emit TranscoderSlashed(_transcoder, address(0), penalty, 0);
-
-439:             emit TranscoderSlashed(_transcoder, _finder, 0, 0);
-
-468:             emit ParameterUpdate("treasuryRewardCutRate");
-
 619:         emit Bond(_to, currentDelegate, _owner, _amount, del.bondedAmount);
 
-783:         emit Unbond(currentDelegate, msg.sender, unbondingLockId, _amount, withdrawRound);
-
 1181:         emit ParameterUpdate("nextRoundTreasuryRewardCutRate");
-
-1420:             emit TranscoderDeactivated(lastTranscoder, _activationRound);
 
 1431:         emit TranscoderActivated(_transcoder, _activationRound);
 
 1446:         emit TranscoderDeactivated(_transcoder, deactivationRound);
 
+1541:         emit EarningsClaimed(
+
 1584:         emit Rebond(del.delegateAddress, _delegator, _unbondingLockId, amount);
 
 ```
-[#L158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L158) [#L179](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L179) [#L189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L189) [#L431](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L431) [#L436](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L436) [#L439](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L439) [#L468](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L468) [#L619](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L619) [#L783](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L783) [#L1181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1181) [#L1420](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1420) [#L1431](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1431) [#L1446](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1446) [#L1584](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1584) 
-
-```solidity
-File: contracts/bonding/BondingVotes.sol
-
-395:             emit DelegateChanged(_account, previousDelegate, newDelegate);
-
-404:             emit DelegateVotesChanged(_account, previousDelegateVotes, currentDelegateVotes);
-
-410:             emit DelegatorBondedAmountChanged(_account, previous.bondedAmount, current.bondedAmount);
-
-```
-[#L395](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L395) [#L404](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L404) [#L410](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L410) 
+[#L158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L158) [#L179](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L179) [#L189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L189) [#L619](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L619) [#L1181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1181) [#L1431](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1431) [#L1446](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1446) [#L1541](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1541) [#L1584](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1584) 
 
 </details>
 
