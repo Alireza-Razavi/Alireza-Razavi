@@ -188,12 +188,15 @@ There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
+File: contracts/treasury/LivepeerGovernor.sol
 
-21: abstract contract GovernorCountingOverridable is Initializable, GovernorUpgradeable {
+26: contract LivepeerGovernor is
+        ManagerProxyTarget,
+        Initializable,
+        GovernorUpgradeable,
 
 ```
-[#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L21) 
+[#L26](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L26) 
 
 ```solidity
 File: contracts/treasury/Treasury.sol
