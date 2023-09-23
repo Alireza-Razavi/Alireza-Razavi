@@ -91,7 +91,7 @@ Total <b>115</b> instances over <b>13</b> issues:
 | [GAS-1](#GAS-1) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 7 | 791 |
 | [GAS-2](#GAS-2) | Multiple accesses of the same mapping/array key/index should be cached | 3 | 126 |
 | [GAS-3](#GAS-3) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-4](#GAS-4) | State variables should be cached in stack variables rather than re-reading them from storage | 2 | - |
+| [GAS-4](#GAS-4) | State variables should be cached in stack variables rather than re-reading them from storage | 2 | 194 |
 | [GAS-5](#GAS-5) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
 | [GAS-6](#GAS-6) | Use Custom Errors | 25 | 1250 |
 | [GAS-7](#GAS-7) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
