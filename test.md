@@ -84,7 +84,7 @@ Total <b>469</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>101</b> instances over <b>9</b> issues:
+Total <b>102</b> instances over <b>9</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -92,7 +92,7 @@ Total <b>101</b> instances over <b>9</b> issues:
 | [GAS-2](#GAS-2) | Use Custom Errors | 25 | - |
 | [GAS-3](#GAS-3) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
 | [GAS-4](#GAS-4) | Long revert strings | 10 | - |
-| [GAS-5](#GAS-5) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
+| [GAS-5](#GAS-5) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
 | [GAS-6](#GAS-6) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 | - |
 | [GAS-7](#GAS-7) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
 | [GAS-8](#GAS-8) | Using assembly to check for zero can save gas | 26 | - |
@@ -3483,7 +3483,7 @@ Payable functions cost less gas to execute, because the compiler does not have t
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>3</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3501,6 +3501,14 @@ File: contracts/bonding/BondingVotes.sol
 
 ```
 [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/bonding/BondingVotes.sol#L107) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+43:     constructor(address _controller) Manager(_controller) {
+
+```
+[#L43](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/treasury/LivepeerGovernor.sol#L43) 
 
 </details>
 
