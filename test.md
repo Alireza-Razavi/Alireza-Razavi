@@ -84,14 +84,14 @@ Total <b>469</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>115</b> instances over <b>13</b> issues:
+Total <b>149</b> instances over <b>13</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 7 | 791 |
 | [GAS-2](#GAS-2) | Multiple accesses of the same mapping/array key/index should be cached | 3 | 126 |
 | [GAS-3](#GAS-3) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-4](#GAS-4) | State variables should be cached in stack variables rather than re-reading them from storage | 2 | 194 |
+| [GAS-4](#GAS-4) | State variables should be cached in stack variables rather than re-reading them from storage | 36 | 3492 |
 | [GAS-5](#GAS-5) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
 | [GAS-6](#GAS-6) | Use Custom Errors | 25 | 1250 |
 | [GAS-7](#GAS-7) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
@@ -3418,26 +3418,128 @@ The instances below point to the second+ access of a state variable within a fun
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>36</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
+/// @audit `unbondingPeriod`
+156:         unbondingPeriod = _unbondingPeriod;
+
+/// @audit `unbondingPeriod`
+158:         emit ParameterUpdate("unbondingPeriod");
+
+/// @audit `treasuryBalanceCeiling`
+179:         emit ParameterUpdate("treasuryBalanceCeiling");
+
+/// @audit `delegators`
+282:         delegators[msg.sender].fees = fees.sub(_amount);
+
+/// @audit `delegators`
+364:                 delegatorsRewards.add(totalStake)
+
+/// @audit `delegators`
+368:         uint256 delegatorsFees = MathUtils.percOf(_fees, earningsPool.transcoderFeeShare);
+
+/// @audit `delegators`
+369:         uint256 transcoderCommissionFees = _fees.sub(delegatorsFees);
+
+/// @audit `delegators`
+372:             delegatorsFees,
+
+/// @audit `delegators`
+379:         // The cumulativeFeeFactor is used to calculate fees for all delegators including the transcoder (self-delegated)
+
+/// @audit `delegators`
+380:         // Note that delegatorsFees includes transcoderRewardStakeFees, but no delegator will claim that amount using
+
+/// @audit `delegators`
+382:         earningsPool.updateCumulativeFeeFactor(prevEarningsPool, delegatorsFees);
+
+/// @audit `treasuryRewardCutRate`
+466:             treasuryRewardCutRate = nextRoundTreasuryRewardCutRate;
+
+/// @audit `nextRoundTreasuryRewardCutRate`
+466:             treasuryRewardCutRate = nextRoundTreasuryRewardCutRate;
+
+/// @audit `treasuryRewardCutRate`
+468:             emit ParameterUpdate("treasuryRewardCutRate");
+
+/// @audit `currentRoundTotalActiveStake`
+471:         bondingVotes().checkpointTotalActiveStake(currentRoundTotalActiveStake, roundsManager().currentRound());
+
+/// @audit `transcoders`
+593:             Transcoder storage newDelegate = transcoders[_to];
+
+/// @audit `transcoders`
+622:         _checkpointBondingState(_owner, del, transcoders[_owner]);
+
 /// @audit `delegators`
 690:         Delegator storage newDel = delegators[_delegator];
 
+/// @audit `delegators`
+780:         // If msg.sender was resigned this statement will only decrease delegators[currentDelegate].delegatedAmount
+
+/// @audit `delegators`
+829:         delegators[msg.sender].delegateAddress = _to;
+
+/// @audit `transcoders`
+856:         Transcoder storage t = transcoders[msg.sender];
+
+/// @audit `treasuryBalanceCeiling`
+873:             if (treasuryBalance >= treasuryBalanceCeiling && nextRoundTreasuryRewardCutRate > 0) {
+
+/// @audit `nextRoundTreasuryRewardCutRate`
+1181:         emit ParameterUpdate("nextRoundTreasuryRewardCutRate");
+
+/// @audit `transcoderPool`
+1324:                 transcoderPool.updateKey(_delegate, newStake, _newPosPrev, _newPosNext);
+
+/// @audit `transcoderPool`
+1367:             transcoderPool.updateKey(_delegate, newStake, _newPosPrev, _newPosNext);
+
+/// @audit `transcoderPool`
+1402:             address lastTranscoder = transcoderPool.getLast();
+
+/// @audit `transcoderPool`
+1416:             transcoderPool.remove(lastTranscoder);
+
+/// @audit `transcoderPool`
+1423:         transcoderPool.insert(_transcoder, _totalStake, _newPosPrev, _newPosNext);
+
+/// @audit `transcoders`
+1425:         Transcoder storage t = transcoders[_transcoder];
+
+/// @audit `nextRoundTotalActiveStake`
+1430:         nextRoundTotalActiveStake = pendingNextRoundTotalActiveStake;
+
+/// @audit `delegators`
+1476:             delegatorsRewards,
+
+/// @audit `delegators`
+1483:         // The cumulativeRewardFactor is used to calculate rewards for all delegators including the transcoder (self-delegated)
+
+/// @audit `delegators`
+1484:         // Note that delegatorsRewards includes transcoderRewardStakeRewards, but no delegator will claim that amount using
+
+/// @audit `delegators`
+1486:         earningsPool.updateCumulativeRewardFactor(prevEarningsPool, delegatorsRewards);
+
 ```
-[#L690](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L690) 
+[#L156](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L156) [#L158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L158) [#L179](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L179) [#L282](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L282) [#L364](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L364) [#L368](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L368) [#L369](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L369) [#L372](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L372) [#L379](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L379) [#L380](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L380) [#L382](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L382) [#L466](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L466) [#L466](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L466) [#L468](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L468) [#L471](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L471) [#L593](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L593) [#L622](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L622) [#L690](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L690) [#L780](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L780) [#L829](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L829) [#L856](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L856) [#L873](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L873) [#L1181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1181) [#L1324](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1324) [#L1367](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1367) [#L1402](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1402) [#L1416](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1416) [#L1423](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1423) [#L1425](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1425) [#L1430](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1430) [#L1476](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1476) [#L1483](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1483) [#L1484](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1484) [#L1486](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1486) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
 /// @audit `totalStakeCheckpoints`
+309:         totalStakeCheckpoints.rounds.pushSorted(_round);
+
+/// @audit `totalStakeCheckpoints`
 335:         uint256[] storage initializedRounds = totalStakeCheckpoints.rounds;
 
 ```
-[#L335](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L335) 
+[#L309](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L309) [#L335](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L335) 
 
 </details>
 
