@@ -13,7 +13,7 @@ Total <b>12</b> instances over <b>1</b> issue:
 ## Low Issues
 
 
-Total <b>25</b> instances over <b>10</b> issues:
+Total <b>26</b> instances over <b>10</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -26,7 +26,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 | [L-7](#L-7) | Initializers could be front-run | 2 |
 | [L-8](#L-8) | Functions calling contracts/addresses with transfer hooks should be protected by reentrancy guard | 1 |
 | [L-9](#L-9) | Unsafe ERC20 operation(s) | 1 |
-| [L-10](#L-10) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 2 |
+| [L-10](#L-10) | Upgradable contracts need a constructor to lock the implementation contract when it is deployed | 3 |
 
 ## Non Critical Issues
 
@@ -391,11 +391,11 @@ File: contracts/bonding/BondingManager.sol
 
 <a name="L-10"></a> 
 #### [L-10] Upgradable contracts need a constructor to lock the implementation contract when it is deployed
-An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job.](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56)
+An uninitialized contract can be taken over by an attacker. For an upgradable contract, this applies to both the proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, we should trigger the initialization in the constructor to automatically lock it when it is deployed. For contracts that inherit `Initializable`, the `_disableInitializers()` function [is suggested to do this job](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/4d9d9073b84f56fe3eea360e5067c6ffd864c43d/contracts/proxy/utils/Initializable.sol#L43-L56).
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>3</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -405,6 +405,14 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ```
 [#L21](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L21) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+6: interface IVotes is IERC5805Upgradeable {
+
+```
+[#L6](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L6) 
 
 ```solidity
 File: contracts/treasury/Treasury.sol
