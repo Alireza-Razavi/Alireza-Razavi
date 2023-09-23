@@ -3424,16 +3424,16 @@ There are <b>5</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-/// More than 1 read for `treasuryRewardCutRate`, line 466 and 465
+/// More than 1 read for `treasuryRewardCutRate` at lines: 465,466
 466:             treasuryRewardCutRate = nextRoundTreasuryRewardCutRate;
 
-/// More than 1 read for `nextRoundTreasuryRewardCutRate`, line 466 and 465
+/// More than 1 read for `nextRoundTreasuryRewardCutRate` at lines: 465,466
 466:             treasuryRewardCutRate = nextRoundTreasuryRewardCutRate;
 
-/// More than 1 read for `delegators`, line 690 and 689
+/// More than 1 read for `delegators` at lines: 689,690
 690:         Delegator storage newDel = delegators[_delegator];
 
-/// More than 1 read for `nextRoundTotalActiveStake`, line 1430 and 1399
+/// More than 1 read for `nextRoundTotalActiveStake` at lines: 1399,1430
 1430:         nextRoundTotalActiveStake = pendingNextRoundTotalActiveStake;
 
 ```
@@ -3442,7 +3442,7 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-/// More than 1 read for `totalStakeCheckpoints`, line 335 and 330
+/// More than 1 read for `totalStakeCheckpoints` at lines: 330,335
 335:         uint256[] storage initializedRounds = totalStakeCheckpoints.rounds;
 
 ```
