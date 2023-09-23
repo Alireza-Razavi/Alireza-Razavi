@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>470</b> instances over <b>46</b> issues:
+Total <b>469</b> instances over <b>45</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -80,24 +80,24 @@ Total <b>470</b> instances over <b>46</b> issues:
 | [NC-43](#NC-43) | `TODO`s left in the code | 1 |
 | [NC-44](#NC-44) | Event is missing `indexed` fields | 12 |
 | [NC-45](#NC-45) | Functions not used internally could be marked external | 17 |
-| [NC-46](#NC-46) | Unused named return variables without optimizer waste gas | 1 |
 
 ## Gas Optimizations
 
 
-Total <b>102</b> instances over <b>9</b> issues:
+Total <b>103</b> instances over <b>10</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
-| [GAS-1](#GAS-1) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-2](#GAS-2) | Use Custom Errors | 25 | - |
-| [GAS-3](#GAS-3) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-4](#GAS-4) | Long revert strings | 10 | - |
-| [GAS-5](#GAS-5) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-6](#GAS-6) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 | - |
-| [GAS-7](#GAS-7) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-8](#GAS-8) | Using assembly to check for zero can save gas | 26 | - |
-| [GAS-9](#GAS-9) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-1](#GAS-1) | Unused named return variables without optimizer waste gas | 1 | 9 |
+| [GAS-2](#GAS-2) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-3](#GAS-3) | Use Custom Errors | 25 | - |
+| [GAS-4](#GAS-4) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-5](#GAS-5) | Long revert strings | 10 | - |
+| [GAS-6](#GAS-6) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-7](#GAS-7) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 | - |
+| [GAS-8](#GAS-8) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-9](#GAS-9) | Using assembly to check for zero can save gas | 26 | - |
+| [GAS-10](#GAS-10) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -3315,8 +3315,11 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-46"></a> 
-#### [NC-46] Unused named return variables without optimizer waste gas
+
+## Gas Optimizations
+
+<a name="GAS-1"></a> 
+#### [GAS-1] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
 <details>
@@ -3344,11 +3347,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-
-## Gas Optimizations
-
-<a name="GAS-1"></a> 
-#### [GAS-1] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-2"></a> 
+#### [GAS-2] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -3370,8 +3370,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-2"></a> 
-#### [GAS-2] Use Custom Errors
+<a name="GAS-3"></a> 
+#### [GAS-3] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -3440,8 +3440,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-3"></a> 
-#### [GAS-3] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-4"></a> 
+#### [GAS-4] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -3469,8 +3469,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ---
 
-<a name="GAS-4"></a> 
-#### [GAS-4] Long revert strings
+<a name="GAS-5"></a> 
+#### [GAS-5] Long revert strings
 
 <details>
 <summary>
@@ -3507,8 +3507,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-5"></a> 
-#### [GAS-5] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-6"></a> 
+#### [GAS-6] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -3544,8 +3544,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-6"></a> 
-#### [GAS-6] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-7"></a> 
+#### [GAS-7] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -3605,8 +3605,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-7"></a> 
-#### [GAS-7] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-8"></a> 
+#### [GAS-8] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -3657,8 +3657,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-8"></a> 
-#### [GAS-8] Using assembly to check for zero can save gas
+<a name="GAS-9"></a> 
+#### [GAS-9] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -3746,8 +3746,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-9"></a> 
-#### [GAS-9] `internal` functions not called by the contract should be removed
+<a name="GAS-10"></a> 
+#### [GAS-10] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
