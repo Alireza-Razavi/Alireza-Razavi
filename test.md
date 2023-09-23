@@ -3414,8 +3414,6 @@ File: contracts/bonding/BondingManager.sol
 #### [GAS-4] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
-*Saves 100 gas per instance*
-
 <details>
 <summary>
 There are <b>5</b> instances (click to show):
