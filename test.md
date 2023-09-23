@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>469</b> instances over <b>45</b> issues:
+Total <b>470</b> instances over <b>46</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -80,6 +80,7 @@ Total <b>469</b> instances over <b>45</b> issues:
 | [NC-43](#NC-43) | `TODO`s left in the code | 1 |
 | [NC-44](#NC-44) | Event is missing `indexed` fields | 12 |
 | [NC-45](#NC-45) | Functions not used internally could be marked external | 17 |
+| [NC-46](#NC-46) | Unused named return variables without optimizer waste gas | 1 |
 
 ## Gas Optimizations
 
@@ -3309,6 +3310,35 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ```
 [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/treasury/LivepeerGovernor.sol#L54) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/treasury/LivepeerGovernor.sol#L123) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/treasury/LivepeerGovernor.sol#L160) 
+
+</details>
+
+---
+
+<a name="NC-46"></a> 
+#### [NC-46] Unused named return variables without optimizer waste gas
+Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+/// `cStake` not used
+/// `cFees` not used
+1238:     function delegatorCumulativeStakeAndFees(
+              Transcoder storage _transcoder,
+              uint256 _startRound,
+              uint256 _endRound,
+              uint256 _stake,
+              uint256 _fees
+          ) internal view returns (uint256 cStake, uint256 cFees) {
+
+```
+[#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/clearcontracts/bonding/BondingManager.sol#L1238) 
 
 </details>
 
