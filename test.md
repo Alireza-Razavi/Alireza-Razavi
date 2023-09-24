@@ -84,24 +84,25 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>129</b> instances over <b>14</b> issues:
+Total <b>163</b> instances over <b>15</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 7 | 791 |
 | [GAS-2](#GAS-2) | `internal` functions only called once can be inlined to save gas | 15 | 450 |
 | [GAS-3](#GAS-3) | Multiple accesses of the same mapping/array key/index should be cached | 3 | 126 |
-| [GAS-4](#GAS-4) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-5](#GAS-5) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
-| [GAS-6](#GAS-6) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-7](#GAS-7) | Use Custom Errors | 25 | 1250 |
-| [GAS-8](#GAS-8) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-9](#GAS-9) | Long revert strings | 10 | - |
-| [GAS-10](#GAS-10) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-11](#GAS-11) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-12](#GAS-12) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-13](#GAS-13) | Using assembly to check for zero can save gas | 26 | - |
-| [GAS-14](#GAS-14) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-4](#GAS-4) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 34 | - |
+| [GAS-5](#GAS-5) | Unused named return variables without optimizer waste gas | 1 | 9 |
+| [GAS-6](#GAS-6) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
+| [GAS-7](#GAS-7) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-8](#GAS-8) | Use Custom Errors | 25 | 1250 |
+| [GAS-9](#GAS-9) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-10](#GAS-10) | Long revert strings | 10 | - |
+| [GAS-11](#GAS-11) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-12](#GAS-12) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
+| [GAS-13](#GAS-13) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-14](#GAS-14) | Using assembly to check for zero can save gas | 26 | - |
+| [GAS-15](#GAS-15) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -3342,25 +3343,25 @@ There are <b>15</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
-/// `delegatorCumulativeStakeAndFees` is used ronly onces.
+/// `delegatorCumulativeStakeAndFees` is used only once
 1238:     function delegatorCumulativeStakeAndFees(
 
-/// `updateTranscoderWithRewards` is used ronly onces.
+/// `updateTranscoderWithRewards` is used only once
 1459:     function updateTranscoderWithRewards(
 
-/// `l2Migrator` is used ronly onces.
+/// `l2Migrator` is used only once
 1631:     function l2Migrator() internal view returns (address) {
 
-/// `_onlyTicketBroker` is used ronly onces.
+/// `_onlyTicketBroker` is used only once
 1651:     function _onlyTicketBroker() internal view {
 
-/// `_onlyRoundsManager` is used ronly onces.
+/// `_onlyRoundsManager` is used only once
 1655:     function _onlyRoundsManager() internal view {
 
-/// `_onlyVerifier` is used ronly onces.
+/// `_onlyVerifier` is used only once
 1659:     function _onlyVerifier() internal view {
 
-/// `_currentRoundInitialized` is used ronly onces.
+/// `_currentRoundInitialized` is used only once
 1663:     function _currentRoundInitialized() internal view {
 
 ```
@@ -3369,16 +3370,16 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
-/// `onBondingCheckpointChanged` is used ronly onces.
+/// `onBondingCheckpointChanged` is used only once
 387:     function onBondingCheckpointChanged(
 
-/// `delegatorCumulativeStakeAt` is used ronly onces.
+/// `delegatorCumulativeStakeAt` is used only once
 459:     function delegatorCumulativeStakeAt(BondingCheckpoint storage bond, uint256 _round)
 
-/// `getLastTranscoderRewardsEarningsPool` is used ronly onces.
+/// `getLastTranscoderRewardsEarningsPool` is used only once
 499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
 
-/// `_onlyBondingManager` is used ronly onces.
+/// `_onlyBondingManager` is used only once
 553:     function _onlyBondingManager() internal view {
 
 ```
@@ -3387,7 +3388,7 @@ File: contracts/bonding/BondingVotes.sol
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
-/// `delegatorCumulativeStakeAndFees` is used ronly onces.
+/// `delegatorCumulativeStakeAndFees` is used only once
 71:     function delegatorCumulativeStakeAndFees(
 
 ```
@@ -3396,13 +3397,13 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
-/// `__GovernorCountingOverridable_init` is used ronly onces.
+/// `__GovernorCountingOverridable_init` is used only once
 64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
 
-/// `__GovernorCountingOverridable_init_unchained` is used ronly onces.
+/// `__GovernorCountingOverridable_init_unchained` is used only once
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
-/// `_handleVoteOverrides` is used ronly onces.
+/// `_handleVoteOverrides` is used only once
 174:     function _handleVoteOverrides(
 
 ```
@@ -3441,7 +3442,112 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="GAS-4"></a> 
-#### [GAS-4] Unused named return variables without optimizer waste gas
+#### [GAS-4] Operator `>=`/`<=` costs less gas than operator `>`/`<`
+The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only requires `LT` for `>=`. A similar behavior applies for `>`, which uses opcodes `LT` and `ISZERO`, but only requires `GT` for `<=`. It can save 3 gas for each. It should be converted to the `<=`/`>=` equivalent when comparing against integer literals.
+
+<details>
+<summary>
+There are <b>34</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+327:         if (currentRound > lastRewardRound) {
+
+331:             if (lastUpdateRound < currentRound) {
+
+402:         if (del.bondedAmount > 0) {
+
+576:         } else if (currentBondedAmount > 0 && currentDelegate != _to) {
+
+606:         require(delegationAmount > 0, "delegation amount must be greater than 0");
+
+614:         if (_amount > 0) {
+
+714:         if (lastClaimRound < currentRound) {
+
+754:         require(_amount > 0, "unbond amount must be greater than 0");
+
+867:         if (lastUpdateRound < currentRound) {
+
+871:         if (treasuryBalanceCeiling > 0) {
+
+873:             if (treasuryBalance >= treasuryBalanceCeiling && nextRoundTreasuryRewardCutRate > 0) {
+
+884:         if (treasuryRewards > 0) {
+
+962:         } else if (del.startRound > roundsManager().currentRound()) {
+
+1148:         return t.activationRound <= currentRound && currentRound < t.deactivationRound;
+
+1158:         return d.delegateAddress == _transcoder && d.bondedAmount > 0;
+
+1169:         return delegators[_delegator].unbondingLocks[_unbondingLockId].withdrawRound > 0;
+
+1215:         if (pool.cumulativeRewardFactor == 0 && lastRewardRound < _round) {
+
+1221:         if (pool.cumulativeFeeFactor == 0 && lastFeeRound < _round) {
+
+1331:                 if (t.lastActiveStakeUpdateRound < currRound) {
+
+1374:             if (t.lastActiveStakeUpdateRound < currRound) {
+
+1522:                 if (lastRewardRound < _endRound) {
+
+1529:                 if (lastFeeRound < _endRound) {
+
+1670:         if (lastClaimRound < currentRound) {
+
+```
+[#L327](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L327) [#L331](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L331) [#L402](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L402) [#L576](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L576) [#L606](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L606) [#L614](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L614) [#L714](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L714) [#L754](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L754) [#L867](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L867) [#L871](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L871) [#L873](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L873) [#L884](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L884) [#L962](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L962) [#L1148](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1148) [#L1158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1158) [#L1169](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1169) [#L1215](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1215) [#L1221](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1221) [#L1331](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1331) [#L1374](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1374) [#L1522](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1522) [#L1529](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1529) [#L1670](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1670) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+316:         return bondingCheckpoints[_account].startRounds.length > 0;
+
+326:         if (_round > clock() + 1) {
+
+331:         if (exactCheckpoint > 0) {
+
+341:         } else if (upper < initializedRounds.length) {
+
+427:         if (_round > clock() + 1) {
+
+436:         if (bond.bondedAmount > 0) {
+
+474:         if (rewardRound < bond.lastClaimRound) {
+
+507:         if (rewardRound > 0) {
+
+```
+[#L316](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L316) [#L326](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L326) [#L331](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L331) [#L341](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L341) [#L427](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L427) [#L436](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L436) [#L474](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L474) [#L507](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L507) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+41:         assert(upperIdx < len);
+
+71:             if (val < last) {
+
+```
+[#L41](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L41) [#L71](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L71) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+137:         if (_supportInt > uint8(VoteType.Abstain)) {
+
+```
+[#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L137) 
+
+</details>
+
+---
+
+<a name="GAS-5"></a> 
+#### [GAS-5] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
 <details>
@@ -3469,8 +3575,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-5"></a> 
-#### [GAS-5] State variables should be cached in stack variables rather than re-reading them from storage
+<a name="GAS-6"></a> 
+#### [GAS-6] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -3509,8 +3615,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-6"></a> 
-#### [GAS-6] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-7"></a> 
+#### [GAS-7] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -3532,8 +3638,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-7"></a> 
-#### [GAS-7] Use Custom Errors
+<a name="GAS-8"></a> 
+#### [GAS-8] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -3602,8 +3708,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-8"></a> 
-#### [GAS-8] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-9"></a> 
+#### [GAS-9] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -3631,8 +3737,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ---
 
-<a name="GAS-9"></a> 
-#### [GAS-9] Long revert strings
+<a name="GAS-10"></a> 
+#### [GAS-10] Long revert strings
 
 <details>
 <summary>
@@ -3669,8 +3775,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-10"></a> 
-#### [GAS-10] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-11"></a> 
+#### [GAS-11] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -3706,8 +3812,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-11"></a> 
-#### [GAS-11] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-12"></a> 
+#### [GAS-12] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -3759,8 +3865,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-12"></a> 
-#### [GAS-12] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-13"></a> 
+#### [GAS-13] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -3811,8 +3917,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-13"></a> 
-#### [GAS-13] Using assembly to check for zero can save gas
+<a name="GAS-14"></a> 
+#### [GAS-14] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -3900,8 +4006,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-14"></a> 
-#### [GAS-14] `internal` functions not called by the contract should be removed
+<a name="GAS-15"></a> 
+#### [GAS-15] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
