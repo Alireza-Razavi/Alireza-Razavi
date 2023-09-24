@@ -3342,18 +3342,25 @@ There are <b>15</b> instances (click to show):
 ```solidity
 File: contracts/bonding/BondingManager.sol
 
+/// `[object Object]` is used ronly onces.
 1238:     function delegatorCumulativeStakeAndFees(
 
+/// `[object Object]` is used ronly onces.
 1459:     function updateTranscoderWithRewards(
 
+/// `[object Object]` is used ronly onces.
 1631:     function l2Migrator() internal view returns (address) {
 
+/// `[object Object]` is used ronly onces.
 1651:     function _onlyTicketBroker() internal view {
 
+/// `[object Object]` is used ronly onces.
 1655:     function _onlyRoundsManager() internal view {
 
+/// `[object Object]` is used ronly onces.
 1659:     function _onlyVerifier() internal view {
 
+/// `[object Object]` is used ronly onces.
 1663:     function _currentRoundInitialized() internal view {
 
 ```
@@ -3362,12 +3369,16 @@ File: contracts/bonding/BondingManager.sol
 ```solidity
 File: contracts/bonding/BondingVotes.sol
 
+/// `[object Object]` is used ronly onces.
 387:     function onBondingCheckpointChanged(
 
+/// `[object Object]` is used ronly onces.
 459:     function delegatorCumulativeStakeAt(BondingCheckpoint storage bond, uint256 _round)
 
+/// `[object Object]` is used ronly onces.
 499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
 
+/// `[object Object]` is used ronly onces.
 553:     function _onlyBondingManager() internal view {
 
 ```
@@ -3376,6 +3387,7 @@ File: contracts/bonding/BondingVotes.sol
 ```solidity
 File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
+/// `[object Object]` is used ronly onces.
 71:     function delegatorCumulativeStakeAndFees(
 
 ```
@@ -3384,10 +3396,13 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
+/// `[object Object]` is used ronly onces.
 64:     function __GovernorCountingOverridable_init(uint256 _quota) internal onlyInitializing {
 
+/// `[object Object]` is used ronly onces.
 68:     function __GovernorCountingOverridable_init_unchained(uint256 _quota) internal onlyInitializing {
 
+/// `[object Object]` is used ronly onces.
 174:     function _handleVoteOverrides(
 
 ```
