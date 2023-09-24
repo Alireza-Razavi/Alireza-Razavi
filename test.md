@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>469</b> instances over <b>45</b> issues:
+Total <b>463</b> instances over <b>45</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -64,7 +64,7 @@ Total <b>469</b> instances over <b>45</b> issues:
 | [NC-27](#NC-27) | Contract declarations should have NatSpec `@title` annotations | 2 |
 | [NC-28](#NC-28) | Lines are too long | 2 |
 | [NC-29](#NC-29) | Unused named return | 1 |
-| [NC-30](#NC-30) | Unused contract variables | 7 |
+| [NC-30](#NC-30) | Unused contract variables | 1 |
 | [NC-31](#NC-31) | Consider using `delete` rather than assigning zero to clear values | 5 |
 | [NC-32](#NC-32) | Solidity compiler version is not fixed | 1 |
 | [NC-33](#NC-33) | Expressions for constant values should use `immutable` rather than `constant` | 1 |
@@ -2593,40 +2593,16 @@ The following state variables are defined but not used. It is recommended to che
 
 <details>
 <summary>
-There are <b>7</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
-
-```solidity
-File: contracts/bonding/BondingManager.sol
-
-1: // SPDX-License-Identifier: MIT
-
-1: // SPDX-License-Identifier: MIT
-
-1: // SPDX-License-Identifier: MIT
-
-```
-[#L1](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1) [#L1](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1) [#L1](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1) 
-
-```solidity
-File: contracts/bonding/BondingVotes.sol
-
-1: // SPDX-License-Identifier: MIT
-
-1: // SPDX-License-Identifier: MIT
-
-```
-[#L1](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L1) [#L1](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L1) 
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
 
-1: // SPDX-License-Identifier: MIT
-
 224:     uint256[48] private __gap;
 
 ```
-[#L1](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L1) [#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L224) 
+[#L224](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L224) 
 
 </details>
 
