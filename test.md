@@ -84,7 +84,7 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>118</b> instances over <b>13</b> issues:
+Total <b>114</b> instances over <b>13</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -97,7 +97,7 @@ Total <b>118</b> instances over <b>13</b> issues:
 | [GAS-7](#GAS-7) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
 | [GAS-8](#GAS-8) | Long revert strings | 10 | - |
 | [GAS-9](#GAS-9) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-10](#GAS-10) | Functions guaranteed to revert when called by normal users can be marked `payable` | 15 | - |
+| [GAS-10](#GAS-10) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
 | [GAS-11](#GAS-11) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
 | [GAS-12](#GAS-12) | Using assembly to check for zero can save gas | 26 | - |
 | [GAS-13](#GAS-13) | `internal` functions not called by the contract should be removed | 5 | - |
@@ -3629,7 +3629,7 @@ If a function modifier such as `onlyOwner` is used, the function will revert if 
 
 <details>
 <summary>
-There are <b>15</b> instances (click to show):
+There are <b>11</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3645,14 +3645,8 @@ File: contracts/bonding/BondingManager.sol
 
 462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
 
-1651:     function _onlyTicketBroker() internal view {
-
-1655:     function _onlyRoundsManager() internal view {
-
-1659:     function _onlyVerifier() internal view {
-
 ```
-[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L167) [#L176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L176) [#L186](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L186) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L462) [#L1651](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1651) [#L1655](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1655) [#L1659](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1659) 
+[#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L155) [#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L167) [#L176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L176) [#L186](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L186) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L462) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
@@ -3665,10 +3659,8 @@ File: contracts/bonding/BondingVotes.sol
 
 303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
 
-553:     function _onlyBondingManager() internal view {
-
 ```
-[#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L553](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L553) 
+[#L167](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L167) [#L194](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L194) [#L218](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L218) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) 
 
 ```solidity
 File: contracts/treasury/GovernorCountingOverridable.sol
