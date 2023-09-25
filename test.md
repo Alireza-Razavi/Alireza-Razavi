@@ -84,7 +84,7 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>250</b> instances over <b>24</b> issues:
+Total <b>447</b> instances over <b>25</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -98,20 +98,21 @@ Total <b>250</b> instances over <b>24</b> issues:
 | [GAS-8](#GAS-8) | Redundant state variable getters | 1 | - |
 | [GAS-9](#GAS-9) | Remove or replace unused state variables | 1 | - |
 | [GAS-10](#GAS-10) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 9 | 27 |
-| [GAS-11](#GAS-11) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-12](#GAS-12) | Use assembly to compute hashes to save gas | 13 | 1040 |
-| [GAS-13](#GAS-13) | Use assembly to emit events | 24 | 912 |
-| [GAS-14](#GAS-14) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
-| [GAS-15](#GAS-15) | Use a more recent version of solidity | 9 | - |
-| [GAS-16](#GAS-16) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
-| [GAS-17](#GAS-17) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-18](#GAS-18) | Use Custom Errors | 25 | 1250 |
-| [GAS-19](#GAS-19) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-20](#GAS-20) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-21](#GAS-21) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-22](#GAS-22) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-23](#GAS-23) | Using assembly to check for zero can save gas | 26 | 156 |
-| [GAS-24](#GAS-24) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-11](#GAS-11) | The result of a function call should be cached rather than re-calling the function | 197 | 19700 |
+| [GAS-12](#GAS-12) | Unused named return variables without optimizer waste gas | 1 | 9 |
+| [GAS-13](#GAS-13) | Use assembly to compute hashes to save gas | 13 | 1040 |
+| [GAS-14](#GAS-14) | Use assembly to emit events | 24 | 912 |
+| [GAS-15](#GAS-15) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
+| [GAS-16](#GAS-16) | Use a more recent version of solidity | 9 | - |
+| [GAS-17](#GAS-17) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
+| [GAS-18](#GAS-18) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-19](#GAS-19) | Use Custom Errors | 25 | 1250 |
+| [GAS-20](#GAS-20) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-21](#GAS-21) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-22](#GAS-22) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
+| [GAS-23](#GAS-23) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-24](#GAS-24) | Using assembly to check for zero can save gas | 26 | 156 |
+| [GAS-25](#GAS-25) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -3869,7 +3870,1323 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="GAS-11"></a> 
-#### [GAS-11] Unused named return variables without optimizer waste gas
+#### [GAS-11] The result of a function call should be cached rather than re-calling the function
+The function calls in solidity are expensive. If the same result of the same function calls are to be used several times, the result should be cached to reduce the gas consumption of repeated calls.
+
+<details>
+<summary>
+There are <b>197</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+/// `ParameterUpdate` is called 2 times
+186:     function setNumActiveTranscoders(uint256 _numActiveTranscoders) external onlyControllerOwner {
+
+/// `transcoderWithHint` is called 3 times
+198:     function transcoder(uint256 _rewardCut, uint256 _feeShare) external {
+
+/// `bondWithHint` is called 5 times
+207:     function bond(uint256 _amount, address _to) external {
+
+/// `unbondWithHint` is called 3 times
+215:     function unbond(uint256 _amount) external {
+
+/// `rebondWithHint` is called 3 times
+223:     function rebond(uint256 _unbondingLockId) external {
+
+/// `rebondFromUnbondedWithHint` is called 3 times
+232:     function rebondFromUnbonded(address _to, uint256 _unbondingLockId) external {
+
+/// `require` is called 8 times
+249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
+
+/// `isValidUnbondingLock` is called 8 times
+249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
+
+/// `roundsManager` is called 8 times
+249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
+
+/// `minter` is called 8 times
+249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
+
+/// `WithdrawStake` is called 8 times
+249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
+
+/// `require` is called 7 times
+273:     function withdrawFees(address payable _recipient, uint256 _amount)
+             external
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoClaimEarnings(msg.sender)
+         {
+
+/// `minter` is called 7 times
+273:     function withdrawFees(address payable _recipient, uint256 _amount)
+             external
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoClaimEarnings(msg.sender)
+         {
+
+/// `WithdrawFees` is called 7 times
+273:     function withdrawFees(address payable _recipient, uint256 _amount)
+             external
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoClaimEarnings(msg.sender)
+         {
+
+/// `rewardWithHint` is called 3 times
+293:     function reward() external {
+
+/// `require` is called 25 times
+302:     function updateTranscoderWithFees(
+             address _transcoder,
+             uint256 _fees,
+             uint256 _round
+         ) external whenSystemNotPaused onlyTicketBroker {
+
+/// `isRegisteredTranscoder` is called 25 times
+302:     function updateTranscoderWithFees(
+             address _transcoder,
+             uint256 _fees,
+             uint256 _round
+         ) external whenSystemNotPaused onlyTicketBroker {
+
+/// `roundsManager` is called 25 times
+302:     function updateTranscoderWithFees(
+             address _transcoder,
+             uint256 _fees,
+             uint256 _round
+         ) external whenSystemNotPaused onlyTicketBroker {
+
+/// `latestCumulativeFactorsPool` is called 25 times
+302:     function updateTranscoderWithFees(
+             address _transcoder,
+             uint256 _fees,
+             uint256 _round
+         ) external whenSystemNotPaused onlyTicketBroker {
+
+/// `minter` is called 25 times
+302:     function updateTranscoderWithFees(
+             address _transcoder,
+             uint256 _fees,
+             uint256 _round
+         ) external whenSystemNotPaused onlyTicketBroker {
+
+/// `TranscoderSlashed` is called 19 times
+394:     function slashTranscoder(
+             address _transcoder,
+             address _finder,
+             uint256 _slashAmount,
+             uint256 _finderFee
+         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
+
+/// `resignTranscoder` is called 19 times
+394:     function slashTranscoder(
+             address _transcoder,
+             address _finder,
+             uint256 _slashAmount,
+             uint256 _finderFee
+         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
+
+/// `delegatorStatus` is called 19 times
+394:     function slashTranscoder(
+             address _transcoder,
+             address _finder,
+             uint256 _slashAmount,
+             uint256 _finderFee
+         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
+
+/// `minter` is called 19 times
+394:     function slashTranscoder(
+             address _transcoder,
+             address _finder,
+             uint256 _slashAmount,
+             uint256 _finderFee
+         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
+
+/// `ParameterUpdate` is called 5 times
+462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
+
+/// `roundsManager` is called 5 times
+462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
+
+/// `bondingVotes` is called 5 times
+462:     function setCurrentRoundTotalActiveStake() external onlyRoundsManager {
+
+/// `require` is called 17 times
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `roundsManager` is called 17 times
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `isRegisteredTranscoder` is called 17 times
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `isActiveTranscoder` is called 17 times
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `tryToJoinActiveSet` is called 17 times
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `TranscoderUpdate` is called 17 times
+485:     function transcoderWithHint(
+             uint256 _rewardCut,
+             uint256 _feeShare,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `_autoClaimEarnings` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `roundsManager` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `l2Migrator` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `delegatorStatus` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `require` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `isRegisteredTranscoder` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `decreaseTotalStake` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `cumulativeFactorsPool` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `increaseTotalStake` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `minter` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `livepeerToken` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `Bond` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `_checkpointBondingState` is called 25 times
+537:     function bondForWithHint(
+             uint256 _amount,
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `_autoClaimEarnings` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `unbondWithHint` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `UnbondingLock` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `TransferBond` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `roundsManager` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `updateDelegatorWithEarnings` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `require` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `delegatorStatus` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `processRebond` is called 14 times
+679:     function transferBond(
+             address _delegator,
+             uint256 _amount,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _newDelegateNewPosPrev,
+             address _newDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
+
+/// `require` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `delegatorStatus` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `roundsManager` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `UnbondingLock` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `resignTranscoder` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `decreaseTotalStake` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `Unbond` is called 15 times
+745:     function unbondWithHint(
+             uint256 _amount,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+
+/// `require` is called 3 times
+796:     function rebondWithHint(
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `delegatorStatus` is called 3 times
+796:     function rebondWithHint(
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `processRebond` is called 3 times
+796:     function rebondWithHint(
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `require` is called 6 times
+818:     function rebondFromUnbondedWithHint(
+             address _to,
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `delegatorStatus` is called 6 times
+818:     function rebondFromUnbondedWithHint(
+             address _to,
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `roundsManager` is called 6 times
+818:     function rebondFromUnbondedWithHint(
+             address _to,
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `processRebond` is called 6 times
+818:     function rebondFromUnbondedWithHint(
+             address _to,
+             uint256 _unbondingLockId,
+             address _newPosPrev,
+             address _newPosNext
+         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) {
+
+/// `roundsManager` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `require` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `isActiveTranscoder` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `treasury` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `livepeerToken` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `_setTreasuryRewardCutRate` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `minter` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `TreasuryReward` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `updateTranscoderWithRewards` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `Reward` is called 20 times
+842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
+             public
+             whenSystemNotPaused
+             currentRoundInitialized
+             autoCheckpoint(msg.sender)
+         {
+
+/// `roundsManager` is called 3 times
+908:     function pendingStake(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+/// `pendingStakeAndFees` is called 3 times
+908:     function pendingStake(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+/// `roundsManager` is called 3 times
+923:     function pendingFees(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+/// `pendingStakeAndFees` is called 3 times
+923:     function pendingFees(address _delegator, uint256 _endRound) public view returns (uint256) {
+
+/// `roundsManager` is called 2 times
+956:     function delegatorStatus(address _delegator) public view returns (DelegatorStatus) {
+
+/// `roundsManager` is called 2 times
+1145:     function isActiveTranscoder(address _transcoder) public view returns (bool) {
+
+/// `require` is called 3 times
+1176:     function _setTreasuryRewardCutRate(uint256 _cutRate) internal {
+
+/// `ParameterUpdate` is called 3 times
+1176:     function _setTreasuryRewardCutRate(uint256 _cutRate) internal {
+
+/// `cumulativeFactorsPool` is called 3 times
+1206:     function latestCumulativeFactorsPool(Transcoder storage _transcoder, uint256 _round)
+              internal
+              view
+              returns (EarningsPool.Data memory pool)
+          {
+
+/// `cumulativeFactorsPool` is called 3 times
+1238:     function delegatorCumulativeStakeAndFees(
+              Transcoder storage _transcoder,
+              uint256 _startRound,
+              uint256 _endRound,
+              uint256 _stake,
+              uint256 _fees
+          ) internal view returns (uint256 cStake, uint256 cFees) {
+
+/// `latestCumulativeFactorsPool` is called 3 times
+1238:     function delegatorCumulativeStakeAndFees(
+              Transcoder storage _transcoder,
+              uint256 _startRound,
+              uint256 _endRound,
+              uint256 _stake,
+              uint256 _fees
+          ) internal view returns (uint256 cStake, uint256 cFees) {
+
+/// `delegatorCumulativeStakeAndFees` is called 5 times
+1259:     function pendingStakeAndFees(address _delegator, uint256 _endRound)
+              internal
+              view
+              returns (uint256 stake, uint256 fees)
+          {
+
+/// `transcoderTotalStake` is called 12 times
+1307:     function increaseTotalStakeUncheckpointed(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `isRegisteredTranscoder` is called 12 times
+1307:     function increaseTotalStakeUncheckpointed(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `roundsManager` is called 12 times
+1307:     function increaseTotalStakeUncheckpointed(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `tryToJoinActiveSet` is called 12 times
+1307:     function increaseTotalStakeUncheckpointed(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `transcoderTotalStake` is called 10 times
+1352:     function decreaseTotalStake(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegate) {
+
+/// `roundsManager` is called 10 times
+1352:     function decreaseTotalStake(
+              address _delegate,
+              uint256 _amount,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegate) {
+
+/// `transcoderTotalStake` is called 10 times
+1392:     function tryToJoinActiveSet(
+              address _transcoder,
+              uint256 _totalStake,
+              uint256 _activationRound,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `TranscoderDeactivated` is called 10 times
+1392:     function tryToJoinActiveSet(
+              address _transcoder,
+              uint256 _totalStake,
+              uint256 _activationRound,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `TranscoderActivated` is called 10 times
+1392:     function tryToJoinActiveSet(
+              address _transcoder,
+              uint256 _totalStake,
+              uint256 _activationRound,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `transcoderTotalStake` is called 7 times
+1437:     function resignTranscoder(address _transcoder) internal {
+
+/// `roundsManager` is called 7 times
+1437:     function resignTranscoder(address _transcoder) internal {
+
+/// `TranscoderDeactivated` is called 7 times
+1437:     function resignTranscoder(address _transcoder) internal {
+
+/// `cumulativeFactorsPool` is called 8 times
+1459:     function updateTranscoderWithRewards(
+              address _transcoder,
+              uint256 _rewards,
+              uint256 _round,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `increaseTotalStakeUncheckpointed` is called 8 times
+1459:     function updateTranscoderWithRewards(
+              address _transcoder,
+              uint256 _rewards,
+              uint256 _round,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal {
+
+/// `pendingStakeAndFees` is called 8 times
+1500:     function updateDelegatorWithEarnings(
+              address _delegator,
+              uint256 _endRound,
+              uint256 _lastClaimRound
+          ) internal {
+
+/// `cumulativeFactorsPool` is called 8 times
+1500:     function updateDelegatorWithEarnings(
+              address _delegator,
+              uint256 _endRound,
+              uint256 _lastClaimRound
+          ) internal {
+
+/// `EarningsClaimed` is called 8 times
+1500:     function updateDelegatorWithEarnings(
+              address _delegator,
+              uint256 _endRound,
+              uint256 _lastClaimRound
+          ) internal {
+
+/// `require` is called 5 times
+1564:     function processRebond(
+              address _delegator,
+              uint256 _unbondingLockId,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegator) {
+
+/// `isValidUnbondingLock` is called 5 times
+1564:     function processRebond(
+              address _delegator,
+              uint256 _unbondingLockId,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegator) {
+
+/// `increaseTotalStake` is called 5 times
+1564:     function processRebond(
+              address _delegator,
+              uint256 _unbondingLockId,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegator) {
+
+/// `Rebond` is called 5 times
+1564:     function processRebond(
+              address _delegator,
+              uint256 _unbondingLockId,
+              address _newPosPrev,
+              address _newPosNext
+          ) internal autoCheckpoint(_delegator) {
+
+/// `roundsManager` is called 4 times
+1591:     function _checkpointBondingState(
+              address _owner,
+              Delegator storage _delegator,
+              Transcoder storage _transcoder
+          ) internal {
+
+/// `bondingVotes` is called 4 times
+1591:     function _checkpointBondingState(
+              address _owner,
+              Delegator storage _delegator,
+              Transcoder storage _transcoder
+          ) internal {
+
+/// `ILivepeerToken` is called 3 times
+1615:     function livepeerToken() internal view returns (ILivepeerToken) {
+
+/// `keccak256` is called 3 times
+1615:     function livepeerToken() internal view returns (ILivepeerToken) {
+
+/// `IMinter` is called 3 times
+1623:     function minter() internal view returns (IMinter) {
+
+/// `keccak256` is called 3 times
+1623:     function minter() internal view returns (IMinter) {
+
+/// `keccak256` is called 2 times
+1631:     function l2Migrator() internal view returns (address) {
+
+/// `IRoundsManager` is called 3 times
+1639:     function roundsManager() internal view returns (IRoundsManager) {
+
+/// `keccak256` is called 3 times
+1639:     function roundsManager() internal view returns (IRoundsManager) {
+
+/// `keccak256` is called 2 times
+1643:     function treasury() internal view returns (address) {
+
+/// `IBondingVotes` is called 3 times
+1647:     function bondingVotes() internal view returns (IBondingVotes) {
+
+/// `keccak256` is called 3 times
+1647:     function bondingVotes() internal view returns (IBondingVotes) {
+
+/// `require` is called 3 times
+1651:     function _onlyTicketBroker() internal view {
+
+/// `keccak256` is called 3 times
+1651:     function _onlyTicketBroker() internal view {
+
+/// `require` is called 3 times
+1655:     function _onlyRoundsManager() internal view {
+
+/// `keccak256` is called 3 times
+1655:     function _onlyRoundsManager() internal view {
+
+/// `require` is called 3 times
+1659:     function _onlyVerifier() internal view {
+
+/// `keccak256` is called 3 times
+1659:     function _onlyVerifier() internal view {
+
+/// `require` is called 3 times
+1663:     function _currentRoundInitialized() internal view {
+
+/// `roundsManager` is called 3 times
+1663:     function _currentRoundInitialized() internal view {
+
+/// `roundsManager` is called 3 times
+1667:     function _autoClaimEarnings(address _delegator) internal {
+
+/// `updateDelegatorWithEarnings` is called 3 times
+1667:     function _autoClaimEarnings(address _delegator) internal {
+
+```
+[#L186](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L186) [#L198](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L198) [#L207](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L207) [#L215](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L215) [#L223](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L223) [#L232](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L232) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L293](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L293) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L302](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L302) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L462) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L462) [#L462](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L462) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L679](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L679) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L796](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L796) [#L796](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L796) [#L796](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L796) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L818](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L818) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L908](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L908) [#L908](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L908) [#L923](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L923) [#L923](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L923) [#L956](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L956) [#L1145](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1145) [#L1176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1176) [#L1176](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1176) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) [#L1238](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1238) [#L1259](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1259) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1307](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1307) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1352](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1352) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1392](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1392) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1437](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1437) [#L1459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1459) [#L1459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1459) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1564](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1564) [#L1591](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1591) [#L1591](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1591) [#L1615](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1615) [#L1615](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1615) [#L1623](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1623) [#L1623](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1623) [#L1631](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1631) [#L1639](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1639) [#L1639](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1639) [#L1643](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1643) [#L1647](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1647) [#L1647](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1647) [#L1651](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1651) [#L1651](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1651) [#L1655](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1655) [#L1655](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1655) [#L1659](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1659) [#L1659](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1659) [#L1663](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1663) [#L1663](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1663) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) [#L1667](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1667) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+/// `roundsManager` is called 3 times
+137:     function clock() public view returns (uint48) {
+
+/// `getBondingStateAt` is called 2 times
+155:     function getVotes(address _account) external view returns (uint256) {
+
+/// `clock` is called 2 times
+155:     function getVotes(address _account) external view returns (uint256) {
+
+/// `getTotalActiveStakeAt` is called 2 times
+181:     function totalSupply() external view returns (uint256) {
+
+/// `clock` is called 2 times
+181:     function totalSupply() external view returns (uint256) {
+
+/// `getBondingStateAt` is called 2 times
+205:     function delegates(address _account) external view returns (address) {
+
+/// `clock` is called 2 times
+205:     function delegates(address _account) external view returns (address) {
+
+/// `clock` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `FutureLastClaimRound` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `InvalidStartRound` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `hasCheckpoint` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `getBondingCheckpointAt` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `BondingCheckpoint` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `onBondingCheckpointChanged` is called 9 times
+258:     function checkpointBondingState(
+             address _account,
+             uint256 _startRound,
+             uint256 _bondedAmount,
+             address _delegateAddress,
+             uint256 _delegatedAmount,
+             uint256 _lastClaimRound,
+             uint256 _lastRewardRound
+         ) external virtual onlyBondingManager {
+
+/// `clock` is called 4 times
+303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
+
+/// `InvalidTotalStakeCheckpointRound` is called 4 times
+303:     function checkpointTotalActiveStake(uint256 _totalStake, uint256 _round) external virtual onlyBondingManager {
+
+/// `clock` is called 6 times
+325:     function getTotalActiveStakeAt(uint256 _round) public view virtual returns (uint256) {
+
+/// `FutureLookup` is called 6 times
+325:     function getTotalActiveStakeAt(uint256 _round) public view virtual returns (uint256) {
+
+/// `bondingManager` is called 6 times
+325:     function getTotalActiveStakeAt(uint256 _round) public view virtual returns (uint256) {
+
+/// `getBondingCheckpointAt` is called 2 times
+361:     function getBondingStateAt(address _account, uint256 _round)
+             public
+             view
+             virtual
+             returns (uint256 amount, address delegateAddress)
+         {
+
+/// `delegatorCumulativeStakeAt` is called 2 times
+361:     function getBondingStateAt(address _account, uint256 _round)
+             public
+             view
+             virtual
+             returns (uint256 amount, address delegateAddress)
+         {
+
+/// `DelegateChanged` is called 3 times
+387:     function onBondingCheckpointChanged(
+             address _account,
+             BondingCheckpoint memory previous,
+             BondingCheckpoint memory current
+         ) internal {
+
+/// `DelegateVotesChanged` is called 3 times
+387:     function onBondingCheckpointChanged(
+             address _account,
+             BondingCheckpoint memory previous,
+             BondingCheckpoint memory current
+         ) internal {
+
+/// `DelegatorBondedAmountChanged` is called 3 times
+387:     function onBondingCheckpointChanged(
+             address _account,
+             BondingCheckpoint memory previous,
+             BondingCheckpoint memory current
+         ) internal {
+
+/// `clock` is called 4 times
+422:     function getBondingCheckpointAt(address _account, uint256 _round)
+             internal
+             view
+             returns (BondingCheckpoint storage)
+         {
+
+/// `FutureLookup` is called 4 times
+422:     function getBondingCheckpointAt(address _account, uint256 _round)
+             internal
+             view
+             returns (BondingCheckpoint storage)
+         {
+
+/// `getTranscoderEarningsPoolForRound` is called 3 times
+459:     function delegatorCumulativeStakeAt(BondingCheckpoint storage bond, uint256 _round)
+             internal
+             view
+             returns (uint256)
+         {
+
+/// `getLastTranscoderRewardsEarningsPool` is called 3 times
+459:     function delegatorCumulativeStakeAt(BondingCheckpoint storage bond, uint256 _round)
+             internal
+             view
+             returns (uint256)
+         {
+
+/// `getBondingCheckpointAt` is called 3 times
+499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (uint256 rewardRound, EarningsPool.Data memory pool)
+         {
+
+/// `getTranscoderEarningsPoolForRound` is called 3 times
+499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (uint256 rewardRound, EarningsPool.Data memory pool)
+         {
+
+/// `MissingEarningsPool` is called 3 times
+499:     function getLastTranscoderRewardsEarningsPool(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (uint256 rewardRound, EarningsPool.Data memory pool)
+         {
+
+/// `bondingManager` is called 2 times
+520:     function getTranscoderEarningsPoolForRound(address _transcoder, uint256 _round)
+             internal
+             view
+             returns (EarningsPool.Data memory pool)
+         {
+
+/// `IBondingManager` is called 3 times
+539:     function bondingManager() internal view returns (IBondingManager) {
+
+/// `keccak256` is called 3 times
+539:     function bondingManager() internal view returns (IBondingManager) {
+
+/// `IRoundsManager` is called 3 times
+546:     function roundsManager() internal view returns (IRoundsManager) {
+
+/// `keccak256` is called 3 times
+546:     function roundsManager() internal view returns (IRoundsManager) {
+
+/// `bondingManager` is called 5 times
+553:     function _onlyBondingManager() internal view {
+
+/// `InvalidCaller` is called 5 times
+553:     function _onlyBondingManager() internal view {
+
+```
+[#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L137) [#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L155) [#L181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L181) [#L181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L181) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L205](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L205) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L258](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L258) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L303](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L303) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L325) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L325) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L325) [#L361](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L361) [#L361](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L361) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L387](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L387) [#L422](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L422) [#L422](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L422) [#L459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L459) [#L459](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L459) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L499](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L499) [#L520](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L520) [#L539](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L539) [#L539](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L539) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) [#L546](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L546) [#L553](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L553) [#L553](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L553) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+/// `assert` is called 2 times
+28:     function findLowerBound(uint256[] storage _array, uint256 _val) internal view returns (uint256) {
+
+/// `DecreasingValues` is called 3 times
+64:     function pushSorted(uint256[] storage array, uint256 val) internal {
+
+```
+[#L28](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L28) [#L64](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L64) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+/// `proposalVotes` is called 3 times
+107:     function _quorumReached(uint256 _proposalId) internal view virtual override returns (bool) {
+
+/// `quorum` is called 3 times
+107:     function _quorumReached(uint256 _proposalId) internal view virtual override returns (bool) {
+
+/// `proposalSnapshot` is called 3 times
+107:     function _quorumReached(uint256 _proposalId) internal view virtual override returns (bool) {
+
+/// `proposalVotes` is called 2 times
+118:     function _voteSucceeded(uint256 _proposalId) internal view virtual override returns (bool) {
+
+/// `InvalidVoteType` is called 5 times
+130:     function _countVote(
+             uint256 _proposalId,
+             address _account,
+             uint8 _supportInt,
+             uint256 _weight,
+             bytes memory // params
+         ) internal virtual override {
+
+/// `VoteType` is called 5 times
+130:     function _countVote(
+             uint256 _proposalId,
+             address _account,
+             uint8 _supportInt,
+             uint256 _weight,
+             bytes memory // params
+         ) internal virtual override {
+
+/// `VoteAlreadyCast` is called 5 times
+130:     function _countVote(
+             uint256 _proposalId,
+             address _account,
+             uint8 _supportInt,
+             uint256 _weight,
+             bytes memory // params
+         ) internal virtual override {
+
+/// `_handleVoteOverrides` is called 5 times
+130:     function _countVote(
+             uint256 _proposalId,
+             address _account,
+             uint8 _supportInt,
+             uint256 _weight,
+             bytes memory // params
+         ) internal virtual override {
+
+/// `proposalSnapshot` is called 4 times
+174:     function _handleVoteOverrides(
+             uint256 _proposalId,
+             ProposalTally storage _tally,
+             ProposalVoterState storage _voter,
+             address _account,
+             uint256 _weight
+         ) internal returns (uint256) {
+
+/// `votes` is called 4 times
+174:     function _handleVoteOverrides(
+             uint256 _proposalId,
+             ProposalTally storage _tally,
+             ProposalVoterState storage _voter,
+             address _account,
+             uint256 _weight
+         ) internal returns (uint256) {
+
+/// `assert` is called 4 times
+174:     function _handleVoteOverrides(
+             uint256 _proposalId,
+             ProposalTally storage _tally,
+             ProposalVoterState storage _voter,
+             address _account,
+             uint256 _weight
+         ) internal returns (uint256) {
+
+```
+[#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L107](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L107) [#L118](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L118) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L130](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L130) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) [#L174](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L174) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+/// `__Governor_init` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `__GovernorSettings_init` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `__GovernorTimelockControl_init` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `treasury` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `__GovernorVotes_init` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `votes` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `__GovernorVotesQuorumFraction_init` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `__GovernorCountingOverridable_init` is called 8 times
+54:     function initialize(
+            uint256 initialVotingDelay,
+            uint256 initialVotingPeriod,
+            uint256 initialProposalThreshold,
+            uint256 initialQuorum,
+            uint256 quota
+        ) public initializer {
+
+/// `IVotes` is called 3 times
+101:     function bondingVotes() internal view returns (IVotes) {
+
+/// `keccak256` is called 3 times
+101:     function bondingVotes() internal view returns (IVotes) {
+
+/// `Treasury` is called 4 times
+108:     function treasury() internal view returns (Treasury) {
+
+/// `keccak256` is called 4 times
+108:     function treasury() internal view returns (Treasury) {
+
+```
+[#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L101) [#L101](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L101) [#L108](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L108) [#L108](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L108) 
+
+</details>
+
+---
+
+<a name="GAS-12"></a> 
+#### [GAS-12] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
 <details>
@@ -3897,8 +5214,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-12"></a> 
-#### [GAS-12] Use assembly to compute hashes to save gas
+<a name="GAS-13"></a> 
+#### [GAS-13] Use assembly to compute hashes to save gas
 If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (80 gas):
 
 `keccak256(abi.encodePacked(x, y)) -> assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
@@ -3956,8 +5273,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-13"></a> 
-#### [GAS-13] Use assembly to emit events
+<a name="GAS-14"></a> 
+#### [GAS-14] Use assembly to emit events
 To efficiently emit events, it's possible to utilize assembly by making use of scratch space and the free memory pointer. This approach has the advantage of potentially avoiding the costs associated with memory expansion.
 
 However, it's important to note that in order to safely optimize this process, it is preferable to cache and restore the free memory pointer.
@@ -4033,8 +5350,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-14"></a> 
-#### [GAS-14] Using a double `if` statement instead of a logical AND (`&&`)
+<a name="GAS-15"></a> 
+#### [GAS-15] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
 <details>
@@ -4070,8 +5387,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-15"></a> 
-#### [GAS-15] Use a more recent version of solidity
+<a name="GAS-16"></a> 
+#### [GAS-16] Use a more recent version of solidity
 - Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
 - Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
@@ -4158,8 +5475,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-16"></a> 
-#### [GAS-16] State variables should be cached in stack variables rather than re-reading them from storage
+<a name="GAS-17"></a> 
+#### [GAS-17] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -4198,8 +5515,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-17"></a> 
-#### [GAS-17] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-18"></a> 
+#### [GAS-18] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -4221,8 +5538,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-18"></a> 
-#### [GAS-18] Use Custom Errors
+<a name="GAS-19"></a> 
+#### [GAS-19] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -4291,8 +5608,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-19"></a> 
-#### [GAS-19] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-20"></a> 
+#### [GAS-20] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -4320,8 +5637,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ---
 
-<a name="GAS-20"></a> 
-#### [GAS-20] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-21"></a> 
+#### [GAS-21] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -4357,8 +5674,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-21"></a> 
-#### [GAS-21] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-22"></a> 
+#### [GAS-22] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -4410,8 +5727,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-22"></a> 
-#### [GAS-22] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-23"></a> 
+#### [GAS-23] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -4462,8 +5779,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-23"></a> 
-#### [GAS-23] Using assembly to check for zero can save gas
+<a name="GAS-24"></a> 
+#### [GAS-24] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -4551,8 +5868,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-24"></a> 
-#### [GAS-24] `internal` functions not called by the contract should be removed
+<a name="GAS-25"></a> 
+#### [GAS-25] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
