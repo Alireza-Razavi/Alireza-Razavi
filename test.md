@@ -84,7 +84,7 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>264</b> instances over <b>25</b> issues:
+Total <b>263</b> instances over <b>25</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -98,7 +98,7 @@ Total <b>264</b> instances over <b>25</b> issues:
 | [GAS-8](#GAS-8) | Redundant state variable getters | 1 | - |
 | [GAS-9](#GAS-9) | Remove or replace unused state variables | 1 | - |
 | [GAS-10](#GAS-10) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 9 | 27 |
-| [GAS-11](#GAS-11) | The result of a function call should be cached rather than re-calling the function | 14 | 1400 |
+| [GAS-11](#GAS-11) | The result of a function call should be cached rather than re-calling the function | 13 | 1300 |
 | [GAS-12](#GAS-12) | Unused named return variables without optimizer waste gas | 1 | 9 |
 | [GAS-13](#GAS-13) | Use assembly to compute hashes to save gas | 13 | 1040 |
 | [GAS-14](#GAS-14) | Use assembly to emit events | 24 | 912 |
@@ -3875,22 +3875,11 @@ The function calls in solidity are expensive. If the same result of the same fun
 
 <details>
 <summary>
-There are <b>14</b> instances (click to show):
+There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
-
-/// `require` is called 2 times
-249:     function withdrawStake(uint256 _unbondingLockId) external whenSystemNotPaused currentRoundInitialized {
-
-/// `require` is called 2 times
-273:     function withdrawFees(address payable _recipient, uint256 _amount)
-             external
-             whenSystemNotPaused
-             currentRoundInitialized
-             autoClaimEarnings(msg.sender)
-         {
 
 /// `TranscoderSlashed` is called 3 times
 394:     function slashTranscoder(
@@ -3900,7 +3889,15 @@ File: contracts/bonding/BondingManager.sol
              uint256 _finderFee
          ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
 
-/// `require` is called 5 times
+/// `minter` is called 3 times
+394:     function slashTranscoder(
+             address _transcoder,
+             address _finder,
+             uint256 _slashAmount,
+             uint256 _finderFee
+         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
+
+/// `roundsManager` is called 2 times
 485:     function transcoderWithHint(
              uint256 _rewardCut,
              uint256 _feeShare,
@@ -3919,14 +3916,18 @@ File: contracts/bonding/BondingManager.sol
              address _currDelegateNewPosNext
          ) public whenSystemNotPaused currentRoundInitialized {
 
-/// `require` is called 3 times
-745:     function unbondWithHint(
+/// `cumulativeFactorsPool` is called 2 times
+537:     function bondForWithHint(
              uint256 _amount,
-             address _newPosPrev,
-             address _newPosNext
-         ) public whenSystemNotPaused currentRoundInitialized autoClaimEarnings(msg.sender) autoCheckpoint(msg.sender) {
+             address _owner,
+             address _to,
+             address _oldDelegateNewPosPrev,
+             address _oldDelegateNewPosNext,
+             address _currDelegateNewPosPrev,
+             address _currDelegateNewPosNext
+         ) public whenSystemNotPaused currentRoundInitialized {
 
-/// `require` is called 2 times
+/// `treasury` is called 2 times
 842:     function rewardWithHint(address _newPosPrev, address _newPosNext)
              public
              whenSystemNotPaused
@@ -3949,7 +3950,7 @@ File: contracts/bonding/BondingManager.sol
           ) internal {
 
 ```
-[#L249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L249) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L273) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L745](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L745) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) 
+[#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
