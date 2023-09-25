@@ -85,7 +85,7 @@ Total <b>464</b> instances over <b>46</b> issues:
 ## Gas Optimizations
 
 
-Total <b>263</b> instances over <b>26</b> issues:
+Total <b>273</b> instances over <b>27</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -110,11 +110,12 @@ Total <b>263</b> instances over <b>26</b> issues:
 | [GAS-19](#GAS-19) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
 | [GAS-20](#GAS-20) | Use Custom Errors | 25 | 1250 |
 | [GAS-21](#GAS-21) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-22](#GAS-22) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-23](#GAS-23) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-24](#GAS-24) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-25](#GAS-25) | Using assembly to check for zero can save gas | 26 | 156 |
-| [GAS-26](#GAS-26) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-22](#GAS-22) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 10 | - |
+| [GAS-23](#GAS-23) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-24](#GAS-24) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
+| [GAS-25](#GAS-25) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-26](#GAS-26) | Using assembly to check for zero can save gas | 26 | 156 |
+| [GAS-27](#GAS-27) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -4480,7 +4481,64 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 ---
 
 <a name="GAS-22"></a> 
-#### [GAS-22] Constructors can be marked as `payable` to save deployment gas
+#### [GAS-22] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
+
+<details>
+<summary>
+There are <b>10</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+35:     uint64 public unbondingPeriod;
+
+155:     function setUnbondingPeriod(uint64 _unbondingPeriod) external onlyControllerOwner {
+
+```
+[#L35](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L35) [#L155](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L155) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+129:     function decimals() external pure returns (uint8) {
+
+137:     function clock() public view returns (uint48) {
+
+138:         return SafeCast.toUint48(roundsManager().currentRound());
+
+237:         uint8,
+
+```
+[#L129](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L129) [#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L137) [#L138](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L138) [#L237](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L237) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+22:     error InvalidVoteType(uint8 voteType);
+
+133:         uint8 _supportInt,
+
+137:         if (_supportInt > uint8(VoteType.Abstain)) {
+
+```
+[#L22](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L22) [#L133](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L133) [#L137](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L137) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+17:     function decimals() external view returns (uint8);
+
+```
+[#L17](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L17) 
+
+</details>
+
+---
+
+<a name="GAS-23"></a> 
+#### [GAS-23] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -4516,8 +4574,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-23"></a> 
-#### [GAS-23] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-24"></a> 
+#### [GAS-24] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -4569,8 +4627,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-24"></a> 
-#### [GAS-24] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-25"></a> 
+#### [GAS-25] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -4621,8 +4679,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-25"></a> 
-#### [GAS-25] Using assembly to check for zero can save gas
+<a name="GAS-26"></a> 
+#### [GAS-26] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -4710,8 +4768,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-26"></a> 
-#### [GAS-26] `internal` functions not called by the contract should be removed
+<a name="GAS-27"></a> 
+#### [GAS-27] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
