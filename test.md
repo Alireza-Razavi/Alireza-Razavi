@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>472</b> instances over <b>46</b> issues:
+Total <b>463</b> instances over <b>45</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -80,12 +80,11 @@ Total <b>472</b> instances over <b>46</b> issues:
 | [NC-43](#NC-43) | `TODO`s left in the code | 1 |
 | [NC-44](#NC-44) | Event is missing `indexed` fields | 12 |
 | [NC-45](#NC-45) | Functions not used internally could be marked external | 17 |
-| [NC-46](#NC-46) | Use a more recent version of solidity | 9 |
 
 ## Gas Optimizations
 
 
-Total <b>164</b> instances over <b>16</b> issues:
+Total <b>173</b> instances over <b>17</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -95,16 +94,17 @@ Total <b>164</b> instances over <b>16</b> issues:
 | [GAS-4](#GAS-4) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 34 | 102 |
 | [GAS-5](#GAS-5) | Redundant state variable getters | 1 | - |
 | [GAS-6](#GAS-6) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-7](#GAS-7) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
-| [GAS-8](#GAS-8) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-9](#GAS-9) | Use Custom Errors | 25 | 1250 |
-| [GAS-10](#GAS-10) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-11](#GAS-11) | Long revert strings | 10 | - |
-| [GAS-12](#GAS-12) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-13](#GAS-13) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-14](#GAS-14) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-15](#GAS-15) | Using assembly to check for zero can save gas | 26 | - |
-| [GAS-16](#GAS-16) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-7](#GAS-7) | Use a more recent version of solidity | 9 | - |
+| [GAS-8](#GAS-8) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
+| [GAS-9](#GAS-9) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-10](#GAS-10) | Use Custom Errors | 25 | 1250 |
+| [GAS-11](#GAS-11) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-12](#GAS-12) | Long revert strings | 10 | - |
+| [GAS-13](#GAS-13) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-14](#GAS-14) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
+| [GAS-15](#GAS-15) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-16](#GAS-16) | Using assembly to check for zero can save gas | 26 | - |
+| [GAS-17](#GAS-17) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -3298,94 +3298,6 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="NC-46"></a> 
-#### [NC-46] Use a more recent version of solidity
-- Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
-- Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
-- Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
-- Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
-
-<details>
-<summary>
-There are <b>9</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/bonding/BondingManager.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L2) 
-
-```solidity
-File: contracts/bonding/BondingVotes.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L2) 
-
-```solidity
-File: contracts/bonding/IBondingManager.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L2) 
-
-```solidity
-File: contracts/bonding/libraries/EarningsPoolLIP36.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L2) 
-
-```solidity
-File: contracts/bonding/libraries/SortedArrays.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L2) 
-
-```solidity
-File: contracts/treasury/GovernorCountingOverridable.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L2) 
-
-```solidity
-File: contracts/treasury/IVotes.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L2) 
-
-```solidity
-File: contracts/treasury/LivepeerGovernor.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L2) 
-
-```solidity
-File: contracts/treasury/Treasury.sol
-
-2: pragma solidity 0.8.9;
-
-```
-[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L2) 
-
-</details>
-
----
-
 
 ## Gas Optimizations
 
@@ -3688,7 +3600,95 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="GAS-7"></a> 
-#### [GAS-7] State variables should be cached in stack variables rather than re-reading them from storage
+#### [GAS-7] Use a more recent version of solidity
+- Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
+- Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
+- Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
+- Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
+
+<details>
+<summary>
+There are <b>9</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L2) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L2) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L2) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L2) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L2) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L2) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L2) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L2) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L2) 
+
+</details>
+
+---
+
+<a name="GAS-8"></a> 
+#### [GAS-8] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -3727,8 +3727,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-8"></a> 
-#### [GAS-8] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-9"></a> 
+#### [GAS-9] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -3750,8 +3750,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-9"></a> 
-#### [GAS-9] Use Custom Errors
+<a name="GAS-10"></a> 
+#### [GAS-10] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -3820,8 +3820,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-10"></a> 
-#### [GAS-10] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-11"></a> 
+#### [GAS-11] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -3849,8 +3849,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ---
 
-<a name="GAS-11"></a> 
-#### [GAS-11] Long revert strings
+<a name="GAS-12"></a> 
+#### [GAS-12] Long revert strings
 
 <details>
 <summary>
@@ -3887,8 +3887,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-12"></a> 
-#### [GAS-12] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-13"></a> 
+#### [GAS-13] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -3924,8 +3924,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-13"></a> 
-#### [GAS-13] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-14"></a> 
+#### [GAS-14] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -3977,8 +3977,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-14"></a> 
-#### [GAS-14] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-15"></a> 
+#### [GAS-15] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -4029,8 +4029,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-15"></a> 
-#### [GAS-15] Using assembly to check for zero can save gas
+<a name="GAS-16"></a> 
+#### [GAS-16] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -4118,8 +4118,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-16"></a> 
-#### [GAS-16] `internal` functions not called by the contract should be removed
+<a name="GAS-17"></a> 
+#### [GAS-17] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
