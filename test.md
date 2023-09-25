@@ -31,7 +31,7 @@ Total <b>25</b> instances over <b>10</b> issues:
 ## Non Critical Issues
 
 
-Total <b>463</b> instances over <b>45</b> issues:
+Total <b>472</b> instances over <b>46</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -80,6 +80,7 @@ Total <b>463</b> instances over <b>45</b> issues:
 | [NC-43](#NC-43) | `TODO`s left in the code | 1 |
 | [NC-44](#NC-44) | Event is missing `indexed` fields | 12 |
 | [NC-45](#NC-45) | Functions not used internally could be marked external | 17 |
+| [NC-46](#NC-46) | Use a more recent version of solidity | 9 |
 
 ## Gas Optimizations
 
@@ -3292,6 +3293,94 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ```
 [#L54](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L54) [#L114](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L114) [#L123](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L123) [#L160](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L160) 
+
+</details>
+
+---
+
+<a name="NC-46"></a> 
+#### [NC-46] Use a more recent version of solidity
+- Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
+- Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
+- Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
+- Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
+
+<details>
+<summary>
+There are <b>9</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L2) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L2) 
+
+```solidity
+File: contracts/bonding/IBondingManager.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/IBondingManager.sol#L2) 
+
+```solidity
+File: contracts/bonding/libraries/EarningsPoolLIP36.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/EarningsPoolLIP36.sol#L2) 
+
+```solidity
+File: contracts/bonding/libraries/SortedArrays.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/libraries/SortedArrays.sol#L2) 
+
+```solidity
+File: contracts/treasury/GovernorCountingOverridable.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/GovernorCountingOverridable.sol#L2) 
+
+```solidity
+File: contracts/treasury/IVotes.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/IVotes.sol#L2) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L2) 
+
+```solidity
+File: contracts/treasury/Treasury.sol
+
+2: pragma solidity 0.8.9;
+
+```
+[#L2](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/Treasury.sol#L2) 
 
 </details>
 
