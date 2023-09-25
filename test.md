@@ -84,7 +84,7 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>263</b> instances over <b>25</b> issues:
+Total <b>262</b> instances over <b>25</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -98,7 +98,7 @@ Total <b>263</b> instances over <b>25</b> issues:
 | [GAS-8](#GAS-8) | Redundant state variable getters | 1 | - |
 | [GAS-9](#GAS-9) | Remove or replace unused state variables | 1 | - |
 | [GAS-10](#GAS-10) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 9 | 27 |
-| [GAS-11](#GAS-11) | The result of a function call should be cached rather than re-calling the function | 13 | 1300 |
+| [GAS-11](#GAS-11) | The result of a function call should be cached rather than re-calling the function | 12 | 1200 |
 | [GAS-12](#GAS-12) | Unused named return variables without optimizer waste gas | 1 | 9 |
 | [GAS-13](#GAS-13) | Use assembly to compute hashes to save gas | 13 | 1040 |
 | [GAS-14](#GAS-14) | Use assembly to emit events | 24 | 912 |
@@ -3875,19 +3875,11 @@ The function calls in solidity are expensive. If the same result of the same fun
 
 <details>
 <summary>
-There are <b>13</b> instances (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bonding/BondingManager.sol
-
-/// `TranscoderSlashed` is called 3 times
-394:     function slashTranscoder(
-             address _transcoder,
-             address _finder,
-             uint256 _slashAmount,
-             uint256 _finderFee
-         ) external whenSystemNotPaused onlyVerifier autoClaimEarnings(_transcoder) autoCheckpoint(_transcoder) {
 
 /// `minter` is called 3 times
 394:     function slashTranscoder(
@@ -3950,7 +3942,7 @@ File: contracts/bonding/BondingManager.sol
           ) internal {
 
 ```
-[#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) 
+[#L394](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L394) [#L485](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L485) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L537](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L537) [#L842](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L842) [#L1206](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1206) [#L1500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1500) 
 
 ```solidity
 File: contracts/bonding/BondingVotes.sol
