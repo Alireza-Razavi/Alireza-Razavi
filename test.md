@@ -84,12 +84,12 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>264</b> instances over <b>26</b> issues:
+Total <b>263</b> instances over <b>26</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 7 | 791 |
-| [GAS-2](#GAS-2) | Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas | 2 | - |
+| [GAS-2](#GAS-2) | Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas | 1 | - |
 | [GAS-3](#GAS-3) | `internal` functions only called once can be inlined to save gas | 15 | 450 |
 | [GAS-4](#GAS-4) | `keccak256()` hash of literals should only be computed once | 13 | 546 |
 | [GAS-5](#GAS-5) | Multiple accesses of the same mapping/array key/index should be cached | 3 | 126 |
@@ -3348,7 +3348,7 @@ Saves deployment costs.
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -3357,11 +3357,8 @@ File: contracts/bonding/BondingVotes.sol
 /// Duplicated on line 428
 327:             revert FutureLookup(_round, clock() + 1);
 
-/// Duplicated on line 327
-428:             revert FutureLookup(_round, clock() + 1);
-
 ```
-[#L327](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L327) [#L428](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L428) 
+[#L327](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L327) 
 
 </details>
 
