@@ -114,7 +114,7 @@ Total <b>274</b> instances over <b>28</b> issues:
 | [GAS-23](#GAS-23) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 10 | 550 |
 | [GAS-24](#GAS-24) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
 | [GAS-25](#GAS-25) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-26](#GAS-26) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-26](#GAS-26) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | 56 |
 | [GAS-27](#GAS-27) | Using assembly to check for zero can save gas | 26 | 156 |
 | [GAS-28](#GAS-28) | `internal` functions not called by the contract should be removed | 5 | - |
 
@@ -4650,6 +4650,7 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 <a name="GAS-26"></a> 
 #### [GAS-26] Use != 0 instead of > 0 for unsigned integer comparison
+Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
 <summary>
