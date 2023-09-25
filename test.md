@@ -84,7 +84,7 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>215</b> instances over <b>21</b> issues:
+Total <b>228</b> instances over <b>22</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -97,18 +97,19 @@ Total <b>215</b> instances over <b>21</b> issues:
 | [GAS-7](#GAS-7) | Remove or replace unused state variables | 1 | - |
 | [GAS-8](#GAS-8) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 9 | 27 |
 | [GAS-9](#GAS-9) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-10](#GAS-10) | Use assembly to emit events | 24 | 912 |
-| [GAS-11](#GAS-11) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
-| [GAS-12](#GAS-12) | Use a more recent version of solidity | 9 | - |
-| [GAS-13](#GAS-13) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
-| [GAS-14](#GAS-14) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-15](#GAS-15) | Use Custom Errors | 25 | 1250 |
-| [GAS-16](#GAS-16) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-17](#GAS-17) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-18](#GAS-18) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-19](#GAS-19) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-20](#GAS-20) | Using assembly to check for zero can save gas | 26 | 156 |
-| [GAS-21](#GAS-21) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-10](#GAS-10) | Use assembly to compute hashes to save gas | 13 | 1040 |
+| [GAS-11](#GAS-11) | Use assembly to emit events | 24 | 912 |
+| [GAS-12](#GAS-12) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
+| [GAS-13](#GAS-13) | Use a more recent version of solidity | 9 | - |
+| [GAS-14](#GAS-14) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
+| [GAS-15](#GAS-15) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-16](#GAS-16) | Use Custom Errors | 25 | 1250 |
+| [GAS-17](#GAS-17) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-18](#GAS-18) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-19](#GAS-19) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
+| [GAS-20](#GAS-20) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-21](#GAS-21) | Using assembly to check for zero can save gas | 26 | 156 |
+| [GAS-22](#GAS-22) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -3753,7 +3754,66 @@ File: contracts/bonding/BondingManager.sol
 ---
 
 <a name="GAS-10"></a> 
-#### [GAS-10] Use assembly to emit events
+#### [GAS-10] Use assembly to compute hashes to save gas
+If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (80 gas):
+
+`keccak256(abi.encodePacked(x, y)) -> assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
+
+<details>
+<summary>
+There are <b>13</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+1616:         return ILivepeerToken(controller.getContract(keccak256("LivepeerToken")));
+
+1624:         return IMinter(controller.getContract(keccak256("Minter")));
+
+1632:         return controller.getContract(keccak256("L2Migrator"));
+
+1640:         return IRoundsManager(controller.getContract(keccak256("RoundsManager")));
+
+1644:         return controller.getContract(keccak256("Treasury"));
+
+1648:         return IBondingVotes(controller.getContract(keccak256("BondingVotes")));
+
+1652:         require(msg.sender == controller.getContract(keccak256("TicketBroker")), "caller must be TicketBroker");
+
+1656:         require(msg.sender == controller.getContract(keccak256("RoundsManager")), "caller must be RoundsManager");
+
+1660:         require(msg.sender == controller.getContract(keccak256("Verifier")), "caller must be Verifier");
+
+```
+[#L1616](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1616) [#L1624](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1624) [#L1632](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1632) [#L1640](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1640) [#L1644](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1644) [#L1648](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1648) [#L1652](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1652) [#L1656](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1656) [#L1660](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1660) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+540:         return IBondingManager(controller.getContract(keccak256("BondingManager")));
+
+547:         return IRoundsManager(controller.getContract(keccak256("RoundsManager")));
+
+```
+[#L540](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L540) [#L547](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L547) 
+
+```solidity
+File: contracts/treasury/LivepeerGovernor.sol
+
+102:         return IVotes(controller.getContract(keccak256("BondingVotes")));
+
+109:         return Treasury(payable(controller.getContract(keccak256("Treasury"))));
+
+```
+[#L102](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L102) [#L109](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/treasury/LivepeerGovernor.sol#L109) 
+
+</details>
+
+---
+
+<a name="GAS-11"></a> 
+#### [GAS-11] Use assembly to emit events
 To efficiently emit events, it's possible to utilize assembly by making use of scratch space and the free memory pointer. This approach has the advantage of potentially avoiding the costs associated with memory expansion.
 
 However, it's important to note that in order to safely optimize this process, it is preferable to cache and restore the free memory pointer.
@@ -3829,8 +3889,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-11"></a> 
-#### [GAS-11] Using a double `if` statement instead of a logical AND (`&&`)
+<a name="GAS-12"></a> 
+#### [GAS-12] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
 <details>
@@ -3866,8 +3926,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-12"></a> 
-#### [GAS-12] Use a more recent version of solidity
+<a name="GAS-13"></a> 
+#### [GAS-13] Use a more recent version of solidity
 - Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
 - Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
@@ -3954,8 +4014,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-13"></a> 
-#### [GAS-13] State variables should be cached in stack variables rather than re-reading them from storage
+<a name="GAS-14"></a> 
+#### [GAS-14] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -3994,8 +4054,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-14"></a> 
-#### [GAS-14] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-15"></a> 
+#### [GAS-15] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -4017,8 +4077,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-15"></a> 
-#### [GAS-15] Use Custom Errors
+<a name="GAS-16"></a> 
+#### [GAS-16] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -4087,8 +4147,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-16"></a> 
-#### [GAS-16] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-17"></a> 
+#### [GAS-17] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -4116,8 +4176,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ---
 
-<a name="GAS-17"></a> 
-#### [GAS-17] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-18"></a> 
+#### [GAS-18] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -4153,8 +4213,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-18"></a> 
-#### [GAS-18] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-19"></a> 
+#### [GAS-19] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -4206,8 +4266,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-19"></a> 
-#### [GAS-19] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-20"></a> 
+#### [GAS-20] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -4258,8 +4318,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-20"></a> 
-#### [GAS-20] Using assembly to check for zero can save gas
+<a name="GAS-21"></a> 
+#### [GAS-21] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -4347,8 +4407,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-21"></a> 
-#### [GAS-21] `internal` functions not called by the contract should be removed
+<a name="GAS-22"></a> 
+#### [GAS-22] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
