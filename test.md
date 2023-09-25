@@ -84,35 +84,36 @@ Total <b>463</b> instances over <b>45</b> issues:
 ## Gas Optimizations
 
 
-Total <b>262</b> instances over <b>25</b> issues:
+Total <b>475</b> instances over <b>26</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 7 | 791 |
-| [GAS-2](#GAS-2) | `internal` functions only called once can be inlined to save gas | 15 | 450 |
-| [GAS-3](#GAS-3) | `keccak256()` hash of literals should only be computed once | 13 | 546 |
-| [GAS-4](#GAS-4) | Multiple accesses of the same mapping/array key/index should be cached | 3 | 126 |
-| [GAS-5](#GAS-5) | Newer versions of solidity are more gas efficient | 9 | - |
-| [GAS-6](#GAS-6) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 34 | 102 |
-| [GAS-7](#GAS-7) | Reduce gas usage by moving to Solidity 0.8.19 or later | 9 | 9000 |
-| [GAS-8](#GAS-8) | Redundant state variable getters | 1 | - |
-| [GAS-9](#GAS-9) | Remove or replace unused state variables | 1 | - |
-| [GAS-10](#GAS-10) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 9 | 27 |
-| [GAS-11](#GAS-11) | The result of a function call should be cached rather than re-calling the function | 12 | 1200 |
-| [GAS-12](#GAS-12) | Unused named return variables without optimizer waste gas | 1 | 9 |
-| [GAS-13](#GAS-13) | Use assembly to compute hashes to save gas | 13 | 1040 |
-| [GAS-14](#GAS-14) | Use assembly to emit events | 24 | 912 |
-| [GAS-15](#GAS-15) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
-| [GAS-16](#GAS-16) | Use a more recent version of solidity | 9 | - |
-| [GAS-17](#GAS-17) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
-| [GAS-18](#GAS-18) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-19](#GAS-19) | Use Custom Errors | 25 | 1250 |
-| [GAS-20](#GAS-20) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
-| [GAS-21](#GAS-21) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
-| [GAS-22](#GAS-22) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
-| [GAS-23](#GAS-23) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
-| [GAS-24](#GAS-24) | Using assembly to check for zero can save gas | 26 | 156 |
-| [GAS-25](#GAS-25) | `internal` functions not called by the contract should be removed | 5 | - |
+| [GAS-2](#GAS-2) | Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas | 213 | - |
+| [GAS-3](#GAS-3) | `internal` functions only called once can be inlined to save gas | 15 | 450 |
+| [GAS-4](#GAS-4) | `keccak256()` hash of literals should only be computed once | 13 | 546 |
+| [GAS-5](#GAS-5) | Multiple accesses of the same mapping/array key/index should be cached | 3 | 126 |
+| [GAS-6](#GAS-6) | Newer versions of solidity are more gas efficient | 9 | - |
+| [GAS-7](#GAS-7) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 34 | 102 |
+| [GAS-8](#GAS-8) | Reduce gas usage by moving to Solidity 0.8.19 or later | 9 | 9000 |
+| [GAS-9](#GAS-9) | Redundant state variable getters | 1 | - |
+| [GAS-10](#GAS-10) | Remove or replace unused state variables | 1 | - |
+| [GAS-11](#GAS-11) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 9 | 27 |
+| [GAS-12](#GAS-12) | The result of a function call should be cached rather than re-calling the function | 12 | 1200 |
+| [GAS-13](#GAS-13) | Unused named return variables without optimizer waste gas | 1 | 9 |
+| [GAS-14](#GAS-14) | Use assembly to compute hashes to save gas | 13 | 1040 |
+| [GAS-15](#GAS-15) | Use assembly to emit events | 24 | 912 |
+| [GAS-16](#GAS-16) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
+| [GAS-17](#GAS-17) | Use a more recent version of solidity | 9 | - |
+| [GAS-18](#GAS-18) | State variables should be cached in stack variables rather than re-reading them from storage | 5 | 485 |
+| [GAS-19](#GAS-19) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-20](#GAS-20) | Use Custom Errors | 25 | 1250 |
+| [GAS-21](#GAS-21) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 2 | - |
+| [GAS-22](#GAS-22) | Constructors can be marked as `payable` to save deployment gas | 3 | 63 |
+| [GAS-23](#GAS-23) | Functions guaranteed to revert when called by normal users can be marked `payable` | 11 | 231 |
+| [GAS-24](#GAS-24) | Use != 0 instead of > 0 for unsigned integer comparison | 14 | - |
+| [GAS-25](#GAS-25) | Using assembly to check for zero can save gas | 26 | 156 |
+| [GAS-26](#GAS-26) | `internal` functions not called by the contract should be removed | 5 | - |
 
 ## Medium Issues
 
@@ -3342,7 +3343,671 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 ---
 
 <a name="GAS-2"></a> 
-#### [GAS-2] `internal` functions only called once can be inlined to save gas
+#### [GAS-2] Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas
+Saves deployment costs.
+
+<details>
+<summary>
+There are <b>213</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bonding/BondingManager.sol
+
+/// Duplicated on line 156
+157: 
+
+/// Duplicated on line 156
+158:         emit ParameterUpdate("unbondingPeriod");
+
+/// Duplicated on line 177
+178: 
+
+/// Duplicated on line 177
+179:         emit ParameterUpdate("treasuryBalanceCeiling");
+
+/// Duplicated on line 187
+188: 
+
+/// Duplicated on line 187
+189:         emit ParameterUpdate("numActiveTranscoders");
+
+/// Duplicated on line 250
+251:         UnbondingLock storage lock = del.unbondingLocks[_unbondingLockId];
+
+/// Duplicated on line 250
+252: 
+
+/// Duplicated on line 250
+253:         require(isValidUnbondingLock(msg.sender, _unbondingLockId), "invalid unbonding lock ID");
+
+/// Duplicated on line 250
+254:         require(
+
+/// Duplicated on line 250
+255:             lock.withdrawRound <= roundsManager().currentRound(),
+
+/// Duplicated on line 250
+256:             "withdraw round must be before or equal to the current round"
+
+/// Duplicated on line 250
+257:         );
+
+/// Duplicated on line 255
+260:         uint256 withdrawRound = lock.withdrawRound;
+
+/// Duplicated on line 250
+261:         // Delete unbonding lock
+
+/// Duplicated on line 255
+262:         delete del.unbondingLocks[_unbondingLockId];
+
+/// Duplicated on line 250
+263: 
+
+/// Duplicated on line 250
+264:         // Tell Minter to transfer stake (LPT) to the delegator
+
+/// Duplicated on line 250
+265:         minter().trustedTransferTokens(msg.sender, amount);
+
+/// Duplicated on line 250
+266: 
+
+/// Duplicated on line 250
+267:         emit WithdrawStake(msg.sender, _unbondingLockId, amount, withdrawRound);
+
+/// Duplicated on line 279
+280:         uint256 fees = delegators[msg.sender].fees;
+
+/// Duplicated on line 279
+281:         require(fees >= _amount, "insufficient fees to withdraw");
+
+/// Duplicated on line 279
+282:         delegators[msg.sender].fees = fees.sub(_amount);
+
+/// Duplicated on line 279
+283: 
+
+/// Duplicated on line 279
+284:         // Tell Minter to transfer fees (ETH) to the address
+
+/// Duplicated on line 279
+285:         minter().trustedWithdrawETH(_recipient, _amount);
+
+/// Duplicated on line 308
+309: 
+
+/// Duplicated on line 308
+310:         require(isRegisteredTranscoder(_transcoder), "transcoder must be registered");
+
+/// Duplicated on line 308
+311: 
+
+/// Duplicated on line 308
+312:         uint256 currentRound = roundsManager().currentRound();
+
+/// Duplicated on line 308
+316:         uint256 lastRewardRound = t.lastRewardRound;
+
+/// Duplicated on line 308
+318: 
+
+/// Duplicated on line 308
+319:         // LIP-36: Add fees for the current round instead of '_round'
+
+/// Duplicated on line 308
+320:         // https://github.com/livepeer/LIPs/issues/35#issuecomment-673659199
+
+/// Duplicated on line 308
+321:         EarningsPool.Data storage earningsPool = t.earningsPoolPerRound[currentRound];
+
+/// Duplicated on line 308
+322:         EarningsPool.Data memory prevEarningsPool = latestCumulativeFactorsPool(t, currentRound.sub(1));
+
+/// Duplicated on line 308
+323: 
+
+/// Duplicated on line 308
+324:         // if transcoder hasn't called 'reward()' for '_round' its 'transcoderFeeShare', 'transcoderRewardCut' and 'totalStake'
+
+/// Duplicated on line 308
+325:         // on the 'EarningsPool' for '_round' would not be initialized and the fee distribution wouldn't happen as expected
+
+/// Duplicated on line 308
+326:         // for cumulative fee calculation this would result in division by zero.
+
+/// Duplicated on line 308
+327:         if (currentRound > lastRewardRound) {
+
+/// Duplicated on line 308
+328:             earningsPool.setCommission(t.rewardCut, t.feeShare);
+
+/// Duplicated on line 308
+329: 
+
+/// Duplicated on line 400
+401: 
+
+/// Duplicated on line 400
+402:         if (del.bondedAmount > 0) {
+
+/// Duplicated on line 454
+455: 
+
+/// Duplicated on line 454
+456:         _autoClaimEarnings(msg.sender);
+
+/// Duplicated on line 463
+464: 
+
+/// Duplicated on line 463
+465:         if (nextRoundTreasuryRewardCutRate != treasuryRewardCutRate) {
+
+/// Duplicated on line 463
+466:             treasuryRewardCutRate = nextRoundTreasuryRewardCutRate;
+
+/// Duplicated on line 466
+469:         }
+
+/// Duplicated on line 463
+470: 
+
+/// Duplicated on line 466
+471:         bondingVotes().checkpointTotalActiveStake(currentRoundTotalActiveStake, roundsManager().currentRound());
+
+/// Duplicated on line 491
+492:         require(MathUtils.validPerc(_rewardCut), "invalid rewardCut percentage");
+
+/// Duplicated on line 491
+493:         require(MathUtils.validPerc(_feeShare), "invalid feeShare percentage");
+
+/// Duplicated on line 491
+494:         require(isRegisteredTranscoder(msg.sender), "transcoder must be registered");
+
+/// Duplicated on line 491
+498: 
+
+/// Duplicated on line 491
+500:             !isActiveTranscoder(msg.sender) || t.lastRewardRound == currentRound,
+
+/// Duplicated on line 491
+501:             "caller can't be active or must have already called reward for the current round"
+
+/// Duplicated on line 491
+502:         );
+
+/// Duplicated on line 491
+503: 
+
+/// Duplicated on line 491
+504:         t.rewardCut = _rewardCut;
+
+/// Duplicated on line 491
+505:         t.feeShare = _feeShare;
+
+/// Duplicated on line 491
+506: 
+
+/// Duplicated on line 491
+507:         if (!transcoderPool.contains(msg.sender)) {
+
+/// Duplicated on line 491
+508:             tryToJoinActiveSet(
+
+/// Duplicated on line 491
+509:                 msg.sender,
+
+/// Duplicated on line 491
+510:                 delegators[msg.sender].delegatedAmount,
+
+/// Duplicated on line 491
+511:                 currentRound.add(1),
+
+/// Duplicated on line 547
+550:         uint256 currentRound = roundsManager().currentRound();
+
+/// Duplicated on line 547
+552:         uint256 delegationAmount = _amount;
+
+/// Duplicated on line 547
+553:         // Current delegate
+
+/// Duplicated on line 547
+554:         address currentDelegate = del.delegateAddress;
+
+/// Duplicated on line 547
+555:         // Current bonded amount
+
+/// Duplicated on line 547
+556:         uint256 currentBondedAmount = del.bondedAmount;
+
+/// Duplicated on line 547
+557: 
+
+/// Duplicated on line 547
+558:         // Requirements for a third party caller that is not the L2Migrator
+
+/// Duplicated on line 547
+559:         if (msg.sender != _owner && msg.sender != l2Migrator()) {
+
+/// Duplicated on line 547
+560:             // Does not trigger self-delegation
+
+/// Duplicated on line 547
+561:             // Does not change the delegate if it is already non-null
+
+/// Duplicated on line 547
+562:             if (delegatorStatus(_owner) == DelegatorStatus.Unbonded) {
+
+/// Duplicated on line 547
+563:                 require(_to != _owner, "INVALID_DELEGATE");
+
+/// Duplicated on line 688
+689:         Delegator storage oldDel = delegators[msg.sender];
+
+/// Duplicated on line 688
+690:         Delegator storage newDel = delegators[_delegator];
+
+/// Duplicated on line 688
+691:         // Cache delegate address of caller before unbondWithHint because
+
+/// Duplicated on line 688
+692:         // if unbondWithHint is for a full unbond the caller's delegate address will be set to null
+
+/// Duplicated on line 688
+693:         address oldDelDelegate = oldDel.delegateAddress;
+
+/// Duplicated on line 688
+694: 
+
+/// Duplicated on line 688
+695:         unbondWithHint(_amount, _oldDelegateNewPosPrev, _oldDelegateNewPosNext);
+
+/// Duplicated on line 688
+696: 
+
+/// Duplicated on line 688
+697:         uint256 oldDelUnbondingLockId = oldDel.nextUnbondingLockId.sub(1);
+
+/// Duplicated on line 688
+698:         uint256 withdrawRound = oldDel.unbondingLocks[oldDelUnbondingLockId].withdrawRound;
+
+/// Duplicated on line 688
+699: 
+
+/// Duplicated on line 688
+700:         // Burn lock for current owner
+
+/// Duplicated on line 750
+751: 
+
+/// Duplicated on line 750
+752:         Delegator storage del = delegators[msg.sender];
+
+/// Duplicated on line 750
+753: 
+
+/// Duplicated on line 750
+754:         require(_amount > 0, "unbond amount must be greater than 0");
+
+/// Duplicated on line 750
+755:         require(_amount <= del.bondedAmount, "amount is greater than bonded amount");
+
+/// Duplicated on line 750
+756: 
+
+/// Duplicated on line 750
+757:         address currentDelegate = del.delegateAddress;
+
+/// Duplicated on line 750
+758:         uint256 currentRound = roundsManager().currentRound();
+
+/// Duplicated on line 750
+759:         uint256 withdrawRound = currentRound.add(unbondingPeriod);
+
+/// Duplicated on line 750
+760:         uint256 unbondingLockId = del.nextUnbondingLockId;
+
+/// Duplicated on line 750
+761: 
+
+/// Duplicated on line 801
+802: 
+
+/// Duplicated on line 801
+803:         // Process rebond using unbonding lock
+
+/// Duplicated on line 801
+804:         processRebond(msg.sender, _unbondingLockId, _newPosPrev, _newPosNext);
+
+/// Duplicated on line 824
+825: 
+
+/// Duplicated on line 824
+826:         // Set delegator's start round and transition into Pending state
+
+/// Duplicated on line 824
+827:         delegators[msg.sender].startRound = roundsManager().currentRound().add(1);
+
+/// Duplicated on line 824
+828:         // Set delegator's delegate
+
+/// Duplicated on line 824
+829:         delegators[msg.sender].delegateAddress = _to;
+
+/// Duplicated on line 824
+830:         // Process rebond using unbonding lock
+
+/// Duplicated on line 824
+831:         processRebond(msg.sender, _unbondingLockId, _newPosPrev, _newPosNext);
+
+/// Duplicated on line 848
+849: 
+
+/// Duplicated on line 848
+850:         require(isActiveTranscoder(msg.sender), "caller must be an active transcoder");
+
+/// Duplicated on line 848
+851:         require(
+
+/// Duplicated on line 848
+852:             transcoders[msg.sender].lastRewardRound != currentRound,
+
+/// Duplicated on line 848
+853:             "caller has already called reward for the current round"
+
+/// Duplicated on line 848
+854:         );
+
+/// Duplicated on line 910
+911: 
+
+/// Duplicated on line 910
+912:         uint256 endRound = roundsManager().currentRound();
+
+/// Duplicated on line 910
+913:         (uint256 stake, ) = pendingStakeAndFees(_delegator, endRound);
+
+/// Duplicated on line 910
+914:         return stake;
+
+/// Duplicated on line 925
+926: 
+
+/// Duplicated on line 925
+927:         uint256 endRound = roundsManager().currentRound();
+
+/// Duplicated on line 925
+928:         (, uint256 fees) = pendingStakeAndFees(_delegator, endRound);
+
+/// Duplicated on line 925
+929:         return fees;
+
+/// Duplicated on line 947
+948:         return TranscoderStatus.NotRegistered;
+
+/// Duplicated on line 957
+958: 
+
+/// Duplicated on line 957
+959:         if (del.bondedAmount == 0) {
+
+/// Duplicated on line 1003
+1004: 
+
+/// Duplicated on line 1003
+1005:         lastRewardRound = t.lastRewardRound;
+
+/// Duplicated on line 1003
+1006:         rewardCut = t.rewardCut;
+
+/// Duplicated on line 1003
+1007:         feeShare = t.feeShare;
+
+/// Duplicated on line 1003
+1008:         lastActiveStakeUpdateRound = t.lastActiveStakeUpdateRound;
+
+/// Duplicated on line 1038
+1039: 
+
+/// Duplicated on line 1038
+1040:         totalStake = earningsPool.totalStake;
+
+/// Duplicated on line 1038
+1041:         transcoderRewardCut = earningsPool.transcoderRewardCut;
+
+/// Duplicated on line 1038
+1042:         transcoderFeeShare = earningsPool.transcoderFeeShare;
+
+/// Duplicated on line 1038
+1043:         cumulativeRewardFactor = earningsPool.cumulativeRewardFactor;
+
+/// Duplicated on line 1071
+1072: 
+
+/// Duplicated on line 1071
+1073:         bondedAmount = del.bondedAmount;
+
+/// Duplicated on line 1071
+1074:         fees = del.fees;
+
+/// Duplicated on line 1071
+1075:         delegateAddress = del.delegateAddress;
+
+/// Duplicated on line 1071
+1076:         delegatedAmount = del.delegatedAmount;
+
+/// Duplicated on line 1094
+1095: 
+
+/// Duplicated on line 1094
+1096:         return (lock.amount, lock.withdrawRound);
+
+/// Duplicated on line 1146
+1147:         uint256 currentRound = roundsManager().currentRound();
+
+/// Duplicated on line 1146
+1148:         return t.activationRound <= currentRound && currentRound < t.deactivationRound;
+
+/// Duplicated on line 1157
+1158:         return d.delegateAddress == _transcoder && d.bondedAmount > 0;
+
+/// Duplicated on line 1177
+1178: 
+
+/// Duplicated on line 1177
+1179:         nextRoundTreasuryRewardCutRate = _cutRate;
+
+/// Duplicated on line 1177
+1180: 
+
+/// Duplicated on line 1177
+1181:         emit ParameterUpdate("nextRoundTreasuryRewardCutRate");
+
+/// Duplicated on line 1194
+1195:         pool.cumulativeFeeFactor = _transcoder.earningsPoolPerRound[_round].cumulativeFeeFactor;
+
+/// Duplicated on line 1194
+1196: 
+
+/// Duplicated on line 1194
+1197:         return pool;
+
+/// Duplicated on line 1211
+1212: 
+
+/// Duplicated on line 1211
+1213:         uint256 lastRewardRound = _transcoder.lastRewardRound;
+
+/// Duplicated on line 1211
+1214:         // Only use the cumulativeRewardFactor for lastRewardRound if lastRewardRound is before _round
+
+/// Duplicated on line 1211
+1215:         if (pool.cumulativeRewardFactor == 0 && lastRewardRound < _round) {
+
+/// Duplicated on line 1246
+1247:         // Fetch end cumulative factors
+
+/// Duplicated on line 1246
+1248:         EarningsPool.Data memory endPool = latestCumulativeFactorsPool(_transcoder, _endRound);
+
+/// Duplicated on line 1246
+1249: 
+
+/// Duplicated on line 1246
+1250:         return EarningsPoolLIP36.delegatorCumulativeStakeAndFees(startPool, endPool, _stake, _fees);
+
+/// Duplicated on line 1264
+1265:         Transcoder storage t = transcoders[del.delegateAddress];
+
+/// Duplicated on line 1264
+1266: 
+
+/// Duplicated on line 1264
+1267:         fees = del.fees;
+
+/// Duplicated on line 1264
+1268:         stake = del.bondedAmount;
+
+/// Duplicated on line 1313
+1314: 
+
+/// Duplicated on line 1313
+1315:         uint256 currStake = transcoderTotalStake(_delegate);
+
+/// Duplicated on line 1313
+1316:         uint256 newStake = currStake.add(_amount);
+
+/// Duplicated on line 1313
+1317: 
+
+/// Duplicated on line 1358
+1359: 
+
+/// Duplicated on line 1358
+1360:         uint256 currStake = transcoderTotalStake(_delegate);
+
+/// Duplicated on line 1358
+1361:         uint256 newStake = currStake.sub(_amount);
+
+/// Duplicated on line 1358
+1362: 
+
+/// Duplicated on line 1399
+1400: 
+
+/// Duplicated on line 1399
+1401:         if (transcoderPool.isFull()) {
+
+/// Duplicated on line 1399
+1402:             address lastTranscoder = transcoderPool.getLast();
+
+/// Duplicated on line 1399
+1403:             uint256 lastStake = transcoderTotalStake(lastTranscoder);
+
+/// Duplicated on line 1442
+1443:         nextRoundTotalActiveStake = nextRoundTotalActiveStake.sub(transcoderTotalStake(_transcoder));
+
+/// Duplicated on line 1442
+1444:         uint256 deactivationRound = roundsManager().currentRound().add(1);
+
+/// Duplicated on line 1442
+1445:         transcoders[_transcoder].deactivationRound = deactivationRound;
+
+/// Duplicated on line 1442
+1446:         emit TranscoderDeactivated(_transcoder, deactivationRound);
+
+/// Duplicated on line 1466
+1467:         EarningsPool.Data storage earningsPool = t.earningsPoolPerRound[_round];
+
+/// Duplicated on line 1466
+1468:         EarningsPool.Data memory prevEarningsPool = cumulativeFactorsPool(t, t.lastRewardRound);
+
+/// Duplicated on line 1466
+1469: 
+
+/// Duplicated on line 1466
+1470:         t.activeCumulativeRewards = t.cumulativeRewards;
+
+/// Duplicated on line 1505
+1506:         uint256 startRound = _lastClaimRound.add(1);
+
+/// Duplicated on line 1505
+1507:         uint256 currentBondedAmount = del.bondedAmount;
+
+/// Duplicated on line 1505
+1508:         uint256 currentFees = del.fees;
+
+/// Duplicated on line 1505
+1509: 
+
+/// Duplicated on line 1570
+1571:         UnbondingLock storage lock = del.unbondingLocks[_unbondingLockId];
+
+/// Duplicated on line 1570
+1572: 
+
+/// Duplicated on line 1570
+1573:         require(isValidUnbondingLock(_delegator, _unbondingLockId), "invalid unbonding lock ID");
+
+/// Duplicated on line 1570
+1574: 
+
+/// Duplicated on line 1599
+1600:         bondingVotes().checkpointBondingState(
+
+```
+[#L157](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L157) [#L158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L158) [#L178](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L178) [#L179](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L179) [#L188](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L188) [#L189](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L189) [#L251](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L251) [#L252](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L252) [#L253](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L253) [#L254](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L254) [#L255](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L255) [#L256](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L256) [#L257](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L257) [#L260](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L260) [#L261](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L261) [#L262](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L262) [#L263](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L263) [#L264](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L264) [#L265](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L265) [#L266](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L266) [#L267](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L267) [#L280](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L280) [#L281](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L281) [#L282](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L282) [#L283](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L283) [#L284](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L284) [#L285](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L285) [#L309](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L309) [#L310](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L310) [#L311](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L311) [#L312](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L312) [#L316](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L316) [#L318](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L318) [#L319](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L319) [#L320](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L320) [#L321](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L321) [#L322](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L322) [#L323](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L323) [#L324](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L324) [#L325](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L325) [#L326](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L326) [#L327](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L327) [#L328](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L328) [#L329](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L329) [#L401](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L401) [#L402](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L402) [#L455](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L455) [#L456](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L456) [#L464](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L464) [#L465](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L465) [#L466](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L466) [#L469](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L469) [#L470](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L470) [#L471](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L471) [#L492](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L492) [#L493](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L493) [#L494](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L494) [#L498](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L498) [#L500](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L500) [#L501](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L501) [#L502](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L502) [#L503](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L503) [#L504](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L504) [#L505](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L505) [#L506](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L506) [#L507](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L507) [#L508](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L508) [#L509](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L509) [#L510](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L510) [#L511](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L511) [#L550](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L550) [#L552](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L552) [#L553](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L553) [#L554](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L554) [#L555](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L555) [#L556](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L556) [#L557](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L557) [#L558](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L558) [#L559](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L559) [#L560](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L560) [#L561](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L561) [#L562](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L562) [#L563](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L563) [#L689](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L689) [#L690](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L690) [#L691](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L691) [#L692](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L692) [#L693](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L693) [#L694](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L694) [#L695](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L695) [#L696](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L696) [#L697](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L697) [#L698](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L698) [#L699](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L699) [#L700](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L700) [#L751](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L751) [#L752](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L752) [#L753](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L753) [#L754](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L754) [#L755](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L755) [#L756](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L756) [#L757](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L757) [#L758](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L758) [#L759](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L759) [#L760](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L760) [#L761](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L761) [#L802](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L802) [#L803](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L803) [#L804](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L804) [#L825](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L825) [#L826](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L826) [#L827](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L827) [#L828](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L828) [#L829](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L829) [#L830](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L830) [#L831](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L831) [#L849](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L849) [#L850](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L850) [#L851](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L851) [#L852](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L852) [#L853](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L853) [#L854](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L854) [#L911](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L911) [#L912](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L912) [#L913](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L913) [#L914](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L914) [#L926](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L926) [#L927](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L927) [#L928](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L928) [#L929](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L929) [#L948](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L948) [#L958](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L958) [#L959](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L959) [#L1004](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1004) [#L1005](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1005) [#L1006](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1006) [#L1007](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1007) [#L1008](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1008) [#L1039](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1039) [#L1040](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1040) [#L1041](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1041) [#L1042](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1042) [#L1043](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1043) [#L1072](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1072) [#L1073](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1073) [#L1074](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1074) [#L1075](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1075) [#L1076](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1076) [#L1095](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1095) [#L1096](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1096) [#L1147](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1147) [#L1148](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1148) [#L1158](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1158) [#L1178](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1178) [#L1179](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1179) [#L1180](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1180) [#L1181](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1181) [#L1195](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1195) [#L1196](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1196) [#L1197](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1197) [#L1212](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1212) [#L1213](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1213) [#L1214](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1214) [#L1215](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1215) [#L1247](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1247) [#L1248](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1248) [#L1249](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1249) [#L1250](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1250) [#L1265](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1265) [#L1266](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1266) [#L1267](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1267) [#L1268](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1268) [#L1314](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1314) [#L1315](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1315) [#L1316](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1316) [#L1317](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1317) [#L1359](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1359) [#L1360](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1360) [#L1361](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1361) [#L1362](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1362) [#L1400](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1400) [#L1401](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1401) [#L1402](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1402) [#L1403](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1403) [#L1443](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1443) [#L1444](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1444) [#L1445](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1445) [#L1446](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1446) [#L1467](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1467) [#L1468](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1468) [#L1469](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1469) [#L1470](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1470) [#L1506](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1506) [#L1507](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1507) [#L1508](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1508) [#L1509](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1509) [#L1571](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1571) [#L1572](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1572) [#L1573](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1573) [#L1574](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1574) [#L1600](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingManager.sol#L1600) 
+
+```solidity
+File: contracts/bonding/BondingVotes.sol
+
+/// Duplicated on line 156
+157:         return amount;
+
+/// Duplicated on line 168
+169:         return amount;
+
+/// Duplicated on line 206
+207:         return delegateAddress;
+
+/// Duplicated on line 219
+220:         return delegateAddress;
+
+/// Duplicated on line 268
+269:         } else if (_lastClaimRound >= _startRound) {
+
+/// Duplicated on line 268
+270:             revert FutureLastClaimRound(_lastClaimRound, _startRound - 1);
+
+/// Duplicated on line 268
+271:         }
+
+/// Duplicated on line 268
+273:         BondingCheckpoint memory previous;
+
+/// Duplicated on line 305
+306:         }
+
+/// Duplicated on line 305
+308:         totalStakeCheckpoints.data[_round] = _totalStake;
+
+/// Duplicated on line 327
+329: 
+
+/// Duplicated on line 428
+429:         }
+
+```
+[#L157](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L157) [#L169](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L169) [#L207](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L207) [#L220](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L220) [#L269](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L269) [#L270](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L270) [#L271](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L271) [#L273](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L273) [#L306](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L306) [#L308](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L308) [#L329](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L329) [#L429](https://github.com/code-423n4/2023-08-livepeer/blob/bcf493b98d0ef835e969e637f25ea51ab77fabb6/contracts/bonding/BondingVotes.sol#L429) 
+
+</details>
+
+---
+
+<a name="GAS-3"></a> 
+#### [GAS-3] `internal` functions only called once can be inlined to save gas
 If an `internal` function is only used once, there is no need to modularize it, unless the function calling it would otherwise be too long and complex. Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
 
 <details>
@@ -3423,8 +4088,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-3"></a> 
-#### [GAS-3] `keccak256()` hash of literals should only be computed once
+<a name="GAS-4"></a> 
+#### [GAS-4] `keccak256()` hash of literals should only be computed once
 The result of the hash should be stored in an immutable variable, and the variable should be used instead. If the hash is being used as a part of a function selector, the cast to `bytes4` should also only be done once.
 
 <details>
@@ -3480,8 +4145,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-4"></a> 
-#### [GAS-4] Multiple accesses of the same mapping/array key/index should be cached
+<a name="GAS-5"></a> 
+#### [GAS-5] Multiple accesses of the same mapping/array key/index should be cached
 The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local `storage` or `calldata` variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata
 
 <details>
@@ -3508,8 +4173,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-5"></a> 
-#### [GAS-5] Newer versions of solidity are more gas efficient
+<a name="GAS-6"></a> 
+#### [GAS-6] Newer versions of solidity are more gas efficient
 The solidity language continues to pursue more efficient gas optimization schemes. Adopting a newer version of solidity can be more gas efficient.
 
 <details>
@@ -3593,8 +4258,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-6"></a> 
-#### [GAS-6] Operator `>=`/`<=` costs less gas than operator `>`/`<`
+<a name="GAS-7"></a> 
+#### [GAS-7] Operator `>=`/`<=` costs less gas than operator `>`/`<`
 The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only requires `LT` for `>=`. A similar behavior applies for `>`, which uses opcodes `LT` and `ISZERO`, but only requires `GT` for `<=`. It can save 3 gas for each. It should be converted to the `<=`/`>=` equivalent when comparing against integer literals.
 
 <details>
@@ -3698,8 +4363,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-7"></a> 
-#### [GAS-7] Reduce gas usage by moving to Solidity 0.8.19 or later
+<a name="GAS-8"></a> 
+#### [GAS-8] Reduce gas usage by moving to Solidity 0.8.19 or later
 Solidity version 0.8.19 introduced a number of gas optimizations, refer to the [Solidity 0.8.19 Release Announcement](https://soliditylang.org/blog/2023/02/22/solidity-0.8.19-release-announcement/) for details.
 
 <details>
@@ -3783,8 +4448,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-8"></a> 
-#### [GAS-8] Redundant state variable getters
+<a name="GAS-9"></a> 
+#### [GAS-9] Redundant state variable getters
 Getters for public state variables are automatically generated so there is no need to code them manually and waste gas.
 
 <details>
@@ -3805,8 +4470,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-9"></a> 
-#### [GAS-9] Remove or replace unused state variables
+<a name="GAS-10"></a> 
+#### [GAS-10] Remove or replace unused state variables
 Saves a storage slot. If the variable is assigned a non-zero value, saves Gsset (20000 gas). If it's assigned a zero value, saves Gsreset (2900 gas). If the variable remains unassigned, there is no gas savings unless the variable is `public`, in which case the compiler-generated non-payable getter deployment cost is saved. If the state variable is overriding an interface's public function, mark the variable as `constant` or `immutable` so that it does not use a storage slot.
 
 <details>
@@ -3826,8 +4491,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-10"></a> 
-#### [GAS-10] `require()`/`revert()` strings longer than 32 bytes cost extra gas
+<a name="GAS-11"></a> 
+#### [GAS-11] `require()`/`revert()` strings longer than 32 bytes cost extra gas
 Each extra memory word of bytes past the original 32 [incurs an MSTORE](https://gist.github.com/hrkrshnn/ee8fabd532058307229d65dcd5836ddc#consider-having-short-revert-strings) which costs 3 gas
 
 <details>
@@ -3869,8 +4534,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-11"></a> 
-#### [GAS-11] The result of a function call should be cached rather than re-calling the function
+<a name="GAS-12"></a> 
+#### [GAS-12] The result of a function call should be cached rather than re-calling the function
 The function calls in solidity are expensive. If the same result of the same function calls are to be used several times, the result should be cached to reduce the gas consumption of repeated calls.
 
 <details>
@@ -3981,8 +4646,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-12"></a> 
-#### [GAS-12] Unused named return variables without optimizer waste gas
+<a name="GAS-13"></a> 
+#### [GAS-13] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
 <details>
@@ -4010,8 +4675,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-13"></a> 
-#### [GAS-13] Use assembly to compute hashes to save gas
+<a name="GAS-14"></a> 
+#### [GAS-14] Use assembly to compute hashes to save gas
 If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (80 gas):
 
 `keccak256(abi.encodePacked(x, y)) -> assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
@@ -4069,8 +4734,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-14"></a> 
-#### [GAS-14] Use assembly to emit events
+<a name="GAS-15"></a> 
+#### [GAS-15] Use assembly to emit events
 To efficiently emit events, it's possible to utilize assembly by making use of scratch space and the free memory pointer. This approach has the advantage of potentially avoiding the costs associated with memory expansion.
 
 However, it's important to note that in order to safely optimize this process, it is preferable to cache and restore the free memory pointer.
@@ -4146,8 +4811,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-15"></a> 
-#### [GAS-15] Using a double `if` statement instead of a logical AND (`&&`)
+<a name="GAS-16"></a> 
+#### [GAS-16] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
 <details>
@@ -4183,8 +4848,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-16"></a> 
-#### [GAS-16] Use a more recent version of solidity
+<a name="GAS-17"></a> 
+#### [GAS-17] Use a more recent version of solidity
 - Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
 - Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
@@ -4271,8 +4936,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-17"></a> 
-#### [GAS-17] State variables should be cached in stack variables rather than re-reading them from storage
+<a name="GAS-18"></a> 
+#### [GAS-18] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -4311,8 +4976,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-18"></a> 
-#### [GAS-18] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-19"></a> 
+#### [GAS-19] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -4334,8 +4999,8 @@ File: contracts/treasury/Treasury.sol
 
 ---
 
-<a name="GAS-19"></a> 
-#### [GAS-19] Use Custom Errors
+<a name="GAS-20"></a> 
+#### [GAS-20] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -4404,8 +5069,8 @@ File: contracts/bonding/BondingManager.sol
 
 ---
 
-<a name="GAS-20"></a> 
-#### [GAS-20] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+<a name="GAS-21"></a> 
+#### [GAS-21] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
 <details>
@@ -4433,8 +5098,8 @@ File: contracts/bonding/libraries/EarningsPoolLIP36.sol
 
 ---
 
-<a name="GAS-21"></a> 
-#### [GAS-21] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-22"></a> 
+#### [GAS-22] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -4470,8 +5135,8 @@ File: contracts/treasury/LivepeerGovernor.sol
 
 ---
 
-<a name="GAS-22"></a> 
-#### [GAS-22] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-23"></a> 
+#### [GAS-23] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -4523,8 +5188,8 @@ File: contracts/treasury/GovernorCountingOverridable.sol
 
 ---
 
-<a name="GAS-23"></a> 
-#### [GAS-23] Use != 0 instead of > 0 for unsigned integer comparison
+<a name="GAS-24"></a> 
+#### [GAS-24] Use != 0 instead of > 0 for unsigned integer comparison
 
 <details>
 <summary>
@@ -4575,8 +5240,8 @@ File: contracts/bonding/BondingVotes.sol
 
 ---
 
-<a name="GAS-24"></a> 
-#### [GAS-24] Using assembly to check for zero can save gas
+<a name="GAS-25"></a> 
+#### [GAS-25] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -4664,8 +5329,8 @@ File: contracts/bonding/libraries/SortedArrays.sol
 
 ---
 
-<a name="GAS-25"></a> 
-#### [GAS-25] `internal` functions not called by the contract should be removed
+<a name="GAS-26"></a> 
+#### [GAS-26] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
