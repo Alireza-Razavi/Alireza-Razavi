@@ -92,13 +92,13 @@ Total <b>351</b> instances over <b>38</b> issues:
 ## Gas Optimizations
 
 
-Total <b>238</b> instances over <b>35</b> issues:
+Total <b>236</b> instances over <b>35</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Consider activating via-ir for deploying | 1 | - |
 | [GAS-2](#GAS-2) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 4 | 452 |
-| [GAS-3](#GAS-3) | Initializers can be marked as payable to save deployment gas | 3 | 63 |
+| [GAS-3](#GAS-3) | Initializers can be marked as payable to save deployment gas | 1 | 21 |
 | [GAS-4](#GAS-4) | `internal` functions only called once can be inlined to save gas | 9 | 270 |
 | [GAS-5](#GAS-5) | `keccak256()` hash of literals should only be computed once | 7 | 294 |
 | [GAS-6](#GAS-6) | Multiple accesses of the same mapping/array key/index should be cached | 19 | 798 |
@@ -3525,7 +3525,7 @@ Payable functions cost less gas to execute, because the compiler does not have t
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
@@ -3533,18 +3533,8 @@ File: contracts/usdy/rUSDY.sol
 
 109:   function initialize(
 
-116:   ) public virtual initializer {
-
 ```
-[#L109](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L109) [#L116](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L116) 
-
-```solidity
-File: contracts/usdy/rUSDYFactory.sol
-
-90:     rUSDYProxied.initialize(
-
-```
-[#L90](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L90) 
+[#L109](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L109) 
 
 </details>
 
