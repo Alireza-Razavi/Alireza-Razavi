@@ -114,7 +114,7 @@ Total <b>233</b> instances over <b>33</b> issues:
 | [GAS-16](#GAS-16) | Using a double `if` statement instead of a logical AND (`&&`) | 2 | 60 |
 | [GAS-17](#GAS-17) | Use a more recent version of solidity | 6 | - |
 | [GAS-18](#GAS-18) | Use `storage` instead of `memory` for structs/arrays | 8 | 33600 |
-| [GAS-19](#GAS-19) | Use a more recent version of solidity | 4 | - |
+| [GAS-19](#GAS-19) | Use `unchecked` block for safe subtractions | 4 | 340 |
 | [GAS-20](#GAS-20) | `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants) | 2 | - |
 | [GAS-21](#GAS-21) | Using bools for storage incurs overhead | 2 | - |
 | [GAS-22](#GAS-22) | Cache array length outside of loop | 5 | - |
@@ -4188,11 +4188,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="GAS-19"></a> 
-### [GAS-19] Use a more recent version of solidity
-- Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
-- Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
-- Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
-- Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
+### [GAS-19] Use `unchecked` block for safe subtractions
+If it can be confirmed that the subtraction operation will not overflow, using an unchecked block can save gas. For example, `require(x <= y); z = y - x;` can be optimized to `require(x <= y); unchecked { z = y - x; }`
 
 <details>
 <summary>
