@@ -26,7 +26,7 @@ Total <b>64</b> instances over <b>15</b> issues:
 | [L-4](#L-4) | Governance functions should be controlled by time locks | 29 |
 | [L-5](#L-5) | Missing contract existence checks before low-level calls | 2 |
 | [L-6](#L-6) | Missing zero address check in constructor | 4 |
-| [L-7](#L-7) | External call recipient can consume all remaining gas | 1 |
+| [L-7](#L-7) | Missing checks for `address(0)` when setting address state variables | 1 |
 | [L-8](#L-8) | Missing storage gap for upgradable contracts | 1 |
 | [L-9](#L-9) | prevent re-setting a state variable with the same value | 4 |
 | [L-10](#L-10) | Timestamp may be manipulation | 4 |
@@ -600,8 +600,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="L-7"></a> 
-### [L-7] External call recipient can consume all remaining gas
-There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
+### [L-7] Missing checks for `address(0)` when setting address state variables
 
 <details>
 <summary>
