@@ -16,7 +16,7 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>88</b> instances over <b>17</b> issues:
+Total <b>90</b> instances over <b>18</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -30,13 +30,14 @@ Total <b>88</b> instances over <b>17</b> issues:
 | [L-8](#L-8) | Missing zero address check in constructor | 4 |
 | [L-9](#L-9) | Missing checks for `address(0)` when setting address state variables | 1 |
 | [L-10](#L-10) | Missing storage gap for upgradable contracts | 1 |
-| [L-11](#L-11) | prevent re-setting a state variable with the same value | 4 |
-| [L-12](#L-12) | Timestamp may be manipulation | 4 |
-| [L-13](#L-13) | Unsafe solidity low-level call can cause gas grief attack | 2 |
-| [L-14](#L-14) | Use Ownable2Step instead of Ownable | 2 |
-| [L-15](#L-15) | Using zero as a parameter | 4 |
-| [L-16](#L-16) | Missing zero address check in initializer | 1 |
-| [L-17](#L-17) | Initializers could be front-run | 1 |
+| [L-11](#L-11) | Owner can renounce Ownership | 2 |
+| [L-12](#L-12) | prevent re-setting a state variable with the same value | 4 |
+| [L-13](#L-13) | Timestamp may be manipulation | 4 |
+| [L-14](#L-14) | Unsafe solidity low-level call can cause gas grief attack | 2 |
+| [L-15](#L-15) | Use Ownable2Step instead of Ownable | 2 |
+| [L-16](#L-16) | Using zero as a parameter | 4 |
+| [L-17](#L-17) | Missing zero address check in initializer | 1 |
+| [L-18](#L-18) | Initializers could be front-run | 1 |
 
 ## Non Critical Issues
 
@@ -736,7 +737,37 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-11"></a> 
-### [L-11] prevent re-setting a state variable with the same value
+### [L-11] Owner can renounce Ownership
+Each of the following contracts implements or inherits the `renounceOwnership()` function. This can represent a certain risk if the ownership is renounced for any other reason than by design. Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+12: contract DestinationBridge is
+      AxelarExecutable,
+      MintTimeBasedRateLimiter,
+      Ownable,
+
+```
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+11: contract SourceBridge is Ownable, Pausable, IMulticall {
+
+```
+
+</details>
+
+---
+
+<a name="L-12"></a> 
+### [L-12] prevent re-setting a state variable with the same value
 Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
 <details>
@@ -766,8 +797,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-12"></a> 
-### [L-12] Timestamp may be manipulation
+<a name="L-13"></a> 
+### [L-13] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 <details>
@@ -792,8 +823,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="L-13"></a> 
-### [L-13] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-14"></a> 
+### [L-14] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -819,8 +850,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-14"></a> 
-### [L-14] Use Ownable2Step instead of Ownable
+<a name="L-15"></a> 
+### [L-15] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -849,8 +880,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="L-15"></a> 
-### [L-15] Using zero as a parameter
+<a name="L-16"></a> 
+### [L-16] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -875,8 +906,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-16"></a> 
-### [L-16] Missing zero address check in initializer
+<a name="L-17"></a> 
+### [L-17] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -907,8 +938,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-17"></a> 
-### [L-17] Initializers could be front-run
+<a name="L-18"></a> 
+### [L-18] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
