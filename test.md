@@ -1321,19 +1321,19 @@ There are <b>2</b> instances (click to show):
 File: contracts/bridge/SourceBridge.sol
 
 /// Consider length check for `exCallData`
-186:   }
+179:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
-[#L186](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L186) 
+[#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
 /// Consider length check for `exCallData`
-137:   }
+130:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
-[#L137](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L137) 
+[#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L130) 
 
 </details>
 
