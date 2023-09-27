@@ -16,19 +16,20 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>44</b> instances over <b>9</b> issues:
+Total <b>49</b> instances over <b>10</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | External call recipient can consume all remaining gas | 2 |
 | [L-2](#L-2) | Governance functions should be controlled by time locks | 29 |
 | [L-3](#L-3) | Missing contract existence checks before low-level calls | 2 |
-| [L-4](#L-4) | Missing storage gap for upgradable contracts | 1 |
-| [L-5](#L-5) | Unsafe solidity low-level call can cause gas grief attack | 2 |
-| [L-6](#L-6) | Use Ownable2Step instead of Ownable | 2 |
-| [L-7](#L-7) | Using zero as a parameter | 4 |
-| [L-8](#L-8) | Missing zero address check in initializer | 1 |
-| [L-9](#L-9) | Initializers could be front-run | 1 |
+| [L-4](#L-4) | Missing zero address check in initializer | 5 |
+| [L-5](#L-5) | Missing storage gap for upgradable contracts | 1 |
+| [L-6](#L-6) | Unsafe solidity low-level call can cause gas grief attack | 2 |
+| [L-7](#L-7) | Use Ownable2Step instead of Ownable | 2 |
+| [L-8](#L-8) | Using zero as a parameter | 4 |
+| [L-9](#L-9) | Missing zero address check in initializer | 1 |
+| [L-10](#L-10) | Initializers could be front-run | 1 |
 
 ## Non Critical Issues
 
@@ -472,7 +473,72 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="L-4"></a> 
-#### [L-4] Missing storage gap for upgradable contracts
+#### [L-4] Missing zero address check in initializer
+
+<details>
+<summary>
+There are <b>5</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+/// Missing zero check for `_token`
+/// Missing zero check for `_axelarGateway`
+/// Missing zero check for `_allowlist`
+/// Missing zero check for `_ondoApprover`
+/// Missing zero check for `_owner`
+40:   constructor(
+
+```
+[#L40](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L40) 
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+/// Missing zero check for `_token`
+/// Missing zero check for `_axelarGateway`
+/// Missing zero check for `_gasService`
+/// Missing zero check for `owner`
+40:   constructor(
+
+```
+[#L40](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L40) 
+
+```solidity
+File: contracts/rwaOracles/RWADynamicOracle.sol
+
+/// Missing zero check for `admin`
+/// Missing zero check for `setter`
+/// Missing zero check for `pauser`
+16:   constructor(
+
+```
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L16) 
+
+```solidity
+File: contracts/usdy/rUSDY.sol
+
+90:   constructor() {
+
+```
+[#L90](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L90) 
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+/// Missing zero check for `_guardian`
+36:   constructor(address _guardian) {
+
+```
+[#L36](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDYFactory.sol#L36) 
+
+</details>
+
+---
+
+<a name="L-5"></a> 
+#### [L-5] Missing storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
 <details>
@@ -494,8 +560,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-5"></a> 
-#### [L-5] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-6"></a> 
+#### [L-6] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -523,8 +589,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-6"></a> 
-#### [L-6] Use Ownable2Step instead of Ownable
+<a name="L-7"></a> 
+#### [L-7] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -555,8 +621,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="L-7"></a> 
-#### [L-7] Using zero as a parameter
+<a name="L-8"></a> 
+#### [L-8] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -582,8 +648,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-8"></a> 
-#### [L-8] Missing zero address check in initializer
+<a name="L-9"></a> 
+#### [L-9] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -615,8 +681,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-9"></a> 
-#### [L-9] Initializers could be front-run
+<a name="L-10"></a> 
+#### [L-10] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
