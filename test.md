@@ -4,13 +4,14 @@
 ## Medium Issues
 
 
-Total <b>37</b> instances over <b>3</b> issues:
+Total <b>39</b> instances over <b>4</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [M-1](#M-1) | Return values of `transfer()`/`transferFrom()` not checked | 4 |
-| [M-2](#M-2) | Unsafe use of ERC20 `transfer()`/`transferFrom()` | 4 |
-| [M-3](#M-3) | Centralization Risk for trusted owners | 29 |
+| [M-1](#M-1) | The remaining ETH may be locked in the contract after call | 2 |
+| [M-2](#M-2) | Return values of `transfer()`/`transferFrom()` not checked | 4 |
+| [M-3](#M-3) | Unsafe use of ERC20 `transfer()`/`transferFrom()` | 4 |
+| [M-4](#M-4) | Centralization Risk for trusted owners | 29 |
 
 ## Low Issues
 
@@ -109,7 +110,36 @@ Total <b>199</b> instances over <b>29</b> issues:
 ## Medium Issues
 
 <a name="M-1"></a> 
-### [M-1] Return values of `transfer()`/`transferFrom()` not checked
+### [M-1] The remaining ETH may be locked in the contract after call
+After calling an external contract and forwards some ETH value, the contract balance should be checked. If there is excess eth left over due to a failed call, or more eth being delivered than needed, or any other reason, this eth must be refunded to the user or handled appropriately, otherwise the eth may be frozen in the contract forever.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+165:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+
+```
+[#L165](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L165) 
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+131:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+
+```
+[#L131](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDYFactory.sol#L131) 
+
+</details>
+
+---
+
+<a name="M-2"></a> 
+### [M-2] Return values of `transfer()`/`transferFrom()` not checked
 Not all ERC20 implementations `revert()` when there's a failure in `transfer()` or `transferFrom()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually transfer anything.
 
 <details>
@@ -141,8 +171,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="M-2"></a> 
-### [M-2] Unsafe use of ERC20 `transfer()`/`transferFrom()`
+<a name="M-3"></a> 
+### [M-3] Unsafe use of ERC20 `transfer()`/`transferFrom()`
 Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
 
 <details>
@@ -174,8 +204,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="M-3"></a> 
-### [M-3] Centralization Risk for trusted owners
+<a name="M-4"></a> 
+### [M-4] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
