@@ -46,7 +46,7 @@ Total <b>105</b> instances over <b>22</b> issues:
 ## Non Critical Issues
 
 
-Total <b>351</b> instances over <b>38</b> issues:
+Total <b>360</b> instances over <b>40</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -60,34 +60,36 @@ Total <b>351</b> instances over <b>38</b> issues:
 | [NC-8](#NC-8) | Custom errors should be used rather than `revert()`/`require()` | 21 |
 | [NC-9](#NC-9) | `else` block not required | 3 |
 | [NC-10](#NC-10) | Enable IR-based code generation | 1 |
-| [NC-11](#NC-11) | Events are emitted without the sender information | 14 |
-| [NC-12](#NC-12) | Import declarations should import specific identifiers, rather than the whole file | 32 |
-| [NC-13](#NC-13) | Large or complicated code bases should implement invariant tests | 1 |
-| [NC-14](#NC-14) | Missing zero address check in functions with address parameters | 23 |
-| [NC-15](#NC-15) | Consider moving `msg.sender` checks to `modifier`s | 3 |
-| [NC-16](#NC-16) | Named mappings are recommended | 9 |
-| [NC-17](#NC-17) | NatSpec documentation for contract is missing | 3 |
-| [NC-18](#NC-18) | NatSpec documentation for function is missing | 11 |
-| [NC-19](#NC-19) | Modifier declarations should have NatSpec descriptions | 1 |
-| [NC-20](#NC-20) | Missing NatSpec `@param` | 28 |
-| [NC-21](#NC-21) | Public variable declarations should have NatSpec descriptions | 19 |
-| [NC-22](#NC-22) | NatSpec `@return` is missing | 15 |
-| [NC-23](#NC-23) | State variables should include comments | 11 |
-| [NC-24](#NC-24) | Contract declarations should have NatSpec `@title` annotations | 3 |
-| [NC-25](#NC-25) | Unused named return | 3 |
-| [NC-26](#NC-26) | Unused contract variables | 1 |
-| [NC-27](#NC-27) | Consider using `delete` rather than assigning zero to clear values | 8 |
-| [NC-28](#NC-28) | Expressions for constant values should use `immutable` rather than `constant` | 13 |
-| [NC-29](#NC-29) | Use the latest solidity version for deployment | 6 |
-| [NC-30](#NC-30) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
-| [NC-31](#NC-31) | Common functions should be refactored to a common base contract | 8 |
-| [NC-32](#NC-32) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
-| [NC-33](#NC-33) | Names of `private`/`internal` state variables should be prefixed with an underscore | 5 |
-| [NC-34](#NC-34) |  `require()` / `revert()` statements should have descriptive reason strings | 1 |
-| [NC-35](#NC-35) | Return values of `approve()` not checked | 6 |
-| [NC-36](#NC-36) | Variables should be named in mixedCase style | 19 |
-| [NC-37](#NC-37) | Event is missing `indexed` fields | 13 |
-| [NC-38](#NC-38) | Functions not used internally could be marked external | 14 |
+| [NC-11](#NC-11) | Enable IR-based code generation | 1 |
+| [NC-12](#NC-12) | Events are emitted without the sender information | 14 |
+| [NC-13](#NC-13) | Import declarations should import specific identifiers, rather than the whole file | 32 |
+| [NC-14](#NC-14) | Large or complicated code bases should implement invariant tests | 1 |
+| [NC-15](#NC-15) | Missing zero address check in functions with address parameters | 23 |
+| [NC-16](#NC-16) | Consider moving `msg.sender` checks to `modifier`s | 3 |
+| [NC-17](#NC-17) | Named mappings are recommended | 9 |
+| [NC-18](#NC-18) | NatSpec documentation for contract is missing | 3 |
+| [NC-19](#NC-19) | NatSpec documentation for function is missing | 11 |
+| [NC-20](#NC-20) | Modifier declarations should have NatSpec descriptions | 1 |
+| [NC-21](#NC-21) | Missing NatSpec `@param` | 28 |
+| [NC-22](#NC-22) | Public variable declarations should have NatSpec descriptions | 19 |
+| [NC-23](#NC-23) | NatSpec `@return` is missing | 15 |
+| [NC-24](#NC-24) | There is no need to initialize variables with 0 | 8 |
+| [NC-25](#NC-25) | State variables should include comments | 11 |
+| [NC-26](#NC-26) | Contract declarations should have NatSpec `@title` annotations | 3 |
+| [NC-27](#NC-27) | Unused named return | 3 |
+| [NC-28](#NC-28) | Unused contract variables | 1 |
+| [NC-29](#NC-29) | Consider using `delete` rather than assigning zero to clear values | 8 |
+| [NC-30](#NC-30) | Expressions for constant values should use `immutable` rather than `constant` | 13 |
+| [NC-31](#NC-31) | Use the latest solidity version for deployment | 6 |
+| [NC-32](#NC-32) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
+| [NC-33](#NC-33) | Common functions should be refactored to a common base contract | 8 |
+| [NC-34](#NC-34) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
+| [NC-35](#NC-35) | Names of `private`/`internal` state variables should be prefixed with an underscore | 5 |
+| [NC-36](#NC-36) |  `require()` / `revert()` statements should have descriptive reason strings | 1 |
+| [NC-37](#NC-37) | Return values of `approve()` not checked | 6 |
+| [NC-38](#NC-38) | Variables should be named in mixedCase style | 19 |
+| [NC-39](#NC-39) | Event is missing `indexed` fields | 13 |
+| [NC-40](#NC-40) | Functions not used internally could be marked external | 14 |
 
 ## Gas Optimizations
 
@@ -1662,7 +1664,28 @@ Global finding
 ---
 
 <a name="NC-11"></a> 
-### [NC-11] Events are emitted without the sender information
+### [NC-11] Enable IR-based code generation
+The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+146:   event rUSDYDeployed(
+
+```
+[#L146](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L146) 
+
+</details>
+
+---
+
+<a name="NC-12"></a> 
+### [NC-12] Events are emitted without the sender information
 When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
 
 <details>
@@ -1732,8 +1755,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-12"></a> 
-### [NC-12] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-13"></a> 
+### [NC-13] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
@@ -1839,8 +1862,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-13"></a> 
-### [NC-13] Large or complicated code bases should implement invariant tests
+<a name="NC-14"></a> 
+### [NC-14] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
 <details>
@@ -1859,8 +1882,8 @@ Global finding
 
 ---
 
-<a name="NC-14"></a> 
-### [NC-14] Missing zero address check in functions with address parameters
+<a name="NC-15"></a> 
+### [NC-15] Missing zero address check in functions with address parameters
 Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
@@ -2061,8 +2084,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-15"></a> 
-### [NC-15] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-16"></a> 
+### [NC-16] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -2092,8 +2115,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-16"></a> 
-### [NC-16] Named mappings are recommended
+<a name="NC-17"></a> 
+### [NC-17] Named mappings are recommended
 [Named mappings](https://docs.soliditylang.org/en/v0.8.18/types.html#mapping-types) (with syntax `mapping(KeyType KeyName? => ValueType ValueName?)`) are recommended.It can make the mapping variables clearer, more readable and easier to maintain.
 
 <details>
@@ -2141,8 +2164,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="NC-17"></a> 
-### [NC-17] NatSpec documentation for contract is missing
+<a name="NC-18"></a> 
+### [NC-18] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
 <details>
@@ -2178,8 +2201,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-18"></a> 
-### [NC-18] NatSpec documentation for function is missing
+<a name="NC-19"></a> 
+### [NC-19] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 <details>
@@ -2278,8 +2301,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-19"></a> 
-### [NC-19] Modifier declarations should have NatSpec descriptions
+<a name="NC-20"></a> 
+### [NC-20] Modifier declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -2298,8 +2321,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-20"></a> 
-### [NC-20] Missing NatSpec `@param`
+<a name="NC-21"></a> 
+### [NC-21] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 <details>
@@ -2551,8 +2574,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-21"></a> 
-### [NC-21] Public variable declarations should have NatSpec descriptions
+<a name="NC-22"></a> 
+### [NC-22] Public variable declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -2625,8 +2648,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-22"></a> 
-### [NC-22] NatSpec `@return` is missing
+<a name="NC-23"></a> 
+### [NC-23] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
@@ -2733,8 +2756,61 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-23"></a> 
-### [NC-23] State variables should include comments
+<a name="NC-24"></a> 
+### [NC-24] There is no need to initialize variables with 0
+Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
+
+<details>
+<summary>
+There are <b>8</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+134:     for (uint256 i = 0; i < thresholds.length; ++i) {
+
+160:       for (uint256 i = 0; i < t.approvers.length; ++i) {
+
+264:     for (uint256 i = 0; i < amounts.length; ++i) {
+
+```
+[#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L134) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L160) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L264) 
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+179:     for (uint256 i = 0; i < exCallData.length; ++i) {
+
+```
+[#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
+
+```solidity
+File: contracts/rwaOracles/RWADynamicOracle.sol
+
+63:     for (uint256 i = 0; i < length; ++i) {
+
+99:     for (uint256 i = 0; i < length; ++i) {
+
+115:     for (uint256 i = 0; i < length + 1; ++i) {
+
+```
+[#L63](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L63) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L99) [#L115](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L115) 
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+130:     for (uint256 i = 0; i < exCallData.length; ++i) {
+
+```
+[#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L130) 
+
+</details>
+
+---
+
+<a name="NC-25"></a> 
+### [NC-25] State variables should include comments
 Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
 
 <details>
@@ -2786,8 +2862,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="NC-24"></a> 
-### [NC-24] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-26"></a> 
+### [NC-26] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -2823,8 +2899,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-25"></a> 
-### [NC-25] Unused named return
+<a name="NC-27"></a> 
+### [NC-27] Unused named return
 Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
 
 <details>
@@ -2860,8 +2936,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-26"></a> 
-### [NC-26] Unused contract variables
+<a name="NC-28"></a> 
+### [NC-28] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 <details>
@@ -2881,8 +2957,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-27"></a> 
-### [NC-27] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-29"></a> 
+### [NC-29] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -2934,8 +3010,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-28"></a> 
-### [NC-28] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-30"></a> 
+### [NC-30] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -3003,8 +3079,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-29"></a> 
-### [NC-29] Use the latest solidity version for deployment
+<a name="NC-31"></a> 
+### [NC-31] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 <details>
@@ -3064,8 +3140,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-30"></a> 
-### [NC-30] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-32"></a> 
+### [NC-32] Missing checks for `address(0)` when assigning values to address state variables
 
 <details>
 <summary>
@@ -3084,8 +3160,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-31"></a> 
-### [NC-31] Common functions should be refactored to a common base contract
+<a name="NC-33"></a> 
+### [NC-33] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -3149,8 +3225,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-32"></a> 
-### [NC-32] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-34"></a> 
+### [NC-34] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -3175,8 +3251,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-33"></a> 
-### [NC-33] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-35"></a> 
+### [NC-35] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -3216,8 +3292,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-34"></a> 
-### [NC-34]  `require()` / `revert()` statements should have descriptive reason strings
+<a name="NC-36"></a> 
+### [NC-36]  `require()` / `revert()` statements should have descriptive reason strings
 
 <details>
 <summary>
@@ -3236,8 +3312,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-35"></a> 
-### [NC-35] Return values of `approve()` not checked
+<a name="NC-37"></a> 
+### [NC-37] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -3273,8 +3349,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="NC-36"></a> 
-### [NC-36] Variables should be named in mixedCase style
+<a name="NC-38"></a> 
+### [NC-38] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -3354,8 +3430,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-37"></a> 
-### [NC-37] Event is missing `indexed` fields
+<a name="NC-39"></a> 
+### [NC-39] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -3423,8 +3499,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-38"></a> 
-### [NC-38] Functions not used internally could be marked external
+<a name="NC-40"></a> 
+### [NC-40] Functions not used internally could be marked external
 
 <details>
 <summary>
