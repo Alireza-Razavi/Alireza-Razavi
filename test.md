@@ -16,16 +16,17 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>38</b> instances over <b>6</b> issues:
+Total <b>40</b> instances over <b>7</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Governance functions should be controlled by time locks | 29 |
-| [L-2](#L-2) | Missing storage gap for upgradable contracts | 1 |
-| [L-3](#L-3) | Use Ownable2Step instead of Ownable | 2 |
-| [L-4](#L-4) | Using zero as a parameter | 4 |
-| [L-5](#L-5) | Missing zero address check in initializer | 1 |
-| [L-6](#L-6) | Initializers could be front-run | 1 |
+| [L-2](#L-2) | Missing contract existence checks before low-level calls | 2 |
+| [L-3](#L-3) | Missing storage gap for upgradable contracts | 1 |
+| [L-4](#L-4) | Use Ownable2Step instead of Ownable | 2 |
+| [L-5](#L-5) | Using zero as a parameter | 4 |
+| [L-6](#L-6) | Missing zero address check in initializer | 1 |
+| [L-7](#L-7) | Initializers could be front-run | 1 |
 
 ## Non Critical Issues
 
@@ -411,7 +412,36 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="L-2"></a> 
-#### [L-2] Missing storage gap for upgradable contracts
+#### [L-2] Missing contract existence checks before low-level calls
+Low-level calls return success if there is no code present at the specified address. In addition to the zero-address checks, add a check to verify that `<address>.code.length > 0`
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+165:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+
+```
+[#L165](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L165) 
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+116:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+
+```
+[#L116](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDYFactory.sol#L116) 
+
+</details>
+
+---
+
+<a name="L-3"></a> 
+#### [L-3] Missing storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
 <details>
@@ -433,8 +463,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-3"></a> 
-#### [L-3] Use Ownable2Step instead of Ownable
+<a name="L-4"></a> 
+#### [L-4] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -465,8 +495,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="L-4"></a> 
-#### [L-4] Using zero as a parameter
+<a name="L-5"></a> 
+#### [L-5] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -492,8 +522,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-5"></a> 
-#### [L-5] Missing zero address check in initializer
+<a name="L-6"></a> 
+#### [L-6] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -525,8 +555,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-6"></a> 
-#### [L-6] Initializers could be front-run
+<a name="L-7"></a> 
+#### [L-7] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
