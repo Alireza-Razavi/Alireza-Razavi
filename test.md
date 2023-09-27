@@ -60,7 +60,7 @@ Total <b>360</b> instances over <b>40</b> issues:
 | [NC-8](#NC-8) | Custom errors should be used rather than `revert()`/`require()` | 21 |
 | [NC-9](#NC-9) | `else` block not required | 3 |
 | [NC-10](#NC-10) | Enable IR-based code generation | 1 |
-| [NC-11](#NC-11) | Enable IR-based code generation | 1 |
+| [NC-11](#NC-11) | Names of structs, events, enums and errors should use CapWords style | 1 |
 | [NC-12](#NC-12) | Events are emitted without the sender information | 14 |
 | [NC-13](#NC-13) | Import declarations should import specific identifiers, rather than the whole file | 32 |
 | [NC-14](#NC-14) | Large or complicated code bases should implement invariant tests | 1 |
@@ -1664,8 +1664,8 @@ Global finding
 ---
 
 <a name="NC-11"></a> 
-### [NC-11] Enable IR-based code generation
-The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
+### [NC-11] Names of structs, events, enums and errors should use CapWords style
+It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html)
 
 <details>
 <summary>
