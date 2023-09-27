@@ -1373,6 +1373,7 @@ File: contracts/usdy/rUSDY.sol
 
 <a name="NC-5"></a> 
 ### [NC-5] Contract uses both `require()`/`revert()` as well as custom errors
+Consider using just one method in a single file.
 
 <details>
 <summary>
