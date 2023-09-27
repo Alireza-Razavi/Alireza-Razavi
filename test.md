@@ -46,7 +46,7 @@ Total <b>105</b> instances over <b>22</b> issues:
 ## Non Critical Issues
 
 
-Total <b>398</b> instances over <b>45</b> issues:
+Total <b>399</b> instances over <b>46</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -86,15 +86,16 @@ Total <b>398</b> instances over <b>45</b> issues:
 | [NC-34](#NC-34) | Expressions for constant values should use `immutable` rather than `constant` | 13 |
 | [NC-35](#NC-35) | Use the latest solidity version for deployment | 6 |
 | [NC-36](#NC-36) | Use of `override` is unnecessary | 6 |
-| [NC-37](#NC-37) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
-| [NC-38](#NC-38) | Common functions should be refactored to a common base contract | 8 |
-| [NC-39](#NC-39) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
-| [NC-40](#NC-40) | Names of `private`/`internal` state variables should be prefixed with an underscore | 5 |
-| [NC-41](#NC-41) |  `require()` / `revert()` statements should have descriptive reason strings | 1 |
-| [NC-42](#NC-42) | Return values of `approve()` not checked | 6 |
-| [NC-43](#NC-43) | Variables should be named in mixedCase style | 19 |
-| [NC-44](#NC-44) | Event is missing `indexed` fields | 13 |
-| [NC-45](#NC-45) | Functions not used internally could be marked external | 14 |
+| [NC-37](#NC-37) | Use scientific notation (e.g. `1e18`) rather than exponentiation (e.g. `10**18`) | 1 |
+| [NC-38](#NC-38) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
+| [NC-39](#NC-39) | Common functions should be refactored to a common base contract | 8 |
+| [NC-40](#NC-40) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
+| [NC-41](#NC-41) | Names of `private`/`internal` state variables should be prefixed with an underscore | 5 |
+| [NC-42](#NC-42) |  `require()` / `revert()` statements should have descriptive reason strings | 1 |
+| [NC-43](#NC-43) | Return values of `approve()` not checked | 6 |
+| [NC-44](#NC-44) | Variables should be named in mixedCase style | 19 |
+| [NC-45](#NC-45) | Event is missing `indexed` fields | 13 |
+| [NC-46](#NC-46) | Functions not used internally could be marked external | 14 |
 
 ## Gas Optimizations
 
@@ -3377,7 +3378,28 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-37"></a> 
-### [NC-37] Missing checks for `address(0)` when assigning values to address state variables
+### [NC-37] Use scientific notation (e.g. `1e18`) rather than exponentiation (e.g. `10**18`)
+While the compiler knows to optimize away the exponentiation, it's still better coding practice to use idioms that do not require compiler optimization, if they exist.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/rwaOracles/RWADynamicOracle.sol
+
+329:   uint256 private constant ONE = 10 ** 27;
+
+```
+[#L329](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L329) 
+
+</details>
+
+---
+
+<a name="NC-38"></a> 
+### [NC-38] Missing checks for `address(0)` when assigning values to address state variables
 
 <details>
 <summary>
@@ -3396,8 +3418,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-38"></a> 
-### [NC-38] Common functions should be refactored to a common base contract
+<a name="NC-39"></a> 
+### [NC-39] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -3461,8 +3483,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-39"></a> 
-### [NC-39] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-40"></a> 
+### [NC-40] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -3487,8 +3509,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-40"></a> 
-### [NC-40] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-41"></a> 
+### [NC-41] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -3528,8 +3550,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-41"></a> 
-### [NC-41]  `require()` / `revert()` statements should have descriptive reason strings
+<a name="NC-42"></a> 
+### [NC-42]  `require()` / `revert()` statements should have descriptive reason strings
 
 <details>
 <summary>
@@ -3548,8 +3570,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="NC-42"></a> 
-### [NC-42] Return values of `approve()` not checked
+<a name="NC-43"></a> 
+### [NC-43] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -3585,8 +3607,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="NC-43"></a> 
-### [NC-43] Variables should be named in mixedCase style
+<a name="NC-44"></a> 
+### [NC-44] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -3666,8 +3688,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-44"></a> 
-### [NC-44] Event is missing `indexed` fields
+<a name="NC-45"></a> 
+### [NC-45] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -3735,8 +3757,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="NC-45"></a> 
-### [NC-45] Functions not used internally could be marked external
+<a name="NC-46"></a> 
+### [NC-46] Functions not used internally could be marked external
 
 <details>
 <summary>
