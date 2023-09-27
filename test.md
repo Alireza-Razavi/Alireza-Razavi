@@ -111,7 +111,7 @@ Total <b>220</b> instances over <b>30</b> issues:
 ## Medium Issues
 
 <a name="M-1"></a> 
-### [M-1] The remaining ETH may be locked in the contract after call
+#### [M-1] The remaining ETH may be locked in the contract after call
 After calling an external contract and forwards some ETH value, the contract balance should be checked. If there is excess eth left over due to a failed call, or more eth being delivered than needed, or any other reason, this eth must be refunded to the user or handled appropriately, otherwise the eth may be frozen in the contract forever.
 
 <details>
@@ -140,7 +140,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="M-2"></a> 
-### [M-2] Return values of `transfer()`/`transferFrom()` not checked
+#### [M-2] Return values of `transfer()`/`transferFrom()` not checked
 Not all ERC20 implementations `revert()` when there's a failure in `transfer()` or `transferFrom()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually transfer anything.
 
 <details>
@@ -173,7 +173,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="M-3"></a> 
-### [M-3] Unsafe use of ERC20 `transfer()`/`transferFrom()`
+#### [M-3] Unsafe use of ERC20 `transfer()`/`transferFrom()`
 Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
 
 <details>
@@ -206,7 +206,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="M-4"></a> 
-### [M-4] Centralization Risk for trusted owners
+#### [M-4] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
@@ -310,7 +310,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ## Low Issues
 
 <a name="L-1"></a> 
-### [L-1] Governance functions should be controlled by time locks
+#### [L-1] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
 <details>
@@ -411,7 +411,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="L-2"></a> 
-### [L-2] Missing storage gap for upgradable contracts
+#### [L-2] Missing storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
 <details>
@@ -434,7 +434,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-3"></a> 
-### [L-3] Use Ownable2Step instead of Ownable
+#### [L-3] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -466,7 +466,7 @@ File: contracts/bridge/SourceBridge.sol
 ---
 
 <a name="L-4"></a> 
-### [L-4] Using zero as a parameter
+#### [L-4] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -493,7 +493,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-5"></a> 
-### [L-5] Missing zero address check in initializer
+#### [L-5] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -527,7 +527,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-6"></a> 
-### [L-6] Initializers could be front-run
+#### [L-6] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -551,7 +551,7 @@ File: contracts/usdy/rUSDY.sol
 ## Non Critical Issues
 
 <a name="NC-1"></a> 
-### [NC-1] `assert()` should be replaced with `require()` or `revert()`
+#### [NC-1] `assert()` should be replaced with `require()` or `revert()`
 In versions of Solidity prior to 0.8.0, when encountering an assert all the remaining gas will be consumed. Even after solidity 0.8.0, the assert function is still not recommended, as described in the [documentation](https://docs.soliditylang.org/en/v0.8.20/control-structures.html#panic-via-assert-and-error-via-require):
 > Assert should only be used to test for internal errors, and to check invariants. Properly functioning code should never create a Panic, not even on invalid external input. If this happens, then there is a bug in your contract which you should fix.
 
@@ -573,7 +573,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-2"></a> 
-### [NC-2] Contract declarations should have NatSpec `@author` annotations
+#### [NC-2] Contract declarations should have NatSpec `@author` annotations
 
 <details>
 <summary>
@@ -609,7 +609,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-3"></a> 
-### [NC-3] Consider adding formal verification proofs
+#### [NC-3] Consider adding formal verification proofs
 Formal verification is the act of proving or disproving the correctness of intended algorithms underlying a system with respect to a certain formal specification/property/invariant, using formal methods of mathematics.
 
 Some tools that are currently available to perform these tests on smart contracts are [SMTChecker](https://docs.soliditylang.org/en/latest/smtchecker.html) and [Certora Prover](https://www.certora.com/).
@@ -631,7 +631,7 @@ Global finding
 ---
 
 <a name="NC-4"></a> 
-### [NC-4] Constants should be put on the left side of comparisons
+#### [NC-4] Constants should be put on the left side of comparisons
 Putting constants on the left side of comparison statements is a best practice known as [Yoda conditions](https://en.wikipedia.org/wiki/Yoda_conditions). Although solidity's static typing system prevents accidental assignments within conditionals, adopting this practice can improve code readability and consistency, especially when working across multiple languages.
 
 <details>
@@ -700,7 +700,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-5"></a> 
-### [NC-5] Contracts should have full test coverage
+#### [NC-5] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
 <details>
@@ -720,7 +720,7 @@ Global finding
 ---
 
 <a name="NC-6"></a> 
-### [NC-6] Events that mark critical parameter changes should contain both the old and the new value
+#### [NC-6] Events that mark critical parameter changes should contain both the old and the new value
 This should especially be done if the new value is not required to be different from the old value.
 
 <details>
@@ -783,7 +783,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-7"></a> 
-### [NC-7] Custom errors has no error details
+#### [NC-7] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
 <details>
@@ -850,7 +850,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-8"></a> 
-### [NC-8] Custom errors should be used rather than `revert()`/`require()`
+#### [NC-8] Custom errors should be used rather than `revert()`/`require()`
 Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
 <details>
@@ -923,7 +923,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-9"></a> 
-### [NC-9] `else` block not required
+#### [NC-9] `else` block not required
 One level of nesting can be removed by not having an `else` block when the `if`-block always jumps at the end. For example:
 ```solidity
 if (condition) {
@@ -979,7 +979,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-10"></a> 
-### [NC-10] Enable IR-based code generation
+#### [NC-10] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
 <details>
@@ -999,7 +999,7 @@ Global finding
 ---
 
 <a name="NC-11"></a> 
-### [NC-11] Events are emitted without the sender information
+#### [NC-11] Events are emitted without the sender information
 When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
 
 <details>
@@ -1070,7 +1070,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-12"></a> 
-### [NC-12] Import declarations should import specific identifiers, rather than the whole file
+#### [NC-12] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
@@ -1177,7 +1177,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-13"></a> 
-### [NC-13] Large or complicated code bases should implement invariant tests
+#### [NC-13] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
 <details>
@@ -1197,7 +1197,7 @@ Global finding
 ---
 
 <a name="NC-14"></a> 
-### [NC-14] Missing zero address check in functions with address parameters
+#### [NC-14] Missing zero address check in functions with address parameters
 Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
@@ -1411,7 +1411,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-15"></a> 
-### [NC-15] Consider moving `msg.sender` checks to `modifier`s
+#### [NC-15] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -1442,7 +1442,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-16"></a> 
-### [NC-16] Named mappings are recommended
+#### [NC-16] Named mappings are recommended
 [Named mappings](https://docs.soliditylang.org/en/v0.8.18/types.html#mapping-types) (with syntax `mapping(KeyType KeyName? => ValueType ValueName?)`) are recommended.It can make the mapping variables clearer, more readable and easier to maintain.
 
 <details>
@@ -1491,7 +1491,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-17"></a> 
-### [NC-17] NatSpec documentation for contract is missing
+#### [NC-17] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
 <details>
@@ -1528,7 +1528,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-18"></a> 
-### [NC-18] NatSpec documentation for function is missing
+#### [NC-18] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 <details>
@@ -1628,7 +1628,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-19"></a> 
-### [NC-19] Modifier declarations should have NatSpec descriptions
+#### [NC-19] Modifier declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -1648,7 +1648,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-20"></a> 
-### [NC-20] Missing NatSpec `@param`
+#### [NC-20] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 <details>
@@ -1906,7 +1906,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-21"></a> 
-### [NC-21] Public variable declarations should have NatSpec descriptions
+#### [NC-21] Public variable declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -1962,7 +1962,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-22"></a> 
-### [NC-22] NatSpec `@return` is missing
+#### [NC-22] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
@@ -2086,7 +2086,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-23"></a> 
-### [NC-23] State variables should include comments
+#### [NC-23] State variables should include comments
 Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
 
 <details>
@@ -2139,7 +2139,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-24"></a> 
-### [NC-24] Contract declarations should have NatSpec `@title` annotations
+#### [NC-24] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -2176,7 +2176,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-25"></a> 
-### [NC-25] Unused named return
+#### [NC-25] Unused named return
 Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
 
 <details>
@@ -2216,7 +2216,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-26"></a> 
-### [NC-26] Consider using `delete` rather than assigning zero to clear values
+#### [NC-26] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -2269,7 +2269,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-27"></a> 
-### [NC-27] Expressions for constant values should use `immutable` rather than `constant`
+#### [NC-27] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -2338,7 +2338,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-28"></a> 
-### [NC-28] Use the latest solidity version for deployment
+#### [NC-28] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 <details>
@@ -2399,7 +2399,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-29"></a> 
-### [NC-29] Common functions should be refactored to a common base contract
+#### [NC-29] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -2471,7 +2471,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-30"></a> 
-### [NC-30] Names of `private`/`internal` functions should be prefixed with an underscore
+#### [NC-30] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2500,7 +2500,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-31"></a> 
-### [NC-31] Names of `private`/`internal` state variables should be prefixed with an underscore
+#### [NC-31] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2525,7 +2525,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-32"></a> 
-### [NC-32]  `require()` / `revert()` statements should have descriptive reason strings
+#### [NC-32]  `require()` / `revert()` statements should have descriptive reason strings
 
 <details>
 <summary>
@@ -2545,7 +2545,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="NC-33"></a> 
-### [NC-33] Return values of `approve()` not checked
+#### [NC-33] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -2582,7 +2582,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="NC-34"></a> 
-### [NC-34] Event is missing `indexed` fields
+#### [NC-34] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -2651,7 +2651,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="NC-35"></a> 
-### [NC-35] Functions not used internally could be marked external
+#### [NC-35] Functions not used internally could be marked external
 
 <details>
 <summary>
@@ -2700,7 +2700,7 @@ File: contracts/usdy/rUSDY.sol
 ## Gas Optimizations
 
 <a name="GAS-1"></a> 
-### [GAS-1] Consider activating via-ir for deploying
+#### [GAS-1] Consider activating via-ir for deploying
 By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advanced [multi-function optimizations](https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html#solidity-ir-based-codegen-changes), for extra gas savings.
 
 <details>
@@ -2720,7 +2720,7 @@ Global finding
 ---
 
 <a name="GAS-2"></a> 
-### [GAS-2] Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables
+#### [GAS-2] Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables
 
 <details>
 <summary>
@@ -2752,7 +2752,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-3"></a> 
-### [GAS-3] `internal` functions only called once can be inlined to save gas
+#### [GAS-3] `internal` functions only called once can be inlined to save gas
 If an `internal` function is only used once, there is no need to modularize it, unless the function calling it would otherwise be too long and complex. Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
 
 <details>
@@ -2810,7 +2810,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-4"></a> 
-### [GAS-4] `keccak256()` hash of literals should only be computed once
+#### [GAS-4] `keccak256()` hash of literals should only be computed once
 The result of the hash should be stored in an immutable variable, and the variable should be used instead. If the hash is being used as a part of a function selector, the cast to `bytes4` should also only be done once.
 
 <details>
@@ -2849,7 +2849,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-5"></a> 
-### [GAS-5] Multiple accesses of the same mapping/array key/index should be cached
+#### [GAS-5] Multiple accesses of the same mapping/array key/index should be cached
 The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local `storage` or `calldata` variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata
 
 <details>
@@ -2937,7 +2937,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-6"></a> 
-### [GAS-6] Newer versions of solidity are more gas efficient
+#### [GAS-6] Newer versions of solidity are more gas efficient
 The solidity language continues to pursue more efficient gas optimization schemes. Adopting a newer version of solidity can be more gas efficient.
 
 <details>
@@ -2998,7 +2998,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-7"></a> 
-### [GAS-7] Operator `>=`/`<=` costs less gas than operator `>`/`<`
+#### [GAS-7] Operator `>=`/`<=` costs less gas than operator `>`/`<`
 The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only requires `LT` for `>=`. A similar behavior applies for `>`, which uses opcodes `LT` and `ISZERO`, but only requires `GT` for `<=`. It can save 3 gas for each. It should be converted to the `<=`/`>=` equivalent when comparing against integer literals.
 
 <details>
@@ -3077,7 +3077,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-8"></a> 
-### [GAS-8] Reduce gas usage by moving to Solidity 0.8.19 or later
+#### [GAS-8] Reduce gas usage by moving to Solidity 0.8.19 or later
 Solidity version 0.8.19 introduced a number of gas optimizations, refer to the [Solidity 0.8.19 Release Announcement](https://soliditylang.org/blog/2023/02/22/solidity-0.8.19-release-announcement/) for details.
 
 <details>
@@ -3138,7 +3138,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-9"></a> 
-### [GAS-9] Redundant state variable getters
+#### [GAS-9] Redundant state variable getters
 Getters for public state variables are automatically generated so there is no need to code them manually and waste gas.
 
 <details>
@@ -3160,7 +3160,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-10"></a> 
-### [GAS-10] `require()`/`revert()` strings longer than 32 bytes cost extra gas
+#### [GAS-10] `require()`/`revert()` strings longer than 32 bytes cost extra gas
 Each extra memory word of bytes past the original 32 [incurs an MSTORE](https://gist.github.com/hrkrshnn/ee8fabd532058307229d65dcd5836ddc#consider-having-short-revert-strings) which costs 3 gas
 
 <details>
@@ -3187,7 +3187,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-11"></a> 
-### [GAS-11] The result of a function call should be cached rather than re-calling the function
+#### [GAS-11] The result of a function call should be cached rather than re-calling the function
 The function calls in solidity are expensive. If the same result of the same function calls are to be used several times, the result should be cached to reduce the gas consumption of repeated calls.
 
 <details>
@@ -3311,7 +3311,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-12"></a> 
-### [GAS-12] Unused named return variables without optimizer waste gas
+#### [GAS-12] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
 <details>
@@ -3351,7 +3351,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ---
 
 <a name="GAS-13"></a> 
-### [GAS-13] Use assembly to compute hashes to save gas
+#### [GAS-13] Use assembly to compute hashes to save gas
 If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (80 gas):
 
 `keccak256(abi.encodePacked(x, y)) -> assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
@@ -3404,7 +3404,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-14"></a> 
-### [GAS-14] Use assembly to emit events
+#### [GAS-14] Use assembly to emit events
 To efficiently emit events, it's possible to utilize assembly by making use of scratch space and the free memory pointer. This approach has the advantage of potentially avoiding the costs associated with memory expansion.
 
 However, it's important to note that in order to safely optimize this process, it is preferable to cache and restore the free memory pointer.
@@ -3491,7 +3491,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-15"></a> 
-### [GAS-15] Using a double `if` statement instead of a logical AND (`&&`)
+#### [GAS-15] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
 <details>
@@ -3520,7 +3520,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-16"></a> 
-### [GAS-16] Use a more recent version of solidity
+#### [GAS-16] Use a more recent version of solidity
 - Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
 - Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
@@ -3584,7 +3584,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-17"></a> 
-### [GAS-17] `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants)
+#### [GAS-17] `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants)
 When updating a value in an array with arithmetic, using `array[index] += amount` is cheaper than `array[index] = array[index] + amount`.
 This is because you avoid an additonal `mload` when the array is stored in memory, and an `sload` when the array is stored in storage.
 This can be applied for any arithmetic operation including `+=`, `-=`,`/=`,`*=`,`^=`,`&=`, `%=`, `<<=`,`>>=`, and `>>>=`.
@@ -3612,7 +3612,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-18"></a> 
-### [GAS-18] Using bools for storage incurs overhead
+#### [GAS-18] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
 
 <details>
@@ -3635,7 +3635,7 @@ File: contracts/bridge/DestinationBridge.sol
 ---
 
 <a name="GAS-19"></a> 
-### [GAS-19] Cache array length outside of loop
+#### [GAS-19] Cache array length outside of loop
 If not cached, the solidity compiler will always read the length of the array during each iteration. That is, if it is a storage array, this is an extra sload operation (100 additional extra gas for each iteration except for the first) and if it is a memory array, this is an extra mload operation (3 additional gas for each iteration except for the first).
 
 <details>
@@ -3676,7 +3676,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-20"></a> 
-### [GAS-20] State variables should be cached in stack variables rather than re-reading them from storage
+#### [GAS-20] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -3713,7 +3713,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-21"></a> 
-### [GAS-21] Use `calldata` instead of `memory` for function arguments that do not get mutated
+#### [GAS-21] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -3734,7 +3734,7 @@ File: contracts/bridge/SourceBridge.sol
 ---
 
 <a name="GAS-22"></a> 
-### [GAS-22] Use Custom Errors
+#### [GAS-22] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -3808,7 +3808,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-23"></a> 
-### [GAS-23] Don't initialize variables with default value
+#### [GAS-23] Don't initialize variables with default value
 
 <details>
 <summary>
@@ -3860,7 +3860,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-24"></a> 
-### [GAS-24] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+#### [GAS-24] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
 Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
 
 <details>
@@ -3881,7 +3881,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-25"></a> 
-### [GAS-25] Constructors can be marked as `payable` to save deployment gas
+#### [GAS-25] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -3910,7 +3910,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-26"></a> 
-### [GAS-26] Functions guaranteed to revert when called by normal users can be marked `payable`
+#### [GAS-26] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -3975,7 +3975,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-27"></a> 
-### [GAS-27] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+#### [GAS-27] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
 
 <details>
@@ -3996,7 +3996,7 @@ File: contracts/bridge/SourceBridge.sol
 ---
 
 <a name="GAS-28"></a> 
-### [GAS-28] Using `private` rather than `public` for constants, saves gas
+#### [GAS-28] Using `private` rather than `public` for constants, saves gas
 If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
 
 <details>
@@ -4063,7 +4063,7 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-29"></a> 
-### [GAS-29] Use `!= 0` instead of `> 0` for unsigned integer comparison
+#### [GAS-29] Use `!= 0` instead of `> 0` for unsigned integer comparison
 Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
@@ -4094,7 +4094,7 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-30"></a> 
-### [GAS-30] Using assembly to check for zero can save gas
+#### [GAS-30] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
