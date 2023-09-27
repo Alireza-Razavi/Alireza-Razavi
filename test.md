@@ -16,17 +16,16 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>16</b> instances over <b>7</b> issues:
+Total <b>38</b> instances over <b>6</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [L-1](#L-1) | Governance functions should be controlled by time locks | 3 |
+| [L-1](#L-1) | Governance functions should be controlled by time locks | 29 |
 | [L-2](#L-2) | Missing storage gap for upgradable contracts | 1 |
 | [L-3](#L-3) | Use Ownable2Step instead of Ownable | 2 |
 | [L-4](#L-4) | Using zero as a parameter | 4 |
 | [L-5](#L-5) | Missing zero address check in initializer | 1 |
 | [L-6](#L-6) | Initializers could be front-run | 1 |
-| [L-7](#L-7) | Unsafe ERC20 operation(s) | 4 |
 
 ## Non Critical Issues
 
@@ -316,26 +315,96 @@ Governance functions (such as upgrading contracts, setting critical parameters) 
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There are <b>29</b> instances (click to show):
 </summary>
 
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
+30:   Ownable,
+
+210:   function addApprover(address approver) external onlyOwner {
+
+220:   function removeApprover(address approver) external onlyOwner {
+
+237:   ) external onlyOwner {
+
+259:   ) external onlyOwner {
+
 286:   function setMintLimit(uint256 mintLimit) external onlyOwner {
 
 295:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
 
+304:   function pause() external onlyOwner {
+
+313:   function unpause() external onlyOwner {
+
+322:   function rescueTokens(address _token) external onlyOwner {
+
 ```
-[#L286](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L286) [#L295](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L295) 
+[#L30](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L30) [#L210](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L210) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L220) [#L237](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L237) [#L259](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L259) [#L286](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L286) [#L295](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L295) [#L304](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L304) [#L313](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L313) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L322) 
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+11: contract SourceBridge is Ownable, Pausable, IMulticall {
+
+124:   ) external onlyOwner {
+
+136:   function pause() external onlyOwner {
+
+145:   function unpause() external onlyOwner {
+
+162:   ) external payable override onlyOwner returns (bytes[] memory results) {
+
+```
+[#L11](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L11) [#L124](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L124) [#L136](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L136) [#L145](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L145) [#L162](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L162) 
+
+```solidity
+File: contracts/rwaOracles/RWADynamicOracle.sol
+
+22: contract RWADynamicOracle is IRWAOracle, AccessControlEnumerable, Pausable {
+
+154:   ) external onlyRole(SETTER_ROLE) {
+
+192:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+241:   function pauseOracle() external onlyRole(PAUSER_ROLE) {
+
+248:   function unpauseOracle() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+```
+[#L22](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L22) [#L154](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L154) [#L192](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L192) [#L241](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L241) [#L248](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L248) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
 662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
+675:   ) external onlyRole(BURNER_ROLE) {
+
+685:   function pause() external onlyRole(PAUSER_ROLE) {
+
+689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+
+700:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+
+711:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+
+722:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+
 ```
-[#L662](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L662) 
+[#L662](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L662) [#L675](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L675) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L689) [#L700](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L700) [#L711](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L711) [#L722](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L722) 
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+81:   ) external onlyGuardian returns (address, address, address) {
+
+128:   ) external payable override onlyGuardian returns (bytes[] memory results) {
+
+```
+[#L81](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDYFactory.sol#L81) [#L128](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDYFactory.sol#L128) 
 
 </details>
 
@@ -473,38 +542,6 @@ File: contracts/usdy/rUSDY.sol
 
 ```
 [#L109](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L109) 
-
-</details>
-
----
-
-<a name="L-7"></a> 
-### [L-7] Unsafe ERC20 operation(s)
-
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/bridge/DestinationBridge.sol
-
-324:     IRWALike(_token).transfer(owner(), balance);
-
-```
-[#L324](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L324) 
-
-```solidity
-File: contracts/usdy/rUSDY.sol
-
-437:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
-
-454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
-
-680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
-
-```
-[#L437](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L437) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L680) 
 
 </details>
 
