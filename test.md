@@ -73,7 +73,7 @@ Total <b>319</b> instances over <b>35</b> issues:
 ## Gas Optimizations
 
 
-Total <b>199</b> instances over <b>29</b> issues:
+Total <b>220</b> instances over <b>30</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -81,7 +81,7 @@ Total <b>199</b> instances over <b>29</b> issues:
 | [GAS-2](#GAS-2) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 4 | 452 |
 | [GAS-3](#GAS-3) | `internal` functions only called once can be inlined to save gas | 9 | 270 |
 | [GAS-4](#GAS-4) | `keccak256()` hash of literals should only be computed once | 7 | 294 |
-| [GAS-5](#GAS-5) | Multiple accesses of the same mapping/array key/index should be cached | 2 | 84 |
+| [GAS-5](#GAS-5) | Multiple accesses of the same mapping/array key/index should be cached | 19 | 798 |
 | [GAS-6](#GAS-6) | Newer versions of solidity are more gas efficient | 6 | - |
 | [GAS-7](#GAS-7) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 18 | 54 |
 | [GAS-8](#GAS-8) | Reduce gas usage by moving to Solidity 0.8.19 or later | 6 | 6000 |
@@ -96,16 +96,17 @@ Total <b>199</b> instances over <b>29</b> issues:
 | [GAS-17](#GAS-17) | `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants) | 2 | - |
 | [GAS-18](#GAS-18) | Using bools for storage incurs overhead | 2 | - |
 | [GAS-19](#GAS-19) | Cache array length outside of loop | 5 | - |
-| [GAS-20](#GAS-20) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
-| [GAS-21](#GAS-21) | Use Custom Errors | 21 | 1050 |
-| [GAS-22](#GAS-22) | Don't initialize variables with default value | 8 | - |
-| [GAS-23](#GAS-23) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 1 | 55 |
-| [GAS-24](#GAS-24) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
-| [GAS-25](#GAS-25) | Functions guaranteed to revert when called by normal users can be marked `payable` | 14 | 294 |
-| [GAS-26](#GAS-26) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 1 | 5 |
-| [GAS-27](#GAS-27) | Using `private` rather than `public` for constants, saves gas | 12 | - |
-| [GAS-28](#GAS-28) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 3 | 12 |
-| [GAS-29](#GAS-29) | Using assembly to check for zero can save gas | 16 | 96 |
+| [GAS-20](#GAS-20) | State variables should be cached in stack variables rather than re-reading them from storage | 4 | 388 |
+| [GAS-21](#GAS-21) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
+| [GAS-22](#GAS-22) | Use Custom Errors | 21 | 1050 |
+| [GAS-23](#GAS-23) | Don't initialize variables with default value | 8 | - |
+| [GAS-24](#GAS-24) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 1 | 55 |
+| [GAS-25](#GAS-25) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
+| [GAS-26](#GAS-26) | Functions guaranteed to revert when called by normal users can be marked `payable` | 14 | 294 |
+| [GAS-27](#GAS-27) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 1 | 5 |
+| [GAS-28](#GAS-28) | Using `private` rather than `public` for constants, saves gas | 12 | - |
+| [GAS-29](#GAS-29) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 3 | 12 |
+| [GAS-30](#GAS-30) | Using assembly to check for zero can save gas | 16 | 96 |
 
 ## Medium Issues
 
@@ -2783,20 +2784,83 @@ The instances below point to the second+ access of a value inside a mapping/arra
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>19</b> instances (click to show):
 </summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+99:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
+
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+99:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
+
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+102:     if (isSpentNonce[chainToApprovedSender[srcChain]][nonce]) {
+
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+102:     if (isSpentNonce[chainToApprovedSender[srcChain]][nonce]) {
+
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+
+/// `isSpentNonce[chainToApprovedSender[srcChain]` is also accessed on line 102
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+
+/// `isSpentNonce[chainToApprovedSender[srcChain]` is also accessed on line 102
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+
+/// `txnToThresholdSet[txnHash]` is also accessed on line 137
+144:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
+
+/// `chainToThresholds[srcChain]` is also accessed on line 263
+266:         chainToThresholds[srcChain].push(
+
+/// `chainToThresholds[srcChain]` is also accessed on line 263
+270:         if (chainToThresholds[srcChain][i - 1].amount > amounts[i]) {
+
+/// `chainToThresholds[srcChain]` is also accessed on line 263
+273:         chainToThresholds[srcChain].push(
+
+/// `txnHashToTransaction[txnHash]` is also accessed on line 339
+350:       delete txnHashToTransaction[txnHash];
+
+```
+[#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L99) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L99) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L102) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L102) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L106) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L106) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L106) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L106) [#L144](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L144) [#L266](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L266) [#L270](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L270) [#L273](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L273) [#L350](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L350) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
 
+/// ` = ` is also accessed on line 111
+114:       rangeList[i] = ranges[i];
+
 /// `ranges[indexToModify - 1]` is also accessed on line 207
 212:       if (newStart < ranges[indexToModify - 1].end) revert InvalidRange();
+
+/// `ranges[indexToModify + 1]` is also accessed on line 201
+214:       if (newEnd > ranges[indexToModify + 1].start) revert InvalidRange();
 
 /// `ranges[indexToModify]` is also accessed on line 220
 222:       ranges[indexToModify] = Range(
 
 ```
-[#L212](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L212) [#L222](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L222) 
+[#L114](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L114) [#L212](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L212) [#L214](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L214) [#L222](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L222) 
+
+```solidity
+File: contracts/usdy/rUSDY.sol
+
+/// `shares[_sender]` is also accessed on line 524
+530:     shares[_sender] = currentSenderShares - _sharesAmount;
+
+/// `shares[_account]` is also accessed on line 583
+590:     shares[_account] = accountShares - _sharesAmount;
+
+```
+[#L530](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L530) [#L590](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L590) 
 
 </details>
 
@@ -3542,7 +3606,44 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="GAS-20"></a> 
-### [GAS-20] Use `calldata` instead of `memory` for function arguments that do not get mutated
+### [GAS-20] State variables should be cached in stack variables rather than re-reading them from storage
+The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/rwaOracles/RWADynamicOracle.sol
+
+/// More than 1 read for `ranges`, line 114 and 111
+114:       rangeList[i] = ranges[i];
+
+/// More than 1 read for `ranges`, line 116 and 111
+116:     if (startTime == ranges[0].start) {
+
+/// More than 1 read for `ranges`, line 120 and 111
+120:       Range memory lastRange = ranges[ranges.length - 1];
+
+```
+[#L114](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L114) [#L116](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L116) [#L120](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L120) 
+
+```solidity
+File: contracts/usdy/rUSDY.sol
+
+/// More than 1 read for `shares`, line 531 and 524
+531:     shares[_recipient] = shares[_recipient] + _sharesAmount;
+
+```
+[#L531](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L531) 
+
+</details>
+
+---
+
+<a name="GAS-21"></a> 
+### [GAS-21] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -3562,8 +3663,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="GAS-21"></a> 
-### [GAS-21] Use Custom Errors
+<a name="GAS-22"></a> 
+### [GAS-22] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -3636,8 +3737,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-22"></a> 
-### [GAS-22] Don't initialize variables with default value
+<a name="GAS-23"></a> 
+### [GAS-23] Don't initialize variables with default value
 
 <details>
 <summary>
@@ -3688,8 +3789,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-23"></a> 
-### [GAS-23] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+<a name="GAS-24"></a> 
+### [GAS-24] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
 Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
 
 <details>
@@ -3709,8 +3810,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-24"></a> 
-### [GAS-24] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-25"></a> 
+### [GAS-25] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -3738,8 +3839,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-25"></a> 
-### [GAS-25] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-26"></a> 
+### [GAS-26] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -3803,8 +3904,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-26"></a> 
-### [GAS-26] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+<a name="GAS-27"></a> 
+### [GAS-27] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
 
 <details>
@@ -3824,8 +3925,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="GAS-27"></a> 
-### [GAS-27] Using `private` rather than `public` for constants, saves gas
+<a name="GAS-28"></a> 
+### [GAS-28] Using `private` rather than `public` for constants, saves gas
 If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
 
 <details>
@@ -3891,8 +3992,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-28"></a> 
-### [GAS-28] Use `!= 0` instead of `> 0` for unsigned integer comparison
+<a name="GAS-29"></a> 
+### [GAS-29] Use `!= 0` instead of `> 0` for unsigned integer comparison
 Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
@@ -3922,8 +4023,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-29"></a> 
-### [GAS-29] Using assembly to check for zero can save gas
+<a name="GAS-30"></a> 
+### [GAS-30] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
