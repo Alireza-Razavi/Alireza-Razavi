@@ -16,14 +16,14 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>102</b> instances over <b>22</b> issues:
+Total <b>105</b> instances over <b>22</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Array is `push()`ed but not `pop()`ed | 5 |
 | [L-2](#L-2) | Check division by zero is prevented | 12 |
 | [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 4 |
-| [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 2 |
+| [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 5 |
 | [L-5](#L-5) | Enum values should be used instead of constant array indexes | 2 |
 | [L-6](#L-6) | External call recipient can consume all remaining gas | 2 |
 | [L-7](#L-7) | Governance functions should be controlled by time locks | 29 |
@@ -429,8 +429,69 @@ Constructors and initialization functions play a critical role in contracts by s
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>5</b> instances (click to show):
 </summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+/// `_token` not validated
+/// `_axelarGateway` not validated
+/// `_allowlist` not validated
+/// `_ondoApprover` not validated
+/// `_owner` not validated
+/// `_mintLimit` not validated
+/// `_mintDuration` not validated
+40:   constructor(
+        address _token,
+        address _axelarGateway,
+        address _allowlist,
+        address _ondoApprover,
+        address _owner,
+        uint256 _mintLimit,
+        uint256 _mintDuration
+      )
+        AxelarExecutable(_axelarGateway)
+        MintTimeBasedRateLimiter(_mintDuration, _mintLimit)
+      {
+
+```
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+/// `_token` not validated
+/// `_axelarGateway` not validated
+/// `_gasService` not validated
+/// `owner` not validated
+40:   constructor(
+        address _token,
+        address _axelarGateway,
+        address _gasService,
+        address owner
+      ) {
+
+```
+
+```solidity
+File: contracts/rwaOracles/RWADynamicOracle.sol
+
+/// `admin` not validated
+/// `setter` not validated
+/// `pauser` not validated
+/// `dailyIR` not validated
+/// `startPrice` not validated
+16:   constructor(
+        address admin,
+        address setter,
+        address pauser,
+        uint256 firstRangeStart,
+        uint256 firstRangeEnd,
+        uint256 dailyIR,
+        uint256 startPrice
+      ) {
+
+```
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
