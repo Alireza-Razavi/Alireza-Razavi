@@ -25,7 +25,7 @@ Total <b>51</b> instances over <b>11</b> issues:
 | [L-3](#L-3) | Missing contract existence checks before low-level calls | 2 |
 | [L-4](#L-4) | Missing zero address check in constructor | 4 |
 | [L-5](#L-5) | Missing storage gap for upgradable contracts | 1 |
-| [L-6](#L-6) | Missing zero address check in constructor | 3 |
+| [L-6](#L-6) | prevent re-setting a state variable with the same value | 3 |
 | [L-7](#L-7) | Unsafe solidity low-level call can cause gas grief attack | 2 |
 | [L-8](#L-8) | Use Ownable2Step instead of Ownable | 2 |
 | [L-9](#L-9) | Using zero as a parameter | 4 |
@@ -579,8 +579,8 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-6"></a> 
-#### [L-6] Missing zero address check in constructor
-Constructors often take address parameters to initialize important components of a contract, such as owner or linked contracts. However, without a checking, there's a risk that an address parameter could be mistakenly set to the zero address (0x0). This could be due to an error or oversight during contract deployment. A zero address in a crucial role can cause serious issues, as it cannot perform actions like a normal address, and any funds sent to it will be irretrievable. It's therefore crucial to include a zero address check in constructors to prevent such potential problems. If a zero address is detected, the constructor should revert the transaction.
+#### [L-6] prevent re-setting a state variable with the same value
+Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
 <details>
 <summary>
