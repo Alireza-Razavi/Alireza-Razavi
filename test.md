@@ -16,7 +16,7 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>93</b> instances over <b>19</b> issues:
+Total <b>96</b> instances over <b>20</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -33,12 +33,13 @@ Total <b>93</b> instances over <b>19</b> issues:
 | [L-11](#L-11) | Owner can renounce Ownership | 2 |
 | [L-12](#L-12) | prevent re-setting a state variable with the same value | 4 |
 | [L-13](#L-13) | Some tokens may revert when large transfers are made | 3 |
-| [L-14](#L-14) | Timestamp may be manipulation | 4 |
-| [L-15](#L-15) | Unsafe solidity low-level call can cause gas grief attack | 2 |
-| [L-16](#L-16) | Use Ownable2Step instead of Ownable | 2 |
-| [L-17](#L-17) | Using zero as a parameter | 4 |
-| [L-18](#L-18) | Missing zero address check in initializer | 1 |
-| [L-19](#L-19) | Initializers could be front-run | 1 |
+| [L-14](#L-14) | Some tokens may revert when zero value transfers are made | 3 |
+| [L-15](#L-15) | Timestamp may be manipulation | 4 |
+| [L-16](#L-16) | Unsafe solidity low-level call can cause gas grief attack | 2 |
+| [L-17](#L-17) | Use Ownable2Step instead of Ownable | 2 |
+| [L-18](#L-18) | Using zero as a parameter | 4 |
+| [L-19](#L-19) | Missing zero address check in initializer | 1 |
+| [L-20](#L-20) | Initializers could be front-run | 1 |
 
 ## Non Critical Issues
 
@@ -828,7 +829,36 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-14"></a> 
-### [L-14] Timestamp may be manipulation
+### [L-14] Some tokens may revert when zero value transfers are made
+Despite the fact that [EIP-20 states](https://github.com/ethereum/EIPs/blob/7500ac4fc1bbdfaf684e7ef851f798f6b667b2fe/EIPS/eip-20.md?plain=1#L116) that zero-value transfers must be accepted, some tokens, such as LEND, will revert if this is attempted, which may cause transactions that involve other tokens (such as batch operations) to fully revert. Consider skipping the transfer if the amount is zero, which will also save gas.
+
+<details>
+<summary>
+There are <b>3</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+309:     IRWALike(_token).transfer(owner(), balance);
+
+```
+
+```solidity
+File: contracts/usdy/rUSDY.sol
+
+439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+
+665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+
+```
+
+</details>
+
+---
+
+<a name="L-15"></a> 
+### [L-15] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 <details>
@@ -853,8 +883,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="L-15"></a> 
-### [L-15] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-16"></a> 
+### [L-16] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -880,8 +910,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-16"></a> 
-### [L-16] Use Ownable2Step instead of Ownable
+<a name="L-17"></a> 
+### [L-17] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -910,8 +940,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="L-17"></a> 
-### [L-17] Using zero as a parameter
+<a name="L-18"></a> 
+### [L-18] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -936,8 +966,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-18"></a> 
-### [L-18] Missing zero address check in initializer
+<a name="L-19"></a> 
+### [L-19] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -968,8 +998,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-19"></a> 
-### [L-19] Initializers could be front-run
+<a name="L-20"></a> 
+### [L-20] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
