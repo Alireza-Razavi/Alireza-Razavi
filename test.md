@@ -4,11 +4,12 @@
 ## Medium Issues
 
 
-Total <b>29</b> instances over <b>1</b> issue:
+Total <b>33</b> instances over <b>2</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [M-1](#M-1) | Centralization Risk for trusted owners | 29 |
+| [M-1](#M-1) | Return values of `transfer()`/`transferFrom()` not checked | 4 |
+| [M-2](#M-2) | Centralization Risk for trusted owners | 29 |
 
 ## Low Issues
 
@@ -107,7 +108,40 @@ Total <b>199</b> instances over <b>29</b> issues:
 ## Medium Issues
 
 <a name="M-1"></a> 
-### [M-1] Centralization Risk for trusted owners
+### [M-1] Return values of `transfer()`/`transferFrom()` not checked
+Not all ERC20 implementations `revert()` when there's a failure in `transfer()` or `transferFrom()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually transfer anything.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/DestinationBridge.sol
+
+324:     IRWALike(_token).transfer(owner(), balance);
+
+```
+[#L324](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L324) 
+
+```solidity
+File: contracts/usdy/rUSDY.sol
+
+437:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
+
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+
+```
+[#L437](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L437) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L680) 
+
+</details>
+
+---
+
+<a name="M-2"></a> 
+### [M-2] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
