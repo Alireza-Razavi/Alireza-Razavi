@@ -479,14 +479,14 @@ File: contracts/usdy/rUSDY.sol
 
 453:     _burnShares(msg.sender, usdyAmount);
 
-455:     emit TokensBurnt(msg.sender, _rUSDYAmount);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
 561:     // address to `address`, but we cannot reflect this as it would require sending an unbounded
 
-604:     // works by redistributing the amount of tokens corresponding to the burned shares between
+603:     // Notice: we're not emitting a Transfer event to the zero address here since shares burn
 
 ```
-[#L453](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L453) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L455) [#L561](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L561) [#L604](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L604) 
+[#L453](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L453) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L454) [#L561](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L561) [#L603](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L603) 
 
 </details>
 
