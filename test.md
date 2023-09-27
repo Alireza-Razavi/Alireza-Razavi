@@ -23,7 +23,7 @@ Total <b>49</b> instances over <b>10</b> issues:
 | [L-1](#L-1) | External call recipient can consume all remaining gas | 2 |
 | [L-2](#L-2) | Governance functions should be controlled by time locks | 29 |
 | [L-3](#L-3) | Missing contract existence checks before low-level calls | 2 |
-| [L-4](#L-4) | Missing zero address check in initializer | 5 |
+| [L-4](#L-4) | Missing zero address check in constructor | 5 |
 | [L-5](#L-5) | Missing storage gap for upgradable contracts | 1 |
 | [L-6](#L-6) | Unsafe solidity low-level call can cause gas grief attack | 2 |
 | [L-7](#L-7) | Use Ownable2Step instead of Ownable | 2 |
@@ -473,7 +473,8 @@ File: contracts/usdy/rUSDYFactory.sol
 ---
 
 <a name="L-4"></a> 
-#### [L-4] Missing zero address check in initializer
+#### [L-4] Missing zero address check in constructor
+Constructors often take address parameters to initialize important components of a contract, such as owner or linked contracts. However, without a checking, there's a risk that an address parameter could be mistakenly set to the zero address (0x0). This could be due to an error or oversight during contract deployment. A zero address in a crucial role can cause serious issues, as it cannot perform actions like a normal address, and any funds sent to it will be irretrievable. It's therefore crucial to include a zero address check in constructors to prevent such potential problems. If a zero address is detected, the constructor should revert the transaction.
 
 <details>
 <summary>
