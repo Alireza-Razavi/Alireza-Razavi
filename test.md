@@ -16,31 +16,32 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>100</b> instances over <b>21</b> issues:
+Total <b>102</b> instances over <b>22</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Array is `push()`ed but not `pop()`ed | 5 |
 | [L-2](#L-2) | Check division by zero is prevented | 12 |
 | [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 4 |
-| [L-4](#L-4) | Enum values should be used instead of constant array indexes | 2 |
-| [L-5](#L-5) | External call recipient can consume all remaining gas | 2 |
-| [L-6](#L-6) | Governance functions should be controlled by time locks | 29 |
-| [L-7](#L-7) | Loss of precision in divisions | 12 |
-| [L-8](#L-8) | Missing contract existence checks before low-level calls | 2 |
-| [L-9](#L-9) | Missing zero address check in constructor | 4 |
-| [L-10](#L-10) | Missing checks for `address(0)` when setting address state variables | 1 |
-| [L-11](#L-11) | Missing storage gap for upgradable contracts | 1 |
-| [L-12](#L-12) | Owner can renounce Ownership | 2 |
-| [L-13](#L-13) | prevent re-setting a state variable with the same value | 4 |
-| [L-14](#L-14) | Some tokens may revert when large transfers are made | 3 |
-| [L-15](#L-15) | Some tokens may revert when zero value transfers are made | 3 |
-| [L-16](#L-16) | Timestamp may be manipulation | 4 |
-| [L-17](#L-17) | Unsafe solidity low-level call can cause gas grief attack | 2 |
-| [L-18](#L-18) | Use Ownable2Step instead of Ownable | 2 |
-| [L-19](#L-19) | Using zero as a parameter | 4 |
-| [L-20](#L-20) | Missing zero address check in initializer | 1 |
-| [L-21](#L-21) | Initializers could be front-run | 1 |
+| [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 2 |
+| [L-5](#L-5) | Enum values should be used instead of constant array indexes | 2 |
+| [L-6](#L-6) | External call recipient can consume all remaining gas | 2 |
+| [L-7](#L-7) | Governance functions should be controlled by time locks | 29 |
+| [L-8](#L-8) | Loss of precision in divisions | 12 |
+| [L-9](#L-9) | Missing contract existence checks before low-level calls | 2 |
+| [L-10](#L-10) | Missing zero address check in constructor | 4 |
+| [L-11](#L-11) | Missing checks for `address(0)` when setting address state variables | 1 |
+| [L-12](#L-12) | Missing storage gap for upgradable contracts | 1 |
+| [L-13](#L-13) | Owner can renounce Ownership | 2 |
+| [L-14](#L-14) | prevent re-setting a state variable with the same value | 4 |
+| [L-15](#L-15) | Some tokens may revert when large transfers are made | 3 |
+| [L-16](#L-16) | Some tokens may revert when zero value transfers are made | 3 |
+| [L-17](#L-17) | Timestamp may be manipulation | 4 |
+| [L-18](#L-18) | Unsafe solidity low-level call can cause gas grief attack | 2 |
+| [L-19](#L-19) | Use Ownable2Step instead of Ownable | 2 |
+| [L-20](#L-20) | Using zero as a parameter | 4 |
+| [L-21](#L-21) | Missing zero address check in initializer | 1 |
+| [L-22](#L-22) | Initializers could be front-run | 1 |
 
 ## Non Critical Issues
 
@@ -423,7 +424,48 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="L-4"></a> 
-### [L-4] Enum values should be used instead of constant array indexes
+### [L-4] Constructor / initialization function lacks parameter validation
+Constructors and initialization functions play a critical role in contracts by setting important initial states when the contract is first deployed before the system starts. The parameters passed to the constructor and initialization functions directly affect the behavior of the contract / protocol. If incorrect parameters are provided, the system may fail to run, behave abnormally, be unstable, or lack security. Therefore, it's crucial to carefully check each parameter in the constructor and initialization functions. If an exception is found, the transaction should be rolled back.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/usdy/rUSDY.sol
+
+/// `blocklist` not validated
+/// `allowlist` not validated
+/// `sanctionsList` not validated
+/// `_usdy` not validated
+/// `guardian` not validated
+/// `_oracle` not validated
+94:   function initialize(
+        address blocklist,
+        address allowlist,
+        address sanctionsList,
+        address _usdy,
+        address guardian,
+        address _oracle
+      ) public virtual initializer {
+
+```
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+/// `_guardian` not validated
+36:   constructor(address _guardian) {
+
+```
+
+</details>
+
+---
+
+<a name="L-5"></a> 
+### [L-5] Enum values should be used instead of constant array indexes
 Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
 
 <details>
@@ -449,8 +491,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="L-5"></a> 
-### [L-5] External call recipient can consume all remaining gas
+<a name="L-6"></a> 
+### [L-6] External call recipient can consume all remaining gas
 There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
 
 <details>
@@ -476,8 +518,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-6"></a> 
-### [L-6] Governance functions should be controlled by time locks
+<a name="L-7"></a> 
+### [L-7] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
 <details>
@@ -572,8 +614,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-7"></a> 
-### [L-7] Loss of precision in divisions
+<a name="L-8"></a> 
+### [L-8] Loss of precision in divisions
 Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator.
 
 <details>
@@ -619,8 +661,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-8"></a> 
-### [L-8] Missing contract existence checks before low-level calls
+<a name="L-9"></a> 
+### [L-9] Missing contract existence checks before low-level calls
 Low-level calls return success if there is no code present at the specified address. In addition to the zero-address checks, add a check to verify that `<address>.code.length > 0`
 
 <details>
@@ -646,8 +688,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-9"></a> 
-### [L-9] Missing zero address check in constructor
+<a name="L-10"></a> 
+### [L-10] Missing zero address check in constructor
 Constructors often take address parameters to initialize important components of a contract, such as owner or linked contracts. However, without a checking, there's a risk that an address parameter could be mistakenly set to the zero address (0x0). This could be due to an error or oversight during contract deployment. A zero address in a crucial role can cause serious issues, as it cannot perform actions like a normal address, and any funds sent to it will be irretrievable. It's therefore crucial to include a zero address check in constructors to prevent such potential problems. If a zero address is detected, the constructor should revert the transaction.
 
 <details>
@@ -724,8 +766,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-10"></a> 
-### [L-10] Missing checks for `address(0)` when setting address state variables
+<a name="L-11"></a> 
+### [L-11] Missing checks for `address(0)` when setting address state variables
 
 <details>
 <summary>
@@ -743,8 +785,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-11"></a> 
-### [L-11] Missing storage gap for upgradable contracts
+<a name="L-12"></a> 
+### [L-12] Missing storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
 <details>
@@ -765,8 +807,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-12"></a> 
-### [L-12] Owner can renounce Ownership
+<a name="L-13"></a> 
+### [L-13] Owner can renounce Ownership
 Each of the following contracts implements or inherits the `renounceOwnership()` function. This can represent a certain risk if the ownership is renounced for any other reason than by design. Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
 
 <details>
@@ -795,8 +837,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="L-13"></a> 
-### [L-13] prevent re-setting a state variable with the same value
+<a name="L-14"></a> 
+### [L-14] prevent re-setting a state variable with the same value
 Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
 <details>
@@ -826,8 +868,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-14"></a> 
-### [L-14] Some tokens may revert when large transfers are made
+<a name="L-15"></a> 
+### [L-15] Some tokens may revert when large transfers are made
 Tokens such as COMP or UNI will revert when an address' balance reaches `type(uint96).max`. Ensure that the calls below can be broken up into smaller batches if necessary.
 
 <details>
@@ -855,8 +897,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-15"></a> 
-### [L-15] Some tokens may revert when zero value transfers are made
+<a name="L-16"></a> 
+### [L-16] Some tokens may revert when zero value transfers are made
 Despite the fact that [EIP-20 states](https://github.com/ethereum/EIPs/blob/7500ac4fc1bbdfaf684e7ef851f798f6b667b2fe/EIPS/eip-20.md?plain=1#L116) that zero-value transfers must be accepted, some tokens, such as LEND, will revert if this is attempted, which may cause transactions that involve other tokens (such as batch operations) to fully revert. Consider skipping the transfer if the amount is zero, which will also save gas.
 
 <details>
@@ -884,8 +926,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-16"></a> 
-### [L-16] Timestamp may be manipulation
+<a name="L-17"></a> 
+### [L-17] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 <details>
@@ -910,8 +952,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="L-17"></a> 
-### [L-17] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-18"></a> 
+### [L-18] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -937,8 +979,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="L-18"></a> 
-### [L-18] Use Ownable2Step instead of Ownable
+<a name="L-19"></a> 
+### [L-19] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -967,8 +1009,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="L-19"></a> 
-### [L-19] Using zero as a parameter
+<a name="L-20"></a> 
+### [L-20] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -993,8 +1035,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-20"></a> 
-### [L-20] Missing zero address check in initializer
+<a name="L-21"></a> 
+### [L-21] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -1025,8 +1067,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="L-21"></a> 
-### [L-21] Initializers could be front-run
+<a name="L-22"></a> 
+### [L-22] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
