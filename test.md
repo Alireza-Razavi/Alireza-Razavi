@@ -92,47 +92,48 @@ Total <b>351</b> instances over <b>38</b> issues:
 ## Gas Optimizations
 
 
-Total <b>257</b> instances over <b>37</b> issues:
+Total <b>258</b> instances over <b>38</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
 | [GAS-1](#GAS-1) | Consider activating via-ir for deploying | 1 | - |
 | [GAS-2](#GAS-2) | Divisions can be `unchecked` to save gas | 12 | 240 |
 | [GAS-3](#GAS-3) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 4 | 452 |
-| [GAS-4](#GAS-4) | Increments can be `unchecked` to save gas | 9 | 540 |
+| [GAS-4](#GAS-4) | Increments can be `unchecked` to save gas | 8 | 480 |
 | [GAS-5](#GAS-5) | Initializers can be marked as payable to save deployment gas | 1 | 21 |
 | [GAS-6](#GAS-6) | `internal` functions only called once can be inlined to save gas | 9 | 270 |
 | [GAS-7](#GAS-7) | `keccak256()` hash of literals should only be computed once | 7 | 294 |
-| [GAS-8](#GAS-8) | Multiple accesses of the same mapping/array key/index should be cached | 19 | 798 |
-| [GAS-9](#GAS-9) | Newer versions of solidity are more gas efficient | 6 | - |
-| [GAS-10](#GAS-10) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 18 | 54 |
-| [GAS-11](#GAS-11) | Reduce gas usage by moving to Solidity 0.8.19 or later | 6 | 6000 |
-| [GAS-12](#GAS-12) | Redundant state variable getters | 1 | - |
-| [GAS-13](#GAS-13) | Remove or replace unused state variables | 1 | - |
-| [GAS-14](#GAS-14) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 3 | 9 |
-| [GAS-15](#GAS-15) | The result of a function call should be cached rather than re-calling the function | 13 | 1300 |
-| [GAS-16](#GAS-16) | Unlimited gas consumption risk due to external call recipients | 2 | - |
-| [GAS-17](#GAS-17) | Unused named return variables without optimizer waste gas | 3 | 27 |
-| [GAS-18](#GAS-18) | Use assembly to compute hashes to save gas | 10 | 800 |
-| [GAS-19](#GAS-19) | Use assembly to emit events | 20 | 760 |
-| [GAS-20](#GAS-20) | Using a double `if` statement instead of a logical AND (`&&`) | 2 | 60 |
-| [GAS-21](#GAS-21) | Use a more recent version of solidity | 6 | - |
-| [GAS-22](#GAS-22) | Use `storage` instead of `memory` for structs/arrays | 8 | 33600 |
-| [GAS-23](#GAS-23) | Use `unchecked` block for safe subtractions | 4 | 340 |
-| [GAS-24](#GAS-24) | `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants) | 2 | - |
-| [GAS-25](#GAS-25) | Using bools for storage incurs overhead | 2 | - |
-| [GAS-26](#GAS-26) | Cache array length outside of loop | 5 | - |
-| [GAS-27](#GAS-27) | State variables should be cached in stack variables rather than re-reading them from storage | 4 | 388 |
-| [GAS-28](#GAS-28) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
-| [GAS-29](#GAS-29) | Use Custom Errors | 21 | 1050 |
-| [GAS-30](#GAS-30) | Don't initialize variables with default value | 8 | - |
-| [GAS-31](#GAS-31) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 1 | 55 |
-| [GAS-32](#GAS-32) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
-| [GAS-33](#GAS-33) | Functions guaranteed to revert when called by normal users can be marked `payable` | 14 | 294 |
-| [GAS-34](#GAS-34) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 1 | 5 |
-| [GAS-35](#GAS-35) | Using `private` rather than `public` for constants, saves gas | 12 | - |
-| [GAS-36](#GAS-36) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 3 | 12 |
-| [GAS-37](#GAS-37) | Using assembly to check for zero can save gas | 16 | 96 |
+| [GAS-8](#GAS-8) | Low level `call` can be optimized with assembly | 2 | 496 |
+| [GAS-9](#GAS-9) | Multiple accesses of the same mapping/array key/index should be cached | 19 | 798 |
+| [GAS-10](#GAS-10) | Newer versions of solidity are more gas efficient | 6 | - |
+| [GAS-11](#GAS-11) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 18 | 54 |
+| [GAS-12](#GAS-12) | Reduce gas usage by moving to Solidity 0.8.19 or later | 6 | 6000 |
+| [GAS-13](#GAS-13) | Redundant state variable getters | 1 | - |
+| [GAS-14](#GAS-14) | Remove or replace unused state variables | 1 | - |
+| [GAS-15](#GAS-15) | `require()`/`revert()` strings longer than 32 bytes cost extra gas | 3 | 9 |
+| [GAS-16](#GAS-16) | The result of a function call should be cached rather than re-calling the function | 13 | 1300 |
+| [GAS-17](#GAS-17) | Unlimited gas consumption risk due to external call recipients | 2 | - |
+| [GAS-18](#GAS-18) | Unused named return variables without optimizer waste gas | 3 | 27 |
+| [GAS-19](#GAS-19) | Use assembly to compute hashes to save gas | 10 | 800 |
+| [GAS-20](#GAS-20) | Use assembly to emit events | 20 | 760 |
+| [GAS-21](#GAS-21) | Using a double `if` statement instead of a logical AND (`&&`) | 2 | 60 |
+| [GAS-22](#GAS-22) | Use a more recent version of solidity | 6 | - |
+| [GAS-23](#GAS-23) | Use `storage` instead of `memory` for structs/arrays | 8 | 33600 |
+| [GAS-24](#GAS-24) | Use `unchecked` block for safe subtractions | 4 | 340 |
+| [GAS-25](#GAS-25) | `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants) | 2 | - |
+| [GAS-26](#GAS-26) | Using bools for storage incurs overhead | 2 | - |
+| [GAS-27](#GAS-27) | Cache array length outside of loop | 5 | - |
+| [GAS-28](#GAS-28) | State variables should be cached in stack variables rather than re-reading them from storage | 4 | 388 |
+| [GAS-29](#GAS-29) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
+| [GAS-30](#GAS-30) | Use Custom Errors | 21 | 1050 |
+| [GAS-31](#GAS-31) | Don't initialize variables with default value | 8 | - |
+| [GAS-32](#GAS-32) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 1 | 55 |
+| [GAS-33](#GAS-33) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
+| [GAS-34](#GAS-34) | Functions guaranteed to revert when called by normal users can be marked `payable` | 14 | 294 |
+| [GAS-35](#GAS-35) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 1 | 5 |
+| [GAS-36](#GAS-36) | Using `private` rather than `public` for constants, saves gas | 12 | - |
+| [GAS-37](#GAS-37) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 3 | 12 |
+| [GAS-38](#GAS-38) | Using assembly to check for zero can save gas | 16 | 96 |
 
 ## Medium Issues
 
@@ -3576,7 +3577,7 @@ Using `unchecked` increments can save gas by bypassing the built-in overflow che
 
 <details>
 <summary>
-There are <b>9</b> instances (click to show):
+There are <b>8</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3594,12 +3595,10 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-94:     bytes memory payload = abi.encode(VERSION, msg.sender, amount, nonce++);
-
 179:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
-[#L94](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L94) [#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
+[#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -3744,7 +3743,36 @@ File: contracts/usdy/rUSDY.sol
 ---
 
 <a name="GAS-8"></a> 
-### [GAS-8] Multiple accesses of the same mapping/array key/index should be cached
+### [GAS-8] Low level `call` can be optimized with assembly
+When using low-level calls, the `returnData` is copied to memory even if the variable is not utilized. The proper way to handle this is through a low level assembly call.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/bridge/SourceBridge.sol
+
+180:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+
+```
+[#L180](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L180) 
+
+```solidity
+File: contracts/usdy/rUSDYFactory.sol
+
+131:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+
+```
+[#L131](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L131) 
+
+</details>
+
+---
+
+<a name="GAS-9"></a> 
+### [GAS-9] Multiple accesses of the same mapping/array key/index should be cached
 The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local `storage` or `calldata` variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata
 
 <details>
@@ -3831,8 +3859,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-9"></a> 
-### [GAS-9] Newer versions of solidity are more gas efficient
+<a name="GAS-10"></a> 
+### [GAS-10] Newer versions of solidity are more gas efficient
 The solidity language continues to pursue more efficient gas optimization schemes. Adopting a newer version of solidity can be more gas efficient.
 
 <details>
@@ -3892,8 +3920,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-10"></a> 
-### [GAS-10] Operator `>=`/`<=` costs less gas than operator `>`/`<`
+<a name="GAS-11"></a> 
+### [GAS-11] Operator `>=`/`<=` costs less gas than operator `>`/`<`
 The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only requires `LT` for `>=`. A similar behavior applies for `>`, which uses opcodes `LT` and `ISZERO`, but only requires `GT` for `<=`. It can save 3 gas for each. It should be converted to the `<=`/`>=` equivalent when comparing against integer literals.
 
 <details>
@@ -3971,8 +3999,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-11"></a> 
-### [GAS-11] Reduce gas usage by moving to Solidity 0.8.19 or later
+<a name="GAS-12"></a> 
+### [GAS-12] Reduce gas usage by moving to Solidity 0.8.19 or later
 Solidity version 0.8.19 introduced a number of gas optimizations, refer to the [Solidity 0.8.19 Release Announcement](https://soliditylang.org/blog/2023/02/22/solidity-0.8.19-release-announcement/) for details.
 
 <details>
@@ -4032,8 +4060,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-12"></a> 
-### [GAS-12] Redundant state variable getters
+<a name="GAS-13"></a> 
+### [GAS-13] Redundant state variable getters
 Getters for public state variables are automatically generated so there is no need to code them manually and waste gas.
 
 <details>
@@ -4054,8 +4082,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-13"></a> 
-### [GAS-13] Remove or replace unused state variables
+<a name="GAS-14"></a> 
+### [GAS-14] Remove or replace unused state variables
 Saves a storage slot. If the variable is assigned a non-zero value, saves Gsset (20000 gas). If it's assigned a zero value, saves Gsreset (2900 gas). If the variable remains unassigned, there is no gas savings unless the variable is `public`, in which case the compiler-generated non-payable getter deployment cost is saved. If the state variable is overriding an interface's public function, mark the variable as `constant` or `immutable` so that it does not use a storage slot.
 
 <details>
@@ -4075,8 +4103,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="GAS-14"></a> 
-### [GAS-14] `require()`/`revert()` strings longer than 32 bytes cost extra gas
+<a name="GAS-15"></a> 
+### [GAS-15] `require()`/`revert()` strings longer than 32 bytes cost extra gas
 Each extra memory word of bytes past the original 32 [incurs an MSTORE](https://gist.github.com/hrkrshnn/ee8fabd532058307229d65dcd5836ddc#consider-having-short-revert-strings) which costs 3 gas
 
 <details>
@@ -4100,8 +4128,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-15"></a> 
-### [GAS-15] The result of a function call should be cached rather than re-calling the function
+<a name="GAS-16"></a> 
+### [GAS-16] The result of a function call should be cached rather than re-calling the function
 The function calls in solidity are expensive. If the same result of the same function calls are to be used several times, the result should be cached to reduce the gas consumption of repeated calls.
 
 <details>
@@ -4221,8 +4249,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-16"></a> 
-### [GAS-16] Unlimited gas consumption risk due to external call recipients
+<a name="GAS-17"></a> 
+### [GAS-17] Unlimited gas consumption risk due to external call recipients
 When calling an external function without specifying a gas limit , the called contract may consume all the remaining gas, causing the tx to be reverted. To mitigate this, it is recommended to explicitly set a gas limit when making low level external calls.
 
 <details>
@@ -4250,8 +4278,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-17"></a> 
-### [GAS-17] Unused named return variables without optimizer waste gas
+<a name="GAS-18"></a> 
+### [GAS-18] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
 <details>
@@ -4287,8 +4315,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="GAS-18"></a> 
-### [GAS-18] Use assembly to compute hashes to save gas
+<a name="GAS-19"></a> 
+### [GAS-19] Use assembly to compute hashes to save gas
 If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (80 gas):
 
 `keccak256(abi.encodePacked(x, y)) -> assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
@@ -4340,8 +4368,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-19"></a> 
-### [GAS-19] Use assembly to emit events
+<a name="GAS-20"></a> 
+### [GAS-20] Use assembly to emit events
 To efficiently emit events, it's possible to utilize assembly by making use of scratch space and the free memory pointer. This approach has the advantage of potentially avoiding the costs associated with memory expansion.
 
 However, it's important to note that in order to safely optimize this process, it is preferable to cache and restore the free memory pointer.
@@ -4427,8 +4455,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-20"></a> 
-### [GAS-20] Using a double `if` statement instead of a logical AND (`&&`)
+<a name="GAS-21"></a> 
+### [GAS-21] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
 <details>
@@ -4456,8 +4484,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-21"></a> 
-### [GAS-21] Use a more recent version of solidity
+<a name="GAS-22"></a> 
+### [GAS-22] Use a more recent version of solidity
 - Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
 - Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
@@ -4520,8 +4548,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-22"></a> 
-### [GAS-22] Use `storage` instead of `memory` for structs/arrays
+<a name="GAS-23"></a> 
+### [GAS-23] Use `storage` instead of `memory` for structs/arrays
 When fetching data from a storage location, assigning the data to a `memory` variable causes all fields of the struct/array to be read from storage, which incurs a Gcoldsload (**2100 gas**) for *each* field of the struct/array. If the fields are read from the new memory variable, they incur an additional `MLOAD` rather than a cheap stack read. Instead of declaring the variable with the `memory` keyword, declaring the variable with the `storage` keyword and caching any fields that need to be re-read in stack variables, will be much cheaper, only incurring the Gcoldsload for the fields actually read. The only time it makes sense to read the whole struct/array into a `memory` variable, is if the full struct/array is being returned by the function, is being passed to a function that requires `memory`, or if the array/struct is being read from another `memory` array/struct.
 
 <details>
@@ -4567,8 +4595,8 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ---
 
-<a name="GAS-23"></a> 
-### [GAS-23] Use `unchecked` block for safe subtractions
+<a name="GAS-24"></a> 
+### [GAS-24] Use `unchecked` block for safe subtractions
 If it can be confirmed that the subtraction operation will not overflow, using an unchecked block can save gas. For example, `require(x <= y); z = y - x;` can be optimized to `require(x <= y); unchecked { z = y - x; }`
 
 <details>
@@ -4598,8 +4626,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-24"></a> 
-### [GAS-24] `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants)
+<a name="GAS-25"></a> 
+### [GAS-25] `array[index] += amount` is cheaper than `array[index] = array[index] + amount` (or related variants)
 When updating a value in an array with arithmetic, using `array[index] += amount` is cheaper than `array[index] = array[index] + amount`.
 This is because you avoid an additonal `mload` when the array is stored in memory, and an `sload` when the array is stored in storage.
 This can be applied for any arithmetic operation including `+=`, `-=`,`/=`,`*=`,`^=`,`&=`, `%=`, `<<=`,`>>=`, and `>>>=`.
@@ -4626,8 +4654,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-25"></a> 
-### [GAS-25] Using bools for storage incurs overhead
+<a name="GAS-26"></a> 
+### [GAS-26] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
 
 <details>
@@ -4649,8 +4677,8 @@ File: contracts/bridge/DestinationBridge.sol
 
 ---
 
-<a name="GAS-26"></a> 
-### [GAS-26] Cache array length outside of loop
+<a name="GAS-27"></a> 
+### [GAS-27] Cache array length outside of loop
 If not cached, the solidity compiler will always read the length of the array during each iteration. That is, if it is a storage array, this is an extra sload operation (100 additional extra gas for each iteration except for the first) and if it is a memory array, this is an extra mload operation (3 additional gas for each iteration except for the first).
 
 <details>
@@ -4690,8 +4718,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-27"></a> 
-### [GAS-27] State variables should be cached in stack variables rather than re-reading them from storage
+<a name="GAS-28"></a> 
+### [GAS-28] State variables should be cached in stack variables rather than re-reading them from storage
 The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
 
 <details>
@@ -4727,8 +4755,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-28"></a> 
-### [GAS-28] Use `calldata` instead of `memory` for function arguments that do not get mutated
+<a name="GAS-29"></a> 
+### [GAS-29] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -4748,8 +4776,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="GAS-29"></a> 
-### [GAS-29] Use Custom Errors
+<a name="GAS-30"></a> 
+### [GAS-30] Use Custom Errors
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
@@ -4822,8 +4850,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-30"></a> 
-### [GAS-30] Don't initialize variables with default value
+<a name="GAS-31"></a> 
+### [GAS-31] Don't initialize variables with default value
 
 <details>
 <summary>
@@ -4874,8 +4902,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-31"></a> 
-### [GAS-31] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+<a name="GAS-32"></a> 
+### [GAS-32] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
 Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
 
 <details>
@@ -4895,8 +4923,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-32"></a> 
-### [GAS-32] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-33"></a> 
+### [GAS-33] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -4924,8 +4952,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-33"></a> 
-### [GAS-33] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-34"></a> 
+### [GAS-34] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -4989,8 +5017,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-34"></a> 
-### [GAS-34] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+<a name="GAS-35"></a> 
+### [GAS-35] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
 
 <details>
@@ -5010,8 +5038,8 @@ File: contracts/bridge/SourceBridge.sol
 
 ---
 
-<a name="GAS-35"></a> 
-### [GAS-35] Using `private` rather than `public` for constants, saves gas
+<a name="GAS-36"></a> 
+### [GAS-36] Using `private` rather than `public` for constants, saves gas
 If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
 
 <details>
@@ -5077,8 +5105,8 @@ File: contracts/usdy/rUSDYFactory.sol
 
 ---
 
-<a name="GAS-36"></a> 
-### [GAS-36] Use `!= 0` instead of `> 0` for unsigned integer comparison
+<a name="GAS-37"></a> 
+### [GAS-37] Use `!= 0` instead of `> 0` for unsigned integer comparison
 Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
@@ -5108,8 +5136,8 @@ File: contracts/usdy/rUSDY.sol
 
 ---
 
-<a name="GAS-37"></a> 
-### [GAS-37] Using assembly to check for zero can save gas
+<a name="GAS-38"></a> 
+### [GAS-38] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
