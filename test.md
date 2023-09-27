@@ -16,14 +16,14 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>49</b> instances over <b>10</b> issues:
+Total <b>48</b> instances over <b>10</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | External call recipient can consume all remaining gas | 2 |
 | [L-2](#L-2) | Governance functions should be controlled by time locks | 29 |
 | [L-3](#L-3) | Missing contract existence checks before low-level calls | 2 |
-| [L-4](#L-4) | Missing zero address check in constructor | 5 |
+| [L-4](#L-4) | Missing zero address check in constructor | 4 |
 | [L-5](#L-5) | Missing storage gap for upgradable contracts | 1 |
 | [L-6](#L-6) | Unsafe solidity low-level call can cause gas grief attack | 2 |
 | [L-7](#L-7) | Use Ownable2Step instead of Ownable | 2 |
@@ -478,7 +478,7 @@ Constructors often take address parameters to initialize important components of
 
 <details>
 <summary>
-There are <b>5</b> instances (click to show):
+There are <b>4</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -516,14 +516,6 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L16) 
-
-```solidity
-File: contracts/usdy/rUSDY.sol
-
-90:   constructor() {
-
-```
-[#L90](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L90) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
