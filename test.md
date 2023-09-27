@@ -159,14 +159,14 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-437:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
+422:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
 
-454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
-[#L437](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L437) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L680) 
+[#L422](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L422) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L439) [#L665](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L665) 
 
 </details>
 
@@ -192,14 +192,14 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-437:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
+422:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
 
-454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
-[#L437](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L437) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L680) 
+[#L422](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L422) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L439) [#L665](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L665) 
 
 </details>
 
@@ -275,22 +275,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-675:   ) external onlyRole(BURNER_ROLE) {
+660:   ) external onlyRole(BURNER_ROLE) {
 
-685:   function pause() external onlyRole(PAUSER_ROLE) {
+670:   function pause() external onlyRole(PAUSER_ROLE) {
 
-689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
-700:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+685:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-711:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+696:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-722:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+707:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 ```
-[#L662](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L662) [#L675](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L675) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L689) [#L700](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L700) [#L711](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L711) [#L722](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L722) 
+[#L647](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L647) [#L660](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L660) [#L670](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L670) [#L674](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L674) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L685) [#L696](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L696) [#L707](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L707) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -379,22 +379,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-675:   ) external onlyRole(BURNER_ROLE) {
+660:   ) external onlyRole(BURNER_ROLE) {
 
-685:   function pause() external onlyRole(PAUSER_ROLE) {
+670:   function pause() external onlyRole(PAUSER_ROLE) {
 
-689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
-700:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+685:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-711:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+696:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-722:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+707:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 ```
-[#L662](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L662) [#L675](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L675) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L689) [#L700](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L700) [#L711](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L711) [#L722](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L722) 
+[#L647](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L647) [#L660](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L660) [#L670](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L670) [#L674](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L674) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L685) [#L696](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L696) [#L707](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L707) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -422,12 +422,12 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-76:   mapping(address => uint256) private shares;
-    
-      /// @dev Allowances are nominated in tokens, not token shares.
+42: contract rUSDY is
+      Initializable,
+      ContextUpgradeable,
 
 ```
-[#L76](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L76) 
+[#L42](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L42) 
 
 </details>
 
@@ -477,16 +477,16 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-453:     _burnShares(msg.sender, usdyAmount);
+423:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
 
-454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+424:     emit TransferShares(address(0), msg.sender, _USDYAmount);
 
-561:     // address to `address`, but we cannot reflect this as it would require sending an unbounded
+534:     _beforeTokenTransfer(address(0), _recipient, _sharesAmount);
 
-603:     // Notice: we're not emitting a Transfer event to the zero address here since shares burn
+566:     _beforeTokenTransfer(_account, address(0), _sharesAmount);
 
 ```
-[#L453](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L453) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L454) [#L561](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L561) [#L603](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L603) 
+[#L423](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L423) [#L424](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L424) [#L534](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L534) [#L566](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L566) 
 
 </details>
 
@@ -509,18 +509,17 @@ File: contracts/usdy/rUSDY.sol
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-130:     __SanctionsListClientInitializable_init(sanctionsList);
-         __rUSDY_init_unchained(_usdy, guardian, _oracle);
-       }
-     
-       function __rUSDY_init_unchained(
-         address _usdy,
-         address guardian,
-         address _oracle
-       ) internal onlyInitializing {
+94:   function initialize(
+        address blocklist,
+        address allowlist,
+        address sanctionsList,
+        address _usdy,
+        address guardian,
+        address _oracle
+      ) public virtual initializer {
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L130) 
+[#L94](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L94) 
 
 </details>
 
@@ -538,10 +537,10 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-109:   function initialize(
+94:   function initialize(
 
 ```
-[#L109](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L109) 
+[#L94](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L94) 
 
 </details>
 
@@ -676,24 +675,24 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-642:     if (from != address(0)) {
+627:     if (from != address(0)) {
 
-649:     if (to != address(0)) {
+634:     if (to != address(0)) {
 
 ```
-[#L490](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L579) [#L642](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L642) [#L649](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L649) 
+[#L475](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L475) [#L476](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L476) [#L504](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L504) [#L505](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L505) [#L532](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L532) [#L564](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L564) [#L627](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L627) [#L634](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L634) 
 
 </details>
 
@@ -757,26 +756,26 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-421:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
+406:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
 
-423:     emit Transfer(msg.sender, _recipient, tokensAmount);
+408:     emit Transfer(msg.sender, _recipient, tokensAmount);
 
-438:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
+423:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
 
-439:     emit TransferShares(address(0), msg.sender, _USDYAmount);
+424:     emit TransferShares(address(0), msg.sender, _USDYAmount);
 
-455:     emit TokensBurnt(msg.sender, _rUSDYAmount);
+440:     emit TokensBurnt(msg.sender, _rUSDYAmount);
 
-470:     emit Transfer(_sender, _recipient, _amount);
+455:     emit Transfer(_sender, _recipient, _amount);
 
-471:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
+456:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
 
-494:     emit Approval(_owner, _spender, _amount);
+479:     emit Approval(_owner, _spender, _amount);
 
-682:     emit TokensBurnt(_account, _amount);
+667:     emit TokensBurnt(_account, _amount);
 
 ```
-[#L421](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L421) [#L423](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L423) [#L438](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L438) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L439) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L455) [#L470](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L470) [#L471](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L471) [#L494](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L494) [#L682](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L682) 
+[#L406](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L406) [#L408](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L408) [#L423](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L423) [#L424](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L424) [#L440](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L440) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L455) [#L456](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L456) [#L479](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L479) [#L667](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L667) 
 
 </details>
 
@@ -840,10 +839,10 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-94:   error UnwrapTooSmall();
+79:   error UnwrapTooSmall();
 
 ```
-[#L94](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L94) 
+[#L79](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L79) 
 
 </details>
 
@@ -869,44 +868,44 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-307:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
+292:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
 
-435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
-490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-584:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
+569:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
 
-634:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
+619:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
 
-635:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
+620:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
 
-644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
+629:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
 
-645:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+630:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
 
-646:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
+631:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
 
-651:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
+636:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
 
-652:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
+637:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
 
-653:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
+638:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
 
 ```
-[#L307](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L307) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L450) [#L490](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L579) [#L584](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L584) [#L634](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L634) [#L635](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L635) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L644) [#L645](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L645) [#L646](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L646) [#L651](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L651) [#L652](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L652) [#L653](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L653) 
+[#L292](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L292) [#L420](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L420) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L475](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L475) [#L476](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L476) [#L504](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L504) [#L505](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L505) [#L532](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L532) [#L564](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L564) [#L569](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L569) [#L619](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L619) [#L620](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L620) [#L629](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L629) [#L630](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L630) [#L631](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L631) [#L636](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L636) [#L637](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L637) [#L638](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L638) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1044,18 +1043,18 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+455:     emit Transfer(_sender, _recipient, _amount);
 
-493:     allowances[_owner][_spender] = _amount;
+456:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
 
-517:     uint256 _sharesAmount
+479:     emit Approval(_owner, _spender, _amount);
 
-609:     // We're emitting `SharesBurnt` event to provide an explicit rebase log record nonetheless.
+579:     emit SharesBurnt(
 
-711:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+667:     emit TokensBurnt(_account, _amount);
 
 ```
-[#L491](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L491) [#L493](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L493) [#L517](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L517) [#L609](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L609) [#L711](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L711) 
+[#L455](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L455) [#L456](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L456) [#L479](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L479) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L579) [#L667](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L667) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1133,30 +1132,30 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-18: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
+3: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 
-19: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20MetadataUpgradeable.sol";
+4: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20MetadataUpgradeable.sol";
 
-20: import "contracts/external/openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
+5: import "contracts/external/openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-21: import "contracts/external/openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol";
+6: import "contracts/external/openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol";
 
-22: import "contracts/external/openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+7: import "contracts/external/openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
-23: import "contracts/external/openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
+8: import "contracts/external/openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
 
-24: import "contracts/usdy/blocklist/BlocklistClientUpgradeable.sol";
+9: import "contracts/usdy/blocklist/BlocklistClientUpgradeable.sol";
 
-25: import "contracts/usdy/allowlist/AllowlistClientUpgradeable.sol";
+10: import "contracts/usdy/allowlist/AllowlistClientUpgradeable.sol";
 
-26: import "contracts/sanctions/SanctionsListClientUpgradeable.sol";
+11: import "contracts/sanctions/SanctionsListClientUpgradeable.sol";
 
-27: import "contracts/interfaces/IUSDY.sol";
+12: import "contracts/interfaces/IUSDY.sol";
 
-28: import "contracts/rwaOracles/IRWADynamicOracle.sol";
+13: import "contracts/rwaOracles/IRWADynamicOracle.sol";
 
 ```
-[#L18](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L18) [#L19](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L19) [#L20](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L20) [#L21](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L21) [#L22](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L22) [#L23](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L23) [#L24](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L24) [#L25](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L25) [#L26](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L26) [#L27](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L27) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L28) 
+[#L3](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L3) [#L4](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L4) [#L5](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L5) [#L6](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L6) [#L7](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L7) [#L8](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L8) [#L9](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L9) [#L10](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L10) [#L11](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L11) [#L12](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L12) [#L13](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L13) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1286,102 +1285,88 @@ File: contracts/usdy/rUSDY.sol
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-130:     __SanctionsListClientInitializable_init(sanctionsList);
-         __rUSDY_init_unchained(_usdy, guardian, _oracle);
-       }
-     
-       function __rUSDY_init_unchained(
+94:   function initialize(
+        address blocklist,
+        address allowlist,
+        address sanctionsList,
+        address _usdy,
+        address guardian,
+        address _oracle
+      ) public virtual initializer {
+
+/// Missing zero check for `blocklist`
+/// Missing zero check for `allowlist`
+/// Missing zero check for `sanctionsList`
+/// Missing zero check for `_usdy`
+/// Missing zero check for `guardian`
+/// Missing zero check for `_oracle`
+105:   function __rUSDY_init(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
          address _usdy,
          address guardian,
          address _oracle
        ) internal onlyInitializing {
 
-/// Missing zero check for `blocklist`
-/// Missing zero check for `allowlist`
-/// Missing zero check for `sanctionsList`
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-141:     _grantRole(DEFAULT_ADMIN_ROLE, guardian);
-         _grantRole(USDY_MANAGER_ROLE, guardian);
-         _grantRole(PAUSER_ROLE, guardian);
-         _grantRole(MINTER_ROLE, guardian);
-         _grantRole(BURNER_ROLE, guardian);
-
-/// Missing zero check for `_usdy`
-/// Missing zero check for `guardian`
-/// Missing zero check for `_oracle`
-154:   event TransferShares(
-         address indexed from,
-         address indexed to,
-         uint256 sharesValue
-       );
-     
-       /**
-        * @notice An executed `burnShares` request
+119:   function __rUSDY_init_unchained(
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) internal onlyInitializing {
 
 /// Missing zero check for `_account`
-243:    * @dev The `_amount` argument is the amount of tokens, not shares.
-        */
-       function transfer(address _recipient, uint256 _amount) public returns (bool) {
+211:   function balanceOf(address _account) public view returns (uint256) {
 
 /// Missing zero check for `_recipient`
-264:    * @notice Sets `_amount` as the allowance of `_spender` over the caller's tokens.
-        *
-        * @return a boolean value indicating whether the operation succeeded.
+230:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
 
 /// Missing zero check for `_spender`
-294:    * - `_sender` and `_recipient` cannot be the zero addresses.
-        * - `_sender` must have a balance of at least `_amount`.
-        * - the caller must have allowance for `_sender`'s tokens of at least `_amount`.
+261:   function approve(address _spender, uint256 _amount) public returns (bool) {
 
 /// Missing zero check for `_account`
-402:    * @notice Moves `_sharesAmount` token shares from the caller's account to the `_recipient` account.
+366:   function sharesOf(address _account) public view returns (uint256) {
 
 /// Missing zero check for `_sender`
 /// Missing zero check for `_recipient`
-483:    * - the contract must not be paused.
-        */
-       function _approve(
-         address _owner,
-         address _spender,
+448:   function _transfer(
+         address _sender,
+         address _recipient,
          uint256 _amount
+       ) internal {
 
 /// Missing zero check for `_account`
-520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
-     
-         _beforeTokenTransfer(_sender, _recipient, _sharesAmount);
+485:   function _sharesOf(address _account) internal view returns (uint256) {
 
 /// Missing zero check for `_oracle`
-680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
-     
-         emit TokensBurnt(_account, _amount);
-       }
-     
-       function pause() external onlyRole(PAUSER_ROLE) {
+647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
 /// Missing zero check for `_account`
-700:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
-         _setBlocklist(blocklist);
-       }
-     
-       /**
-        * @notice Sets the allowlist address
+657:   function burn(
+         address _account,
+         uint256 _amount
+       ) external onlyRole(BURNER_ROLE) {
 
 /// Missing zero check for `blocklist`
-723:     _setSanctionsList(sanctionsList);
-       }
-     }
-     
+683:   function setBlocklist(
+         address blocklist
+       ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 /// Missing zero check for `allowlist`
-726: 
+694:   function setAllowlist(
+         address allowlist
+       ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 /// Missing zero check for `sanctionsList`
-726: 
+705:   function setSanctionsList(
+         address sanctionsList
+       ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L130) [#L141](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L141) [#L154](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L154) [#L243](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L243) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L264) [#L294](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L294) [#L402](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L402) [#L483](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L483) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L520) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L680) [#L700](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L700) [#L723](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L723) [#L726](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L726) [#L726](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L726) 
+[#L94](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L94) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L105) [#L119](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L119) [#L211](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L211) [#L230](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L230) [#L261](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L261) [#L366](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L366) [#L448](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L448) [#L485](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L485) [#L647](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L647) [#L657](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L657) [#L683](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L683) [#L694](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L694) [#L705](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L705) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1422,12 +1407,12 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-634:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
+619:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
 
-635:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
+620:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
 
 ```
-[#L634](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L634) [#L635](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L635) 
+[#L619](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L619) [#L620](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L620) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1479,12 +1464,12 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-76:   mapping(address => uint256) private shares;
+61:   mapping(address => uint256) private shares;
 
-79:   mapping(address => mapping(address => uint256)) private allowances;
+64:   mapping(address => mapping(address => uint256)) private allowances;
 
 ```
-[#L76](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L76) [#L79](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L79) 
+[#L61](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L61) [#L64](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L64) 
 
 </details>
 
@@ -1576,43 +1561,36 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-130:     __SanctionsListClientInitializable_init(sanctionsList);
-         __rUSDY_init_unchained(_usdy, guardian, _oracle);
-       }
-     
-       function __rUSDY_init_unchained(
+94:   function initialize(
+        address blocklist,
+        address allowlist,
+        address sanctionsList,
+        address _usdy,
+        address guardian,
+        address _oracle
+      ) public virtual initializer {
+
+105:   function __rUSDY_init(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
          address _usdy,
          address guardian,
          address _oracle
        ) internal onlyInitializing {
 
-141:     _grantRole(DEFAULT_ADMIN_ROLE, guardian);
-         _grantRole(USDY_MANAGER_ROLE, guardian);
-         _grantRole(PAUSER_ROLE, guardian);
-         _grantRole(MINTER_ROLE, guardian);
-         _grantRole(BURNER_ROLE, guardian);
+119:   function __rUSDY_init_unchained(
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) internal onlyInitializing {
 
-154:   event TransferShares(
-         address indexed from,
-         address indexed to,
-         uint256 sharesValue
-       );
-     
-       /**
-        * @notice An executed `burnShares` request
+670:   function pause() external onlyRole(PAUSER_ROLE) {
 
-712:     _setAllowlist(allowlist);
-       }
-     
-       /**
-        * @notice Sets the sanctions list address
-
-718:    * @param sanctionsList New sanctions list address
-        */
-       function setSanctionsList(
+674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L130) [#L141](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L141) [#L154](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L154) [#L712](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L712) [#L718](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L718) 
+[#L94](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L94) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L105) [#L119](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L119) [#L670](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L670) [#L674](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L674) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1723,15 +1701,14 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _usdy
 /// Missing @param for guardian
 /// Missing @param for _oracle
-130:     __SanctionsListClientInitializable_init(sanctionsList);
-         __rUSDY_init_unchained(_usdy, guardian, _oracle);
-       }
-     
-       function __rUSDY_init_unchained(
-         address _usdy,
-         address guardian,
-         address _oracle
-       ) internal onlyInitializing {
+94:   function initialize(
+        address blocklist,
+        address allowlist,
+        address sanctionsList,
+        address _usdy,
+        address guardian,
+        address _oracle
+      ) public virtual initializer {
 
 /// Missing @param for blocklist
 /// Missing @param for allowlist
@@ -1739,148 +1716,137 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _usdy
 /// Missing @param for guardian
 /// Missing @param for _oracle
-141:     _grantRole(DEFAULT_ADMIN_ROLE, guardian);
-         _grantRole(USDY_MANAGER_ROLE, guardian);
-         _grantRole(PAUSER_ROLE, guardian);
-         _grantRole(MINTER_ROLE, guardian);
-         _grantRole(BURNER_ROLE, guardian);
+105:   function __rUSDY_init(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) internal onlyInitializing {
 
 /// Missing @param for _usdy
 /// Missing @param for guardian
 /// Missing @param for _oracle
-154:   event TransferShares(
-         address indexed from,
-         address indexed to,
-         uint256 sharesValue
-       );
-     
-       /**
-        * @notice An executed `burnShares` request
+119:   function __rUSDY_init_unchained(
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) internal onlyInitializing {
 
 /// Missing @param for _account
-243:    * @dev The `_amount` argument is the amount of tokens, not shares.
-        */
-       function transfer(address _recipient, uint256 _amount) public returns (bool) {
+211:   function balanceOf(address _account) public view returns (uint256) {
 
 /// Missing @param for _recipient
 /// Missing @param for _amount
-264:    * @notice Sets `_amount` as the allowance of `_spender` over the caller's tokens.
-        *
-        * @return a boolean value indicating whether the operation succeeded.
+230:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
 
 /// Missing @param for _owner
 /// Missing @param for _spender
-277:     _approve(msg.sender, _spender, _amount);
-         return true;
-       }
-     
-       /**
-        * @notice Moves `_amount` tokens from `_sender` to `_recipient` using the
+241:   function allowance(
+         address _owner,
+         address _spender
+       ) public view returns (uint256) {
 
 /// Missing @param for _spender
 /// Missing @param for _amount
-294:    * - `_sender` and `_recipient` cannot be the zero addresses.
-        * - `_sender` must have a balance of at least `_amount`.
-        * - the caller must have allowance for `_sender`'s tokens of at least `_amount`.
+261:   function approve(address _spender, uint256 _amount) public returns (bool) {
 
 /// Missing @param for _sender
 /// Missing @param for _recipient
 /// Missing @param for _amount
-319:    * https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol#L42
-        * Emits an `Approval` event indicating the updated allowance.
+286:   function transferFrom(
+         address _sender,
+         address _recipient,
+         uint256 _amount
+       ) public returns (bool) {
 
 /// Missing @param for _spender
 /// Missing @param for _addedValue
-345:    * Emits an `Approval` event indicating the updated allowance.
-        *
-        * Requirements:
-        *
-        * - `_spender` cannot be the zero address.
-        * - `_spender` must have allowance for the caller of at least `_subtractedValue`.
+312:   function increaseAllowance(
+         address _spender,
+         uint256 _addedValue
+       ) public returns (bool) {
 
 /// Missing @param for _spender
 /// Missing @param for _subtractedValue
-372:   function getTotalShares() public view returns (uint256) {
-         return totalShares;
-       }
-     
-       /**
-        * @return the amount of shares owned by `_account`.
+338:   function decreaseAllowance(
+         address _spender,
+         uint256 _subtractedValue
+       ) public returns (bool) {
 
 /// Missing @param for _account
-402:    * @notice Moves `_sharesAmount` token shares from the caller's account to the `_recipient` account.
+366:   function sharesOf(address _account) public view returns (uint256) {
 
 /// Missing @param for _rUSDYAmount
-406:    * Emits a `Transfer` event.
-        *
-        * Requirements:
-        *
-        * - `_recipient` cannot be the zero address.
-        * - the caller must have at least `_sharesAmount` shares.
+373:   function getSharesByRUSDY(
+         uint256 _rUSDYAmount
+       ) public view returns (uint256) {
 
 /// Missing @param for _shares
-414:    * @dev The `_sharesAmount` argument is the amount of shares, not tokens.
-        */
-       function transferShares(
-         address _recipient,
-         uint256 _sharesAmount
+382:   function getRUSDYByShares(uint256 _shares) public view returns (uint256) {
 
 /// Missing @param for _recipient
 /// Missing @param for _sharesAmount
-434:   function wrap(uint256 _USDYAmount) external whenNotPaused {
-         require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+401:   function transferShares(
+         address _recipient,
+         uint256 _sharesAmount
+       ) public returns (uint256) {
 
 /// Missing @param for _sender
 /// Missing @param for _recipient
 /// Missing @param for _amount
-483:    * - the contract must not be paused.
-        */
-       function _approve(
-         address _owner,
-         address _spender,
+448:   function _transfer(
+         address _sender,
+         address _recipient,
          uint256 _amount
+       ) internal {
 
 /// Missing @param for _owner
 /// Missing @param for _spender
 /// Missing @param for _amount
-509:    * - `_sender` cannot be the zero address.
-        * - `_recipient` cannot be the zero address.
-        * - `_sender` must hold at least `_sharesAmount` shares.
+470:   function _approve(
+         address _owner,
+         address _spender,
+         uint256 _amount
+       ) internal whenNotPaused {
 
 /// Missing @param for _account
-520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
-     
-         _beforeTokenTransfer(_sender, _recipient, _sharesAmount);
+485:   function _sharesOf(address _account) internal view returns (uint256) {
 
 /// Missing @param for _sender
 /// Missing @param for _recipient
 /// Missing @param for _sharesAmount
-535:    * @notice Creates `_sharesAmount` shares and assigns them to `_recipient`, increasing the total amount of shares.
-        * @dev This doesn't increase the token total supply.
+499:   function _transferShares(
+         address _sender,
+         address _recipient,
+         uint256 _sharesAmount
+       ) internal whenNotPaused {
 
 /// Missing @param for _recipient
 /// Missing @param for _sharesAmount
-559:     // token holders, proportionally to their share. The total supply of the token doesn't change
-         // as the result. This is equivalent to performing a send from each other token holder's
+528:   function _mintShares(
+         address _recipient,
+         uint256 _sharesAmount
+       ) internal whenNotPaused returns (uint256) {
 
 /// Missing @param for _account
 /// Missing @param for _sharesAmount
-594:     emit SharesBurnt(
-           _account,
-           preRebaseTokenAmount,
-           postRebaseTokenAmount,
-           _sharesAmount
-         );
-     
-         return totalShares;
+560:   function _burnShares(
+         address _account,
+         uint256 _sharesAmount
+       ) internal whenNotPaused returns (uint256) {
 
 /// Missing @param for from
 /// Missing @param for to
-644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
-           require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+611:   function _beforeTokenTransfer(
+         address from,
+         address to,
+         uint256
+       ) internal view {
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L130) [#L141](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L141) [#L154](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L154) [#L243](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L243) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L264) [#L277](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L277) [#L294](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L294) [#L319](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L319) [#L345](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L345) [#L372](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L372) [#L402](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L402) [#L406](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L406) [#L414](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L414) [#L434](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L434) [#L483](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L483) [#L509](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L509) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L520) [#L535](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L535) [#L559](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L559) [#L594](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L594) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L644) 
+[#L94](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L94) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L105) [#L119](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L119) [#L211](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L211) [#L230](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L230) [#L241](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L241) [#L261](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L261) [#L286](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L286) [#L312](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L312) [#L338](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L338) [#L366](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L366) [#L373](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L373) [#L382](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L382) [#L401](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L401) [#L448](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L448) [#L470](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L470) [#L485](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L485) [#L499](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L499) [#L528](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L528) [#L560](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L560) [#L611](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L611) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -1938,12 +1904,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-101:   bytes32 public constant LIST_CONFIGURER_ROLE =
+70:   IRWADynamicOracle public oracle;
 
-104:   /// @custom:oz-upgrades-unsafe-allow constructor
+73:   IUSDY public usdy;
 
 ```
-[#L101](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L101) [#L104](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L104) 
+[#L70](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L70) [#L73](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L73) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -2041,34 +2007,28 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-345:    * Emits an `Approval` event indicating the updated allowance.
-        *
-        * Requirements:
-        *
-        * - `_spender` cannot be the zero address.
-        * - `_spender` must have allowance for the caller of at least `_subtractedValue`.
+312:   function increaseAllowance(
+         address _spender,
+         uint256 _addedValue
+       ) public returns (bool) {
 
-372:   function getTotalShares() public view returns (uint256) {
-         return totalShares;
-       }
-     
-       /**
-        * @return the amount of shares owned by `_account`.
+338:   function decreaseAllowance(
+         address _spender,
+         uint256 _subtractedValue
+       ) public returns (bool) {
 
-559:     // token holders, proportionally to their share. The total supply of the token doesn't change
-         // as the result. This is equivalent to performing a send from each other token holder's
+528:   function _mintShares(
+         address _recipient,
+         uint256 _sharesAmount
+       ) internal whenNotPaused returns (uint256) {
 
-594:     emit SharesBurnt(
-           _account,
-           preRebaseTokenAmount,
-           postRebaseTokenAmount,
-           _sharesAmount
-         );
-     
-         return totalShares;
+560:   function _burnShares(
+         address _account,
+         uint256 _sharesAmount
+       ) internal whenNotPaused returns (uint256) {
 
 ```
-[#L345](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L345) [#L372](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L372) [#L559](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L559) [#L594](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L594) 
+[#L312](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L312) [#L338](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L338) [#L528](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L528) [#L560](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L560) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -2123,16 +2083,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-101:   bytes32 public constant LIST_CONFIGURER_ROLE =
+86:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
-[#L98](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L101) 
+[#L83](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L83) [#L84](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L84) [#L85](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L85) [#L86](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L86) 
 
 </details>
 
@@ -2310,20 +2270,20 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-91:   uint256 public constant BPS_DENOMINATOR = 10_000;
+76:   uint256 public constant BPS_DENOMINATOR = 10_000;
 
-97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-101:   bytes32 public constant LIST_CONFIGURER_ROLE =
+86:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
-[#L91](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L91) [#L97](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L101) 
+[#L76](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L76) [#L82](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L82) [#L83](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L83) [#L84](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L84) [#L85](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L85) [#L86](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L86) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -2381,10 +2341,10 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-16: pragma solidity 0.8.16;
+1: pragma solidity 0.8.16;
 
 ```
-[#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L16) 
+[#L1](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L1) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -2511,14 +2471,14 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+61:   mapping(address => uint256) private shares;
 
-98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+64:   mapping(address => mapping(address => uint256)) private allowances;
 
-100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+67:   uint256 private totalShares;
 
 ```
-[#L97](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L98) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L100) 
+[#L61](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L61) [#L64](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L64) [#L67](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L67) 
 
 </details>
 
@@ -2566,16 +2526,16 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-277:     _approve(msg.sender, _spender, _amount);
+262:     _approve(msg.sender, _spender, _amount);
 
-310:     _approve(_sender, msg.sender, currentAllowance - _amount);
+295:     _approve(_sender, msg.sender, currentAllowance - _amount);
 
-331:     _approve(
+316:     _approve(
 
-362:     _approve(msg.sender, _spender, currentAllowance - _subtractedValue);
+347:     _approve(msg.sender, _spender, currentAllowance - _subtractedValue);
 
 ```
-[#L277](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L277) [#L310](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L310) [#L331](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L331) [#L362](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L362) 
+[#L262](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L262) [#L295](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L295) [#L316](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L316) [#L347](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L347) 
 
 </details>
 
@@ -2629,14 +2589,14 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-170:    * @param sharesAmount amount of burnt shares
+139:   event TransferShares(
 
-194:   function name() public pure returns (string memory) {
+157:   event SharesBurnt(
 
-214:    * @return the amount of tokens in existence.
+174:   event TokensBurnt(address indexed account, uint256 tokensBurnt);
 
 ```
-[#L170](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L170) [#L194](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L194) [#L214](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L214) 
+[#L139](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L139) [#L157](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L157) [#L174](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L174) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -2661,36 +2621,36 @@ There are <b>14</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-217:     return (totalShares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+179:   function name() public pure returns (string memory) {
 
-224:    *      by the price of USDY
+187:   function symbol() public pure returns (string memory) {
 
-231:    * @notice Moves `_amount` tokens from the caller's account to the `_recipient` account.
+194:   function decimals() public pure returns (uint8) {
 
-233:    * @return a boolean value indicating whether the operation succeeded.
+201:   function totalSupply() public view returns (uint256) {
 
-243:    * @dev The `_amount` argument is the amount of tokens, not shares.
+211:   function balanceOf(address _account) public view returns (uint256) {
 
-264:    * @notice Sets `_amount` as the allowance of `_spender` over the caller's tokens.
+230:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
 
-277:     _approve(msg.sender, _spender, _amount);
+241:   function allowance(
 
-294:    * - `_sender` and `_recipient` cannot be the zero addresses.
+261:   function approve(address _spender, uint256 _amount) public returns (bool) {
 
-319:    * https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol#L42
+286:   function transferFrom(
 
-345:    * Emits an `Approval` event indicating the updated allowance.
+312:   function increaseAllowance(
 
-372:   function getTotalShares() public view returns (uint256) {
+338:   function decreaseAllowance(
 
-395:    * @return the amount of rUSDY that corresponds to `_shares` of usdy.
+357:   function getTotalShares() public view returns (uint256) {
 
-402:    * @notice Moves `_sharesAmount` token shares from the caller's account to the `_recipient` account.
+366:   function sharesOf(address _account) public view returns (uint256) {
 
-434:   function wrap(uint256 _USDYAmount) external whenNotPaused {
+401:   function transferShares(
 
 ```
-[#L217](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L217) [#L224](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L224) [#L231](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L231) [#L233](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L233) [#L243](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L243) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L264) [#L277](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L277) [#L294](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L294) [#L319](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L319) [#L345](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L345) [#L372](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L372) [#L395](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L395) [#L402](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L402) [#L434](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L434) 
+[#L179](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L179) [#L187](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L187) [#L194](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L194) [#L201](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L201) [#L211](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L211) [#L230](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L230) [#L241](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L241) [#L261](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L261) [#L286](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L286) [#L312](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L312) [#L338](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L338) [#L357](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L357) [#L366](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L366) [#L401](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L401) 
 
 </details>
 
@@ -2740,12 +2700,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-551:     totalShares += _sharesAmount;
+536:     totalShares += _sharesAmount;
 
-588:     totalShares -= _sharesAmount;
+573:     totalShares -= _sharesAmount;
 
 ```
-[#L551](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L551) [#L588](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L588) 
+[#L536](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L536) [#L573](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L573) 
 
 </details>
 
@@ -2794,16 +2754,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 File: contracts/usdy/rUSDY.sol
 
 /// `__rUSDY_init` is used only once
-141:     _grantRole(DEFAULT_ADMIN_ROLE, guardian);
+105:   function __rUSDY_init(
 
 /// `__rUSDY_init_unchained` is used only once
-154:   event TransferShares(
+119:   function __rUSDY_init_unchained(
 
 /// `_mintShares` is used only once
-559:     // token holders, proportionally to their share. The total supply of the token doesn't change
+528:   function _mintShares(
 
 ```
-[#L141](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L141) [#L154](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L154) [#L559](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L559) 
+[#L105](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L105) [#L119](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L119) [#L528](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L528) 
 
 </details>
 
@@ -2831,18 +2791,18 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-102:     keccak256("LIST_CONFIGURER_ROLE");
+87:     keccak256("LIST_CONFIGURER_ROLE");
 
 ```
-[#L97](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L100) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L102) 
+[#L82](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L82) [#L83](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L83) [#L84](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L84) [#L85](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L85) [#L87](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L87) 
 
 </details>
 
@@ -2923,14 +2883,14 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-/// `shares[_sender]` is also accessed on line 524
-530:     shares[_sender] = currentSenderShares - _sharesAmount;
+/// `shares[_sender]` is also accessed on line 509
+515:     shares[_sender] = currentSenderShares - _sharesAmount;
 
-/// `shares[_account]` is also accessed on line 583
-590:     shares[_account] = accountShares - _sharesAmount;
+/// `shares[_account]` is also accessed on line 568
+575:     shares[_account] = accountShares - _sharesAmount;
 
 ```
-[#L530](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L530) [#L590](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L590) 
+[#L515](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L515) [#L575](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L575) 
 
 </details>
 
@@ -2980,10 +2940,10 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-16: pragma solidity 0.8.16;
+1: pragma solidity 0.8.16;
 
 ```
-[#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L16) 
+[#L1](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L1) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3055,14 +3015,14 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
-452:     if (usdyAmount < BPS_DENOMINATOR) revert UnwrapTooSmall();
+437:     if (usdyAmount < BPS_DENOMINATOR) revert UnwrapTooSmall();
 
 ```
-[#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L450) [#L452](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L452) 
+[#L420](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L420) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L437](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L437) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3120,10 +3080,10 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-16: pragma solidity 0.8.16;
+1: pragma solidity 0.8.16;
 
 ```
-[#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L16) 
+[#L1](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L1) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3149,11 +3109,11 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-395:    * @return the amount of rUSDY that corresponds to `_shares` of usdy.
-        */
+357:   function getTotalShares() public view returns (uint256) {
+         return totalShares;
 
 ```
-[#L395](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L395) 
+[#L357](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L357) 
 
 </details>
 
@@ -3171,16 +3131,14 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-322:    * Requirements:
-        *
-        * - `_spender` cannot be the the zero address.
+292:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
 
-450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-468:     uint256 _sharesToTransfer = getSharesByRUSDY(_amount);
+435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
 ```
-[#L322](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L322) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L450) [#L468](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L468) 
+[#L292](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L292) [#L420](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L420) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) 
 
 </details>
 
@@ -3272,39 +3230,41 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 File: contracts/usdy/rUSDY.sol
 
 /// `_grantRole` is called 6 times
-154:   event TransferShares(
-         address indexed from,
-         address indexed to,
-         uint256 sharesValue
-       );
-     
-       /**
-        * @notice An executed `burnShares` request
+119:   function __rUSDY_init_unchained(
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) internal onlyInitializing {
 
 /// `getRUSDYByShares` is called 2 times
-594:     emit SharesBurnt(
-           _account,
-           preRebaseTokenAmount,
-           postRebaseTokenAmount,
-           _sharesAmount
-         );
-     
-         return totalShares;
+560:   function _burnShares(
+         address _account,
+         uint256 _sharesAmount
+       ) internal whenNotPaused returns (uint256) {
 
 /// `_isBlocked` is called 3 times
-644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
-           require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+611:   function _beforeTokenTransfer(
+         address from,
+         address to,
+         uint256
+       ) internal view {
 
 /// `_isSanctioned` is called 3 times
-644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
-           require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+611:   function _beforeTokenTransfer(
+         address from,
+         address to,
+         uint256
+       ) internal view {
 
 /// `_isAllowed` is called 3 times
-644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
-           require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+611:   function _beforeTokenTransfer(
+         address from,
+         address to,
+         uint256
+       ) internal view {
 
 ```
-[#L154](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L154) [#L594](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L594) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L644) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L644) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L644) 
+[#L119](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L119) [#L560](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L560) [#L611](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L611) [#L611](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L611) [#L611](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L611) 
 
 </details>
 
@@ -3386,18 +3346,18 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-102:     keccak256("LIST_CONFIGURER_ROLE");
+87:     keccak256("LIST_CONFIGURER_ROLE");
 
 ```
-[#L97](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L100) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L102) 
+[#L82](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L82) [#L83](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L83) [#L84](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L84) [#L85](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L85) [#L87](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L87) 
 
 </details>
 
@@ -3455,28 +3415,28 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-421:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
+406:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
 
-423:     emit Transfer(msg.sender, _recipient, tokensAmount);
+408:     emit Transfer(msg.sender, _recipient, tokensAmount);
 
-438:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
+423:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
 
-439:     emit TransferShares(address(0), msg.sender, _USDYAmount);
+424:     emit TransferShares(address(0), msg.sender, _USDYAmount);
 
-455:     emit TokensBurnt(msg.sender, _rUSDYAmount);
+440:     emit TokensBurnt(msg.sender, _rUSDYAmount);
 
-470:     emit Transfer(_sender, _recipient, _amount);
+455:     emit Transfer(_sender, _recipient, _amount);
 
-471:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
+456:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
 
-494:     emit Approval(_owner, _spender, _amount);
+479:     emit Approval(_owner, _spender, _amount);
 
-594:     emit SharesBurnt(
+579:     emit SharesBurnt(
 
-682:     emit TokensBurnt(_account, _amount);
+667:     emit TokensBurnt(_account, _amount);
 
 ```
-[#L421](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L421) [#L423](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L423) [#L438](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L438) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L439) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L455) [#L470](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L470) [#L471](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L471) [#L494](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L494) [#L594](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L594) [#L682](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L682) 
+[#L406](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L406) [#L408](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L408) [#L423](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L423) [#L424](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L424) [#L440](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L440) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L455) [#L456](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L456) [#L479](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L479) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L579) [#L667](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L667) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3510,10 +3470,10 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-633:     if (from != msg.sender && to != msg.sender) {
+618:     if (from != msg.sender && to != msg.sender) {
 
 ```
-[#L633](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L633) 
+[#L618](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L618) 
 
 </details>
 
@@ -3566,10 +3526,10 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-16: pragma solidity 0.8.16;
+1: pragma solidity 0.8.16;
 
 ```
-[#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L16) 
+[#L1](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L1) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3600,12 +3560,12 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-550: 
+516:     shares[_recipient] = shares[_recipient] + _sharesAmount;
 
-566:    * @notice Destroys `_sharesAmount` shares from `_account`'s holdings, decreasing the total amount of shares.
+538:     shares[_recipient] = shares[_recipient] + _sharesAmount;
 
 ```
-[#L550](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L550) [#L566](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L566) 
+[#L516](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L516) [#L538](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L538) 
 
 </details>
 
@@ -3702,11 +3662,11 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-/// More than 1 read for `shares`, line 531 and 524
-531:     shares[_recipient] = shares[_recipient] + _sharesAmount;
+/// More than 1 read for `shares`, line 516 and 509
+516:     shares[_recipient] = shares[_recipient] + _sharesAmount;
 
 ```
-[#L531](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L531) 
+[#L516](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L516) 
 
 </details>
 
@@ -3754,44 +3714,44 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-307:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
+292:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
 
-435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
-490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-584:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
+569:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
 
-634:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
+619:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
 
-635:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
+620:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
 
-644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
+629:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
 
-645:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+630:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
 
-646:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
+631:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
 
-651:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
+636:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
 
-652:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
+637:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
 
-653:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
+638:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
 
 ```
-[#L307](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L307) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L450) [#L490](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L579) [#L584](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L584) [#L634](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L634) [#L635](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L635) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L644) [#L645](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L645) [#L646](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L646) [#L651](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L651) [#L652](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L652) [#L653](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L653) 
+[#L292](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L292) [#L420](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L420) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L475](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L475) [#L476](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L476) [#L504](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L504) [#L505](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L505) [#L532](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L532) [#L564](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L564) [#L569](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L569) [#L619](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L619) [#L620](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L620) [#L629](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L629) [#L630](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L630) [#L631](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L631) [#L636](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L636) [#L637](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L637) [#L638](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L638) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3871,10 +3831,10 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-209:   function decimals() public pure returns (uint8) {
+194:   function decimals() public pure returns (uint8) {
 
 ```
-[#L209](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L209) 
+[#L194](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L194) 
 
 </details>
 
@@ -3892,10 +3852,10 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-105:   constructor() {
+90:   constructor() {
 
 ```
-[#L105](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L105) 
+[#L90](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L90) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -3961,14 +3921,14 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-685:   function pause() external onlyRole(PAUSER_ROLE) {
+670:   function pause() external onlyRole(PAUSER_ROLE) {
 
-689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
 ```
-[#L662](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L662) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L689) 
+[#L647](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L647) [#L670](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L670) [#L674](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L674) 
 
 </details>
 
@@ -4035,20 +3995,20 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-91:   uint256 public constant BPS_DENOMINATOR = 10_000;
+76:   uint256 public constant BPS_DENOMINATOR = 10_000;
 
-97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-101:   bytes32 public constant LIST_CONFIGURER_ROLE =
+86:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
-[#L91](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L91) [#L97](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L101) 
+[#L76](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L76) [#L82](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L82) [#L83](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L83) [#L84](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L84) [#L85](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L85) [#L86](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L86) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
@@ -4082,12 +4042,12 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
 ```
-[#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L450) 
+[#L420](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L420) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L435) 
 
 </details>
 
@@ -4139,24 +4099,24 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-511:    * - `_sender` must hold at least `_sharesAmount` shares.
+475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-512:    * - the contract must not be paused.
+476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-536:    * @dev This doesn't increase the token total supply.
+504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-540:    * - `_recipient` cannot be the zero address.
+505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-560:     // as the result. This is equivalent to performing a send from each other token holder's
+532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-601:     return totalShares;
+564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-659:    * @dev The new oracle must comply with the `IPricerReader` interface
+627:     if (from != address(0)) {
 
-667:    * @notice Admin burn function to burn rUSDY tokens from any account
+634:     if (to != address(0)) {
 
 ```
-[#L511](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L511) [#L512](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L512) [#L536](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L536) [#L540](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L540) [#L560](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L560) [#L601](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L601) [#L659](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L659) [#L667](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L667) 
+[#L475](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L475) [#L476](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L476) [#L504](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L504) [#L505](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L505) [#L532](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L532) [#L564](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L564) [#L627](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L627) [#L634](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/usdy/rUSDY.sol#L634) 
 
 </details>
 
