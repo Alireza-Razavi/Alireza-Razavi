@@ -144,7 +144,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-165:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+180:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L180](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L180) 
@@ -152,7 +152,7 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-116:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+131:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L131](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L131) 
@@ -173,7 +173,7 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-309:     IRWALike(_token).transfer(owner(), balance);
+324:     IRWALike(_token).transfer(owner(), balance);
 
 ```
 [#L324](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L324) 
@@ -181,11 +181,11 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-422:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
+437:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
 
-439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
 [#L437](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L437) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L680) 
@@ -206,7 +206,7 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-309:     IRWALike(_token).transfer(owner(), balance);
+324:     IRWALike(_token).transfer(owner(), balance);
 
 ```
 [#L324](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L324) 
@@ -214,11 +214,11 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-422:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
+437:     usdy.transferFrom(msg.sender, address(this), _USDYAmount);
 
-439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
 [#L437](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L437) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L680) 
@@ -239,25 +239,25 @@ There are <b>29</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-15:   Ownable,
+30:   Ownable,
 
-195:   function addApprover(address approver) external onlyOwner {
+210:   function addApprover(address approver) external onlyOwner {
 
-205:   function removeApprover(address approver) external onlyOwner {
+220:   function removeApprover(address approver) external onlyOwner {
 
-222:   ) external onlyOwner {
+237:   ) external onlyOwner {
 
-244:   ) external onlyOwner {
+259:   ) external onlyOwner {
 
-271:   function setMintLimit(uint256 mintLimit) external onlyOwner {
+286:   function setMintLimit(uint256 mintLimit) external onlyOwner {
 
-280:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
+295:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
 
-289:   function pause() external onlyOwner {
+304:   function pause() external onlyOwner {
 
-298:   function unpause() external onlyOwner {
+313:   function unpause() external onlyOwner {
 
-307:   function rescueTokens(address _token) external onlyOwner {
+322:   function rescueTokens(address _token) external onlyOwner {
 
 ```
 [#L30](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L30) [#L210](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L210) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L220) [#L237](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L237) [#L259](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L259) [#L286](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L286) [#L295](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L295) [#L304](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L304) [#L313](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L313) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L322) 
@@ -265,15 +265,15 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
-124:   ) external onlyOwner {
+139:   ) external onlyOwner {
 
-136:   function pause() external onlyOwner {
+151:   function pause() external onlyOwner {
 
-145:   function unpause() external onlyOwner {
+160:   function unpause() external onlyOwner {
 
-162:   ) external payable override onlyOwner returns (bytes[] memory results) {
+177:   ) external payable override onlyOwner returns (bytes[] memory results) {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) [#L139](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L139) [#L151](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L151) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L160) [#L177](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L177) 
@@ -292,24 +292,24 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 234:   function unpauseOracle() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L23) [#L155](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L155) [#L193](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L193) [#L242](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L242) [#L249](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L249) 
+[#L8](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L8) [#L140](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L140) [#L178](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L178) [#L227](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L227) [#L234](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L234) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-660:   ) external onlyRole(BURNER_ROLE) {
+675:   ) external onlyRole(BURNER_ROLE) {
 
-670:   function pause() external onlyRole(PAUSER_ROLE) {
+685:   function pause() external onlyRole(PAUSER_ROLE) {
 
-674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
-685:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+700:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-696:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+711:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-707:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+722:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 ```
 [#L662](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L662) [#L675](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L675) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L689) [#L700](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L700) [#L711](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L711) [#L722](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L722) 
@@ -317,9 +317,9 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-66:   ) external onlyGuardian returns (address, address, address) {
+81:   ) external onlyGuardian returns (address, address, address) {
 
-113:   ) external payable override onlyGuardian returns (bytes[] memory results) {
+128:   ) external payable override onlyGuardian returns (bytes[] memory results) {
 
 ```
 [#L81](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L81) [#L128](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L128) 
@@ -343,11 +343,11 @@ There are <b>5</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-151:     t.approvers.push(msg.sender);
+166:     t.approvers.push(msg.sender);
 
-251:         chainToThresholds[srcChain].push(
+266:         chainToThresholds[srcChain].push(
 
-258:         chainToThresholds[srcChain].push(
+273:         chainToThresholds[srcChain].push(
 
 ```
 [#L166](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L166) [#L266](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L266) [#L273](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L273) 
@@ -360,7 +360,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 147:     ranges.push(
 
 ```
-[#L46](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L46) [#L162](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L162) 
+[#L31](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L31) [#L147](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L147) 
 
 </details>
 
@@ -390,22 +390,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 391:     require(y == 0 || (z = x * y) / y == x);
 
 ```
-[#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L45) [#L118](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L118) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L220) [#L267](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L267) [#L402](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L402) [#L406](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L406) 
+[#L30](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L30) [#L103](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L103) [#L205](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L205) [#L252](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L252) [#L387](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L387) [#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L391) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-202:     return (totalShares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+217:     return (totalShares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
 
-212:     return (_sharesOf(_account) * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+227:     return (_sharesOf(_account) * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
 
-376:     return (_rUSDYAmount * 1e18 * BPS_DENOMINATOR) / oracle.getPrice();
+391:     return (_rUSDYAmount * 1e18 * BPS_DENOMINATOR) / oracle.getPrice();
 
-383:     return (_shares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+398:     return (_shares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
 
-439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
 [#L217](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L217) [#L227](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L227) [#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L391) [#L398](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L398) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L680) 
@@ -426,13 +426,13 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-683:   function setBlocklist(
+698:   function setBlocklist(
 
-694:   function setAllowlist(
+709:   function setAllowlist(
 
-705:   function setSanctionsList(
+720:   function setSanctionsList(
 
 ```
 [#L662](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L662) [#L698](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L698) [#L709](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L709) [#L720](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L720) 
@@ -460,7 +460,7 @@ File: contracts/bridge/DestinationBridge.sol
 /// `_owner` not validated
 /// `_mintLimit` not validated
 /// `_mintDuration` not validated
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _allowlist,
@@ -483,7 +483,7 @@ File: contracts/bridge/SourceBridge.sol
 /// `_axelarGateway` not validated
 /// `_gasService` not validated
 /// `owner` not validated
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _gasService,
@@ -512,7 +512,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
       ) {
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L31) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
@@ -523,14 +523,14 @@ File: contracts/usdy/rUSDY.sol
 /// `_usdy` not validated
 /// `guardian` not validated
 /// `_oracle` not validated
-94:   function initialize(
-        address blocklist,
-        address allowlist,
-        address sanctionsList,
-        address _usdy,
-        address guardian,
-        address _oracle
-      ) public virtual initializer {
+109:   function initialize(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) public virtual initializer {
 
 ```
 [#L109](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L109) 
@@ -539,7 +539,7 @@ File: contracts/usdy/rUSDY.sol
 File: contracts/usdy/rUSDYFactory.sol
 
 /// `_guardian` not validated
-36:   constructor(address _guardian) {
+51:   constructor(address _guardian) {
 
 ```
 [#L51](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L51) 
@@ -560,7 +560,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-330:           ALLOWLIST.getValidTermIndexes()[0],
+345:           ALLOWLIST.getValidTermIndexes()[0],
 
 ```
 [#L345](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L345) 
@@ -571,7 +571,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 102:     if (startTime == ranges[0].start) {
 
 ```
-[#L117](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L117) 
+[#L102](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L102) 
 
 </details>
 
@@ -589,7 +589,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-165:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+180:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L180](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L180) 
@@ -597,7 +597,7 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-116:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+131:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L131](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L131) 
@@ -618,25 +618,25 @@ There are <b>29</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-15:   Ownable,
+30:   Ownable,
 
-195:   function addApprover(address approver) external onlyOwner {
+210:   function addApprover(address approver) external onlyOwner {
 
-205:   function removeApprover(address approver) external onlyOwner {
+220:   function removeApprover(address approver) external onlyOwner {
 
-222:   ) external onlyOwner {
+237:   ) external onlyOwner {
 
-244:   ) external onlyOwner {
+259:   ) external onlyOwner {
 
-271:   function setMintLimit(uint256 mintLimit) external onlyOwner {
+286:   function setMintLimit(uint256 mintLimit) external onlyOwner {
 
-280:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
+295:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
 
-289:   function pause() external onlyOwner {
+304:   function pause() external onlyOwner {
 
-298:   function unpause() external onlyOwner {
+313:   function unpause() external onlyOwner {
 
-307:   function rescueTokens(address _token) external onlyOwner {
+322:   function rescueTokens(address _token) external onlyOwner {
 
 ```
 [#L30](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L30) [#L210](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L210) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L220) [#L237](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L237) [#L259](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L259) [#L286](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L286) [#L295](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L295) [#L304](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L304) [#L313](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L313) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L322) 
@@ -644,15 +644,15 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
-124:   ) external onlyOwner {
+139:   ) external onlyOwner {
 
-136:   function pause() external onlyOwner {
+151:   function pause() external onlyOwner {
 
-145:   function unpause() external onlyOwner {
+160:   function unpause() external onlyOwner {
 
-162:   ) external payable override onlyOwner returns (bytes[] memory results) {
+177:   ) external payable override onlyOwner returns (bytes[] memory results) {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) [#L139](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L139) [#L151](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L151) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L160) [#L177](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L177) 
@@ -671,24 +671,24 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 234:   function unpauseOracle() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L23) [#L155](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L155) [#L193](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L193) [#L242](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L242) [#L249](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L249) 
+[#L8](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L8) [#L140](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L140) [#L178](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L178) [#L227](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L227) [#L234](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L234) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-660:   ) external onlyRole(BURNER_ROLE) {
+675:   ) external onlyRole(BURNER_ROLE) {
 
-670:   function pause() external onlyRole(PAUSER_ROLE) {
+685:   function pause() external onlyRole(PAUSER_ROLE) {
 
-674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
-685:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+700:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-696:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+711:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
-707:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
+722:   ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 ```
 [#L662](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L662) [#L675](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L675) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L689) [#L700](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L700) [#L711](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L711) [#L722](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L722) 
@@ -696,9 +696,9 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-66:   ) external onlyGuardian returns (address, address, address) {
+81:   ) external onlyGuardian returns (address, address, address) {
 
-113:   ) external payable override onlyGuardian returns (bytes[] memory results) {
+128:   ) external payable override onlyGuardian returns (bytes[] memory results) {
 
 ```
 [#L81](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L81) [#L128](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L128) 
@@ -732,22 +732,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 391:     require(y == 0 || (z = x * y) / y == x);
 
 ```
-[#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L45) [#L118](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L118) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L220) [#L267](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L267) [#L402](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L402) [#L406](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L406) 
+[#L30](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L30) [#L103](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L103) [#L205](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L205) [#L252](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L252) [#L387](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L387) [#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L391) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-202:     return (totalShares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+217:     return (totalShares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
 
-212:     return (_sharesOf(_account) * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+227:     return (_sharesOf(_account) * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
 
-376:     return (_rUSDYAmount * 1e18 * BPS_DENOMINATOR) / oracle.getPrice();
+391:     return (_rUSDYAmount * 1e18 * BPS_DENOMINATOR) / oracle.getPrice();
 
-383:     return (_shares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
+398:     return (_shares * oracle.getPrice()) / (1e18 * BPS_DENOMINATOR);
 
-439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
 [#L217](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L217) [#L227](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L227) [#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L391) [#L398](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L398) [#L454](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L680) 
@@ -768,7 +768,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-165:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+180:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L180](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L180) 
@@ -776,7 +776,7 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-116:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+131:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L131](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L131) 
@@ -802,7 +802,7 @@ File: contracts/bridge/DestinationBridge.sol
 /// Missing zero check for `_allowlist`
 /// Missing zero check for `_ondoApprover`
 /// Missing zero check for `_owner`
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _allowlist,
@@ -825,7 +825,7 @@ File: contracts/bridge/SourceBridge.sol
 /// Missing zero check for `_axelarGateway`
 /// Missing zero check for `_gasService`
 /// Missing zero check for `owner`
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _gasService,
@@ -852,13 +852,13 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
       ) {
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L31) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
 /// Missing zero check for `_guardian`
-36:   constructor(address _guardian) {
+51:   constructor(address _guardian) {
 
 ```
 [#L51](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L51) 
@@ -878,7 +878,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-37:     guardian = _guardian;
+52:     guardian = _guardian;
 
 ```
 [#L52](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L52) 
@@ -899,7 +899,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-42: contract rUSDY is
+57: contract rUSDY is
       Initializable,
       ContextUpgradeable,
 
@@ -922,7 +922,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-12: contract DestinationBridge is
+27: contract DestinationBridge is
       AxelarExecutable,
       MintTimeBasedRateLimiter,
       Ownable,
@@ -933,7 +933,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) 
@@ -954,11 +954,11 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-124:     usdy = IUSDY(_usdy);
+139:     usdy = IUSDY(_usdy);
 
-125:     oracle = IRWADynamicOracle(_oracle);
+140:     oracle = IRWADynamicOracle(_oracle);
 
-648:     oracle = IRWADynamicOracle(_oracle);
+663:     oracle = IRWADynamicOracle(_oracle);
 
 ```
 [#L139](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L139) [#L140](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L140) [#L663](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L663) 
@@ -966,7 +966,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-37:     guardian = _guardian;
+52:     guardian = _guardian;
 
 ```
 [#L52](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L52) 
@@ -987,7 +987,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-309:     IRWALike(_token).transfer(owner(), balance);
+324:     IRWALike(_token).transfer(owner(), balance);
 
 ```
 [#L324](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L324) 
@@ -995,9 +995,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
 [#L454](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L680) 
@@ -1018,7 +1018,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-309:     IRWALike(_token).transfer(owner(), balance);
+324:     IRWALike(_token).transfer(owner(), balance);
 
 ```
 [#L324](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L324) 
@@ -1026,9 +1026,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-439:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
+454:     usdy.transfer(msg.sender, usdyAmount / BPS_DENOMINATOR);
 
-665:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
+680:     usdy.transfer(msg.sender, sharesAmount / BPS_DENOMINATOR);
 
 ```
 [#L454](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L454) [#L680](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L680) 
@@ -1058,7 +1058,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 69:           return derivePrice(range, block.timestamp);
 
 ```
-[#L65](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L65) [#L80](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L80) [#L81](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L81) [#L84](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L84) 
+[#L50](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L50) [#L65](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L65) [#L66](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L66) [#L69](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L69) 
 
 </details>
 
@@ -1076,7 +1076,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-165:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+180:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L180](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L180) 
@@ -1084,7 +1084,7 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-116:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
+131:       (bool success, bytes memory ret) = address(exCallData[i].target).call{
 
 ```
 [#L131](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L131) 
@@ -1105,7 +1105,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-12: contract DestinationBridge is
+27: contract DestinationBridge is
       AxelarExecutable,
       MintTimeBasedRateLimiter,
       Ownable,
@@ -1116,7 +1116,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) 
@@ -1137,13 +1137,13 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-423:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
+438:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
 
-424:     emit TransferShares(address(0), msg.sender, _USDYAmount);
+439:     emit TransferShares(address(0), msg.sender, _USDYAmount);
 
-534:     _beforeTokenTransfer(address(0), _recipient, _sharesAmount);
+549:     _beforeTokenTransfer(address(0), _recipient, _sharesAmount);
 
-566:     _beforeTokenTransfer(_account, address(0), _sharesAmount);
+581:     _beforeTokenTransfer(_account, address(0), _sharesAmount);
 
 ```
 [#L438](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L438) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L439) [#L549](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L549) [#L581](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L581) 
@@ -1169,14 +1169,14 @@ File: contracts/usdy/rUSDY.sol
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-94:   function initialize(
-        address blocklist,
-        address allowlist,
-        address sanctionsList,
-        address _usdy,
-        address guardian,
-        address _oracle
-      ) public virtual initializer {
+109:   function initialize(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) public virtual initializer {
 
 ```
 [#L109](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L109) 
@@ -1197,7 +1197,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-94:   function initialize(
+109:   function initialize(
 
 ```
 [#L109](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L109) 
@@ -1222,7 +1222,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-85:     assert(rUSDYProxyAdmin.owner() == guardian);
+100:     assert(rUSDYProxyAdmin.owner() == guardian);
 
 ```
 [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L100) 
@@ -1242,7 +1242,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) 
@@ -1250,10 +1250,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-4: interface IRWADynamicOracle {
+18: interface IRWADynamicOracle {
 
 ```
-[#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L19) 
+[#L18](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L18) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -1261,7 +1261,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 8: contract RWADynamicOracle is IRWAOracle, AccessControlEnumerable, Pausable {
 
 ```
-[#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L23) 
+[#L8](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L8) 
 
 </details>
 
@@ -1301,9 +1301,9 @@ There are <b>16</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-129:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
+144:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
 
-250:       if (i == 0) {
+265:       if (i == 0) {
 
 ```
 [#L144](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L144) [#L265](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L265) 
@@ -1311,9 +1311,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-68:     if (bytes(destContract).length == 0) {
+83:     if (bytes(destContract).length == 0) {
 
-72:     if (msg.value == 0) {
+87:     if (msg.value == 0) {
 
 ```
 [#L83](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L83) [#L87](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L87) 
@@ -1330,26 +1330,26 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 391:     require(y == 0 || (z = x * y) / y == x);
 
 ```
-[#L199](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L199) [#L219](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L219) [#L285](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L285) [#L406](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L406) 
+[#L184](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L184) [#L204](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L204) [#L270](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L270) [#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L391) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-627:     if (from != address(0)) {
+642:     if (from != address(0)) {
 
-634:     if (to != address(0)) {
+649:     if (to != address(0)) {
 
 ```
 [#L490](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L579) [#L642](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L642) [#L649](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L649) 
@@ -1390,17 +1390,17 @@ There are <b>16</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-98:     emit MessageReceived(srcChain, srcSender, amt, nonce);
+113:     emit MessageReceived(srcChain, srcSender, amt, nonce);
 
-197:     emit ApproverAdded(approver);
+212:     emit ApproverAdded(approver);
 
-207:     emit ApproverRemoved(approver);
+222:     emit ApproverRemoved(approver);
 
-224:     emit ChainIdSupported(srcChain, srcContractAddress);
+239:     emit ChainIdSupported(srcChain, srcContractAddress);
 
-263:     emit ThresholdSet(srcChain, amounts, numOfApprovers);
+278:     emit ThresholdSet(srcChain, amounts, numOfApprovers);
 
-336:       emit BridgeCompleted(txn.sender, txn.amount);
+351:       emit BridgeCompleted(txn.sender, txn.amount);
 
 ```
 [#L113](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L113) [#L212](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L212) [#L222](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L222) [#L239](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L239) [#L278](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L278) [#L351](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L351) 
@@ -1408,7 +1408,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-128:     emit DestinationChainContractAddressSet(destinationChain, contractAddress);
+143:     emit DestinationChainContractAddressSet(destinationChain, contractAddress);
 
 ```
 [#L143](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L143) 
@@ -1416,23 +1416,23 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-406:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
+421:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
 
-408:     emit Transfer(msg.sender, _recipient, tokensAmount);
+423:     emit Transfer(msg.sender, _recipient, tokensAmount);
 
-423:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
+438:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
 
-424:     emit TransferShares(address(0), msg.sender, _USDYAmount);
+439:     emit TransferShares(address(0), msg.sender, _USDYAmount);
 
-440:     emit TokensBurnt(msg.sender, _rUSDYAmount);
+455:     emit TokensBurnt(msg.sender, _rUSDYAmount);
 
-455:     emit Transfer(_sender, _recipient, _amount);
+470:     emit Transfer(_sender, _recipient, _amount);
 
-456:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
+471:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
 
-479:     emit Approval(_owner, _spender, _amount);
+494:     emit Approval(_owner, _spender, _amount);
 
-667:     emit TokensBurnt(_account, _amount);
+682:     emit TokensBurnt(_account, _amount);
 
 ```
 [#L421](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L421) [#L423](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L423) [#L438](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L438) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L439) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L455) [#L470](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L470) [#L471](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L471) [#L494](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L494) [#L682](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L682) 
@@ -1453,23 +1453,23 @@ There are <b>15</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-424:   error NotApprover();
+439:   error NotApprover();
 
-425:   error NoThresholdMatch();
+440:   error NoThresholdMatch();
 
-426:   error ThresholdsNotInAscendingOrder();
+441:   error ThresholdsNotInAscendingOrder();
 
-428:   error ChainNotSupported();
+443:   error ChainNotSupported();
 
-429:   error SourceNotSupported();
+444:   error SourceNotSupported();
 
-430:   error NonceSpent();
+445:   error NonceSpent();
 
-431:   error AlreadyApproved();
+446:   error AlreadyApproved();
 
-432:   error InvalidVersion();
+447:   error InvalidVersion();
 
-433:   error ArrayLengthMismatch();
+448:   error ArrayLengthMismatch();
 
 ```
 [#L439](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L439) [#L440](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L440) [#L441](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L441) [#L443](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L443) [#L444](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L444) [#L445](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L445) [#L446](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L446) [#L447](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L447) [#L448](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L448) 
@@ -1477,9 +1477,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-189:   error DestinationNotSupported();
+204:   error DestinationNotSupported();
 
-190:   error GasFeeTooLow();
+205:   error GasFeeTooLow();
 
 ```
 [#L204](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L204) [#L205](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L205) 
@@ -1494,12 +1494,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 322:   error PriceNotSet();
 
 ```
-[#L335](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L335) [#L336](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L336) [#L337](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L337) 
+[#L320](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L320) [#L321](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L321) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L322) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-79:   error UnwrapTooSmall();
+94:   error UnwrapTooSmall();
 
 ```
 [#L94](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L94) 
@@ -1520,7 +1520,7 @@ There are <b>21</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-168:       require(success, "Call Failed");
+183:       require(success, "Call Failed");
 
 ```
 [#L183](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L183) 
@@ -1528,41 +1528,41 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-292:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
+307:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
 
-420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
-475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-569:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
+584:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
 
-619:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
+634:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
 
-620:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
+635:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
 
-629:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
+644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
 
-630:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+645:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
 
-631:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
+646:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
 
-636:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
+651:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
 
-637:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
+652:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
 
-638:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
+653:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
 
 ```
 [#L307](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L307) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L450) [#L490](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L579) [#L584](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L584) [#L634](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L634) [#L635](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L635) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L644) [#L645](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L645) [#L646](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L646) [#L651](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L651) [#L652](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L652) [#L653](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L653) 
@@ -1570,9 +1570,9 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-119:       require(success, "Call Failed");
+134:       require(success, "Call Failed");
 
-140:     require(msg.sender == guardian, "rUSDYFactory: You are not the Guardian");
+155:     require(msg.sender == guardian, "rUSDYFactory: You are not the Guardian");
 
 ```
 [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L134) [#L155](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L155) 
@@ -1609,7 +1609,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-164:     if (t.numberOfApprovalsNeeded <= t.approvers.length) {
+179:     if (t.numberOfApprovalsNeeded <= t.approvers.length) {
            return true;
          } else {
 
@@ -1628,7 +1628,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
              } else {
 
 ```
-[#L81](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L81) [#L133](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L133) 
+[#L66](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L66) [#L118](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L118) 
 
 </details>
 
@@ -1666,15 +1666,15 @@ There are <b>14</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-98:     emit MessageReceived(srcChain, srcSender, amt, nonce);
+113:     emit MessageReceived(srcChain, srcSender, amt, nonce);
 
-197:     emit ApproverAdded(approver);
+212:     emit ApproverAdded(approver);
 
-207:     emit ApproverRemoved(approver);
+222:     emit ApproverRemoved(approver);
 
-224:     emit ChainIdSupported(srcChain, srcContractAddress);
+239:     emit ChainIdSupported(srcChain, srcContractAddress);
 
-263:     emit ThresholdSet(srcChain, amounts, numOfApprovers);
+278:     emit ThresholdSet(srcChain, amounts, numOfApprovers);
 
 ```
 [#L113](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L113) [#L212](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L212) [#L222](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L222) [#L239](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L239) [#L278](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L278) 
@@ -1682,7 +1682,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-128:     emit DestinationChainContractAddressSet(destinationChain, contractAddress);
+143:     emit DestinationChainContractAddressSet(destinationChain, contractAddress);
 
 ```
 [#L143](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L143) 
@@ -1695,20 +1695,20 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 215:     emit RangeOverriden(
 
 ```
-[#L165](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L165) [#L230](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L230) 
+[#L150](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L150) [#L215](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L215) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-455:     emit Transfer(_sender, _recipient, _amount);
+470:     emit Transfer(_sender, _recipient, _amount);
 
-456:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
+471:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
 
-479:     emit Approval(_owner, _spender, _amount);
+494:     emit Approval(_owner, _spender, _amount);
 
-579:     emit SharesBurnt(
+594:     emit SharesBurnt(
 
-667:     emit TokensBurnt(_account, _amount);
+682:     emit TokensBurnt(_account, _amount);
 
 ```
 [#L470](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L470) [#L471](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L471) [#L494](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L494) [#L594](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L594) [#L682](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L682) 
@@ -1716,7 +1716,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-86:     emit rUSDYDeployed(
+101:     emit rUSDYDeployed(
 
 ```
 [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L101) 
@@ -1737,21 +1737,21 @@ There are <b>32</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-3: import "contracts/interfaces/IAxelarGateway.sol";
+18: import "contracts/interfaces/IAxelarGateway.sol";
 
-4: import "contracts/interfaces/IAxelarGasService.sol";
+19: import "contracts/interfaces/IAxelarGasService.sol";
 
-5: import "contracts/external/axelar/AxelarExecutable.sol";
+20: import "contracts/external/axelar/AxelarExecutable.sol";
 
-6: import "contracts/interfaces/IRWALike.sol";
+21: import "contracts/interfaces/IRWALike.sol";
 
-7: import "contracts/interfaces/IAllowlist.sol";
+22: import "contracts/interfaces/IAllowlist.sol";
 
-8: import "contracts/external/openzeppelin/contracts/access/Ownable.sol";
+23: import "contracts/external/openzeppelin/contracts/access/Ownable.sol";
 
-9: import "contracts/external/openzeppelin/contracts/security/Pausable.sol";
+24: import "contracts/external/openzeppelin/contracts/security/Pausable.sol";
 
-10: import "contracts/bridge/MintRateLimiter.sol";
+25: import "contracts/bridge/MintRateLimiter.sol";
 
 ```
 [#L18](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L18) [#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L19) [#L20](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L20) [#L21](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L21) [#L22](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L22) [#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L23) [#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L24) [#L25](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L25) 
@@ -1759,17 +1759,17 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-3: import "contracts/interfaces/IAxelarGateway.sol";
+18: import "contracts/interfaces/IAxelarGateway.sol";
 
-4: import "contracts/interfaces/IAxelarGasService.sol";
+19: import "contracts/interfaces/IAxelarGasService.sol";
 
-5: import "contracts/interfaces/IMulticall.sol";
+20: import "contracts/interfaces/IMulticall.sol";
 
-6: import "contracts/interfaces/IRWALike.sol";
+21: import "contracts/interfaces/IRWALike.sol";
 
-8: import "contracts/external/openzeppelin/contracts/access/Ownable.sol";
+23: import "contracts/external/openzeppelin/contracts/access/Ownable.sol";
 
-9: import "contracts/external/openzeppelin/contracts/security/Pausable.sol";
+24: import "contracts/external/openzeppelin/contracts/security/Pausable.sol";
 
 ```
 [#L18](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L18) [#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L19) [#L20](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L20) [#L21](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L21) [#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L23) [#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L24) 
@@ -1784,32 +1784,32 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 6: import "contracts/external/openzeppelin/contracts/security/Pausable.sol";
 
 ```
-[#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L19) [#L20](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L20) [#L21](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L21) 
+[#L4](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L4) [#L5](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L5) [#L6](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L6) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-3: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
+18: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 
-4: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20MetadataUpgradeable.sol";
+19: import "contracts/external/openzeppelin/contracts-upgradeable/token/ERC20/IERC20MetadataUpgradeable.sol";
 
-5: import "contracts/external/openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
+20: import "contracts/external/openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-6: import "contracts/external/openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol";
+21: import "contracts/external/openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol";
 
-7: import "contracts/external/openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+22: import "contracts/external/openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
-8: import "contracts/external/openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
+23: import "contracts/external/openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
 
-9: import "contracts/usdy/blocklist/BlocklistClientUpgradeable.sol";
+24: import "contracts/usdy/blocklist/BlocklistClientUpgradeable.sol";
 
-10: import "contracts/usdy/allowlist/AllowlistClientUpgradeable.sol";
+25: import "contracts/usdy/allowlist/AllowlistClientUpgradeable.sol";
 
-11: import "contracts/sanctions/SanctionsListClientUpgradeable.sol";
+26: import "contracts/sanctions/SanctionsListClientUpgradeable.sol";
 
-12: import "contracts/interfaces/IUSDY.sol";
+27: import "contracts/interfaces/IUSDY.sol";
 
-13: import "contracts/rwaOracles/IRWADynamicOracle.sol";
+28: import "contracts/rwaOracles/IRWADynamicOracle.sol";
 
 ```
 [#L18](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L18) [#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L19) [#L20](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L20) [#L21](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L21) [#L22](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L22) [#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L23) [#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L24) [#L25](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L25) [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L26) [#L27](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L27) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L28) 
@@ -1817,13 +1817,13 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-4: import "contracts/external/openzeppelin/contracts/proxy/ProxyAdmin.sol";
+19: import "contracts/external/openzeppelin/contracts/proxy/ProxyAdmin.sol";
 
-5: import "contracts/Proxy.sol";
+20: import "contracts/Proxy.sol";
 
-6: import "contracts/usdy/rUSDY.sol";
+21: import "contracts/usdy/rUSDY.sol";
 
-7: import "contracts/interfaces/IMulticall.sol";
+22: import "contracts/interfaces/IMulticall.sol";
 
 ```
 [#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L19) [#L20](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L20) [#L21](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L21) [#L22](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L22) 
@@ -1869,7 +1869,7 @@ File: contracts/bridge/DestinationBridge.sol
 /// Missing zero check for `_allowlist`
 /// Missing zero check for `_ondoApprover`
 /// Missing zero check for `_owner`
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _allowlist,
@@ -1883,13 +1883,13 @@ File: contracts/bridge/DestinationBridge.sol
       {
 
 /// Missing zero check for `approver`
-195:   function addApprover(address approver) external onlyOwner {
+210:   function addApprover(address approver) external onlyOwner {
 
 /// Missing zero check for `approver`
-205:   function removeApprover(address approver) external onlyOwner {
+220:   function removeApprover(address approver) external onlyOwner {
 
 /// Missing zero check for `_token`
-307:   function rescueTokens(address _token) external onlyOwner {
+322:   function rescueTokens(address _token) external onlyOwner {
 
 ```
 [#L55](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L55) [#L210](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L210) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L220) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L322) 
@@ -1901,7 +1901,7 @@ File: contracts/bridge/SourceBridge.sol
 /// Missing zero check for `_axelarGateway`
 /// Missing zero check for `_gasService`
 /// Missing zero check for `owner`
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _gasService,
@@ -1909,7 +1909,7 @@ File: contracts/bridge/SourceBridge.sol
       ) {
 
 /// Missing zero check for `contractAddress`
-121:   function setDestinationChainContractAddress(
+136:   function setDestinationChainContractAddress(
          string memory destinationChain,
          address contractAddress
        ) external onlyOwner {
@@ -1934,7 +1934,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
       ) {
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L31) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
@@ -1945,14 +1945,14 @@ File: contracts/usdy/rUSDY.sol
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-94:   function initialize(
-        address blocklist,
-        address allowlist,
-        address sanctionsList,
-        address _usdy,
-        address guardian,
-        address _oracle
-      ) public virtual initializer {
+109:   function initialize(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) public virtual initializer {
 
 /// Missing zero check for `blocklist`
 /// Missing zero check for `allowlist`
@@ -1960,7 +1960,7 @@ File: contracts/usdy/rUSDY.sol
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-105:   function __rUSDY_init(
+120:   function __rUSDY_init(
          address blocklist,
          address allowlist,
          address sanctionsList,
@@ -1972,56 +1972,56 @@ File: contracts/usdy/rUSDY.sol
 /// Missing zero check for `_usdy`
 /// Missing zero check for `guardian`
 /// Missing zero check for `_oracle`
-119:   function __rUSDY_init_unchained(
+134:   function __rUSDY_init_unchained(
          address _usdy,
          address guardian,
          address _oracle
        ) internal onlyInitializing {
 
 /// Missing zero check for `_account`
-211:   function balanceOf(address _account) public view returns (uint256) {
+226:   function balanceOf(address _account) public view returns (uint256) {
 
 /// Missing zero check for `_recipient`
-230:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
+245:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
 
 /// Missing zero check for `_spender`
-261:   function approve(address _spender, uint256 _amount) public returns (bool) {
+276:   function approve(address _spender, uint256 _amount) public returns (bool) {
 
 /// Missing zero check for `_account`
-366:   function sharesOf(address _account) public view returns (uint256) {
+381:   function sharesOf(address _account) public view returns (uint256) {
 
 /// Missing zero check for `_sender`
 /// Missing zero check for `_recipient`
-448:   function _transfer(
+463:   function _transfer(
          address _sender,
          address _recipient,
          uint256 _amount
        ) internal {
 
 /// Missing zero check for `_account`
-485:   function _sharesOf(address _account) internal view returns (uint256) {
+500:   function _sharesOf(address _account) internal view returns (uint256) {
 
 /// Missing zero check for `_oracle`
-647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
 /// Missing zero check for `_account`
-657:   function burn(
+672:   function burn(
          address _account,
          uint256 _amount
        ) external onlyRole(BURNER_ROLE) {
 
 /// Missing zero check for `blocklist`
-683:   function setBlocklist(
+698:   function setBlocklist(
          address blocklist
        ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 /// Missing zero check for `allowlist`
-694:   function setAllowlist(
+709:   function setAllowlist(
          address allowlist
        ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
 /// Missing zero check for `sanctionsList`
-705:   function setSanctionsList(
+720:   function setSanctionsList(
          address sanctionsList
        ) external override onlyRole(LIST_CONFIGURER_ROLE) {
 
@@ -2032,14 +2032,14 @@ File: contracts/usdy/rUSDY.sol
 File: contracts/usdy/rUSDYFactory.sol
 
 /// Missing zero check for `_guardian`
-36:   constructor(address _guardian) {
+51:   constructor(address _guardian) {
 
 /// Missing zero check for `blocklist`
 /// Missing zero check for `allowlist`
 /// Missing zero check for `sanctionsList`
 /// Missing zero check for `usdy`
 /// Missing zero check for `oracle`
-60:   function deployrUSDY(
+75:   function deployrUSDY(
         address blocklist,
         address allowlist,
         address sanctionsList,
@@ -2066,9 +2066,9 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-619:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
+634:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
 
-620:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
+635:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
 
 ```
 [#L634](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L634) [#L635](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L635) 
@@ -2076,7 +2076,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-140:     require(msg.sender == guardian, "rUSDYFactory: You are not the Guardian");
+155:     require(msg.sender == guardian, "rUSDYFactory: You are not the Guardian");
 
 ```
 [#L155](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L155) 
@@ -2097,17 +2097,17 @@ There are <b>9</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-28:   mapping(address => bool) public approvers;
+43:   mapping(address => bool) public approvers;
 
-29:   mapping(string => bytes32) public chainToApprovedSender;
+44:   mapping(string => bytes32) public chainToApprovedSender;
 
-30:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
+45:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
 
-36:   mapping(bytes32 => TxnThreshold) public txnToThresholdSet;
+51:   mapping(bytes32 => TxnThreshold) public txnToThresholdSet;
 
-37:   mapping(string => Threshold[]) public chainToThresholds;
+52:   mapping(string => Threshold[]) public chainToThresholds;
 
-38:   mapping(bytes32 => Transaction) public txnHashToTransaction;
+53:   mapping(bytes32 => Transaction) public txnHashToTransaction;
 
 ```
 [#L43](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L43) [#L44](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L44) [#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L45) [#L51](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L51) [#L52](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L52) [#L53](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L53) 
@@ -2115,7 +2115,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-15:   mapping(string => string) public destChainToContractAddr;
+30:   mapping(string => string) public destChainToContractAddr;
 
 ```
 [#L30](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L30) 
@@ -2123,9 +2123,9 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-61:   mapping(address => uint256) private shares;
+76:   mapping(address => uint256) private shares;
 
-64:   mapping(address => mapping(address => uint256)) private allowances;
+79:   mapping(address => mapping(address => uint256)) private allowances;
 
 ```
 [#L76](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L76) [#L79](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L79) 
@@ -2146,7 +2146,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) 
@@ -2154,10 +2154,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-4: interface IRWADynamicOracle {
+18: interface IRWADynamicOracle {
 
 ```
-[#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L19) 
+[#L18](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L18) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -2165,7 +2165,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 8: contract RWADynamicOracle is IRWAOracle, AccessControlEnumerable, Pausable {
 
 ```
-[#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L23) 
+[#L8](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L8) 
 
 </details>
 
@@ -2183,7 +2183,7 @@ There are <b>11</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _allowlist,
@@ -2223,21 +2223,21 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 390:   function _mul(uint256 x, uint256 y) internal pure returns (uint256 z) {
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L31) [#L346](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L346) [#L401](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L401) [#L405](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L405) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L16) [#L331](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L331) [#L386](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L386) [#L390](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L390) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-94:   function initialize(
-        address blocklist,
-        address allowlist,
-        address sanctionsList,
-        address _usdy,
-        address guardian,
-        address _oracle
-      ) public virtual initializer {
+109:   function initialize(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) public virtual initializer {
 
-105:   function __rUSDY_init(
+120:   function __rUSDY_init(
          address blocklist,
          address allowlist,
          address sanctionsList,
@@ -2246,15 +2246,15 @@ File: contracts/usdy/rUSDY.sol
          address _oracle
        ) internal onlyInitializing {
 
-119:   function __rUSDY_init_unchained(
+134:   function __rUSDY_init_unchained(
          address _usdy,
          address guardian,
          address _oracle
        ) internal onlyInitializing {
 
-670:   function pause() external onlyRole(PAUSER_ROLE) {
+685:   function pause() external onlyRole(PAUSER_ROLE) {
 
-674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
 ```
 [#L109](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L109) [#L120](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L120) [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L134) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L689) 
@@ -2262,7 +2262,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-36:   constructor(address _guardian) {
+51:   constructor(address _guardian) {
 
 ```
 [#L51](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L51) 
@@ -2282,7 +2282,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-139:   modifier onlyGuardian() {
+154:   modifier onlyGuardian() {
 
 ```
 [#L154](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L154) 
@@ -2310,7 +2310,7 @@ File: contracts/bridge/DestinationBridge.sol
 /// Missing @param for _owner
 /// Missing @param for _mintLimit
 /// Missing @param for _mintDuration
-40:   constructor(
+55:   constructor(
         address _token,
         address _axelarGateway,
         address _allowlist,
@@ -2364,7 +2364,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 390:   function _mul(uint256 x, uint256 y) internal pure returns (uint256 z) {
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L31) [#L346](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L346) [#L401](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L401) [#L405](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L405) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L16) [#L331](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L331) [#L386](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L386) [#L390](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L390) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
@@ -2375,14 +2375,14 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _usdy
 /// Missing @param for guardian
 /// Missing @param for _oracle
-94:   function initialize(
-        address blocklist,
-        address allowlist,
-        address sanctionsList,
-        address _usdy,
-        address guardian,
-        address _oracle
-      ) public virtual initializer {
+109:   function initialize(
+         address blocklist,
+         address allowlist,
+         address sanctionsList,
+         address _usdy,
+         address guardian,
+         address _oracle
+       ) public virtual initializer {
 
 /// Missing @param for blocklist
 /// Missing @param for allowlist
@@ -2390,7 +2390,7 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _usdy
 /// Missing @param for guardian
 /// Missing @param for _oracle
-105:   function __rUSDY_init(
+120:   function __rUSDY_init(
          address blocklist,
          address allowlist,
          address sanctionsList,
@@ -2402,34 +2402,34 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _usdy
 /// Missing @param for guardian
 /// Missing @param for _oracle
-119:   function __rUSDY_init_unchained(
+134:   function __rUSDY_init_unchained(
          address _usdy,
          address guardian,
          address _oracle
        ) internal onlyInitializing {
 
 /// Missing @param for _account
-211:   function balanceOf(address _account) public view returns (uint256) {
+226:   function balanceOf(address _account) public view returns (uint256) {
 
 /// Missing @param for _recipient
 /// Missing @param for _amount
-230:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
+245:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
 
 /// Missing @param for _owner
 /// Missing @param for _spender
-241:   function allowance(
+256:   function allowance(
          address _owner,
          address _spender
        ) public view returns (uint256) {
 
 /// Missing @param for _spender
 /// Missing @param for _amount
-261:   function approve(address _spender, uint256 _amount) public returns (bool) {
+276:   function approve(address _spender, uint256 _amount) public returns (bool) {
 
 /// Missing @param for _sender
 /// Missing @param for _recipient
 /// Missing @param for _amount
-286:   function transferFrom(
+301:   function transferFrom(
          address _sender,
          address _recipient,
          uint256 _amount
@@ -2437,32 +2437,32 @@ File: contracts/usdy/rUSDY.sol
 
 /// Missing @param for _spender
 /// Missing @param for _addedValue
-312:   function increaseAllowance(
+327:   function increaseAllowance(
          address _spender,
          uint256 _addedValue
        ) public returns (bool) {
 
 /// Missing @param for _spender
 /// Missing @param for _subtractedValue
-338:   function decreaseAllowance(
+353:   function decreaseAllowance(
          address _spender,
          uint256 _subtractedValue
        ) public returns (bool) {
 
 /// Missing @param for _account
-366:   function sharesOf(address _account) public view returns (uint256) {
+381:   function sharesOf(address _account) public view returns (uint256) {
 
 /// Missing @param for _rUSDYAmount
-373:   function getSharesByRUSDY(
+388:   function getSharesByRUSDY(
          uint256 _rUSDYAmount
        ) public view returns (uint256) {
 
 /// Missing @param for _shares
-382:   function getRUSDYByShares(uint256 _shares) public view returns (uint256) {
+397:   function getRUSDYByShares(uint256 _shares) public view returns (uint256) {
 
 /// Missing @param for _recipient
 /// Missing @param for _sharesAmount
-401:   function transferShares(
+416:   function transferShares(
          address _recipient,
          uint256 _sharesAmount
        ) public returns (uint256) {
@@ -2470,7 +2470,7 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _sender
 /// Missing @param for _recipient
 /// Missing @param for _amount
-448:   function _transfer(
+463:   function _transfer(
          address _sender,
          address _recipient,
          uint256 _amount
@@ -2479,19 +2479,19 @@ File: contracts/usdy/rUSDY.sol
 /// Missing @param for _owner
 /// Missing @param for _spender
 /// Missing @param for _amount
-470:   function _approve(
+485:   function _approve(
          address _owner,
          address _spender,
          uint256 _amount
        ) internal whenNotPaused {
 
 /// Missing @param for _account
-485:   function _sharesOf(address _account) internal view returns (uint256) {
+500:   function _sharesOf(address _account) internal view returns (uint256) {
 
 /// Missing @param for _sender
 /// Missing @param for _recipient
 /// Missing @param for _sharesAmount
-499:   function _transferShares(
+514:   function _transferShares(
          address _sender,
          address _recipient,
          uint256 _sharesAmount
@@ -2499,21 +2499,21 @@ File: contracts/usdy/rUSDY.sol
 
 /// Missing @param for _recipient
 /// Missing @param for _sharesAmount
-528:   function _mintShares(
+543:   function _mintShares(
          address _recipient,
          uint256 _sharesAmount
        ) internal whenNotPaused returns (uint256) {
 
 /// Missing @param for _account
 /// Missing @param for _sharesAmount
-560:   function _burnShares(
+575:   function _burnShares(
          address _account,
          uint256 _sharesAmount
        ) internal whenNotPaused returns (uint256) {
 
 /// Missing @param for from
 /// Missing @param for to
-611:   function _beforeTokenTransfer(
+626:   function _beforeTokenTransfer(
          address from,
          address to,
          uint256
@@ -2526,10 +2526,10 @@ File: contracts/usdy/rUSDY.sol
 File: contracts/usdy/rUSDYFactory.sol
 
 /// Missing @param for _guardian
-36:   constructor(address _guardian) {
+51:   constructor(address _guardian) {
 
 /// Missing @param for oracle
-60:   function deployrUSDY(
+75:   function deployrUSDY(
         address blocklist,
         address allowlist,
         address sanctionsList,
@@ -2555,13 +2555,13 @@ There are <b>19</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-29:   mapping(string => bytes32) public chainToApprovedSender;
+44:   mapping(string => bytes32) public chainToApprovedSender;
 
-30:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
+45:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
 
-37:   mapping(string => Threshold[]) public chainToThresholds;
+52:   mapping(string => Threshold[]) public chainToThresholds;
 
-38:   mapping(bytes32 => Transaction) public txnHashToTransaction;
+53:   mapping(bytes32 => Transaction) public txnHashToTransaction;
 
 ```
 [#L44](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L44) [#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L45) [#L52](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L52) [#L53](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L53) 
@@ -2578,24 +2578,24 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 14:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L26) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) [#L11](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L11) [#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-70:   IRWADynamicOracle public oracle;
+85:   IRWADynamicOracle public oracle;
 
-73:   IUSDY public usdy;
+88:   IUSDY public usdy;
 
-76:   uint256 public constant BPS_DENOMINATOR = 10_000;
+91:   uint256 public constant BPS_DENOMINATOR = 10_000;
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-86:   bytes32 public constant LIST_CONFIGURER_ROLE =
+101:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
 [#L85](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L85) [#L88](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L88) [#L91](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L91) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L101) 
@@ -2603,13 +2603,13 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-29:   bytes32 public constant DEFAULT_ADMIN_ROLE = bytes32(0);
+44:   bytes32 public constant DEFAULT_ADMIN_ROLE = bytes32(0);
 
-32:   rUSDY public rUSDYImplementation;
+47:   rUSDY public rUSDYImplementation;
 
-33:   ProxyAdmin public rUSDYProxyAdmin;
+48:   ProxyAdmin public rUSDYProxyAdmin;
 
-34:   TokenProxy public rUSDYProxy;
+49:   TokenProxy public rUSDYProxy;
 
 ```
 [#L44](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L44) [#L47](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L47) [#L48](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L48) [#L49](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L49) 
@@ -2630,9 +2630,9 @@ There are <b>15</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-162:   function _checkThresholdMet(bytes32 txnHash) internal view returns (bool) {
+177:   function _checkThresholdMet(bytes32 txnHash) internal view returns (bool) {
 
-346:   function getNumApproved(bytes32 txnHash) external view returns (uint256) {
+361:   function getNumApproved(bytes32 txnHash) external view returns (uint256) {
 
 ```
 [#L177](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L177) [#L361](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L361) 
@@ -2640,7 +2640,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-160:   function multiexcall(
+175:   function multiexcall(
          ExCallData[] calldata exCallData
        ) external payable override onlyOwner returns (bytes[] memory results) {
 
@@ -2650,10 +2650,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-6:   function getPrice() external view returns (uint256);
+20:   function getPrice() external view returns (uint256);
 
 ```
-[#L21](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L21) 
+[#L20](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L20) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -2684,27 +2684,27 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 390:   function _mul(uint256 x, uint256 y) internal pure returns (uint256 z) {
 
 ```
-[#L105](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L105) [#L263](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L263) [#L283](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L283) [#L346](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L346) [#L401](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L401) [#L405](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L405) 
+[#L90](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L90) [#L248](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L248) [#L268](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L268) [#L331](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L331) [#L386](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L386) [#L390](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L390) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-312:   function increaseAllowance(
+327:   function increaseAllowance(
          address _spender,
          uint256 _addedValue
        ) public returns (bool) {
 
-338:   function decreaseAllowance(
+353:   function decreaseAllowance(
          address _spender,
          uint256 _subtractedValue
        ) public returns (bool) {
 
-528:   function _mintShares(
+543:   function _mintShares(
          address _recipient,
          uint256 _sharesAmount
        ) internal whenNotPaused returns (uint256) {
 
-560:   function _burnShares(
+575:   function _burnShares(
          address _account,
          uint256 _sharesAmount
        ) internal whenNotPaused returns (uint256) {
@@ -2715,7 +2715,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-111:   function multiexcall(
+126:   function multiexcall(
          ExCallData[] calldata exCallData
        ) external payable override onlyGuardian returns (bytes[] memory results) {
 
@@ -2738,13 +2738,13 @@ There are <b>11</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-29:   mapping(string => bytes32) public chainToApprovedSender;
+44:   mapping(string => bytes32) public chainToApprovedSender;
 
-30:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
+45:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
 
-37:   mapping(string => Threshold[]) public chainToThresholds;
+52:   mapping(string => Threshold[]) public chainToThresholds;
 
-38:   mapping(bytes32 => Transaction) public txnHashToTransaction;
+53:   mapping(bytes32 => Transaction) public txnHashToTransaction;
 
 ```
 [#L44](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L44) [#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L45) [#L52](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L52) [#L53](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L53) 
@@ -2759,18 +2759,18 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 14:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) [#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-86:   bytes32 public constant LIST_CONFIGURER_ROLE =
+101:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
 [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L101) 
@@ -2791,7 +2791,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-11: contract SourceBridge is Ownable, Pausable, IMulticall {
+26: contract SourceBridge is Ownable, Pausable, IMulticall {
 
 ```
 [#L26](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L26) 
@@ -2799,10 +2799,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-4: interface IRWADynamicOracle {
+18: interface IRWADynamicOracle {
 
 ```
-[#L19](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L19) 
+[#L18](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L18) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -2810,7 +2810,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 8: contract RWADynamicOracle is IRWAOracle, AccessControlEnumerable, Pausable {
 
 ```
-[#L23](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L23) 
+[#L8](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L8) 
 
 </details>
 
@@ -2847,7 +2847,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
        ) internal pure returns (uint256 price) {
 
 ```
-[#L76](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L76) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L105) [#L263](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L263) 
+[#L61](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L61) [#L90](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L90) [#L248](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L248) 
 
 </details>
 
@@ -2868,7 +2868,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 9:   uint256 public constant DAY = 1 days;
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) 
 
 </details>
 
@@ -2886,11 +2886,11 @@ There are <b>8</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-119:     for (uint256 i = 0; i < thresholds.length; ++i) {
+134:     for (uint256 i = 0; i < thresholds.length; ++i) {
 
-145:       for (uint256 i = 0; i < t.approvers.length; ++i) {
+160:       for (uint256 i = 0; i < t.approvers.length; ++i) {
 
-249:     for (uint256 i = 0; i < amounts.length; ++i) {
+264:     for (uint256 i = 0; i < amounts.length; ++i) {
 
 ```
 [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L134) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L160) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L264) 
@@ -2898,7 +2898,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-164:     for (uint256 i = 0; i < exCallData.length; ++i) {
+179:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
@@ -2913,12 +2913,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 115:     for (uint256 i = 0; i < length + 1; ++i) {
 
 ```
-[#L78](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L78) [#L114](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L114) [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L130) 
+[#L63](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L63) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L99) [#L115](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L115) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-115:     for (uint256 i = 0; i < exCallData.length; ++i) {
+130:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L130) 
@@ -2939,7 +2939,7 @@ There are <b>13</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-33:   bytes32 public constant VERSION = "1.0";
+48:   bytes32 public constant VERSION = "1.0";
 
 ```
 [#L48](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L48) 
@@ -2947,7 +2947,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-27:   bytes32 public constant VERSION = "1.0";
+42:   bytes32 public constant VERSION = "1.0";
 
 ```
 [#L42](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L42) 
@@ -2964,22 +2964,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 329:   uint256 private constant ONE = 10 ** 27;
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) [#L344](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L344) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) [#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) [#L329](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L329) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-76:   uint256 public constant BPS_DENOMINATOR = 10_000;
+91:   uint256 public constant BPS_DENOMINATOR = 10_000;
 
-82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-86:   bytes32 public constant LIST_CONFIGURER_ROLE =
+101:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
 [#L91](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L91) [#L97](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L101) 
@@ -2987,7 +2987,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-29:   bytes32 public constant DEFAULT_ADMIN_ROLE = bytes32(0);
+44:   bytes32 public constant DEFAULT_ADMIN_ROLE = bytes32(0);
 
 ```
 [#L44](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L44) 
@@ -3008,7 +3008,7 @@ There are <b>6</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L16) 
@@ -3016,7 +3016,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L16) 
@@ -3024,10 +3024,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-2: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L17) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -3035,12 +3035,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 2: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L17) 
+[#L2](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L2) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L16) 
@@ -3048,7 +3048,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L16) 
@@ -3068,7 +3068,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-37:     guardian = _guardian;
+52:     guardian = _guardian;
 
 ```
 [#L52](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L52) 
@@ -3090,10 +3090,10 @@ There are <b>8</b> instances (click to show):
 File: contracts/bridge/DestinationBridge.sol
 
 /// Seen in contracts/bridge/SourceBridge.sol
-289:   function pause() external onlyOwner {
+304:   function pause() external onlyOwner {
 
 /// Seen in contracts/bridge/SourceBridge.sol
-298:   function unpause() external onlyOwner {
+313:   function unpause() external onlyOwner {
 
 ```
 [#L304](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L304) [#L313](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L313) 
@@ -3102,13 +3102,13 @@ File: contracts/bridge/DestinationBridge.sol
 File: contracts/bridge/SourceBridge.sol
 
 /// Seen in contracts/bridge/DestinationBridge.sol
-136:   function pause() external onlyOwner {
+151:   function pause() external onlyOwner {
 
 /// Seen in contracts/bridge/DestinationBridge.sol
-145:   function unpause() external onlyOwner {
+160:   function unpause() external onlyOwner {
 
 /// Seen in contracts/usdy/rUSDYFactory.sol
-160:   function multiexcall(
+175:   function multiexcall(
          ExCallData[] calldata exCallData
        ) external payable override onlyOwner returns (bytes[] memory results) {
 
@@ -3125,13 +3125,13 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 234:   function unpauseOracle() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L242](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L242) [#L249](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L249) 
+[#L227](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L227) [#L234](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L234) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
 /// Seen in contracts/bridge/SourceBridge.sol
-111:   function multiexcall(
+126:   function multiexcall(
          ExCallData[] calldata exCallData
        ) external payable override onlyGuardian returns (bytes[] memory results) {
 
@@ -3162,7 +3162,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 268:   function roundUpTo8(uint256 value) internal pure returns (uint256) {
 
 ```
-[#L263](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L263) [#L283](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L283) 
+[#L248](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L248) [#L268](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L268) 
 
 </details>
 
@@ -3183,16 +3183,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 329:   uint256 private constant ONE = 10 ** 27;
 
 ```
-[#L344](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L344) 
+[#L329](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L329) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-61:   mapping(address => uint256) private shares;
+76:   mapping(address => uint256) private shares;
 
-64:   mapping(address => mapping(address => uint256)) private allowances;
+79:   mapping(address => mapping(address => uint256)) private allowances;
 
-67:   uint256 private totalShares;
+82:   uint256 private totalShares;
 
 ```
 [#L76](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L76) [#L79](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L79) [#L82](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L82) 
@@ -3200,7 +3200,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-31:   address internal immutable guardian;
+46:   address internal immutable guardian;
 
 ```
 [#L46](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L46) 
@@ -3223,7 +3223,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 391:     require(y == 0 || (z = x * y) / y == x);
 
 ```
-[#L406](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L406) 
+[#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L391) 
 
 </details>
 
@@ -3241,9 +3241,9 @@ There are <b>6</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-96:     _approve(txnHash);
+111:     _approve(txnHash);
 
-186:     _approve(txnHash);
+201:     _approve(txnHash);
 
 ```
 [#L111](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L111) [#L201](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L201) 
@@ -3251,13 +3251,13 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-262:     _approve(msg.sender, _spender, _amount);
+277:     _approve(msg.sender, _spender, _amount);
 
-295:     _approve(_sender, msg.sender, currentAllowance - _amount);
+310:     _approve(_sender, msg.sender, currentAllowance - _amount);
 
-316:     _approve(
+331:     _approve(
 
-347:     _approve(msg.sender, _spender, currentAllowance - _subtractedValue);
+362:     _approve(msg.sender, _spender, currentAllowance - _subtractedValue);
 
 ```
 [#L277](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L277) [#L310](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L310) [#L331](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L331) [#L362](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L362) 
@@ -3278,13 +3278,13 @@ There are <b>19</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-19:   IRWALike public immutable TOKEN;
+34:   IRWALike public immutable TOKEN;
 
-22:   IAxelarGateway public immutable AXELAR_GATEWAY;
+37:   IAxelarGateway public immutable AXELAR_GATEWAY;
 
-25:   IAllowlist public immutable ALLOWLIST;
+40:   IAllowlist public immutable ALLOWLIST;
 
-33:   bytes32 public constant VERSION = "1.0";
+48:   bytes32 public constant VERSION = "1.0";
 
 ```
 [#L34](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L34) [#L37](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L37) [#L40](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L40) [#L48](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L48) 
@@ -3292,13 +3292,13 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-18:   IRWALike public immutable TOKEN;
+33:   IRWALike public immutable TOKEN;
 
-21:   IAxelarGateway public immutable AXELAR_GATEWAY;
+36:   IAxelarGateway public immutable AXELAR_GATEWAY;
 
-24:   IAxelarGasService public immutable GAS_RECEIVER;
+39:   IAxelarGasService public immutable GAS_RECEIVER;
 
-27:   bytes32 public constant VERSION = "1.0";
+42:   bytes32 public constant VERSION = "1.0";
 
 ```
 [#L33](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L33) [#L36](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L36) [#L39](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L39) [#L42](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L42) 
@@ -3315,22 +3315,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 30:     uint256 trueStart = (startPrice * ONE) / dailyIR;
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) [#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L45) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) [#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) [#L30](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L30) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-76:   uint256 public constant BPS_DENOMINATOR = 10_000;
+91:   uint256 public constant BPS_DENOMINATOR = 10_000;
 
-82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-86:   bytes32 public constant LIST_CONFIGURER_ROLE =
+101:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
 [#L91](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L91) [#L97](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L101) 
@@ -3338,7 +3338,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-22:  *         i) Grant the `DEFAULT_ADMIN_ROLE` & PAUSER_ROLE to the `guardian` address
+37:  *         i) Grant the `DEFAULT_ADMIN_ROLE` & PAUSER_ROLE to the `guardian` address
 
 ```
 [#L37](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L37) 
@@ -3359,17 +3359,17 @@ There are <b>13</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-374:   event ApproverRemoved(address approver);
+389:   event ApproverRemoved(address approver);
 
-381:   event ApproverAdded(address approver);
+396:   event ApproverAdded(address approver);
 
-390:   event ChainIdSupported(string srcChain, string approvedSource);
+405:   event ChainIdSupported(string srcChain, string approvedSource);
 
-399:   event ThresholdSet(string chain, uint256[] amounts, uint256[] numOfApprovers);
+414:   event ThresholdSet(string chain, uint256[] amounts, uint256[] numOfApprovers);
 
-407:   event BridgeCompleted(address user, uint256 amount);
+422:   event BridgeCompleted(address user, uint256 amount);
 
-417:   event MessageReceived(
+432:   event MessageReceived(
 
 ```
 [#L389](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L389) [#L396](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L396) [#L405](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L405) [#L414](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L414) [#L422](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L422) [#L432](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L432) 
@@ -3377,7 +3377,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-183:   event DestinationChainContractAddressSet(
+198:   event DestinationChainContractAddressSet(
 
 ```
 [#L198](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L198) 
@@ -3390,16 +3390,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 312:   event RangeOverriden(
 
 ```
-[#L310](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L310) [#L327](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L327) 
+[#L295](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L295) [#L312](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L312) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-139:   event TransferShares(
+154:   event TransferShares(
 
-157:   event SharesBurnt(
+172:   event SharesBurnt(
 
-174:   event TokensBurnt(address indexed account, uint256 tokensBurnt);
+189:   event TokensBurnt(address indexed account, uint256 tokensBurnt);
 
 ```
 [#L154](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L154) [#L172](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L172) [#L189](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L189) 
@@ -3407,7 +3407,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-131:   event rUSDYDeployed(
+146:   event rUSDYDeployed(
 
 ```
 [#L146](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L146) 
@@ -3427,33 +3427,33 @@ There are <b>14</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-179:   function name() public pure returns (string memory) {
+194:   function name() public pure returns (string memory) {
 
-187:   function symbol() public pure returns (string memory) {
+202:   function symbol() public pure returns (string memory) {
 
-194:   function decimals() public pure returns (uint8) {
+209:   function decimals() public pure returns (uint8) {
 
-201:   function totalSupply() public view returns (uint256) {
+216:   function totalSupply() public view returns (uint256) {
 
-211:   function balanceOf(address _account) public view returns (uint256) {
+226:   function balanceOf(address _account) public view returns (uint256) {
 
-230:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
+245:   function transfer(address _recipient, uint256 _amount) public returns (bool) {
 
-241:   function allowance(
+256:   function allowance(
 
-261:   function approve(address _spender, uint256 _amount) public returns (bool) {
+276:   function approve(address _spender, uint256 _amount) public returns (bool) {
 
-286:   function transferFrom(
+301:   function transferFrom(
 
-312:   function increaseAllowance(
+327:   function increaseAllowance(
 
-338:   function decreaseAllowance(
+353:   function decreaseAllowance(
 
-357:   function getTotalShares() public view returns (uint256) {
+372:   function getTotalShares() public view returns (uint256) {
 
-366:   function sharesOf(address _account) public view returns (uint256) {
+381:   function sharesOf(address _account) public view returns (uint256) {
 
-401:   function transferShares(
+416:   function transferShares(
 
 ```
 [#L194](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L194) [#L202](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L202) [#L209](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L209) [#L216](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L216) [#L226](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L226) [#L245](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L245) [#L256](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L256) [#L276](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L276) [#L301](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L301) [#L327](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L327) [#L353](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L353) [#L372](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L372) [#L381](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L381) [#L416](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L416) 
@@ -3501,14 +3501,14 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 273:     value -= remainder;
 
 ```
-[#L286](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L286) [#L288](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L288) 
+[#L271](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L271) [#L273](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L273) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-536:     totalShares += _sharesAmount;
+551:     totalShares += _sharesAmount;
 
-573:     totalShares -= _sharesAmount;
+588:     totalShares -= _sharesAmount;
 
 ```
 [#L551](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L551) [#L588](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L588) 
@@ -3530,10 +3530,10 @@ There are <b>9</b> instances (click to show):
 File: contracts/bridge/DestinationBridge.sol
 
 /// `_attachThreshold` is used only once
-113:   function _attachThreshold(
+128:   function _attachThreshold(
 
 /// `_checkThresholdMet` is used only once
-162:   function _checkThresholdMet(bytes32 txnHash) internal view returns (bool) {
+177:   function _checkThresholdMet(bytes32 txnHash) internal view returns (bool) {
 
 ```
 [#L128](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L128) [#L177](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L177) 
@@ -3554,19 +3554,19 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 390:   function _mul(uint256 x, uint256 y) internal pure returns (uint256 z) {
 
 ```
-[#L283](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L283) [#L346](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L346) [#L401](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L401) [#L405](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L405) 
+[#L268](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L268) [#L331](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L331) [#L386](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L386) [#L390](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L390) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
 /// `__rUSDY_init` is used only once
-105:   function __rUSDY_init(
+120:   function __rUSDY_init(
 
 /// `__rUSDY_init_unchained` is used only once
-119:   function __rUSDY_init_unchained(
+134:   function __rUSDY_init_unchained(
 
 /// `_mintShares` is used only once
-528:   function _mintShares(
+543:   function _mintShares(
 
 ```
 [#L120](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L120) [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L134) [#L543](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L543) 
@@ -3592,20 +3592,20 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 14:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
 ```
-[#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) 
+[#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-87:     keccak256("LIST_CONFIGURER_ROLE");
+102:     keccak256("LIST_CONFIGURER_ROLE");
 
 ```
 [#L97](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L102) 
@@ -3626,44 +3626,44 @@ There are <b>19</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-/// `chainToApprovedSender[srcChain]` is also accessed on line 81
-84:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+99:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
 
-/// `chainToApprovedSender[srcChain]` is also accessed on line 81
-84:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+99:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
 
-/// `chainToApprovedSender[srcChain]` is also accessed on line 81
-87:     if (isSpentNonce[chainToApprovedSender[srcChain]][nonce]) {
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+102:     if (isSpentNonce[chainToApprovedSender[srcChain]][nonce]) {
 
-/// `chainToApprovedSender[srcChain]` is also accessed on line 81
-87:     if (isSpentNonce[chainToApprovedSender[srcChain]][nonce]) {
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+102:     if (isSpentNonce[chainToApprovedSender[srcChain]][nonce]) {
 
-/// `chainToApprovedSender[srcChain]` is also accessed on line 81
-91:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
 
-/// `isSpentNonce[chainToApprovedSender[srcChain]` is also accessed on line 87
-91:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+/// `isSpentNonce[chainToApprovedSender[srcChain]` is also accessed on line 102
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
 
-/// `chainToApprovedSender[srcChain]` is also accessed on line 81
-91:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+/// `chainToApprovedSender[srcChain]` is also accessed on line 96
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
 
-/// `isSpentNonce[chainToApprovedSender[srcChain]` is also accessed on line 87
-91:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
+/// `isSpentNonce[chainToApprovedSender[srcChain]` is also accessed on line 102
+106:     isSpentNonce[chainToApprovedSender[srcChain]][nonce] = true;
 
-/// `txnToThresholdSet[txnHash]` is also accessed on line 122
-129:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
+/// `txnToThresholdSet[txnHash]` is also accessed on line 137
+144:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
 
-/// `chainToThresholds[srcChain]` is also accessed on line 248
-251:         chainToThresholds[srcChain].push(
+/// `chainToThresholds[srcChain]` is also accessed on line 263
+266:         chainToThresholds[srcChain].push(
 
-/// `chainToThresholds[srcChain]` is also accessed on line 248
-255:         if (chainToThresholds[srcChain][i - 1].amount > amounts[i]) {
+/// `chainToThresholds[srcChain]` is also accessed on line 263
+270:         if (chainToThresholds[srcChain][i - 1].amount > amounts[i]) {
 
-/// `chainToThresholds[srcChain]` is also accessed on line 248
-258:         chainToThresholds[srcChain].push(
+/// `chainToThresholds[srcChain]` is also accessed on line 263
+273:         chainToThresholds[srcChain].push(
 
-/// `txnHashToTransaction[txnHash]` is also accessed on line 324
-335:       delete txnHashToTransaction[txnHash];
+/// `txnHashToTransaction[txnHash]` is also accessed on line 339
+350:       delete txnHashToTransaction[txnHash];
 
 ```
 [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L99) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L99) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L102) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L102) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L106) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L106) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L106) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L106) [#L144](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L144) [#L266](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L266) [#L270](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L270) [#L273](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L273) [#L350](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L350) 
@@ -3684,16 +3684,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 208:       ranges[indexToModify] = Range(
 
 ```
-[#L115](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L115) [#L213](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L213) [#L215](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L215) [#L223](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L223) 
+[#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L100) [#L198](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L198) [#L200](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L200) [#L208](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L208) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-/// `shares[_sender]` is also accessed on line 509
-515:     shares[_sender] = currentSenderShares - _sharesAmount;
+/// `shares[_sender]` is also accessed on line 524
+530:     shares[_sender] = currentSenderShares - _sharesAmount;
 
-/// `shares[_account]` is also accessed on line 568
-575:     shares[_account] = accountShares - _sharesAmount;
+/// `shares[_account]` is also accessed on line 583
+590:     shares[_account] = accountShares - _sharesAmount;
 
 ```
 [#L530](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L530) [#L590](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L590) 
@@ -3714,7 +3714,7 @@ There are <b>6</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L16) 
@@ -3722,7 +3722,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L16) 
@@ -3730,10 +3730,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-2: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L17) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -3741,12 +3741,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 2: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L17) 
+[#L2](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L2) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L16) 
@@ -3754,7 +3754,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L16) 
@@ -3775,15 +3775,15 @@ There are <b>18</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-119:     for (uint256 i = 0; i < thresholds.length; ++i) {
+134:     for (uint256 i = 0; i < thresholds.length; ++i) {
 
-144:     if (t.approvers.length > 0) {
+159:     if (t.approvers.length > 0) {
 
-145:       for (uint256 i = 0; i < t.approvers.length; ++i) {
+160:       for (uint256 i = 0; i < t.approvers.length; ++i) {
 
-249:     for (uint256 i = 0; i < amounts.length; ++i) {
+264:     for (uint256 i = 0; i < amounts.length; ++i) {
 
-255:         if (chainToThresholds[srcChain][i - 1].amount > amounts[i]) {
+270:         if (chainToThresholds[srcChain][i - 1].amount > amounts[i]) {
 
 ```
 [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L134) [#L159](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L159) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L160) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L264) [#L270](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L270) 
@@ -3791,7 +3791,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-164:     for (uint256 i = 0; i < exCallData.length; ++i) {
+179:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
@@ -3816,16 +3816,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 200:       if (newEnd > ranges[indexToModify + 1].start) revert InvalidRange();
 
 ```
-[#L78](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L78) [#L114](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L114) [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L130) [#L202](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L202) [#L202](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L202) [#L208](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L208) [#L213](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L213) [#L215](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L215) 
+[#L63](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L63) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L99) [#L115](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L115) [#L187](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L187) [#L187](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L187) [#L193](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L193) [#L198](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L198) [#L200](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L200) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
-437:     if (usdyAmount < BPS_DENOMINATOR) revert UnwrapTooSmall();
+452:     if (usdyAmount < BPS_DENOMINATOR) revert UnwrapTooSmall();
 
 ```
 [#L435](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L450) [#L452](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L452) 
@@ -3833,7 +3833,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-115:     for (uint256 i = 0; i < exCallData.length; ++i) {
+130:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L130) 
@@ -3854,7 +3854,7 @@ There are <b>6</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L16) 
@@ -3862,7 +3862,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L16) 
@@ -3870,10 +3870,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-2: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L17) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -3881,12 +3881,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 2: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L17) 
+[#L2](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L2) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L16) 
@@ -3894,7 +3894,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L16) 
@@ -3915,7 +3915,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-357:   function getTotalShares() public view returns (uint256) {
+372:   function getTotalShares() public view returns (uint256) {
          return totalShares;
 
 ```
@@ -3940,7 +3940,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 9:   uint256 public constant DAY = 1 days;
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) 
 
 </details>
 
@@ -3958,11 +3958,11 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-292:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
+307:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
 
-420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
 ```
 [#L307](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L307) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L450) 
@@ -3984,21 +3984,21 @@ There are <b>13</b> instances (click to show):
 File: contracts/bridge/DestinationBridge.sol
 
 /// `keccak256` is called 2 times
-70:   function _execute(
+85:   function _execute(
         string calldata srcChain,
         string calldata srcAddr,
         bytes calldata payload
       ) internal override whenNotPaused {
 
 /// `Threshold` is called 2 times
-240:   function setThresholds(
+255:   function setThresholds(
          string calldata srcChain,
          uint256[] calldata amounts,
          uint256[] calldata numOfApprovers
        ) external onlyOwner {
 
 /// `IRWALike` is called 2 times
-307:   function rescueTokens(address _token) external onlyOwner {
+322:   function rescueTokens(address _token) external onlyOwner {
 
 ```
 [#L85](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L85) [#L255](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L255) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L322) 
@@ -4046,40 +4046,40 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L76](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L76) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L105) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L105) [#L187](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L187) [#L187](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L187) 
+[#L61](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L61) [#L90](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L90) [#L90](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L90) [#L172](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L172) [#L172](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L172) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
 /// `_grantRole` is called 6 times
-119:   function __rUSDY_init_unchained(
+134:   function __rUSDY_init_unchained(
          address _usdy,
          address guardian,
          address _oracle
        ) internal onlyInitializing {
 
 /// `getRUSDYByShares` is called 2 times
-560:   function _burnShares(
+575:   function _burnShares(
          address _account,
          uint256 _sharesAmount
        ) internal whenNotPaused returns (uint256) {
 
 /// `_isBlocked` is called 3 times
-611:   function _beforeTokenTransfer(
+626:   function _beforeTokenTransfer(
          address from,
          address to,
          uint256
        ) internal view {
 
 /// `_isSanctioned` is called 3 times
-611:   function _beforeTokenTransfer(
+626:   function _beforeTokenTransfer(
          address from,
          address to,
          uint256
        ) internal view {
 
 /// `_isAllowed` is called 3 times
-611:   function _beforeTokenTransfer(
+626:   function _beforeTokenTransfer(
          address from,
          address to,
          uint256
@@ -4123,7 +4123,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
        ) internal pure returns (uint256 price) {
 
 ```
-[#L76](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L76) [#L105](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L105) [#L263](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L263) 
+[#L61](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L61) [#L90](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L90) [#L248](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L248) 
 
 </details>
 
@@ -4143,11 +4143,11 @@ There are <b>10</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-84:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
+99:     if (chainToApprovedSender[srcChain] != keccak256(abi.encode(srcAddr))) {
 
-93:     bytes32 txnHash = keccak256(payload);
+108:     bytes32 txnHash = keccak256(payload);
 
-223:     chainToApprovedSender[srcChain] = keccak256(abi.encode(srcContractAddress));
+238:     chainToApprovedSender[srcChain] = keccak256(abi.encode(srcContractAddress));
 
 ```
 [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L99) [#L108](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L108) [#L238](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L238) 
@@ -4160,20 +4160,20 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 14:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
 ```
-[#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) 
+[#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-87:     keccak256("LIST_CONFIGURER_ROLE");
+102:     keccak256("LIST_CONFIGURER_ROLE");
 
 ```
 [#L97](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L102) 
@@ -4198,17 +4198,17 @@ There are <b>20</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-98:     emit MessageReceived(srcChain, srcSender, amt, nonce);
+113:     emit MessageReceived(srcChain, srcSender, amt, nonce);
 
-197:     emit ApproverAdded(approver);
+212:     emit ApproverAdded(approver);
 
-207:     emit ApproverRemoved(approver);
+222:     emit ApproverRemoved(approver);
 
-224:     emit ChainIdSupported(srcChain, srcContractAddress);
+239:     emit ChainIdSupported(srcChain, srcContractAddress);
 
-263:     emit ThresholdSet(srcChain, amounts, numOfApprovers);
+278:     emit ThresholdSet(srcChain, amounts, numOfApprovers);
 
-336:       emit BridgeCompleted(txn.sender, txn.amount);
+351:       emit BridgeCompleted(txn.sender, txn.amount);
 
 ```
 [#L113](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L113) [#L212](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L212) [#L222](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L222) [#L239](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L239) [#L278](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L278) [#L351](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L351) 
@@ -4216,7 +4216,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-128:     emit DestinationChainContractAddressSet(destinationChain, contractAddress);
+143:     emit DestinationChainContractAddressSet(destinationChain, contractAddress);
 
 ```
 [#L143](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L143) 
@@ -4229,30 +4229,30 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 215:     emit RangeOverriden(
 
 ```
-[#L165](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L165) [#L230](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L230) 
+[#L150](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L150) [#L215](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L215) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-406:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
+421:     emit TransferShares(msg.sender, _recipient, _sharesAmount);
 
-408:     emit Transfer(msg.sender, _recipient, tokensAmount);
+423:     emit Transfer(msg.sender, _recipient, tokensAmount);
 
-423:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
+438:     emit Transfer(address(0), msg.sender, getRUSDYByShares(_USDYAmount));
 
-424:     emit TransferShares(address(0), msg.sender, _USDYAmount);
+439:     emit TransferShares(address(0), msg.sender, _USDYAmount);
 
-440:     emit TokensBurnt(msg.sender, _rUSDYAmount);
+455:     emit TokensBurnt(msg.sender, _rUSDYAmount);
 
-455:     emit Transfer(_sender, _recipient, _amount);
+470:     emit Transfer(_sender, _recipient, _amount);
 
-456:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
+471:     emit TransferShares(_sender, _recipient, _sharesToTransfer);
 
-479:     emit Approval(_owner, _spender, _amount);
+494:     emit Approval(_owner, _spender, _amount);
 
-579:     emit SharesBurnt(
+594:     emit SharesBurnt(
 
-667:     emit TokensBurnt(_account, _amount);
+682:     emit TokensBurnt(_account, _amount);
 
 ```
 [#L421](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L421) [#L423](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L423) [#L438](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L438) [#L439](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L439) [#L455](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L455) [#L470](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L470) [#L471](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L471) [#L494](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L494) [#L594](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L594) [#L682](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L682) 
@@ -4260,7 +4260,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-86:     emit rUSDYDeployed(
+101:     emit rUSDYDeployed(
 
 ```
 [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L101) 
@@ -4284,12 +4284,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 187:       if (rangeLength > 1 && newEnd > ranges[indexToModify + 1].start)
 
 ```
-[#L202](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L202) 
+[#L187](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L187) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-618:     if (from != msg.sender && to != msg.sender) {
+633:     if (from != msg.sender && to != msg.sender) {
 
 ```
 [#L633](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L633) 
@@ -4313,7 +4313,7 @@ There are <b>6</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L16) 
@@ -4321,7 +4321,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L16) 
@@ -4329,10 +4329,10 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/rwaOracles/IRWADynamicOracle.sol
 
-2: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L17) 
+[#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/IRWADynamicOracle.sol#L16) 
 
 ```solidity
 File: contracts/rwaOracles/RWADynamicOracle.sol
@@ -4340,12 +4340,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 2: pragma solidity 0.8.16;
 
 ```
-[#L17](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L17) 
+[#L2](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L2) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L16) 
@@ -4353,7 +4353,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-1: pragma solidity 0.8.16;
+16: pragma solidity 0.8.16;
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L16) 
@@ -4374,13 +4374,13 @@ There are <b>8</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-118:     Threshold[] memory thresholds = chainToThresholds[srcChain];
+133:     Threshold[] memory thresholds = chainToThresholds[srcChain];
 
-120:       Threshold memory t = thresholds[i];
+135:       Threshold memory t = thresholds[i];
 
-163:     TxnThreshold memory t = txnToThresholdSet[txnHash];
+178:     TxnThreshold memory t = txnToThresholdSet[txnHash];
 
-324:     Transaction memory txn = txnHashToTransaction[txnHash];
+339:     Transaction memory txn = txnHashToTransaction[txnHash];
 
 ```
 [#L133](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L133) [#L135](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L135) [#L178](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L178) [#L339](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L339) 
@@ -4388,7 +4388,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-66:     string memory destContract = destChainToContractAddr[destinationChain];
+81:     string memory destContract = destChainToContractAddr[destinationChain];
 
 ```
 [#L81](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L81) 
@@ -4403,7 +4403,7 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 141:     Range memory lastRange = ranges[ranges.length - 1];
 
 ```
-[#L121](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L121) [#L131](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L131) [#L156](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L156) 
+[#L106](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L106) [#L116](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L116) [#L141](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L141) 
 
 </details>
 
@@ -4421,17 +4421,17 @@ There are <b>4</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-/// Checked on line 292
-295:     _approve(_sender, msg.sender, currentAllowance - _amount);
+/// Checked on line 307
+310:     _approve(_sender, msg.sender, currentAllowance - _amount);
 
-/// Checked on line 344
-347:     _approve(msg.sender, _spender, currentAllowance - _subtractedValue);
+/// Checked on line 359
+362:     _approve(msg.sender, _spender, currentAllowance - _subtractedValue);
 
-/// Checked on line 511
-515:     shares[_sender] = currentSenderShares - _sharesAmount;
+/// Checked on line 526
+530:     shares[_sender] = currentSenderShares - _sharesAmount;
 
-/// Checked on line 569
-575:     shares[_account] = accountShares - _sharesAmount;
+/// Checked on line 584
+590:     shares[_account] = accountShares - _sharesAmount;
 
 ```
 [#L310](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L310) [#L362](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L362) [#L530](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L530) [#L590](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L590) 
@@ -4457,9 +4457,9 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-516:     shares[_recipient] = shares[_recipient] + _sharesAmount;
+531:     shares[_recipient] = shares[_recipient] + _sharesAmount;
 
-538:     shares[_recipient] = shares[_recipient] + _sharesAmount;
+553:     shares[_recipient] = shares[_recipient] + _sharesAmount;
 
 ```
 [#L531](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L531) [#L553](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L553) 
@@ -4480,9 +4480,9 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-28:   mapping(address => bool) public approvers;
+43:   mapping(address => bool) public approvers;
 
-30:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
+45:   mapping(bytes32 => mapping(uint256 => bool)) public isSpentNonce;
 
 ```
 [#L43](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L43) [#L45](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L45) 
@@ -4503,11 +4503,11 @@ There are <b>5</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-119:     for (uint256 i = 0; i < thresholds.length; ++i) {
+134:     for (uint256 i = 0; i < thresholds.length; ++i) {
 
-145:       for (uint256 i = 0; i < t.approvers.length; ++i) {
+160:       for (uint256 i = 0; i < t.approvers.length; ++i) {
 
-249:     for (uint256 i = 0; i < amounts.length; ++i) {
+264:     for (uint256 i = 0; i < amounts.length; ++i) {
 
 ```
 [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L134) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L160) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L264) 
@@ -4515,7 +4515,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-164:     for (uint256 i = 0; i < exCallData.length; ++i) {
+179:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
@@ -4523,7 +4523,7 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-115:     for (uint256 i = 0; i < exCallData.length; ++i) {
+130:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L130) 
@@ -4554,13 +4554,13 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 106:       Range memory lastRange = ranges[ranges.length - 1];
 
 ```
-[#L115](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L115) [#L117](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L117) [#L121](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L121) 
+[#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L100) [#L102](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L102) [#L106](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L106) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-/// More than 1 read for `shares`, line 516 and 509
-516:     shares[_recipient] = shares[_recipient] + _sharesAmount;
+/// More than 1 read for `shares`, line 531 and 524
+531:     shares[_recipient] = shares[_recipient] + _sharesAmount;
 
 ```
 [#L531](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L531) 
@@ -4581,7 +4581,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-122:     string memory destinationChain,
+137:     string memory destinationChain,
 
 ```
 [#L137](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L137) 
@@ -4603,7 +4603,7 @@ There are <b>21</b> instances (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-168:       require(success, "Call Failed");
+183:       require(success, "Call Failed");
 
 ```
 [#L183](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L183) 
@@ -4611,41 +4611,41 @@ File: contracts/bridge/SourceBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-292:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
+307:     require(currentAllowance >= _amount, "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");
 
-420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
-475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-569:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
+584:     require(_sharesAmount <= accountShares, "BURN_AMOUNT_EXCEEDS_BALANCE");
 
-619:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
+634:       require(!_isBlocked(msg.sender), "rUSDY: 'sender' address blocked");
 
-620:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
+635:       require(!_isSanctioned(msg.sender), "rUSDY: 'sender' address sanctioned");
 
-629:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
+644:       require(!_isBlocked(from), "rUSDY: 'from' address blocked");
 
-630:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
+645:       require(!_isSanctioned(from), "rUSDY: 'from' address sanctioned");
 
-631:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
+646:       require(_isAllowed(from), "rUSDY: 'from' address not on allowlist");
 
-636:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
+651:       require(!_isBlocked(to), "rUSDY: 'to' address blocked");
 
-637:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
+652:       require(!_isSanctioned(to), "rUSDY: 'to' address sanctioned");
 
-638:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
+653:       require(_isAllowed(to), "rUSDY: 'to' address not on allowlist");
 
 ```
 [#L307](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L307) [#L435](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L450) [#L490](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L579) [#L584](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L584) [#L634](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L634) [#L635](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L635) [#L644](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L644) [#L645](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L645) [#L646](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L646) [#L651](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L651) [#L652](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L652) [#L653](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L653) 
@@ -4653,9 +4653,9 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-119:       require(success, "Call Failed");
+134:       require(success, "Call Failed");
 
-140:     require(msg.sender == guardian, "rUSDYFactory: You are not the Guardian");
+155:     require(msg.sender == guardian, "rUSDYFactory: You are not the Guardian");
 
 ```
 [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L134) [#L155](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L155) 
@@ -4675,11 +4675,11 @@ There are <b>8</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-119:     for (uint256 i = 0; i < thresholds.length; ++i) {
+134:     for (uint256 i = 0; i < thresholds.length; ++i) {
 
-145:       for (uint256 i = 0; i < t.approvers.length; ++i) {
+160:       for (uint256 i = 0; i < t.approvers.length; ++i) {
 
-249:     for (uint256 i = 0; i < amounts.length; ++i) {
+264:     for (uint256 i = 0; i < amounts.length; ++i) {
 
 ```
 [#L134](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L134) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L160) [#L264](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L264) 
@@ -4687,7 +4687,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-164:     for (uint256 i = 0; i < exCallData.length; ++i) {
+179:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L179](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L179) 
@@ -4702,12 +4702,12 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 115:     for (uint256 i = 0; i < length + 1; ++i) {
 
 ```
-[#L78](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L78) [#L114](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L114) [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L130) 
+[#L63](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L63) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L99) [#L115](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L115) 
 
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-115:     for (uint256 i = 0; i < exCallData.length; ++i) {
+130:     for (uint256 i = 0; i < exCallData.length; ++i) {
 
 ```
 [#L130](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L130) 
@@ -4728,7 +4728,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-194:   function decimals() public pure returns (uint8) {
+209:   function decimals() public pure returns (uint8) {
 
 ```
 [#L209](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L209) 
@@ -4749,7 +4749,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-90:   constructor() {
+105:   constructor() {
 
 ```
 [#L105](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L105) 
@@ -4757,7 +4757,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-36:   constructor(address _guardian) {
+51:   constructor(address _guardian) {
 
 ```
 [#L51](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L51) 
@@ -4778,19 +4778,19 @@ There are <b>14</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-195:   function addApprover(address approver) external onlyOwner {
+210:   function addApprover(address approver) external onlyOwner {
 
-205:   function removeApprover(address approver) external onlyOwner {
+220:   function removeApprover(address approver) external onlyOwner {
 
-271:   function setMintLimit(uint256 mintLimit) external onlyOwner {
+286:   function setMintLimit(uint256 mintLimit) external onlyOwner {
 
-280:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
+295:   function setMintLimitDuration(uint256 mintDuration) external onlyOwner {
 
-289:   function pause() external onlyOwner {
+304:   function pause() external onlyOwner {
 
-298:   function unpause() external onlyOwner {
+313:   function unpause() external onlyOwner {
 
-307:   function rescueTokens(address _token) external onlyOwner {
+322:   function rescueTokens(address _token) external onlyOwner {
 
 ```
 [#L210](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L210) [#L220](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L220) [#L286](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L286) [#L295](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L295) [#L304](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L304) [#L313](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L313) [#L322](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L322) 
@@ -4798,9 +4798,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-136:   function pause() external onlyOwner {
+151:   function pause() external onlyOwner {
 
-145:   function unpause() external onlyOwner {
+160:   function unpause() external onlyOwner {
 
 ```
 [#L151](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L151) [#L160](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L160) 
@@ -4813,16 +4813,16 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 234:   function unpauseOracle() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L242](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L242) [#L249](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L249) 
+[#L227](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L227) [#L234](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L234) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
+662:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-670:   function pause() external onlyRole(PAUSER_ROLE) {
+685:   function pause() external onlyRole(PAUSER_ROLE) {
 
-674:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
+689:   function unpause() external onlyRole(USDY_MANAGER_ROLE) {
 
 ```
 [#L662](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L662) [#L685](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L685) [#L689](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L689) 
@@ -4843,7 +4843,7 @@ There is <b>1</b> instance (click to show):
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-79:     bytes memory payload = abi.encode(VERSION, msg.sender, amount, nonce++);
+94:     bytes memory payload = abi.encode(VERSION, msg.sender, amount, nonce++);
 
 ```
 [#L94](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L94) 
@@ -4864,7 +4864,7 @@ There are <b>12</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-33:   bytes32 public constant VERSION = "1.0";
+48:   bytes32 public constant VERSION = "1.0";
 
 ```
 [#L48](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L48) 
@@ -4872,7 +4872,7 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-27:   bytes32 public constant VERSION = "1.0";
+42:   bytes32 public constant VERSION = "1.0";
 
 ```
 [#L42](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L42) 
@@ -4887,22 +4887,22 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 14:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
 ```
-[#L24](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L24) [#L28](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L28) [#L29](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L29) 
+[#L9](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L9) [#L13](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L13) [#L14](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L14) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-76:   uint256 public constant BPS_DENOMINATOR = 10_000;
+91:   uint256 public constant BPS_DENOMINATOR = 10_000;
 
-82:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
+97:   bytes32 public constant USDY_MANAGER_ROLE = keccak256("ADMIN_ROLE");
 
-83:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+98:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-84:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+99:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
-85:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
+100:   bytes32 public constant BURNER_ROLE = keccak256("BURN_ROLE");
 
-86:   bytes32 public constant LIST_CONFIGURER_ROLE =
+101:   bytes32 public constant LIST_CONFIGURER_ROLE =
 
 ```
 [#L91](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L91) [#L97](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L97) [#L98](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L98) [#L99](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L99) [#L100](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L100) [#L101](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L101) 
@@ -4910,7 +4910,7 @@ File: contracts/usdy/rUSDY.sol
 ```solidity
 File: contracts/usdy/rUSDYFactory.sol
 
-29:   bytes32 public constant DEFAULT_ADMIN_ROLE = bytes32(0);
+44:   bytes32 public constant DEFAULT_ADMIN_ROLE = bytes32(0);
 
 ```
 [#L44](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDYFactory.sol#L44) 
@@ -4931,7 +4931,7 @@ There are <b>3</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-144:     if (t.approvers.length > 0) {
+159:     if (t.approvers.length > 0) {
 
 ```
 [#L159](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L159) 
@@ -4939,9 +4939,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-420:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
+435:     require(_USDYAmount > 0, "rUSDY: can't wrap zero USDY tokens");
 
-435:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
+450:     require(_rUSDYAmount > 0, "rUSDY: can't unwrap zero rUSDY tokens");
 
 ```
 [#L435](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L435) [#L450](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L450) 
@@ -4962,11 +4962,11 @@ There are <b>16</b> instances (click to show):
 ```solidity
 File: contracts/bridge/DestinationBridge.sol
 
-81:     if (chainToApprovedSender[srcChain] == bytes32(0)) {
+96:     if (chainToApprovedSender[srcChain] == bytes32(0)) {
 
-129:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
+144:     if (txnToThresholdSet[txnHash].numberOfApprovalsNeeded == 0) {
 
-250:       if (i == 0) {
+265:       if (i == 0) {
 
 ```
 [#L96](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L96) [#L144](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L144) [#L265](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/DestinationBridge.sol#L265) 
@@ -4974,9 +4974,9 @@ File: contracts/bridge/DestinationBridge.sol
 ```solidity
 File: contracts/bridge/SourceBridge.sol
 
-68:     if (bytes(destContract).length == 0) {
+83:     if (bytes(destContract).length == 0) {
 
-72:     if (msg.value == 0) {
+87:     if (msg.value == 0) {
 
 ```
 [#L83](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L83) [#L87](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/bridge/SourceBridge.sol#L87) 
@@ -4991,26 +4991,26 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 391:     require(y == 0 || (z = x * y) / y == x);
 
 ```
-[#L199](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L199) [#L219](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L219) [#L406](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L406) 
+[#L184](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L184) [#L204](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L204) [#L391](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/rwaOracles/RWADynamicOracle.sol#L391) 
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-475:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+490:     require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
 
-476:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+491:     require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
 
-504:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+519:     require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
 
-505:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
+520:     require(_recipient != address(0), "TRANSFER_TO_THE_ZERO_ADDRESS");
 
-532:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+547:     require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
 
-564:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+579:     require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
 
-627:     if (from != address(0)) {
+642:     if (from != address(0)) {
 
-634:     if (to != address(0)) {
+649:     if (to != address(0)) {
 
 ```
 [#L490](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L490) [#L491](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L491) [#L519](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L519) [#L520](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L520) [#L547](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L547) [#L579](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L579) [#L642](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L642) [#L649](https://github.com/code-423n4/2023-09-ondo/blob/623dd3c0ff3c4d8ce4ed563b96da50d08cd803c5/contracts/usdy/rUSDY.sol#L649) 
