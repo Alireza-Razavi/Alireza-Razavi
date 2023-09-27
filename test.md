@@ -16,13 +16,13 @@ Total <b>39</b> instances over <b>4</b> issues:
 ## Low Issues
 
 
-Total <b>107</b> instances over <b>21</b> issues:
+Total <b>100</b> instances over <b>21</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [L-1](#L-1) | Array is `push()`ed but not `pop()`ed | 5 |
 | [L-2](#L-2) | Check division by zero is prevented | 12 |
-| [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 11 |
+| [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 4 |
 | [L-4](#L-4) | Enum values should be used instead of constant array indexes | 2 |
 | [L-5](#L-5) | External call recipient can consume all remaining gas | 2 |
 | [L-6](#L-6) | Governance functions should be controlled by time locks | 29 |
@@ -402,48 +402,19 @@ A copy-paste error or a typo may end up bricking protocol functionality, or send
 
 <details>
 <summary>
-There are <b>11</b> instances (click to show):
+There are <b>4</b> instances (click to show):
 </summary>
-
-```solidity
-File: contracts/bridge/DestinationBridge.sol
-
-195:   function addApprover(address approver) external onlyOwner {
-
-205:   function removeApprover(address approver) external onlyOwner {
-
-307:   function rescueTokens(address _token) external onlyOwner {
-
-```
-
-```solidity
-File: contracts/bridge/SourceBridge.sol
-
-123:     address contractAddress
-
-```
 
 ```solidity
 File: contracts/usdy/rUSDY.sol
 
-111:     address _oracle
-
-122:     address _oracle
-
 647:   function setOracle(address _oracle) external onlyRole(USDY_MANAGER_ROLE) {
 
-684:     address blocklist
+683:   function setBlocklist(
 
-695:     address allowlist
+694:   function setAllowlist(
 
-706:     address sanctionsList
-
-```
-
-```solidity
-File: contracts/usdy/rUSDYFactory.sol
-
-65:     address oracle
+705:   function setSanctionsList(
 
 ```
 
