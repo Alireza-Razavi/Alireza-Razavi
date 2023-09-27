@@ -490,6 +490,17 @@ File: contracts/bridge/DestinationBridge.sol
 /// Missing zero check for `_ondoApprover`
 /// Missing zero check for `_owner`
 40:   constructor(
+        address _token,
+        address _axelarGateway,
+        address _allowlist,
+        address _ondoApprover,
+        address _owner,
+        uint256 _mintLimit,
+        uint256 _mintDuration
+      )
+        AxelarExecutable(_axelarGateway)
+        MintTimeBasedRateLimiter(_mintDuration, _mintLimit)
+      {
 
 ```
 [#L40](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/DestinationBridge.sol#L40) 
@@ -502,6 +513,11 @@ File: contracts/bridge/SourceBridge.sol
 /// Missing zero check for `_gasService`
 /// Missing zero check for `owner`
 40:   constructor(
+        address _token,
+        address _axelarGateway,
+        address _gasService,
+        address owner
+      ) {
 
 ```
 [#L40](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/bridge/SourceBridge.sol#L40) 
@@ -513,6 +529,14 @@ File: contracts/rwaOracles/RWADynamicOracle.sol
 /// Missing zero check for `setter`
 /// Missing zero check for `pauser`
 16:   constructor(
+        address admin,
+        address setter,
+        address pauser,
+        uint256 firstRangeStart,
+        uint256 firstRangeEnd,
+        uint256 dailyIR,
+        uint256 startPrice
+      ) {
 
 ```
 [#L16](https://github.com/code-423n4/2023-09-ondo/blob/47d34d6d4a5303af5f46e907ac2292e6a7745f6c/contracts/rwaOracles/RWADynamicOracle.sol#L16) 
