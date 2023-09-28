@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>410</b> instances over <b>24</b> issues:
+Total <b>413</b> instances over <b>25</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -35,17 +35,18 @@ Total <b>410</b> instances over <b>24</b> issues:
 | [L-11](#L-11) | Missing checks for `address(0)` when setting address state variables | 40 |
 | [L-12](#L-12) | Owner can renounce Ownership | 12 |
 | [L-13](#L-13) | prevent re-setting a state variable with the same value | 50 |
-| [L-14](#L-14) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
-| [L-15](#L-15) | Timestamp may be manipulation | 2 |
-| [L-16](#L-16) | Unsafe downcast | 17 |
-| [L-17](#L-17) | Unsafe solidity low-level call can cause gas grief attack | 10 |
-| [L-18](#L-18) | Use Ownable2Step instead of Ownable | 12 |
-| [L-19](#L-19) | Using zero as a parameter | 3 |
-| [L-20](#L-20) | Missing zero address check in initializer | 2 |
-| [L-21](#L-21) | Do not use deprecated library functions | 2 |
-| [L-22](#L-22) | Empty Function Body - Consider commenting why | 8 |
-| [L-23](#L-23) | Initializers could be front-run | 9 |
-| [L-24](#L-24) | Unspecific compiler version pragma | 3 |
+| [L-14](#L-14) | `receive()`/`fallback()` function does not authorize requests | 3 |
+| [L-15](#L-15) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
+| [L-16](#L-16) | Timestamp may be manipulation | 2 |
+| [L-17](#L-17) | Unsafe downcast | 17 |
+| [L-18](#L-18) | Unsafe solidity low-level call can cause gas grief attack | 10 |
+| [L-19](#L-19) | Use Ownable2Step instead of Ownable | 12 |
+| [L-20](#L-20) | Using zero as a parameter | 3 |
+| [L-21](#L-21) | Missing zero address check in initializer | 2 |
+| [L-22](#L-22) | Do not use deprecated library functions | 2 |
+| [L-23](#L-23) | Empty Function Body - Consider commenting why | 8 |
+| [L-24](#L-24) | Initializers could be front-run | 9 |
+| [L-25](#L-25) | Unspecific compiler version pragma | 3 |
 
 ## Non Critical Issues
 
@@ -2052,7 +2053,44 @@ File: src/token/ERC20hTokenRoot.sol
 ---
 
 <a name="L-14"></a> 
-### [L-14] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
+### [L-14] `receive()`/`fallback()` function does not authorize requests
+Having no access control on the function (e.g. `require(msg.sender == address(weth))`) means that someone may send Ether to the contract, and have no way to get anything back out, which is a loss of funds. If the concern is having to spend a small amount of gas to check the sender against an immutable address, the code should at least have a function to rescue mistakenly-sent Ether.
+
+<details>
+<summary>
+There are <b>3</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/BranchBridgeAgent.sol
+
+149:     receive() external payable {}
+
+```
+[#L149](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L149) 
+
+```solidity
+File: src/RootBridgeAgent.sol
+
+128:     receive() external payable {}
+
+```
+[#L128](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L128) 
+
+```solidity
+File: src/VirtualAccount.sol
+
+44:     receive() external payable {}
+
+```
+[#L44](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L44) 
+
+</details>
+
+---
+
+<a name="L-15"></a> 
+### [L-15] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
 Solidity version 0.8.20 or above uses the new [Shanghai EVM](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/#important-note) which introduces the PUSH0 opcode. This op code may not yet be implemented on all evm-chains or Layer2s, so deployment on these chains will fail. Consider using an earlier solidity version.
 
 <details>
@@ -2392,8 +2430,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-15"></a> 
-### [L-15] Timestamp may be manipulation
+<a name="L-16"></a> 
+### [L-16] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 <details>
@@ -2415,8 +2453,8 @@ File: src/BranchPort.sol
 
 ---
 
-<a name="L-16"></a> 
-### [L-16] Unsafe downcast
+<a name="L-17"></a> 
+### [L-17] Unsafe downcast
 When a type is downcast to a smaller type, the higher order bits are truncated, effectively applying a modulo to the original value. Without any other checks, this wrapping will lead to unexpected behavior and bugs.
 
 <details>
@@ -2486,8 +2524,8 @@ File: src/RootBridgeAgentExecutor.sol
 
 ---
 
-<a name="L-17"></a> 
-### [L-17] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-18"></a> 
+### [L-18] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -2543,8 +2581,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-18"></a> 
-### [L-18] Use Ownable2Step instead of Ownable
+<a name="L-19"></a> 
+### [L-19] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -2652,8 +2690,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-19"></a> 
-### [L-19] Using zero as a parameter
+<a name="L-20"></a> 
+### [L-20] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -2683,8 +2721,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-20"></a> 
-### [L-20] Missing zero address check in initializer
+<a name="L-21"></a> 
+### [L-21] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -2714,8 +2752,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-21"></a> 
-### [L-21] Do not use deprecated library functions
+<a name="L-22"></a> 
+### [L-22] Do not use deprecated library functions
 
 <details>
 <summary>
@@ -2736,8 +2774,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-22"></a> 
-### [L-22] Empty Function Body - Consider commenting why
+<a name="L-23"></a> 
+### [L-23] Empty Function Body - Consider commenting why
 
 <details>
 <summary>
@@ -2806,8 +2844,8 @@ File: src/factories/ArbitrumBranchBridgeAgentFactory.sol
 
 ---
 
-<a name="L-23"></a> 
-### [L-23] Initializers could be front-run
+<a name="L-24"></a> 
+### [L-24] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -2891,8 +2929,8 @@ File: src/factories/ERC20hTokenRootFactory.sol
 
 ---
 
-<a name="L-24"></a> 
-### [L-24] Unspecific compiler version pragma
+<a name="L-25"></a> 
+### [L-25] Unspecific compiler version pragma
 
 <details>
 <summary>
