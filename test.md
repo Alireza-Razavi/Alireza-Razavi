@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>428</b> instances over <b>32</b> issues:
+Total <b>432</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,19 +41,20 @@ Total <b>428</b> instances over <b>32</b> issues:
 | [L-17](#L-17) | `SafeTransferLib` does not ensure that the token contract exists | 16 |
 | [L-18](#L-18) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
 | [L-19](#L-19) | Timestamp may be manipulation | 2 |
-| [L-20](#L-20) | Unsafe downcast | 17 |
-| [L-21](#L-21) | Unsafe solidity low-level call can cause gas grief attack | 10 |
-| [L-22](#L-22) | Use Ownable2Step instead of Ownable | 12 |
-| [L-23](#L-23) | Using zero as a parameter | 3 |
-| [L-24](#L-24) | Missing zero address check in initializer | 2 |
-| [L-25](#L-25) | `decimals()` is not a part of the ERC-20 standard | 4 |
-| [L-26](#L-26) | Do not use deprecated library functions | 2 |
-| [L-27](#L-27) | Empty Function Body - Consider commenting why | 8 |
-| [L-28](#L-28) | Initializers could be front-run | 9 |
-| [L-29](#L-29) | `name()` is not a part of the ERC-20 standard | 4 |
-| [L-30](#L-30) | `safeApprove()` is deprecated | 2 |
-| [L-31](#L-31) | `symbol()` is not a part of the ERC-20 standard | 4 |
-| [L-32](#L-32) | Unspecific compiler version pragma | 3 |
+| [L-20](#L-20) | Tokens may be minted to `address(0)` | 4 |
+| [L-21](#L-21) | Unsafe downcast | 17 |
+| [L-22](#L-22) | Unsafe solidity low-level call can cause gas grief attack | 10 |
+| [L-23](#L-23) | Use Ownable2Step instead of Ownable | 12 |
+| [L-24](#L-24) | Using zero as a parameter | 3 |
+| [L-25](#L-25) | Missing zero address check in initializer | 2 |
+| [L-26](#L-26) | `decimals()` is not a part of the ERC-20 standard | 4 |
+| [L-27](#L-27) | Do not use deprecated library functions | 2 |
+| [L-28](#L-28) | Empty Function Body - Consider commenting why | 8 |
+| [L-29](#L-29) | Initializers could be front-run | 9 |
+| [L-30](#L-30) | `name()` is not a part of the ERC-20 standard | 4 |
+| [L-31](#L-31) | `safeApprove()` is deprecated | 2 |
+| [L-32](#L-32) | `symbol()` is not a part of the ERC-20 standard | 4 |
+| [L-33](#L-33) | Unspecific compiler version pragma | 3 |
 
 ## Non Critical Issues
 
@@ -2549,7 +2550,51 @@ File: src/BranchPort.sol
 ---
 
 <a name="L-20"></a> 
-### [L-20] Unsafe downcast
+### [L-20] Tokens may be minted to `address(0)`
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/interfaces/IERC20hTokenBranch.sol
+
+22:     function mint(address account, uint256 amount) external returns (bool);
+
+```
+[#L22](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/IERC20hTokenBranch.sol#L22) 
+
+```solidity
+File: src/interfaces/IERC20hTokenRoot.sol
+
+43:     function mint(address to, uint256 amount, uint256 chainId) external returns (bool);
+
+```
+[#L43](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/IERC20hTokenRoot.sol#L43) 
+
+```solidity
+File: src/token/ERC20hTokenBranch.sol
+
+29:     function mint(address account, uint256 amount) external override onlyOwner returns (bool) {
+
+```
+[#L29](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenBranch.sol#L29) 
+
+```solidity
+File: src/token/ERC20hTokenRoot.sol
+
+57:     function mint(address to, uint256 amount, uint256 chainId) external onlyOwner returns (bool) {
+
+```
+[#L57](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L57) 
+
+</details>
+
+---
+
+<a name="L-21"></a> 
+### [L-21] Unsafe downcast
 When a type is downcast to a smaller type, the higher order bits are truncated, effectively applying a modulo to the original value. Without any other checks, this wrapping will lead to unexpected behavior and bugs.
 
 <details>
@@ -2619,8 +2664,8 @@ File: src/RootBridgeAgentExecutor.sol
 
 ---
 
-<a name="L-21"></a> 
-### [L-21] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-22"></a> 
+### [L-22] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -2676,8 +2721,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-22"></a> 
-### [L-22] Use Ownable2Step instead of Ownable
+<a name="L-23"></a> 
+### [L-23] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -2785,8 +2830,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-23"></a> 
-### [L-23] Using zero as a parameter
+<a name="L-24"></a> 
+### [L-24] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -2816,8 +2861,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-24"></a> 
-### [L-24] Missing zero address check in initializer
+<a name="L-25"></a> 
+### [L-25] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -2847,8 +2892,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-25"></a> 
-### [L-25] `decimals()` is not a part of the ERC-20 standard
+<a name="L-26"></a> 
+### [L-26] `decimals()` is not a part of the ERC-20 standard
 The `decimals()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
@@ -2892,8 +2937,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-26"></a> 
-### [L-26] Do not use deprecated library functions
+<a name="L-27"></a> 
+### [L-27] Do not use deprecated library functions
 
 <details>
 <summary>
@@ -2914,8 +2959,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-27"></a> 
-### [L-27] Empty Function Body - Consider commenting why
+<a name="L-28"></a> 
+### [L-28] Empty Function Body - Consider commenting why
 
 <details>
 <summary>
@@ -2984,8 +3029,8 @@ File: src/factories/ArbitrumBranchBridgeAgentFactory.sol
 
 ---
 
-<a name="L-28"></a> 
-### [L-28] Initializers could be front-run
+<a name="L-29"></a> 
+### [L-29] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -3069,8 +3114,8 @@ File: src/factories/ERC20hTokenRootFactory.sol
 
 ---
 
-<a name="L-29"></a> 
-### [L-29] `name()` is not a part of the ERC-20 standard
+<a name="L-30"></a> 
+### [L-30] `name()` is not a part of the ERC-20 standard
 The `name()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
@@ -3114,8 +3159,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-30"></a> 
-### [L-30] `safeApprove()` is deprecated
+<a name="L-31"></a> 
+### [L-31] `safeApprove()` is deprecated
 [Deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/bfff03c0d2a59bcd8e2ead1da9aed9edf0080d05/contracts/token/ERC20/utils/SafeERC20.sol#L38-L45) in favor of `safeIncreaseAllowance()` and `safeDecreaseAllowance()`. If only setting the initial allowance to the value that means infinite, `safeIncreaseAllowance()` can be used instead. The function may currently work, but if a bug is found in this version of OpenZeppelin, and the version that you're forced to upgrade to no longer has this function, you'll encounter unnecessary delays in porting and testing replacement contracts.
 
 <details>
@@ -3137,8 +3182,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-31"></a> 
-### [L-31] `symbol()` is not a part of the ERC-20 standard
+<a name="L-32"></a> 
+### [L-32] `symbol()` is not a part of the ERC-20 standard
 The `symbol()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
@@ -3182,8 +3227,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-32"></a> 
-### [L-32] Unspecific compiler version pragma
+<a name="L-33"></a> 
+### [L-33] Unspecific compiler version pragma
 
 <details>
 <summary>
