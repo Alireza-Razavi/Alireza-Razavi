@@ -4,15 +4,16 @@
 ## Medium Issues
 
 
-Total <b>53</b> instances over <b>5</b> issues:
+Total <b>64</b> instances over <b>6</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [M-1](#M-1) | The remaining ETH may be locked in the contract after call | 7 |
-| [M-2](#M-2) | Return values of `transfer()`/`transferFrom()` not checked | 1 |
-| [M-3](#M-3) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 3 |
-| [M-4](#M-4) | Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs | 1 |
-| [M-5](#M-5) | Centralization Risk for trusted owners | 41 |
+| [M-2](#M-2) | Unchecked return value of low-level `call()`/`delegatecall()` | 12 |
+| [M-3](#M-3) | Return values of `transfer()`/`transferFrom()` not checked | 1 |
+| [M-4](#M-4) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 2 |
+| [M-5](#M-5) | Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs | 1 |
+| [M-6](#M-6) | Centralization Risk for trusted owners | 41 |
 
 ## Low Issues
 
@@ -194,7 +195,62 @@ File: src/RootBridgeAgent.sol
 ---
 
 <a name="M-2"></a> 
-### [M-2] Return values of `transfer()`/`transferFrom()` not checked
+### [M-2] Unchecked return value of low-level `call()`/`delegatecall()`
+The function being called may revert, which will be indicated by the return value to `call()`/`delegatecall()`. If the return value is not checked, the code will continue on as if there was no error, rather than reverting with the error encountered.
+
+<details>
+<summary>
+There are <b>12</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/ArbitrumBranchBridgeAgent.sol
+
+103:         _rootBridgeAgentAddress.call{value: msg.value}("");
+
+```
+[#L103](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchBridgeAgent.sol#L103) 
+
+```solidity
+File: src/MulticallRootRouter.sol
+
+239:             IVirtualAccount(userAccount).call(calls);
+
+248:             IVirtualAccount(userAccount).call(calls);
+
+275:             IVirtualAccount(userAccount).call(calls);
+
+328:             IVirtualAccount(userAccount).call(calls);
+
+337:             IVirtualAccount(userAccount).call(calls);
+
+364:             IVirtualAccount(userAccount).call(calls);
+
+416:             IVirtualAccount(userAccount).call(calls);
+
+425:             IVirtualAccount(userAccount).call(calls);
+
+452:             IVirtualAccount(userAccount).call(calls);
+
+```
+[#L239](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L239) [#L248](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L248) [#L275](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L275) [#L328](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L328) [#L337](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L337) [#L364](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L364) [#L416](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L416) [#L425](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L425) [#L452](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L452) 
+
+```solidity
+File: src/RootBridgeAgent.sol
+
+835:             callee.call{value: msg.value}("");
+
+927:             callee.call{value: _value}("");
+
+```
+[#L835](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L835) [#L927](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L927) 
+
+</details>
+
+---
+
+<a name="M-3"></a> 
+### [M-3] Return values of `transfer()`/`transferFrom()` not checked
 Not all ERC20 implementations `revert()` when there's a failure in `transfer()` or `transferFrom()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually transfer anything.
 
 <details>
@@ -214,13 +270,13 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="M-3"></a> 
-### [M-3] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
+<a name="M-4"></a> 
+### [M-4] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
 Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -233,20 +289,12 @@ File: src/BaseBranchRouter.sol
 ```
 [#L168](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L168) [#L175](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L175) 
 
-```solidity
-File: src/VirtualAccount.sol
-
-62:         ERC721(_token).transferFrom(address(this), msg.sender, _tokenId);
-
-```
-[#L62](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L62) 
-
 </details>
 
 ---
 
-<a name="M-4"></a> 
-### [M-4] Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs
+<a name="M-5"></a> 
+### [M-5] Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs
 The EIP-721 standard says the following about `transferFrom()`:
 
 ```solidity
@@ -284,8 +332,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="M-5"></a> 
-### [M-5] Centralization Risk for trusted owners
+<a name="M-6"></a> 
+### [M-6] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
