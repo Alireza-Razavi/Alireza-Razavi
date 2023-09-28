@@ -4,7 +4,7 @@
 ## Medium Issues
 
 
-Total <b>65</b> instances over <b>6</b> issues:
+Total <b>81</b> instances over <b>7</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -14,6 +14,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 | [M-4](#M-4) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 2 |
 | [M-5](#M-5) | Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs | 1 |
 | [M-6](#M-6) | Centralization Risk for trusted owners | 41 |
+| [M-7](#M-7) |  Solmate's SafeTransferLib does not check for token contract's existence | 16 |
 
 ## Low Issues
 
@@ -509,6 +510,96 @@ File: src/token/ERC20hTokenRoot.sol
 
 ```
 [#L12](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L12) [#L57](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L57) [#L69](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L69) 
+
+</details>
+
+---
+
+<a name="M-7"></a> 
+### [M-7]  Solmate's SafeTransferLib does not check for token contract's existence
+There is a subtle difference between the implementation of solmate’s SafeTransferLib and OZ’s SafeERC20: OZ’s SafeERC20 checks if the token is a contract or not, solmate’s SafeTransferLib does not.
+https://github.com/transmissions11/solmate/blob/main/src/utils/SafeTransferLib.sol#L9 
+`@dev Note that none of the functions in this library check that a token has code at all! That responsibility is delegated to the caller` 
+
+
+<details>
+<summary>
+There are <b>16</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/ArbitrumBranchPort.sol
+
+66:         _underlyingAddress.safeTransferFrom(_depositor, address(this), _deposit);
+
+94:         _underlyingAddress.safeTransfer(_recipient, _amount);
+
+128:             _underlyingAddress.safeTransferFrom(_depositor, address(this), _deposit);
+
+```
+[#L66](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchPort.sol#L66) [#L94](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchPort.sol#L94) [#L128](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchPort.sol#L128) 
+
+```solidity
+File: src/BaseBranchRouter.sol
+
+167:                 _hToken.safeTransferFrom(msg.sender, address(this), _amount - _deposit);
+
+174:             _token.safeTransferFrom(msg.sender, address(this), _deposit);
+
+```
+[#L167](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L167) [#L174](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L174) 
+
+```solidity
+File: src/BranchPort.sol
+
+160:         _token.safeTransfer(msg.sender, _amount);
+
+233:         _underlyingAddress.safeTransfer(_recipient, _deposit);
+
+526:             _localAddress.safeTransferFrom(_depositor, address(this), _hTokenAmount);
+
+532:             _underlyingAddress.safeTransferFrom(_depositor, address(this), _deposit);
+
+```
+[#L160](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L160) [#L233](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L233) [#L526](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L526) [#L532](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L532) 
+
+```solidity
+File: src/MulticallRootRouter.sol
+
+521:         outputToken.safeApprove(_bridgeAgentAddress, amountOut);
+
+559:             outputTokens[i].safeApprove(_bridgeAgentAddress, amountsOut[i]);
+
+```
+[#L521](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L521) [#L559](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L559) 
+
+```solidity
+File: src/RootBridgeAgent.sol
+
+1151:                 _globalAddress.safeTransferFrom(_depositor, localPortAddress, _amount - _deposit);
+
+```
+[#L1151](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L1151) 
+
+```solidity
+File: src/RootPort.sol
+
+286:                 _hToken.safeTransfer(_recipient, _amount - _deposit);
+
+301:         _hToken.safeTransferFrom(_from, address(this), _amount);
+
+311:         _hToken.safeTransfer(_to, _amount);
+
+```
+[#L286](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L286) [#L301](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L301) [#L311](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L311) 
+
+```solidity
+File: src/VirtualAccount.sol
+
+57:         _token.safeTransfer(msg.sender, _amount);
+
+```
+[#L57](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L57) 
 
 </details>
 
