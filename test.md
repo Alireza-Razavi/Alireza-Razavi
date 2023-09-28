@@ -248,7 +248,21 @@ File: src/VirtualAccount.sol
 <a name="M-4"></a> 
 ### [M-4] Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs
 The EIP-721 standard says the following about `transferFrom()`:
-```solidity/// @notice Transfer ownership of an NFT -- THE CALLER IS RESPONSIBLE///  TO CONFIRM THAT `_to` IS CAPABLE OF RECEIVING NFTS OR ELSE///  THEY MAY BE PERMANENTLY LOST/// @dev Throws unless `msg.sender` is the current owner, an authorized///  operator, or the approved address for this NFT. Throws if `_from` is///  not the current owner. Throws if `_to` is the zero address. Throws if///  `_tokenId` is not a valid NFT./// @param _from The current owner of the NFT/// @param _to The new owner/// @param _tokenId The NFT to transferfunction transferFrom(address _from, address _to, uint256 _tokenId) external payable;```
+
+```solidity
+/// @notice Transfer ownership of an NFT -- THE CALLER IS RESPONSIBLE
+///  TO CONFIRM THAT `_to` IS CAPABLE OF RECEIVING NFTS OR ELSE
+///  THEY MAY BE PERMANENTLY LOST
+/// @dev Throws unless `msg.sender` is the current owner, an authorized
+///  operator, or the approved address for this NFT. Throws if `_from` is
+///  not the current owner. Throws if `_to` is the zero address. Throws if
+///  `_tokenId` is not a valid NFT.
+/// @param _from The current owner of the NFT
+/// @param _to The new owner
+/// @param _tokenId The NFT to transfer
+function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
+```
+
 https://github.com/ethereum/EIPs/blob/78e2c297611f5e92b6a5112819ab71f74041ff25/EIPS/eip-721.md?plain=1#L103-L113
 
 Code must use the `safeTransferFrom()` flavor if it hasn't otherwise verified that the receiving address can handle it
