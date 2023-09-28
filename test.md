@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>432</b> instances over <b>33</b> issues:
+Total <b>430</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -41,7 +41,7 @@ Total <b>432</b> instances over <b>33</b> issues:
 | [L-17](#L-17) | `SafeTransferLib` does not ensure that the token contract exists | 16 |
 | [L-18](#L-18) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
 | [L-19](#L-19) | Timestamp may be manipulation | 2 |
-| [L-20](#L-20) | Tokens may be minted to `address(0)` | 4 |
+| [L-20](#L-20) | Tokens may be minted to `address(0)` | 2 |
 | [L-21](#L-21) | Unsafe downcast | 17 |
 | [L-22](#L-22) | Unsafe solidity low-level call can cause gas grief attack | 10 |
 | [L-23](#L-23) | Use Ownable2Step instead of Ownable | 12 |
@@ -2554,24 +2554,8 @@ File: src/BranchPort.sol
 
 <details>
 <summary>
-There are <b>4</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
-
-```solidity
-File: src/interfaces/IERC20hTokenBranch.sol
-
-22:     function mint(address account, uint256 amount) external returns (bool);
-
-```
-[#L22](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/IERC20hTokenBranch.sol#L22) 
-
-```solidity
-File: src/interfaces/IERC20hTokenRoot.sol
-
-43:     function mint(address to, uint256 amount, uint256 chainId) external returns (bool);
-
-```
-[#L43](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/IERC20hTokenRoot.sol#L43) 
 
 ```solidity
 File: src/token/ERC20hTokenBranch.sol
