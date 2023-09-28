@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>393</b> instances over <b>23</b> issues:
+Total <b>410</b> instances over <b>24</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -37,14 +37,15 @@ Total <b>393</b> instances over <b>23</b> issues:
 | [L-13](#L-13) | prevent re-setting a state variable with the same value | 50 |
 | [L-14](#L-14) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
 | [L-15](#L-15) | Timestamp may be manipulation | 2 |
-| [L-16](#L-16) | Unsafe solidity low-level call can cause gas grief attack | 10 |
-| [L-17](#L-17) | Use Ownable2Step instead of Ownable | 12 |
-| [L-18](#L-18) | Using zero as a parameter | 3 |
-| [L-19](#L-19) | Missing zero address check in initializer | 2 |
-| [L-20](#L-20) | Do not use deprecated library functions | 2 |
-| [L-21](#L-21) | Empty Function Body - Consider commenting why | 8 |
-| [L-22](#L-22) | Initializers could be front-run | 9 |
-| [L-23](#L-23) | Unspecific compiler version pragma | 3 |
+| [L-16](#L-16) | Unsafe downcast | 17 |
+| [L-17](#L-17) | Unsafe solidity low-level call can cause gas grief attack | 10 |
+| [L-18](#L-18) | Use Ownable2Step instead of Ownable | 12 |
+| [L-19](#L-19) | Using zero as a parameter | 3 |
+| [L-20](#L-20) | Missing zero address check in initializer | 2 |
+| [L-21](#L-21) | Do not use deprecated library functions | 2 |
+| [L-22](#L-22) | Empty Function Body - Consider commenting why | 8 |
+| [L-23](#L-23) | Initializers could be front-run | 9 |
+| [L-24](#L-24) | Unspecific compiler version pragma | 3 |
 
 ## Non Critical Issues
 
@@ -2415,7 +2416,78 @@ File: src/BranchPort.sol
 ---
 
 <a name="L-16"></a> 
-### [L-16] Unsafe solidity low-level call can cause gas grief attack
+### [L-16] Unsafe downcast
+When a type is downcast to a smaller type, the higher order bits are truncated, effectively applying a modulo to the original value. Without any other checks, this wrapping will lead to unexpected behavior and bugs.
+
+<details>
+<summary>
+There are <b>17</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/BranchBridgeAgent.sol
+
+243:             uint8(_dParams.hTokens.length),
+
+320:             uint8(_dParams.hTokens.length),
+
+359:         if (uint8(deposit.hTokens.length) == 1) {
+
+383:         } else if (uint8(deposit.hTokens.length) > 1) {
+
+389:                     uint8(deposit.hTokens.length),
+
+400:                     uint8(deposit.hTokens.length),
+
+501:         uint8 numOfAssets = uint8(bytes1(_sParams[0]));
+
+```
+[#L243](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L243) [#L320](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L320) [#L359](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L359) [#L383](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L383) [#L389](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L389) [#L400](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L400) [#L501](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L501) 
+
+```solidity
+File: src/BranchBridgeAgentExecutor.sol
+
+110:         uint256 assetsOffset = uint8(bytes1(_payload[PARAMS_START_SIGNED])) * PARAMS_TKN_SET_SIZE_MULTIPLE;
+
+```
+[#L110](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgentExecutor.sol#L110) 
+
+```solidity
+File: src/RootBridgeAgent.sol
+
+896:                 uint8(_hTokens.length),
+
+1092:             uint8(hTokens.length),
+
+```
+[#L896](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L896) [#L1092](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L1092) 
+
+```solidity
+File: src/RootBridgeAgentExecutor.sol
+
+125:                     PARAMS_END_OFFSET + uint256(uint8(bytes1(_payload[PARAMS_START]))) * PARAMS_TKN_SET_SIZE_MULTIPLE
+
+130:         uint256 numOfAssets = uint8(bytes1(_payload[PARAMS_START]));
+
+213:                         + uint256(uint8(bytes1(_payload[PARAMS_START_SIGNED]))) * PARAMS_TKN_SET_SIZE_MULTIPLE
+
+222:                     + uint256(uint8(bytes1(_payload[PARAMS_START_SIGNED]))) * PARAMS_TKN_SET_SIZE_MULTIPLE
+
+228:                         + uint256(uint8(bytes1(_payload[PARAMS_START_SIGNED]))) * PARAMS_TKN_SET_SIZE_MULTIPLE:
+
+273:         uint8 numOfAssets = uint8(bytes1(_dParams[0]));
+
+281:         for (uint256 i = 0; i < uint256(uint8(numOfAssets));) {
+
+```
+[#L125](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L125) [#L130](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L130) [#L213](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L213) [#L222](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L222) [#L228](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L228) [#L273](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L273) [#L281](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L281) 
+
+</details>
+
+---
+
+<a name="L-17"></a> 
+### [L-17] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -2471,8 +2543,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-17"></a> 
-### [L-17] Use Ownable2Step instead of Ownable
+<a name="L-18"></a> 
+### [L-18] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -2580,8 +2652,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-18"></a> 
-### [L-18] Using zero as a parameter
+<a name="L-19"></a> 
+### [L-19] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -2611,8 +2683,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-19"></a> 
-### [L-19] Missing zero address check in initializer
+<a name="L-20"></a> 
+### [L-20] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -2642,8 +2714,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-20"></a> 
-### [L-20] Do not use deprecated library functions
+<a name="L-21"></a> 
+### [L-21] Do not use deprecated library functions
 
 <details>
 <summary>
@@ -2664,8 +2736,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-21"></a> 
-### [L-21] Empty Function Body - Consider commenting why
+<a name="L-22"></a> 
+### [L-22] Empty Function Body - Consider commenting why
 
 <details>
 <summary>
@@ -2734,8 +2806,8 @@ File: src/factories/ArbitrumBranchBridgeAgentFactory.sol
 
 ---
 
-<a name="L-22"></a> 
-### [L-22] Initializers could be front-run
+<a name="L-23"></a> 
+### [L-23] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -2819,8 +2891,8 @@ File: src/factories/ERC20hTokenRootFactory.sol
 
 ---
 
-<a name="L-23"></a> 
-### [L-23] Unspecific compiler version pragma
+<a name="L-24"></a> 
+### [L-24] Unspecific compiler version pragma
 
 <details>
 <summary>
