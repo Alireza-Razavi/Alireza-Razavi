@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>450</b> instances over <b>32</b> issues:
+Total <b>428</b> instances over <b>32</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -34,7 +34,7 @@ Total <b>450</b> instances over <b>32</b> issues:
 | [L-10](#L-10) | Loss of precision in divisions | 12 |
 | [L-11](#L-11) | Missing contract existence checks before low-level calls | 10 |
 | [L-12](#L-12) | Missing zero address check in constructor | 10 |
-| [L-13](#L-13) | Missing checks for `address(0)` when setting address state variables | 40 |
+| [L-13](#L-13) | Missing checks for `address(0)` when setting address state variables | 18 |
 | [L-14](#L-14) | Owner can renounce Ownership | 12 |
 | [L-15](#L-15) | prevent re-setting a state variable with the same value | 50 |
 | [L-16](#L-16) | `receive()`/`fallback()` function does not authorize requests | 3 |
@@ -1646,52 +1646,26 @@ File: src/token/ERC20hTokenBranch.sol
 
 <details>
 <summary>
-There are <b>40</b> instances (click to show):
+There are <b>18</b> instances (click to show):
 </summary>
 
 ```solidity
-File: src/ArbitrumBranchPort.sol
-
-42:         rootPortAddress = _rootPortAddress;
-
-```
-[#L42](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumBranchPort.sol#L42) 
-
-```solidity
 File: src/BaseBranchRouter.sol
-
-62:         localBridgeAgentAddress = _localBridgeAgentAddress;
 
 63:         localPortAddress = IBridgeAgent(_localBridgeAgentAddress).localPortAddress();
 
 64:         bridgeAgentExecutorAddress = IBridgeAgent(_localBridgeAgentAddress).bridgeAgentExecutorAddress();
 
 ```
-[#L62](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L62) [#L63](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L63) [#L64](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L64) 
+[#L63](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L63) [#L64](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L64) 
 
 ```solidity
 File: src/BranchBridgeAgent.sol
 
-135:         rootBridgeAgentAddress = _rootBridgeAgentAddress;
-
-136:         lzEndpointAddress = _lzEndpointAddress;
-
-137:         localRouterAddress = _localRouterAddress;
-
-138:         localPortAddress = _localPortAddress;
-
 139:         bridgeAgentExecutorAddress = DeployBranchBridgeAgentExecutor.deploy();
 
 ```
-[#L135](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L135) [#L136](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L136) [#L137](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L137) [#L138](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L138) [#L139](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L139) 
-
-```solidity
-File: src/BranchPort.sol
-
-123:         require(coreBranchRouterAddress == address(0), "Contract already initialized");
-
-```
-[#L123](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L123) 
+[#L139](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L139) 
 
 ```solidity
 File: src/CoreBranchRouter.sol
@@ -1718,32 +1692,20 @@ File: src/CoreRootRouter.sol
 ```solidity
 File: src/MulticallRootRouter.sol
 
-97:         localPortAddress = _localPortAddress;
-
-98:         multicallAddress = _multicallAddress;
-
-112:         bridgeAgentAddress = payable(_bridgeAgentAddress);
-
 113:         bridgeAgentExecutorAddress = IBridgeAgent(_bridgeAgentAddress).bridgeAgentExecutorAddress();
 
 ```
-[#L97](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L97) [#L98](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L98) [#L112](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L112) [#L113](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L113) 
+[#L113](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L113) 
 
 ```solidity
 File: src/RootBridgeAgent.sol
 
 115:         factoryAddress = msg.sender;
 
-117:         lzEndpointAddress = _lzEndpointAddress;
-
-118:         localPortAddress = _localPortAddress;
-
-119:         localRouterAddress = _localRouterAddress;
-
 120:         bridgeAgentExecutorAddress = DeployRootBridgeAgentExecutor.deploy(address(this));
 
 ```
-[#L115](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L115) [#L117](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L117) [#L118](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L118) [#L119](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L119) [#L120](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L120) 
+[#L115](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L115) [#L120](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L120) 
 
 ```solidity
 File: src/RootPort.sol
@@ -1752,10 +1714,8 @@ File: src/RootPort.sol
 
 159:         coreRootBridgeAgentAddress = _coreRootBridgeAgent;
 
-160:         localBranchPortAddress = _localBranchPortAddress;
-
 ```
-[#L138](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L138) [#L159](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L159) [#L160](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L160) 
+[#L138](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L138) [#L159](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L159) 
 
 ```solidity
 File: src/VirtualAccount.sol
@@ -1768,56 +1728,28 @@ File: src/VirtualAccount.sol
 [#L36](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L36) [#L37](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L37) 
 
 ```solidity
-File: src/factories/BranchBridgeAgentFactory.sol
-
-72:         rootBridgeAgentFactoryAddress = _rootBridgeAgentFactoryAddress;
-
-73:         lzEndpointAddress = _lzEndpointAddress;
-
-74:         localCoreBranchRouterAddress = _localCoreBranchRouterAddress;
-
-75:         localPortAddress = _localPortAddress;
-
-```
-[#L72](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/BranchBridgeAgentFactory.sol#L72) [#L73](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/BranchBridgeAgentFactory.sol#L73) [#L74](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/BranchBridgeAgentFactory.sol#L74) [#L75](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/BranchBridgeAgentFactory.sol#L75) 
-
-```solidity
 File: src/factories/ERC20hTokenBranchFactory.sol
-
-47:         localPortAddress = _localPortAddress;
 
 74:         localCoreRouterAddress = _coreRouter;
 
 ```
-[#L47](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L47) [#L74](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L74) 
+[#L74](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L74) 
 
 ```solidity
 File: src/factories/ERC20hTokenRootFactory.sol
 
-37:         rootPortAddress = _rootPortAddress;
-
 51:         coreRootRouterAddress = _coreRouter;
 
 ```
-[#L37](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenRootFactory.sol#L37) [#L51](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenRootFactory.sol#L51) 
+[#L51](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenRootFactory.sol#L51) 
 
 ```solidity
 File: src/factories/RootBridgeAgentFactory.sol
 
 35:         lzEndpointAddress = _lzEndpointAddress;
 
-36:         rootPortAddress = _rootPortAddress;
-
 ```
-[#L35](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/RootBridgeAgentFactory.sol#L35) [#L36](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/RootBridgeAgentFactory.sol#L36) 
-
-```solidity
-File: src/token/ERC20hTokenRoot.sol
-
-43:         factoryAddress = _factoryAddress;
-
-```
-[#L43](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/token/ERC20hTokenRoot.sol#L43) 
+[#L35](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/RootBridgeAgentFactory.sol#L35) 
 
 </details>
 
