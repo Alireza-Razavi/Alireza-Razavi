@@ -4,16 +4,17 @@
 ## Medium Issues
 
 
-Total <b>64</b> instances over <b>6</b> issues:
+Total <b>66</b> instances over <b>7</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [M-1](#M-1) | The remaining ETH may be locked in the contract after call | 7 |
-| [M-2](#M-2) | Unchecked return value of low-level `call()`/`delegatecall()` | 12 |
-| [M-3](#M-3) | Return values of `transfer()`/`transferFrom()` not checked | 1 |
-| [M-4](#M-4) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 2 |
-| [M-5](#M-5) | Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs | 1 |
-| [M-6](#M-6) | Centralization Risk for trusted owners | 41 |
+| [M-2](#M-2) | Return values of `approve()` not checked | 2 |
+| [M-3](#M-3) | Unchecked return value of low-level `call()`/`delegatecall()` | 12 |
+| [M-4](#M-4) | Return values of `transfer()`/`transferFrom()` not checked | 1 |
+| [M-5](#M-5) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 2 |
+| [M-6](#M-6) | Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs | 1 |
+| [M-7](#M-7) | Centralization Risk for trusted owners | 41 |
 
 ## Low Issues
 
@@ -195,7 +196,30 @@ File: src/RootBridgeAgent.sol
 ---
 
 <a name="M-2"></a> 
-### [M-2] Unchecked return value of low-level `call()`/`delegatecall()`
+### [M-2] Return values of `approve()` not checked
+Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/BaseBranchRouter.sol
+
+168:                 ERC20(_hToken).approve(_localPortAddress, _amount - _deposit);
+
+175:             ERC20(_token).approve(_localPortAddress, _deposit);
+
+```
+[#L168](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L168) [#L175](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L175) 
+
+</details>
+
+---
+
+<a name="M-3"></a> 
+### [M-3] Unchecked return value of low-level `call()`/`delegatecall()`
 The function being called may revert, which will be indicated by the return value to `call()`/`delegatecall()`. If the return value is not checked, the code will continue on as if there was no error, rather than reverting with the error encountered.
 
 <details>
@@ -249,8 +273,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="M-3"></a> 
-### [M-3] Return values of `transfer()`/`transferFrom()` not checked
+<a name="M-4"></a> 
+### [M-4] Return values of `transfer()`/`transferFrom()` not checked
 Not all ERC20 implementations `revert()` when there's a failure in `transfer()` or `transferFrom()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually transfer anything.
 
 <details>
@@ -270,8 +294,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="M-4"></a> 
-### [M-4] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
+<a name="M-5"></a> 
+### [M-5] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
 Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
 
 <details>
@@ -293,8 +317,8 @@ File: src/BaseBranchRouter.sol
 
 ---
 
-<a name="M-5"></a> 
-### [M-5] Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs
+<a name="M-6"></a> 
+### [M-6] Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs
 The EIP-721 standard says the following about `transferFrom()`:
 
 ```solidity
@@ -332,8 +356,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="M-6"></a> 
-### [M-6] Centralization Risk for trusted owners
+<a name="M-7"></a> 
+### [M-7] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
