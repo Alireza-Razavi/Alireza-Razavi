@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>413</b> instances over <b>25</b> issues:
+Total <b>415</b> instances over <b>26</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -46,7 +46,8 @@ Total <b>413</b> instances over <b>25</b> issues:
 | [L-22](#L-22) | Do not use deprecated library functions | 2 |
 | [L-23](#L-23) | Empty Function Body - Consider commenting why | 8 |
 | [L-24](#L-24) | Initializers could be front-run | 9 |
-| [L-25](#L-25) | Unspecific compiler version pragma | 3 |
+| [L-25](#L-25) | `safeApprove()` is deprecated | 2 |
+| [L-26](#L-26) | Unspecific compiler version pragma | 3 |
 
 ## Non Critical Issues
 
@@ -2930,7 +2931,30 @@ File: src/factories/ERC20hTokenRootFactory.sol
 ---
 
 <a name="L-25"></a> 
-### [L-25] Unspecific compiler version pragma
+### [L-25] `safeApprove()` is deprecated
+[Deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/bfff03c0d2a59bcd8e2ead1da9aed9edf0080d05/contracts/token/ERC20/utils/SafeERC20.sol#L38-L45) in favor of `safeIncreaseAllowance()` and `safeDecreaseAllowance()`. If only setting the initial allowance to the value that means infinite, `safeIncreaseAllowance()` can be used instead. The function may currently work, but if a bug is found in this version of OpenZeppelin, and the version that you're forced to upgrade to no longer has this function, you'll encounter unnecessary delays in porting and testing replacement contracts.
+
+<details>
+<summary>
+There are <b>2</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/MulticallRootRouter.sol
+
+521:         outputToken.safeApprove(_bridgeAgentAddress, amountOut);
+
+559:             outputTokens[i].safeApprove(_bridgeAgentAddress, amountsOut[i]);
+
+```
+[#L521](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L521) [#L559](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L559) 
+
+</details>
+
+---
+
+<a name="L-26"></a> 
+### [L-26] Unspecific compiler version pragma
 
 <details>
 <summary>
