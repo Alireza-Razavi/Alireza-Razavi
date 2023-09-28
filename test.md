@@ -59,7 +59,7 @@ Total <b>436</b> instances over <b>33</b> issues:
 ## Non Critical Issues
 
 
-Total <b>1956</b> instances over <b>55</b> issues:
+Total <b>1947</b> instances over <b>56</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -102,22 +102,23 @@ Total <b>1956</b> instances over <b>55</b> issues:
 | [NC-37](#NC-37) | Lines are too long | 2 |
 | [NC-38](#NC-38) | Unused errors | 84 |
 | [NC-39](#NC-39) | Unused contract variables | 2 |
-| [NC-40](#NC-40) | Consider using `delete` rather than assigning zero to clear values | 22 |
-| [NC-41](#NC-41) | Solidity compiler version is not fixed | 44 |
-| [NC-42](#NC-42) | Expressions for constant values should use `immutable` rather than `constant` | 22 |
-| [NC-43](#NC-43) | Use `@inheritdoc` for overridden functions | 55 |
-| [NC-44](#NC-44) | Use the latest solidity version for deployment | 44 |
-| [NC-45](#NC-45) | Use of `override` is unnecessary | 78 |
-| [NC-46](#NC-46) | Visibility of state variables is not explicitly defined | 72 |
-| [NC-47](#NC-47) | Missing checks for `address(0)` when assigning values to address state variables | 7 |
-| [NC-48](#NC-48) | Common functions should be refactored to a common base contract | 146 |
-| [NC-49](#NC-49) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
-| [NC-50](#NC-50) | Names of `private`/`internal` state variables should be prefixed with an underscore | 23 |
-| [NC-51](#NC-51) |  `require()` / `revert()` statements should have descriptive reason strings | 5 |
-| [NC-52](#NC-52) | Return values of `approve()` not checked | 2 |
-| [NC-53](#NC-53) | Variables should be named in mixedCase style | 29 |
-| [NC-54](#NC-54) | Event is missing `indexed` fields | 3 |
-| [NC-55](#NC-55) | Functions not used internally could be marked external | 8 |
+| [NC-40](#NC-40) | Use `abi.encodeCall()` instead of `abi.encodeWithSignature()`/`abi.encodeWithSelector()` | 12 |
+| [NC-41](#NC-41) | Consider using `delete` rather than assigning zero to clear values | 1 |
+| [NC-42](#NC-42) | Solidity compiler version is not fixed | 44 |
+| [NC-43](#NC-43) | Expressions for constant values should use `immutable` rather than `constant` | 22 |
+| [NC-44](#NC-44) | Use `@inheritdoc` for overridden functions | 55 |
+| [NC-45](#NC-45) | Use the latest solidity version for deployment | 44 |
+| [NC-46](#NC-46) | Use of `override` is unnecessary | 78 |
+| [NC-47](#NC-47) | Visibility of state variables is not explicitly defined | 72 |
+| [NC-48](#NC-48) | Missing checks for `address(0)` when assigning values to address state variables | 7 |
+| [NC-49](#NC-49) | Common functions should be refactored to a common base contract | 146 |
+| [NC-50](#NC-50) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
+| [NC-51](#NC-51) | Names of `private`/`internal` state variables should be prefixed with an underscore | 23 |
+| [NC-52](#NC-52) |  `require()` / `revert()` statements should have descriptive reason strings | 5 |
+| [NC-53](#NC-53) | Return values of `approve()` not checked | 2 |
+| [NC-54](#NC-54) | Variables should be named in mixedCase style | 29 |
+| [NC-55](#NC-55) | Event is missing `indexed` fields | 3 |
+| [NC-56](#NC-56) | Functions not used internally could be marked external | 8 |
 
 ## Gas Optimizations
 
@@ -11058,118 +11059,77 @@ File: src/interfaces/BridgeAgentConstants.sol
 ---
 
 <a name="NC-40"></a> 
-### [NC-40] Consider using `delete` rather than assigning zero to clear values
-The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
+### [NC-40] Use `abi.encodeCall()` instead of `abi.encodeWithSignature()`/`abi.encodeWithSelector()`
+`abi.encodeCall()` has compiler type safety, whereas the other two functions do not
 
 <details>
 <summary>
-There are <b>22</b> instances (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
-
-```solidity
-File: src/BaseBranchRouter.sol
-
-192:         for (uint256 i = 0; i < _hTokens.length;) {
-
-```
-[#L192](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L192) 
 
 ```solidity
 File: src/BranchBridgeAgent.sol
 
-444:         deposit.owner = address(0);
+582:             abi.encodeWithSelector(this.lzReceiveNonBlocking.selector, msg.sender, _srcAddress, _payload)
 
-447:         for (uint256 i = 0; i < deposit.tokens.length;) {
+610:                 abi.encodeWithSelector(
 
-513:         for (uint256 i = 0; i < numOfAssets;) {
+632:                 abi.encodeWithSelector(
 
-```
-[#L444](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L444) [#L447](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L447) [#L513](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L513) 
-
-```solidity
-File: src/BranchPort.sol
-
-257:         for (uint256 i = 0; i < length;) {
-
-305:         for (uint256 i = 0; i < length;) {
+654:                 abi.encodeWithSelector(
 
 ```
-[#L257](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L257) [#L305](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L305) 
-
-```solidity
-File: src/MulticallRootRouter.sol
-
-278:             for (uint256 i = 0; i < outputParams.outputTokens.length;) {
-
-367:             for (uint256 i = 0; i < outputParams.outputTokens.length;) {
-
-455:             for (uint256 i = 0; i < outputParams.outputTokens.length;) {
-
-557:         for (uint256 i = 0; i < outputTokens.length;) {
-
-```
-[#L278](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L278) [#L367](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L367) [#L455](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L455) [#L557](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L557) 
+[#L582](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L582) [#L610](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L610) [#L632](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L632) [#L654](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L654) 
 
 ```solidity
 File: src/RootBridgeAgent.sol
 
-318:         for (uint256 i = 0; i < settlement.hTokens.length;) {
+427:             abi.encodeWithSelector(this.lzReceiveNonBlocking.selector, msg.sender, _srcChainId, _srcAddress, _payload)
 
-399:         for (uint256 i = 0; i < length;) {
+460:                 abi.encodeWithSelector(
 
-1070:         for (uint256 i = 0; i < hTokens.length;) {
+483:                 abi.encodeWithSelector(
 
-```
-[#L318](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L318) [#L399](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L399) [#L1070](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L1070) 
+506:                 abi.encodeWithSelector(
 
-```solidity
-File: src/RootBridgeAgentExecutor.sol
+529:                 abi.encodeWithSelector(
 
-281:         for (uint256 i = 0; i < uint256(uint8(numOfAssets));) {
+563:                 abi.encodeWithSelector(
 
-```
-[#L281](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L281) 
+603:                 abi.encodeWithSelector(
 
-```solidity
-File: src/RootPort.sol
-
-212:         return getLocalTokenFromGlobal[_globalAddress][_srcChainId] != address(0);
-
-217:         return getGlobalTokenFromLocal[_localAddress][_srcChainId] != address(0);
-
-226:         return _getLocalToken(_localAddress, _srcChainId, _dstChainId) != address(0);
-
-231:         return getLocalTokenFromUnderlying[_underlyingToken][_srcChainId] != address(0);
+643:                 abi.encodeWithSelector(
 
 ```
-[#L212](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L212) [#L217](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L217) [#L226](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L226) [#L231](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L231) 
-
-```solidity
-File: src/VirtualAccount.sol
-
-70:         for (uint256 i = 0; i < length;) {
-
-90:         for (uint256 i = 0; i < length;) {
-
-```
-[#L70](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L70) [#L90](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L90) 
-
-```solidity
-File: src/interfaces/BridgeAgentConstants.sol
-
-13:     uint8 internal constant STATUS_READY = 0;
-
-23:     uint8 internal constant STATUS_SUCCESS = 0;
-
-```
-[#L13](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/BridgeAgentConstants.sol#L13) [#L23](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/interfaces/BridgeAgentConstants.sol#L23) 
+[#L427](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L427) [#L460](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L460) [#L483](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L483) [#L506](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L506) [#L529](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L529) [#L563](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L563) [#L603](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L603) [#L643](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L643) 
 
 </details>
 
 ---
 
 <a name="NC-41"></a> 
-### [NC-41] Solidity compiler version is not fixed
+### [NC-41] Consider using `delete` rather than assigning zero to clear values
+The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: src/BranchBridgeAgent.sol
+
+444:         deposit.owner = address(0);
+
+```
+[#L444](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L444) 
+
+</details>
+
+---
+
+<a name="NC-42"></a> 
+### [NC-42] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 <details>
@@ -11533,8 +11493,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-42"></a> 
-### [NC-42] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-43"></a> 
+### [NC-43] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -11602,8 +11562,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-43"></a> 
-### [NC-43] Use `@inheritdoc` for overridden functions
+<a name="NC-44"></a> 
+### [NC-44] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -11814,8 +11774,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-44"></a> 
-### [NC-44] Use the latest solidity version for deployment
+<a name="NC-45"></a> 
+### [NC-45] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 <details>
@@ -12179,8 +12139,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-45"></a> 
-### [NC-45] Use of `override` is unnecessary
+<a name="NC-46"></a> 
+### [NC-46] Use of `override` is unnecessary
 Starting with Solidity version [0.8.8](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), using the `override` keyword when the function solely overrides an interface function, and the function doesn't exist in multiple base contracts, is unnecessary.
 
 <details>
@@ -12438,8 +12398,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-46"></a> 
-### [NC-46] Visibility of state variables is not explicitly defined
+<a name="NC-47"></a> 
+### [NC-47] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -12625,8 +12585,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-47"></a> 
-### [NC-47] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-48"></a> 
+### [NC-48] Missing checks for `address(0)` when assigning values to address state variables
 
 <details>
 <summary>
@@ -12681,8 +12641,8 @@ File: src/factories/RootBridgeAgentFactory.sol
 
 ---
 
-<a name="NC-48"></a> 
-### [NC-48] Common functions should be refactored to a common base contract
+<a name="NC-49"></a> 
+### [NC-49] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -13266,8 +13226,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-49"></a> 
-### [NC-49] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-50"></a> 
+### [NC-50] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -13295,8 +13255,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="NC-50"></a> 
-### [NC-50] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-51"></a> 
+### [NC-51] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -13372,8 +13332,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-51"></a> 
-### [NC-51]  `require()` / `revert()` statements should have descriptive reason strings
+<a name="NC-52"></a> 
+### [NC-52]  `require()` / `revert()` statements should have descriptive reason strings
 
 <details>
 <summary>
@@ -13424,8 +13384,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="NC-52"></a> 
-### [NC-52] Return values of `approve()` not checked
+<a name="NC-53"></a> 
+### [NC-53] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -13447,8 +13407,8 @@ File: src/BaseBranchRouter.sol
 
 ---
 
-<a name="NC-53"></a> 
-### [NC-53] Variables should be named in mixedCase style
+<a name="NC-54"></a> 
+### [NC-54] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -13566,8 +13526,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-54"></a> 
-### [NC-54] Event is missing `indexed` fields
+<a name="NC-55"></a> 
+### [NC-55] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -13597,8 +13557,8 @@ File: src/interfaces/IRootPort.sol
 
 ---
 
-<a name="NC-55"></a> 
-### [NC-55] Functions not used internally could be marked external
+<a name="NC-56"></a> 
+### [NC-56] Functions not used internally could be marked external
 
 <details>
 <summary>
