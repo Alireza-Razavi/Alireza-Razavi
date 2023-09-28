@@ -34,7 +34,7 @@ Total <b>428</b> instances over <b>32</b> issues:
 | [L-10](#L-10) | Loss of precision in divisions | 12 |
 | [L-11](#L-11) | Missing contract existence checks before low-level calls | 10 |
 | [L-12](#L-12) | Missing zero address check in constructor | 10 |
-| [L-13](#L-13) | Missing checks for `address(0)` when setting address state variables | 18 |
+| [L-13](#L-13) | Consider some checks for `address(0)` when setting address state variables | 18 |
 | [L-14](#L-14) | Owner can renounce Ownership | 12 |
 | [L-15](#L-15) | prevent re-setting a state variable with the same value | 50 |
 | [L-16](#L-16) | `receive()`/`fallback()` function does not authorize requests | 3 |
@@ -1642,7 +1642,7 @@ File: src/token/ERC20hTokenBranch.sol
 ---
 
 <a name="L-13"></a> 
-### [L-13] Missing checks for `address(0)` when setting address state variables
+### [L-13] Consider some checks for `address(0)` when setting address state variables
 
 <details>
 <summary>
