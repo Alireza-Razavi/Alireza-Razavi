@@ -18,41 +18,42 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>446</b> instances over <b>31</b> issues:
+Total <b>450</b> instances over <b>32</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [L-1](#L-1) | Array is `push()`ed but not `pop()`ed | 12 |
-| [L-2](#L-2) | Check division by zero is prevented | 12 |
-| [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 1 |
-| [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 17 |
-| [L-5](#L-5) | Empty `receive()`/`fallback()` function | 3 |
-| [L-6](#L-6) | Enum values should be used instead of constant array indexes | 74 |
-| [L-7](#L-7) | External call recipient can consume all remaining gas | 10 |
-| [L-8](#L-8) | Governance functions should be controlled by time locks | 41 |
-| [L-9](#L-9) | Loss of precision in divisions | 12 |
-| [L-10](#L-10) | Missing contract existence checks before low-level calls | 10 |
-| [L-11](#L-11) | Missing zero address check in constructor | 10 |
-| [L-12](#L-12) | Missing checks for `address(0)` when setting address state variables | 40 |
-| [L-13](#L-13) | Owner can renounce Ownership | 12 |
-| [L-14](#L-14) | prevent re-setting a state variable with the same value | 50 |
-| [L-15](#L-15) | `receive()`/`fallback()` function does not authorize requests | 3 |
-| [L-16](#L-16) | `SafeTransferLib` does not ensure that the token contract exists | 16 |
-| [L-17](#L-17) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
-| [L-18](#L-18) | Timestamp may be manipulation | 2 |
-| [L-19](#L-19) | Unsafe downcast | 17 |
-| [L-20](#L-20) | Unsafe solidity low-level call can cause gas grief attack | 10 |
-| [L-21](#L-21) | Use Ownable2Step instead of Ownable | 12 |
-| [L-22](#L-22) | Using zero as a parameter | 3 |
-| [L-23](#L-23) | Missing zero address check in initializer | 2 |
-| [L-24](#L-24) | `decimals()` is not a part of the ERC-20 standard | 4 |
-| [L-25](#L-25) | Do not use deprecated library functions | 2 |
-| [L-26](#L-26) | Empty Function Body - Consider commenting why | 8 |
-| [L-27](#L-27) | Initializers could be front-run | 9 |
-| [L-28](#L-28) | `name()` is not a part of the ERC-20 standard | 4 |
-| [L-29](#L-29) | `safeApprove()` is deprecated | 2 |
-| [L-30](#L-30) | `symbol()` is not a part of the ERC-20 standard | 4 |
-| [L-31](#L-31) | Unspecific compiler version pragma | 3 |
+| [L-1](#L-1) | `approve()`/`safeApprove()` may revert if the current approval is not zero | 4 |
+| [L-2](#L-2) | Array is `push()`ed but not `pop()`ed | 12 |
+| [L-3](#L-3) | Check division by zero is prevented | 12 |
+| [L-4](#L-4) | Consider implementing two-step procedure for updating protocol addresses | 1 |
+| [L-5](#L-5) | Constructor / initialization function lacks parameter validation | 17 |
+| [L-6](#L-6) | Empty `receive()`/`fallback()` function | 3 |
+| [L-7](#L-7) | Enum values should be used instead of constant array indexes | 74 |
+| [L-8](#L-8) | External call recipient can consume all remaining gas | 10 |
+| [L-9](#L-9) | Governance functions should be controlled by time locks | 41 |
+| [L-10](#L-10) | Loss of precision in divisions | 12 |
+| [L-11](#L-11) | Missing contract existence checks before low-level calls | 10 |
+| [L-12](#L-12) | Missing zero address check in constructor | 10 |
+| [L-13](#L-13) | Missing checks for `address(0)` when setting address state variables | 40 |
+| [L-14](#L-14) | Owner can renounce Ownership | 12 |
+| [L-15](#L-15) | prevent re-setting a state variable with the same value | 50 |
+| [L-16](#L-16) | `receive()`/`fallback()` function does not authorize requests | 3 |
+| [L-17](#L-17) | `SafeTransferLib` does not ensure that the token contract exists | 16 |
+| [L-18](#L-18) | Solidity version 0.8.20 or above may not work on other chains due to PUSH0 | 41 |
+| [L-19](#L-19) | Timestamp may be manipulation | 2 |
+| [L-20](#L-20) | Unsafe downcast | 17 |
+| [L-21](#L-21) | Unsafe solidity low-level call can cause gas grief attack | 10 |
+| [L-22](#L-22) | Use Ownable2Step instead of Ownable | 12 |
+| [L-23](#L-23) | Using zero as a parameter | 3 |
+| [L-24](#L-24) | Missing zero address check in initializer | 2 |
+| [L-25](#L-25) | `decimals()` is not a part of the ERC-20 standard | 4 |
+| [L-26](#L-26) | Do not use deprecated library functions | 2 |
+| [L-27](#L-27) | Empty Function Body - Consider commenting why | 8 |
+| [L-28](#L-28) | Initializers could be front-run | 9 |
+| [L-29](#L-29) | `name()` is not a part of the ERC-20 standard | 4 |
+| [L-30](#L-30) | `safeApprove()` is deprecated | 2 |
+| [L-31](#L-31) | `symbol()` is not a part of the ERC-20 standard | 4 |
+| [L-32](#L-32) | Unspecific compiler version pragma | 3 |
 
 ## Non Critical Issues
 
@@ -519,7 +520,40 @@ File: src/token/ERC20hTokenRoot.sol
 ## Low Issues
 
 <a name="L-1"></a> 
-### [L-1] Array is `push()`ed but not `pop()`ed
+### [L-1] `approve()`/`safeApprove()` may revert if the current approval is not zero
+Calling `approve()` without first calling `approve(0)` if the current approval is non-zero will revert with some tokens, such as Tether (USDT). While Tether is known to do this, it applies to other tokens as well, which are trying to protect against [this attack vector](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit). `safeApprove()` itself also implements this protection. Always reset the approval to zero before changing it to a new value (`SafeERC20.forceApprove()` does this for you), or use `safeIncreaseAllowance()`/`safeDecreaseAllowance()`
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/BaseBranchRouter.sol
+
+168:                 ERC20(_hToken).approve(_localPortAddress, _amount - _deposit);
+
+175:             ERC20(_token).approve(_localPortAddress, _deposit);
+
+```
+[#L168](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L168) [#L175](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BaseBranchRouter.sol#L175) 
+
+```solidity
+File: src/MulticallRootRouter.sol
+
+521:         outputToken.safeApprove(_bridgeAgentAddress, amountOut);
+
+559:             outputTokens[i].safeApprove(_bridgeAgentAddress, amountsOut[i]);
+
+```
+[#L521](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L521) [#L559](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L559) 
+
+</details>
+
+---
+
+<a name="L-2"></a> 
+### [L-2] Array is `push()`ed but not `pop()`ed
 There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
 
 <details>
@@ -579,8 +613,8 @@ File: src/factories/ERC20hTokenRootFactory.sol
 
 ---
 
-<a name="L-2"></a> 
-### [L-2] Check division by zero is prevented
+<a name="L-3"></a> 
+### [L-3] Check division by zero is prevented
 
 <details>
 <summary>
@@ -645,8 +679,8 @@ File: src/interfaces/IBranchRouter.sol
 
 ---
 
-<a name="L-3"></a> 
-### [L-3] Consider implementing two-step procedure for updating protocol addresses
+<a name="L-4"></a> 
+### [L-4] Consider implementing two-step procedure for updating protocol addresses
 A copy-paste error or a typo may end up bricking protocol functionality, or sending tokens to an address with no known private key. Consider implementing a two-step procedure for updating protocol addresses, where the recipient is set as pending, and must "accept" the assignment by making an affirmative call. A straight forward way of doing this would be to have the target contracts implement [EIP-165](https://eips.ethereum.org/EIPS/eip-165), and to have the "set" functions ensure that the recipient is of the right interface type.
 
 <details>
@@ -666,8 +700,8 @@ File: src/RootPort.sol
 
 ---
 
-<a name="L-4"></a> 
-### [L-4] Constructor / initialization function lacks parameter validation
+<a name="L-5"></a> 
+### [L-5] Constructor / initialization function lacks parameter validation
 Constructors and initialization functions play a critical role in contracts by setting important initial states when the contract is first deployed before the system starts. The parameters passed to the constructor and initialization functions directly affect the behavior of the contract / protocol. If incorrect parameters are provided, the system may fail to run, behave abnormally, be unstable, or lack security. Therefore, it's crucial to carefully check each parameter in the constructor and initialization functions. If an exception is found, the transaction should be rolled back.
 
 <details>
@@ -846,8 +880,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-5"></a> 
-### [L-5] Empty `receive()`/`fallback()` function
+<a name="L-6"></a> 
+### [L-6] Empty `receive()`/`fallback()` function
 If the intention is for Ether sent by a caller to be used for an actual purpose (i.e. the function is not just a WETH `withdraw()` handler), the function should call another function (e.g. call `weth.deposit()` and use the token on the caller's behalf) or at least emit an event to track that funds were sent directly to it.
 
 <details>
@@ -883,8 +917,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="L-6"></a> 
-### [L-6] Enum values should be used instead of constant array indexes
+<a name="L-7"></a> 
+### [L-7] Enum values should be used instead of constant array indexes
 Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
 
 <details>
@@ -1104,8 +1138,8 @@ File: src/interfaces/ICoreBranchRouter.sol
 
 ---
 
-<a name="L-7"></a> 
-### [L-7] External call recipient can consume all remaining gas
+<a name="L-8"></a> 
+### [L-8] External call recipient can consume all remaining gas
 There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
 
 <details>
@@ -1161,8 +1195,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-8"></a> 
-### [L-8] Governance functions should be controlled by time locks
+<a name="L-9"></a> 
+### [L-9] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
 <details>
@@ -1334,8 +1368,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-9"></a> 
-### [L-9] Loss of precision in divisions
+<a name="L-10"></a> 
+### [L-10] Loss of precision in divisions
 Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator.
 
 <details>
@@ -1401,8 +1435,8 @@ File: src/interfaces/IBranchRouter.sol
 
 ---
 
-<a name="L-10"></a> 
-### [L-10] Missing contract existence checks before low-level calls
+<a name="L-11"></a> 
+### [L-11] Missing contract existence checks before low-level calls
 Low-level calls return success if there is no code present at the specified address. In addition to the zero-address checks, add a check to verify that `<address>.code.length > 0`
 
 <details>
@@ -1458,8 +1492,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-11"></a> 
-### [L-11] Missing zero address check in constructor
+<a name="L-12"></a> 
+### [L-12] Missing zero address check in constructor
 Constructors often take address parameters to initialize important components of a contract, such as owner or linked contracts. However, without a checking, there's a risk that an address parameter could be mistakenly set to the zero address (0x0). This could be due to an error or oversight during contract deployment. A zero address in a crucial role can cause serious issues, as it cannot perform actions like a normal address, and any funds sent to it will be irretrievable. It's therefore crucial to include a zero address check in constructors to prevent such potential problems. If a zero address is detected, the constructor should revert the transaction.
 
 <details>
@@ -1607,8 +1641,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="L-12"></a> 
-### [L-12] Missing checks for `address(0)` when setting address state variables
+<a name="L-13"></a> 
+### [L-13] Missing checks for `address(0)` when setting address state variables
 
 <details>
 <summary>
@@ -1789,8 +1823,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-13"></a> 
-### [L-13] Owner can renounce Ownership
+<a name="L-14"></a> 
+### [L-14] Owner can renounce Ownership
 Each of the following contracts implements or inherits the `renounceOwnership()` function. This can represent a certain risk if the ownership is renounced for any other reason than by design. Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.
 
 <details>
@@ -1898,8 +1932,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-14"></a> 
-### [L-14] prevent re-setting a state variable with the same value
+<a name="L-15"></a> 
+### [L-15] prevent re-setting a state variable with the same value
 Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
 <details>
@@ -2095,8 +2129,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-15"></a> 
-### [L-15] `receive()`/`fallback()` function does not authorize requests
+<a name="L-16"></a> 
+### [L-16] `receive()`/`fallback()` function does not authorize requests
 Having no access control on the function (e.g. `require(msg.sender == address(weth))`) means that someone may send Ether to the contract, and have no way to get anything back out, which is a loss of funds. If the concern is having to spend a small amount of gas to check the sender against an immutable address, the code should at least have a function to rescue mistakenly-sent Ether.
 
 <details>
@@ -2132,8 +2166,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="L-16"></a> 
-### [L-16] `SafeTransferLib` does not ensure that the token contract exists
+<a name="L-17"></a> 
+### [L-17] `SafeTransferLib` does not ensure that the token contract exists
 
 <details>
 <summary>
@@ -2218,8 +2252,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="L-17"></a> 
-### [L-17] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
+<a name="L-18"></a> 
+### [L-18] Solidity version 0.8.20 or above may not work on other chains due to PUSH0
 Solidity version 0.8.20 or above uses the new [Shanghai EVM](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/#important-note) which introduces the PUSH0 opcode. This op code may not yet be implemented on all evm-chains or Layer2s, so deployment on these chains will fail. Consider using an earlier solidity version.
 
 <details>
@@ -2559,8 +2593,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-18"></a> 
-### [L-18] Timestamp may be manipulation
+<a name="L-19"></a> 
+### [L-19] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 <details>
@@ -2582,8 +2616,8 @@ File: src/BranchPort.sol
 
 ---
 
-<a name="L-19"></a> 
-### [L-19] Unsafe downcast
+<a name="L-20"></a> 
+### [L-20] Unsafe downcast
 When a type is downcast to a smaller type, the higher order bits are truncated, effectively applying a modulo to the original value. Without any other checks, this wrapping will lead to unexpected behavior and bugs.
 
 <details>
@@ -2653,8 +2687,8 @@ File: src/RootBridgeAgentExecutor.sol
 
 ---
 
-<a name="L-20"></a> 
-### [L-20] Unsafe solidity low-level call can cause gas grief attack
+<a name="L-21"></a> 
+### [L-21] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
 <details>
@@ -2710,8 +2744,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-21"></a> 
-### [L-21] Use Ownable2Step instead of Ownable
+<a name="L-22"></a> 
+### [L-22] Use Ownable2Step instead of Ownable
 `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from mistakenly being transferred to an address that cannot handle it (e.g. due to a typo in the address), by requiring that the recipient of the owner permissions actively accept via a contract call of its own.
 
 <details>
@@ -2819,8 +2853,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="L-22"></a> 
-### [L-22] Using zero as a parameter
+<a name="L-23"></a> 
+### [L-23] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
 <details>
@@ -2850,8 +2884,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="L-23"></a> 
-### [L-23] Missing zero address check in initializer
+<a name="L-24"></a> 
+### [L-24] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -2881,8 +2915,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-24"></a> 
-### [L-24] `decimals()` is not a part of the ERC-20 standard
+<a name="L-25"></a> 
+### [L-25] `decimals()` is not a part of the ERC-20 standard
 The `decimals()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
@@ -2926,8 +2960,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-25"></a> 
-### [L-25] Do not use deprecated library functions
+<a name="L-26"></a> 
+### [L-26] Do not use deprecated library functions
 
 <details>
 <summary>
@@ -2948,8 +2982,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-26"></a> 
-### [L-26] Empty Function Body - Consider commenting why
+<a name="L-27"></a> 
+### [L-27] Empty Function Body - Consider commenting why
 
 <details>
 <summary>
@@ -3018,8 +3052,8 @@ File: src/factories/ArbitrumBranchBridgeAgentFactory.sol
 
 ---
 
-<a name="L-27"></a> 
-### [L-27] Initializers could be front-run
+<a name="L-28"></a> 
+### [L-28] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -3103,8 +3137,8 @@ File: src/factories/ERC20hTokenRootFactory.sol
 
 ---
 
-<a name="L-28"></a> 
-### [L-28] `name()` is not a part of the ERC-20 standard
+<a name="L-29"></a> 
+### [L-29] `name()` is not a part of the ERC-20 standard
 The `name()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
@@ -3148,8 +3182,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-29"></a> 
-### [L-29] `safeApprove()` is deprecated
+<a name="L-30"></a> 
+### [L-30] `safeApprove()` is deprecated
 [Deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/bfff03c0d2a59bcd8e2ead1da9aed9edf0080d05/contracts/token/ERC20/utils/SafeERC20.sol#L38-L45) in favor of `safeIncreaseAllowance()` and `safeDecreaseAllowance()`. If only setting the initial allowance to the value that means infinite, `safeIncreaseAllowance()` can be used instead. The function may currently work, but if a bug is found in this version of OpenZeppelin, and the version that you're forced to upgrade to no longer has this function, you'll encounter unnecessary delays in porting and testing replacement contracts.
 
 <details>
@@ -3171,8 +3205,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-30"></a> 
-### [L-30] `symbol()` is not a part of the ERC-20 standard
+<a name="L-31"></a> 
+### [L-31] `symbol()` is not a part of the ERC-20 standard
 The `symbol()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
@@ -3216,8 +3250,8 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 
 ---
 
-<a name="L-31"></a> 
-### [L-31] Unspecific compiler version pragma
+<a name="L-32"></a> 
+### [L-32] Unspecific compiler version pragma
 
 <details>
 <summary>
