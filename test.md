@@ -59,7 +59,7 @@ Total <b>436</b> instances over <b>33</b> issues:
 ## Non Critical Issues
 
 
-Total <b>1838</b> instances over <b>49</b> issues:
+Total <b>1849</b> instances over <b>50</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -82,36 +82,37 @@ Total <b>1838</b> instances over <b>49</b> issues:
 | [NC-17](#NC-17) | Functions with array parameters should have length checks in place | 18 |
 | [NC-18](#NC-18) | Import declarations should import specific identifiers, rather than the whole file | 1 |
 | [NC-19](#NC-19) | Large or complicated code bases should implement invariant tests | 1 |
-| [NC-20](#NC-20) | Missing zero address check in functions with address parameters | 264 |
-| [NC-21](#NC-21) | Consider moving `msg.sender` checks to `modifier`s | 1 |
-| [NC-22](#NC-22) | NatSpec documentation for contract is missing | 21 |
-| [NC-23](#NC-23) | Event declarations should have NatSpec descriptions | 28 |
-| [NC-24](#NC-24) | NatSpec documentation for function is missing | 40 |
-| [NC-25](#NC-25) | Missing NatSpec `@param` | 151 |
-| [NC-26](#NC-26) | NatSpec `@return` is missing | 63 |
-| [NC-27](#NC-27) | There is no need to initialize variables with 0 | 17 |
-| [NC-28](#NC-28) | Put all system-wide constants in one file | 22 |
-| [NC-29](#NC-29) | State variables should include comments | 77 |
-| [NC-30](#NC-30) | Contract declarations should have NatSpec `@title` annotations | 4 |
-| [NC-31](#NC-31) | Lines are too long | 2 |
-| [NC-32](#NC-32) | Unused errors | 84 |
-| [NC-33](#NC-33) | Unused contract variables | 2 |
-| [NC-34](#NC-34) | Consider using `delete` rather than assigning zero to clear values | 22 |
-| [NC-35](#NC-35) | Solidity compiler version is not fixed | 44 |
-| [NC-36](#NC-36) | Expressions for constant values should use `immutable` rather than `constant` | 22 |
-| [NC-37](#NC-37) | Use `@inheritdoc` for overridden functions | 55 |
-| [NC-38](#NC-38) | Use the latest solidity version for deployment | 44 |
-| [NC-39](#NC-39) | Use of `override` is unnecessary | 78 |
-| [NC-40](#NC-40) | Visibility of state variables is not explicitly defined | 72 |
-| [NC-41](#NC-41) | Missing checks for `address(0)` when assigning values to address state variables | 7 |
-| [NC-42](#NC-42) | Common functions should be refactored to a common base contract | 146 |
-| [NC-43](#NC-43) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
-| [NC-44](#NC-44) | Names of `private`/`internal` state variables should be prefixed with an underscore | 23 |
-| [NC-45](#NC-45) |  `require()` / `revert()` statements should have descriptive reason strings | 5 |
-| [NC-46](#NC-46) | Return values of `approve()` not checked | 2 |
-| [NC-47](#NC-47) | Variables should be named in mixedCase style | 29 |
-| [NC-48](#NC-48) | Event is missing `indexed` fields | 3 |
-| [NC-49](#NC-49) | Functions not used internally could be marked external | 8 |
+| [NC-20](#NC-20) | Long functions should be refactored into multiple, smaller, functions | 11 |
+| [NC-21](#NC-21) | Missing zero address check in functions with address parameters | 264 |
+| [NC-22](#NC-22) | Consider moving `msg.sender` checks to `modifier`s | 1 |
+| [NC-23](#NC-23) | NatSpec documentation for contract is missing | 21 |
+| [NC-24](#NC-24) | Event declarations should have NatSpec descriptions | 28 |
+| [NC-25](#NC-25) | NatSpec documentation for function is missing | 40 |
+| [NC-26](#NC-26) | Missing NatSpec `@param` | 151 |
+| [NC-27](#NC-27) | NatSpec `@return` is missing | 63 |
+| [NC-28](#NC-28) | There is no need to initialize variables with 0 | 17 |
+| [NC-29](#NC-29) | Put all system-wide constants in one file | 22 |
+| [NC-30](#NC-30) | State variables should include comments | 77 |
+| [NC-31](#NC-31) | Contract declarations should have NatSpec `@title` annotations | 4 |
+| [NC-32](#NC-32) | Lines are too long | 2 |
+| [NC-33](#NC-33) | Unused errors | 84 |
+| [NC-34](#NC-34) | Unused contract variables | 2 |
+| [NC-35](#NC-35) | Consider using `delete` rather than assigning zero to clear values | 22 |
+| [NC-36](#NC-36) | Solidity compiler version is not fixed | 44 |
+| [NC-37](#NC-37) | Expressions for constant values should use `immutable` rather than `constant` | 22 |
+| [NC-38](#NC-38) | Use `@inheritdoc` for overridden functions | 55 |
+| [NC-39](#NC-39) | Use the latest solidity version for deployment | 44 |
+| [NC-40](#NC-40) | Use of `override` is unnecessary | 78 |
+| [NC-41](#NC-41) | Visibility of state variables is not explicitly defined | 72 |
+| [NC-42](#NC-42) | Missing checks for `address(0)` when assigning values to address state variables | 7 |
+| [NC-43](#NC-43) | Common functions should be refactored to a common base contract | 146 |
+| [NC-44](#NC-44) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
+| [NC-45](#NC-45) | Names of `private`/`internal` state variables should be prefixed with an underscore | 23 |
+| [NC-46](#NC-46) |  `require()` / `revert()` statements should have descriptive reason strings | 5 |
+| [NC-47](#NC-47) | Return values of `approve()` not checked | 2 |
+| [NC-48](#NC-48) | Variables should be named in mixedCase style | 29 |
+| [NC-49](#NC-49) | Event is missing `indexed` fields | 3 |
+| [NC-50](#NC-50) | Functions not used internally could be marked external | 8 |
 
 ## Gas Optimizations
 
@@ -5916,7 +5917,150 @@ Global finding
 ---
 
 <a name="NC-20"></a> 
-### [NC-20] Missing zero address check in functions with address parameters
+### [NC-20] Long functions should be refactored into multiple, smaller, functions
+
+<details>
+<summary>
+There are <b>11</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/BranchBridgeAgent.sol
+
+/// @audit 76 lines
+343:     function retryDeposit(
+             bool _isSigned,
+             uint32 _depositNonce,
+             bytes calldata _params,
+             GasParams calldata _gParams,
+             bool _hasFallbackToggled
+         ) external payable override lock {
+
+/// @audit 77 lines
+494:     function clearTokens(bytes calldata _sParams, address _recipient)
+             external
+             override
+             requiresAgentExecutor
+             returns (SettlementMultipleParams memory)
+         {
+
+/// @audit 114 lines
+587:     function lzReceiveNonBlocking(address _endpoint, bytes calldata _srcAddress, bytes calldata _payload)
+             public
+             override
+             requiresEndpoint(_endpoint, _srcAddress)
+         {
+
+```
+[#L343](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L343) [#L494](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L494) [#L587](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchBridgeAgent.sol#L587) 
+
+```solidity
+File: src/CoreBranchRouter.sol
+
+/// @audit 63 lines
+86:     function executeNoSettlement(bytes calldata _params) external payable virtual override requiresAgentExecutor {
+
+```
+[#L86](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreBranchRouter.sol#L86) 
+
+```solidity
+File: src/MulticallRootRouter.sol
+
+/// @audit 77 lines
+223:     function executeSigned(bytes calldata encodedData, address userAccount, uint16)
+             external
+             payable
+             override
+             lock
+             requiresExecutor
+         {
+
+/// @audit 77 lines
+312:     function executeSignedDepositSingle(bytes calldata encodedData, DepositParams calldata, address userAccount, uint16)
+             external
+             payable
+             override
+             requiresExecutor
+             lock
+         {
+
+/// @audit 76 lines
+401:     function executeSignedDepositMultiple(
+             bytes calldata encodedData,
+             DepositMultipleParams calldata,
+             address userAccount,
+             uint16
+         ) external payable override requiresExecutor lock {
+
+```
+[#L223](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L223) [#L312](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L312) [#L401](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/MulticallRootRouter.sol#L401) 
+
+```solidity
+File: src/RootBridgeAgent.sol
+
+/// @audit 75 lines
+856:     function _performRetrySettlementCall(
+             bool _hasFallbackToggled,
+             address[] memory _hTokens,
+             address[] memory _tokens,
+             uint256[] memory _amounts,
+             uint256[] memory _deposits,
+             bytes memory _params,
+             uint32 _settlementNonce,
+             address payable _refundee,
+             address _recipient,
+             uint16 _dstChainId,
+             GasParams memory _gParams,
+             uint256 _value
+         ) internal {
+
+/// @audit 65 lines
+966:     function _createSettlement(
+             uint32 _settlementNonce,
+             address payable _refundee,
+             address _recipient,
+             uint16 _dstChainId,
+             bytes memory _params,
+             address _globalAddress,
+             uint256 _amount,
+             uint256 _deposit,
+             bool _hasFallbackToggled
+         ) internal returns (bytes memory _payload) {
+
+/// @audit 69 lines
+1045:     function _createSettlementMultiple(
+              uint32 _settlementNonce,
+              address payable _refundee,
+              address _recipient,
+              uint16 _dstChainId,
+              address[] memory _globalAddresses,
+              uint256[] memory _amounts,
+              uint256[] memory _deposits,
+              bytes memory _params,
+              bool _hasFallbackToggled
+          ) internal returns (bytes memory _payload) {
+
+```
+[#L856](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L856) [#L966](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L966) [#L1045](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L1045) 
+
+```solidity
+File: src/RootBridgeAgentExecutor.sol
+
+/// @audit 80 lines
+268:     function _bridgeInMultiple(address _recipient, bytes calldata _dParams, uint16 _srcChainId)
+             internal
+             returns (DepositMultipleParams memory dParams)
+         {
+
+```
+[#L268](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgentExecutor.sol#L268) 
+
+</details>
+
+---
+
+<a name="NC-21"></a> 
+### [NC-21] Missing zero address check in functions with address parameters
 Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
@@ -7633,8 +7777,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-21"></a> 
-### [NC-21] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-22"></a> 
+### [NC-22] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -7654,8 +7798,8 @@ File: src/CoreRootRouter.sol
 
 ---
 
-<a name="NC-22"></a> 
-### [NC-22] NatSpec documentation for contract is missing
+<a name="NC-23"></a> 
+### [NC-23] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
 <details>
@@ -7835,8 +7979,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-23"></a> 
-### [NC-23] Event declarations should have NatSpec descriptions
+<a name="NC-24"></a> 
+### [NC-24] Event declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -7927,8 +8071,8 @@ File: src/interfaces/IRootPort.sol
 
 ---
 
-<a name="NC-24"></a> 
-### [NC-24] NatSpec documentation for function is missing
+<a name="NC-25"></a> 
+### [NC-25] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 <details>
@@ -8151,8 +8295,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-25"></a> 
-### [NC-25] Missing NatSpec `@param`
+<a name="NC-26"></a> 
+### [NC-26] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 <details>
@@ -9350,8 +9494,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-26"></a> 
-### [NC-26] NatSpec `@return` is missing
+<a name="NC-27"></a> 
+### [NC-27] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
@@ -9733,8 +9877,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-27"></a> 
-### [NC-27] There is no need to initialize variables with 0
+<a name="NC-28"></a> 
+### [NC-28] There is no need to initialize variables with 0
 Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
 
 <details>
@@ -9828,8 +9972,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-28"></a> 
-### [NC-28] Put all system-wide constants in one file
+<a name="NC-29"></a> 
+### [NC-29] Put all system-wide constants in one file
 Putting all the system-wide constants in a single file improves code readability, makes it easier to understand the basic configuration and limitations of the system, and makes maintenance easier.
 
 <details>
@@ -9897,8 +10041,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-29"></a> 
-### [NC-29] State variables should include comments
+<a name="NC-30"></a> 
+### [NC-30] State variables should include comments
 Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
 
 <details>
@@ -10100,8 +10244,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-30"></a> 
-### [NC-30] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-31"></a> 
+### [NC-31] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -10145,8 +10289,8 @@ File: src/interfaces/ILayerZeroUserApplicationConfig.sol
 
 ---
 
-<a name="NC-31"></a> 
-### [NC-31] Lines are too long
+<a name="NC-32"></a> 
+### [NC-32] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -10174,8 +10318,8 @@ File: src/BranchBridgeAgent.sol
 
 ---
 
-<a name="NC-32"></a> 
-### [NC-32] Unused errors
+<a name="NC-33"></a> 
+### [NC-33] Unused errors
 The following `error`s are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion. Note that there may be cases where an error appears to be used because it has multiple definitions in different files. In such cases, the definitions should be moved to a separate file.
 
 <details>
@@ -10433,8 +10577,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-33"></a> 
-### [NC-33] Unused contract variables
+<a name="NC-34"></a> 
+### [NC-34] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 <details>
@@ -10462,8 +10606,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-34"></a> 
-### [NC-34] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-35"></a> 
+### [NC-35] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -10573,8 +10717,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-35"></a> 
-### [NC-35] Solidity compiler version is not fixed
+<a name="NC-36"></a> 
+### [NC-36] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 <details>
@@ -10938,8 +11082,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-36"></a> 
-### [NC-36] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-37"></a> 
+### [NC-37] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -11007,8 +11151,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-37"></a> 
-### [NC-37] Use `@inheritdoc` for overridden functions
+<a name="NC-38"></a> 
+### [NC-38] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -11219,8 +11363,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-38"></a> 
-### [NC-38] Use the latest solidity version for deployment
+<a name="NC-39"></a> 
+### [NC-39] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 <details>
@@ -11584,8 +11728,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-39"></a> 
-### [NC-39] Use of `override` is unnecessary
+<a name="NC-40"></a> 
+### [NC-40] Use of `override` is unnecessary
 Starting with Solidity version [0.8.8](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), using the `override` keyword when the function solely overrides an interface function, and the function doesn't exist in multiple base contracts, is unnecessary.
 
 <details>
@@ -11843,8 +11987,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-40"></a> 
-### [NC-40] Visibility of state variables is not explicitly defined
+<a name="NC-41"></a> 
+### [NC-41] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -12030,8 +12174,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-41"></a> 
-### [NC-41] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-42"></a> 
+### [NC-42] Missing checks for `address(0)` when assigning values to address state variables
 
 <details>
 <summary>
@@ -12086,8 +12230,8 @@ File: src/factories/RootBridgeAgentFactory.sol
 
 ---
 
-<a name="NC-42"></a> 
-### [NC-42] Common functions should be refactored to a common base contract
+<a name="NC-43"></a> 
+### [NC-43] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -12671,8 +12815,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-43"></a> 
-### [NC-43] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-44"></a> 
+### [NC-44] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -12700,8 +12844,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="NC-44"></a> 
-### [NC-44] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-45"></a> 
+### [NC-45] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -12777,8 +12921,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-45"></a> 
-### [NC-45]  `require()` / `revert()` statements should have descriptive reason strings
+<a name="NC-46"></a> 
+### [NC-46]  `require()` / `revert()` statements should have descriptive reason strings
 
 <details>
 <summary>
@@ -12829,8 +12973,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="NC-46"></a> 
-### [NC-46] Return values of `approve()` not checked
+<a name="NC-47"></a> 
+### [NC-47] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -12852,8 +12996,8 @@ File: src/BaseBranchRouter.sol
 
 ---
 
-<a name="NC-47"></a> 
-### [NC-47] Variables should be named in mixedCase style
+<a name="NC-48"></a> 
+### [NC-48] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -12971,8 +13115,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-48"></a> 
-### [NC-48] Event is missing `indexed` fields
+<a name="NC-49"></a> 
+### [NC-49] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -13002,8 +13146,8 @@ File: src/interfaces/IRootPort.sol
 
 ---
 
-<a name="NC-49"></a> 
-### [NC-49] Functions not used internally could be marked external
+<a name="NC-50"></a> 
+### [NC-50] Functions not used internally could be marked external
 
 <details>
 <summary>
