@@ -59,64 +59,65 @@ Total <b>436</b> instances over <b>33</b> issues:
 ## Non Critical Issues
 
 
-Total <b>1946</b> instances over <b>54</b> issues:
+Total <b>1956</b> instances over <b>55</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [NC-1](#NC-1) | Assembly blocks should have extensive comments | 1 |
 | [NC-2](#NC-2) | Add inline comments for unnamed variables | 26 |
 | [NC-3](#NC-3) | Contract declarations should have NatSpec `@author` annotations | 9 |
-| [NC-4](#NC-4) | Consider adding a block/deny-list | 23 |
-| [NC-5](#NC-5) | Consider adding formal verification proofs | 1 |
-| [NC-6](#NC-6) | Constants should be put on the left side of comparisons | 125 |
-| [NC-7](#NC-7) | Contract uses both `require()`/`revert()` as well as custom errors | 1 |
-| [NC-8](#NC-8) | Contracts should have full test coverage | 1 |
-| [NC-9](#NC-9) | Convert simple `if` statements to ternary expressions | 2 |
-| [NC-10](#NC-10) | Events that mark critical parameter changes should contain both the old and the new value | 29 |
-| [NC-11](#NC-11) | Custom errors has no error details | 90 |
-| [NC-12](#NC-12) | Custom errors should be used rather than `revert()`/`require()` | 44 |
-| [NC-13](#NC-13) | Solidity version is different in some files | 2 |
-| [NC-14](#NC-14) | Duplicated `require()`/`revert()` checks should be refactored | 15 |
-| [NC-15](#NC-15) | `else` block not required | 2 |
-| [NC-16](#NC-16) | Empty bytes check is missing | 110 |
-| [NC-17](#NC-17) | Enable IR-based code generation | 1 |
-| [NC-18](#NC-18) | Events are emitted without the sender information | 25 |
-| [NC-19](#NC-19) | Functions with array parameters should have length checks in place | 18 |
-| [NC-20](#NC-20) | Import declarations should import specific identifiers, rather than the whole file | 1 |
-| [NC-21](#NC-21) | Invalid NatSpec comment style | 67 |
-| [NC-22](#NC-22) | Large or complicated code bases should implement invariant tests | 1 |
-| [NC-23](#NC-23) | Long functions should be refactored into multiple, smaller, functions | 11 |
-| [NC-24](#NC-24) | Missing zero address check in functions with address parameters | 264 |
-| [NC-25](#NC-25) | Consider moving `msg.sender` checks to `modifier`s | 1 |
-| [NC-26](#NC-26) | NatSpec documentation for contract is missing | 21 |
-| [NC-27](#NC-27) | Event declarations should have NatSpec descriptions | 28 |
-| [NC-28](#NC-28) | NatSpec documentation for function is missing | 40 |
-| [NC-29](#NC-29) | Missing NatSpec `@param` | 151 |
-| [NC-30](#NC-30) | NatSpec `@return` is missing | 63 |
-| [NC-31](#NC-31) | There is no need to initialize variables with 0 | 17 |
-| [NC-32](#NC-32) | Using `>` or `>=` without specifying an upper bound is unsafe | 3 |
-| [NC-33](#NC-33) | Put all system-wide constants in one file | 22 |
-| [NC-34](#NC-34) | State variables should include comments | 77 |
-| [NC-35](#NC-35) | Contract declarations should have NatSpec `@title` annotations | 4 |
-| [NC-36](#NC-36) | Lines are too long | 2 |
-| [NC-37](#NC-37) | Unused errors | 84 |
-| [NC-38](#NC-38) | Unused contract variables | 2 |
-| [NC-39](#NC-39) | Consider using `delete` rather than assigning zero to clear values | 22 |
-| [NC-40](#NC-40) | Solidity compiler version is not fixed | 44 |
-| [NC-41](#NC-41) | Expressions for constant values should use `immutable` rather than `constant` | 22 |
-| [NC-42](#NC-42) | Use `@inheritdoc` for overridden functions | 55 |
-| [NC-43](#NC-43) | Use the latest solidity version for deployment | 44 |
-| [NC-44](#NC-44) | Use of `override` is unnecessary | 78 |
-| [NC-45](#NC-45) | Visibility of state variables is not explicitly defined | 72 |
-| [NC-46](#NC-46) | Missing checks for `address(0)` when assigning values to address state variables | 7 |
-| [NC-47](#NC-47) | Common functions should be refactored to a common base contract | 146 |
-| [NC-48](#NC-48) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
-| [NC-49](#NC-49) | Names of `private`/`internal` state variables should be prefixed with an underscore | 23 |
-| [NC-50](#NC-50) |  `require()` / `revert()` statements should have descriptive reason strings | 5 |
-| [NC-51](#NC-51) | Return values of `approve()` not checked | 2 |
-| [NC-52](#NC-52) | Variables should be named in mixedCase style | 29 |
-| [NC-53](#NC-53) | Event is missing `indexed` fields | 3 |
-| [NC-54](#NC-54) | Functions not used internally could be marked external | 8 |
+| [NC-4](#NC-4) | Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability | 10 |
+| [NC-5](#NC-5) | Consider adding a block/deny-list | 23 |
+| [NC-6](#NC-6) | Consider adding formal verification proofs | 1 |
+| [NC-7](#NC-7) | Constants should be put on the left side of comparisons | 125 |
+| [NC-8](#NC-8) | Contract uses both `require()`/`revert()` as well as custom errors | 1 |
+| [NC-9](#NC-9) | Contracts should have full test coverage | 1 |
+| [NC-10](#NC-10) | Convert simple `if` statements to ternary expressions | 2 |
+| [NC-11](#NC-11) | Events that mark critical parameter changes should contain both the old and the new value | 29 |
+| [NC-12](#NC-12) | Custom errors has no error details | 90 |
+| [NC-13](#NC-13) | Custom errors should be used rather than `revert()`/`require()` | 44 |
+| [NC-14](#NC-14) | Solidity version is different in some files | 2 |
+| [NC-15](#NC-15) | Duplicated `require()`/`revert()` checks should be refactored | 15 |
+| [NC-16](#NC-16) | `else` block not required | 2 |
+| [NC-17](#NC-17) | Empty bytes check is missing | 110 |
+| [NC-18](#NC-18) | Enable IR-based code generation | 1 |
+| [NC-19](#NC-19) | Events are emitted without the sender information | 25 |
+| [NC-20](#NC-20) | Functions with array parameters should have length checks in place | 18 |
+| [NC-21](#NC-21) | Import declarations should import specific identifiers, rather than the whole file | 1 |
+| [NC-22](#NC-22) | Invalid NatSpec comment style | 67 |
+| [NC-23](#NC-23) | Large or complicated code bases should implement invariant tests | 1 |
+| [NC-24](#NC-24) | Long functions should be refactored into multiple, smaller, functions | 11 |
+| [NC-25](#NC-25) | Missing zero address check in functions with address parameters | 264 |
+| [NC-26](#NC-26) | Consider moving `msg.sender` checks to `modifier`s | 1 |
+| [NC-27](#NC-27) | NatSpec documentation for contract is missing | 21 |
+| [NC-28](#NC-28) | Event declarations should have NatSpec descriptions | 28 |
+| [NC-29](#NC-29) | NatSpec documentation for function is missing | 40 |
+| [NC-30](#NC-30) | Missing NatSpec `@param` | 151 |
+| [NC-31](#NC-31) | NatSpec `@return` is missing | 63 |
+| [NC-32](#NC-32) | There is no need to initialize variables with 0 | 17 |
+| [NC-33](#NC-33) | Using `>` or `>=` without specifying an upper bound is unsafe | 3 |
+| [NC-34](#NC-34) | Put all system-wide constants in one file | 22 |
+| [NC-35](#NC-35) | State variables should include comments | 77 |
+| [NC-36](#NC-36) | Contract declarations should have NatSpec `@title` annotations | 4 |
+| [NC-37](#NC-37) | Lines are too long | 2 |
+| [NC-38](#NC-38) | Unused errors | 84 |
+| [NC-39](#NC-39) | Unused contract variables | 2 |
+| [NC-40](#NC-40) | Consider using `delete` rather than assigning zero to clear values | 22 |
+| [NC-41](#NC-41) | Solidity compiler version is not fixed | 44 |
+| [NC-42](#NC-42) | Expressions for constant values should use `immutable` rather than `constant` | 22 |
+| [NC-43](#NC-43) | Use `@inheritdoc` for overridden functions | 55 |
+| [NC-44](#NC-44) | Use the latest solidity version for deployment | 44 |
+| [NC-45](#NC-45) | Use of `override` is unnecessary | 78 |
+| [NC-46](#NC-46) | Visibility of state variables is not explicitly defined | 72 |
+| [NC-47](#NC-47) | Missing checks for `address(0)` when assigning values to address state variables | 7 |
+| [NC-48](#NC-48) | Common functions should be refactored to a common base contract | 146 |
+| [NC-49](#NC-49) | Names of `private`/`internal` functions should be prefixed with an underscore | 2 |
+| [NC-50](#NC-50) | Names of `private`/`internal` state variables should be prefixed with an underscore | 23 |
+| [NC-51](#NC-51) |  `require()` / `revert()` statements should have descriptive reason strings | 5 |
+| [NC-52](#NC-52) | Return values of `approve()` not checked | 2 |
+| [NC-53](#NC-53) | Variables should be named in mixedCase style | 29 |
+| [NC-54](#NC-54) | Event is missing `indexed` fields | 3 |
+| [NC-55](#NC-55) | Functions not used internally could be marked external | 8 |
 
 ## Gas Optimizations
 
@@ -3578,7 +3579,58 @@ File: src/interfaces/IRootPort.sol
 ---
 
 <a name="NC-4"></a> 
-### [NC-4] Consider adding a block/deny-list
+### [NC-4] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability
+Well-organized data structures make code reviews easier, which may lead to fewer bugs. Consider combining related mappings into mappings to structs, so it's clear what data is related
+
+<details>
+<summary>
+There are <b>10</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/BranchPort.sol
+
+68:     mapping(address strategy => mapping(address token => bool isActiveStrategy)) public isPortStrategy;
+
+74:     mapping(address strategy => mapping(address token => uint256 debt)) public getPortStrategyTokenDebt;
+
+77:     mapping(address strategy => mapping(address token => uint256 lastManaged)) public lastManaged;
+
+80:     mapping(address strategy => mapping(address token => uint256 dailyLimitAmount)) public strategyDailyLimitAmount;
+
+83:     mapping(address strategy => mapping(address token => uint256 dailyLimitRemaining)) public
+
+```
+[#L68](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L68) [#L74](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L74) [#L77](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L77) [#L80](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L80) [#L83](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/BranchPort.sol#L83) 
+
+```solidity
+File: src/RootBridgeAgent.sol
+
+85:     mapping(uint256 chainId => mapping(uint256 nonce => uint256 state)) public executionState;
+
+```
+[#L85](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootBridgeAgent.sol#L85) 
+
+```solidity
+File: src/RootPort.sol
+
+90:     mapping(address chainId => mapping(uint256 localAddress => address globalAddress)) public getGlobalTokenFromLocal;
+
+93:     mapping(address chainId => mapping(uint256 globalAddress => address localAddress)) public getLocalTokenFromGlobal;
+
+96:     mapping(address chainId => mapping(uint256 underlyingAddress => address localAddress)) public
+
+100:     mapping(address chainId => mapping(uint256 localAddress => address underlyingAddress)) public
+
+```
+[#L90](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L90) [#L93](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L93) [#L96](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L96) [#L100](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/RootPort.sol#L100) 
+
+</details>
+
+---
+
+<a name="NC-5"></a> 
+### [NC-5] Consider adding a block/deny-list
 Doing so will significantly increase centralization, but will help to prevent hackers from using stolen tokens.
 
 <details>
@@ -3774,8 +3826,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-5"></a> 
-### [NC-5] Consider adding formal verification proofs
+<a name="NC-6"></a> 
+### [NC-6] Consider adding formal verification proofs
 Formal verification is the act of proving or disproving the correctness of intended algorithms underlying a system with respect to a certain formal specification/property/invariant, using formal methods of mathematics.
 
 Some tools that are currently available to perform these tests on smart contracts are [SMTChecker](https://docs.soliditylang.org/en/latest/smtchecker.html) and [Certora Prover](https://www.certora.com/).
@@ -3796,8 +3848,8 @@ Global finding
 
 ---
 
-<a name="NC-6"></a> 
-### [NC-6] Constants should be put on the left side of comparisons
+<a name="NC-7"></a> 
+### [NC-7] Constants should be put on the left side of comparisons
 Putting constants on the left side of comparison statements is a best practice known as [Yoda conditions](https://en.wikipedia.org/wiki/Yoda_conditions). Although solidity's static typing system prevents accidental assignments within conditionals, adopting this practice can improve code readability and consistency, especially when working across multiple languages.
 
 <details>
@@ -4173,8 +4225,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-7"></a> 
-### [NC-7] Contract uses both `require()`/`revert()` as well as custom errors
+<a name="NC-8"></a> 
+### [NC-8] Contract uses both `require()`/`revert()` as well as custom errors
 Consider using just one method in a single file.
 
 <details>
@@ -4194,8 +4246,8 @@ File: src/CoreRootRouter.sol
 
 ---
 
-<a name="NC-8"></a> 
-### [NC-8] Contracts should have full test coverage
+<a name="NC-9"></a> 
+### [NC-9] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
 <details>
@@ -4214,8 +4266,8 @@ Global finding
 
 ---
 
-<a name="NC-9"></a> 
-### [NC-9] Convert simple `if` statements to ternary expressions
+<a name="NC-10"></a> 
+### [NC-10] Convert simple `if` statements to ternary expressions
 Converting some if statements to ternaries (such as `z = (a < b) ? x : y`) can make the code more concise and easier to read.
 
 <details>
@@ -4264,8 +4316,8 @@ File: src/BranchBridgeAgent.sol
 
 ---
 
-<a name="NC-10"></a> 
-### [NC-10] Events that mark critical parameter changes should contain both the old and the new value
+<a name="NC-11"></a> 
+### [NC-11] Events that mark critical parameter changes should contain both the old and the new value
 This should especially be done if the new value is not required to be different from the old value.
 
 <details>
@@ -4359,8 +4411,8 @@ File: src/RootPort.sol
 
 ---
 
-<a name="NC-11"></a> 
-### [NC-11] Custom errors has no error details
+<a name="NC-12"></a> 
+### [NC-12] Custom errors has no error details
 Consider adding parameters to the error to indicate which user or values caused the failure.
 
 <details>
@@ -4636,8 +4688,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-12"></a> 
-### [NC-12] Custom errors should be used rather than `revert()`/`require()`
+<a name="NC-13"></a> 
+### [NC-13] Custom errors should be used rather than `revert()`/`require()`
 Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
 <details>
@@ -4821,8 +4873,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-13"></a> 
-### [NC-13] Solidity version is different in some files
+<a name="NC-14"></a> 
+### [NC-14] Solidity version is different in some files
 
 <details>
 <summary>
@@ -4849,8 +4901,8 @@ File: src/interfaces/ILayerZeroEndpoint.sol
 
 ---
 
-<a name="NC-14"></a> 
-### [NC-14] Duplicated `require()`/`revert()` checks should be refactored
+<a name="NC-15"></a> 
+### [NC-15] Duplicated `require()`/`revert()` checks should be refactored
 Refactoring duplicate `require()`/`revert()` checks into a modifier or function can make the code more concise, readable and maintainable, and less likely to make errors or omissions when modifying the `require()` or `revert()`.
 
 <details>
@@ -4937,8 +4989,8 @@ File: src/RootPort.sol
 
 ---
 
-<a name="NC-15"></a> 
-### [NC-15] `else` block not required
+<a name="NC-16"></a> 
+### [NC-16] `else` block not required
 One level of nesting can be removed by not having an `else` block when the `if`-block always jumps at the end. For example:
 ```solidity
 if (condition) {
@@ -5010,8 +5062,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="NC-16"></a> 
-### [NC-16] Empty bytes check is missing
+<a name="NC-17"></a> 
+### [NC-17] Empty bytes check is missing
 Passing empty bytes to a function can cause unexpected behavior, such as certain operations failing, producing incorrect results, or wasting gas. It is recommended to check that all byte parameters are not empty.
 
 <details>
@@ -5741,8 +5793,8 @@ File: src/interfaces/IRootRouter.sol
 
 ---
 
-<a name="NC-17"></a> 
-### [NC-17] Enable IR-based code generation
+<a name="NC-18"></a> 
+### [NC-18] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
 <details>
@@ -5761,8 +5813,8 @@ Global finding
 
 ---
 
-<a name="NC-18"></a> 
-### [NC-18] Events are emitted without the sender information
+<a name="NC-19"></a> 
+### [NC-19] Events are emitted without the sender information
 When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
 
 <details>
@@ -5848,8 +5900,8 @@ File: src/RootPort.sol
 
 ---
 
-<a name="NC-19"></a> 
-### [NC-19] Functions with array parameters should have length checks in place
+<a name="NC-20"></a> 
+### [NC-20] Functions with array parameters should have length checks in place
 
 <details>
 <summary>
@@ -6072,8 +6124,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-20"></a> 
-### [NC-20] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-21"></a> 
+### [NC-21] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
@@ -6093,8 +6145,8 @@ File: src/interfaces/ILayerZeroEndpoint.sol
 
 ---
 
-<a name="NC-21"></a> 
-### [NC-21] Invalid NatSpec comment style
+<a name="NC-22"></a> 
+### [NC-22] Invalid NatSpec comment style
 NatSpec must begin with `///` or use `/* ... */` syntax
 
 <details>
@@ -6258,8 +6310,8 @@ File: src/interfaces/ILayerZeroUserApplicationConfig.sol
 
 ---
 
-<a name="NC-22"></a> 
-### [NC-22] Large or complicated code bases should implement invariant tests
+<a name="NC-23"></a> 
+### [NC-23] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
 <details>
@@ -6278,8 +6330,8 @@ Global finding
 
 ---
 
-<a name="NC-23"></a> 
-### [NC-23] Long functions should be refactored into multiple, smaller, functions
+<a name="NC-24"></a> 
+### [NC-24] Long functions should be refactored into multiple, smaller, functions
 
 <details>
 <summary>
@@ -6421,8 +6473,8 @@ File: src/RootBridgeAgentExecutor.sol
 
 ---
 
-<a name="NC-24"></a> 
-### [NC-24] Missing zero address check in functions with address parameters
+<a name="NC-25"></a> 
+### [NC-25] Missing zero address check in functions with address parameters
 Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
@@ -8139,8 +8191,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-25"></a> 
-### [NC-25] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-26"></a> 
+### [NC-26] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
@@ -8160,8 +8212,8 @@ File: src/CoreRootRouter.sol
 
 ---
 
-<a name="NC-26"></a> 
-### [NC-26] NatSpec documentation for contract is missing
+<a name="NC-27"></a> 
+### [NC-27] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
 <details>
@@ -8341,8 +8393,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-27"></a> 
-### [NC-27] Event declarations should have NatSpec descriptions
+<a name="NC-28"></a> 
+### [NC-28] Event declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -8433,8 +8485,8 @@ File: src/interfaces/IRootPort.sol
 
 ---
 
-<a name="NC-28"></a> 
-### [NC-28] NatSpec documentation for function is missing
+<a name="NC-29"></a> 
+### [NC-29] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 <details>
@@ -8657,8 +8709,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-29"></a> 
-### [NC-29] Missing NatSpec `@param`
+<a name="NC-30"></a> 
+### [NC-30] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 <details>
@@ -9856,8 +9908,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-30"></a> 
-### [NC-30] NatSpec `@return` is missing
+<a name="NC-31"></a> 
+### [NC-31] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
@@ -10239,8 +10291,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-31"></a> 
-### [NC-31] There is no need to initialize variables with 0
+<a name="NC-32"></a> 
+### [NC-32] There is no need to initialize variables with 0
 Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
 
 <details>
@@ -10334,8 +10386,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-32"></a> 
-### [NC-32] Using `>` or `>=` without specifying an upper bound is unsafe
+<a name="NC-33"></a> 
+### [NC-33] Using `>` or `>=` without specifying an upper bound is unsafe
 There will be breaking changes in future versions of solidity, and at that point your code will no longer be compatable. While you may have the specific version to use in a configuration file, others that include your source files may not.
 
 <details>
@@ -10371,8 +10423,8 @@ File: src/interfaces/ILayerZeroUserApplicationConfig.sol
 
 ---
 
-<a name="NC-33"></a> 
-### [NC-33] Put all system-wide constants in one file
+<a name="NC-34"></a> 
+### [NC-34] Put all system-wide constants in one file
 Putting all the system-wide constants in a single file improves code readability, makes it easier to understand the basic configuration and limitations of the system, and makes maintenance easier.
 
 <details>
@@ -10440,8 +10492,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-34"></a> 
-### [NC-34] State variables should include comments
+<a name="NC-35"></a> 
+### [NC-35] State variables should include comments
 Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
 
 <details>
@@ -10643,8 +10695,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-35"></a> 
-### [NC-35] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-36"></a> 
+### [NC-36] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 <details>
@@ -10688,8 +10740,8 @@ File: src/interfaces/ILayerZeroUserApplicationConfig.sol
 
 ---
 
-<a name="NC-36"></a> 
-### [NC-36] Lines are too long
+<a name="NC-37"></a> 
+### [NC-37] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
 <details>
@@ -10717,8 +10769,8 @@ File: src/BranchBridgeAgent.sol
 
 ---
 
-<a name="NC-37"></a> 
-### [NC-37] Unused errors
+<a name="NC-38"></a> 
+### [NC-38] Unused errors
 The following `error`s are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion. Note that there may be cases where an error appears to be used because it has multiple definitions in different files. In such cases, the definitions should be moved to a separate file.
 
 <details>
@@ -10976,8 +11028,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-38"></a> 
-### [NC-38] Unused contract variables
+<a name="NC-39"></a> 
+### [NC-39] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 <details>
@@ -11005,8 +11057,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-39"></a> 
-### [NC-39] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-40"></a> 
+### [NC-40] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
@@ -11116,8 +11168,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-40"></a> 
-### [NC-40] Solidity compiler version is not fixed
+<a name="NC-41"></a> 
+### [NC-41] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 <details>
@@ -11481,8 +11533,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-41"></a> 
-### [NC-41] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-42"></a> 
+### [NC-42] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -11550,8 +11602,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-42"></a> 
-### [NC-42] Use `@inheritdoc` for overridden functions
+<a name="NC-43"></a> 
+### [NC-43] Use `@inheritdoc` for overridden functions
 
 <details>
 <summary>
@@ -11762,8 +11814,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-43"></a> 
-### [NC-43] Use the latest solidity version for deployment
+<a name="NC-44"></a> 
+### [NC-44] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 <details>
@@ -12127,8 +12179,8 @@ File: src/token/ERC20hTokenRoot.sol
 
 ---
 
-<a name="NC-44"></a> 
-### [NC-44] Use of `override` is unnecessary
+<a name="NC-45"></a> 
+### [NC-45] Use of `override` is unnecessary
 Starting with Solidity version [0.8.8](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), using the `override` keyword when the function solely overrides an interface function, and the function doesn't exist in multiple base contracts, is unnecessary.
 
 <details>
@@ -12386,8 +12438,8 @@ File: src/token/ERC20hTokenBranch.sol
 
 ---
 
-<a name="NC-45"></a> 
-### [NC-45] Visibility of state variables is not explicitly defined
+<a name="NC-46"></a> 
+### [NC-46] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 <details>
@@ -12573,8 +12625,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-46"></a> 
-### [NC-46] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-47"></a> 
+### [NC-47] Missing checks for `address(0)` when assigning values to address state variables
 
 <details>
 <summary>
@@ -12629,8 +12681,8 @@ File: src/factories/RootBridgeAgentFactory.sol
 
 ---
 
-<a name="NC-47"></a> 
-### [NC-47] Common functions should be refactored to a common base contract
+<a name="NC-48"></a> 
+### [NC-48] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 <details>
@@ -13214,8 +13266,8 @@ File: src/interfaces/IVirtualAccount.sol
 
 ---
 
-<a name="NC-48"></a> 
-### [NC-48] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-49"></a> 
+### [NC-49] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -13243,8 +13295,8 @@ File: src/VirtualAccount.sol
 
 ---
 
-<a name="NC-49"></a> 
-### [NC-49] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-50"></a> 
+### [NC-50] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -13320,8 +13372,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-50"></a> 
-### [NC-50]  `require()` / `revert()` statements should have descriptive reason strings
+<a name="NC-51"></a> 
+### [NC-51]  `require()` / `revert()` statements should have descriptive reason strings
 
 <details>
 <summary>
@@ -13372,8 +13424,8 @@ File: src/RootBridgeAgent.sol
 
 ---
 
-<a name="NC-51"></a> 
-### [NC-51] Return values of `approve()` not checked
+<a name="NC-52"></a> 
+### [NC-52] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -13395,8 +13447,8 @@ File: src/BaseBranchRouter.sol
 
 ---
 
-<a name="NC-52"></a> 
-### [NC-52] Variables should be named in mixedCase style
+<a name="NC-53"></a> 
+### [NC-53] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -13514,8 +13566,8 @@ File: src/interfaces/BridgeAgentConstants.sol
 
 ---
 
-<a name="NC-53"></a> 
-### [NC-53] Event is missing `indexed` fields
+<a name="NC-54"></a> 
+### [NC-54] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -13545,8 +13597,8 @@ File: src/interfaces/IRootPort.sol
 
 ---
 
-<a name="NC-54"></a> 
-### [NC-54] Functions not used internally could be marked external
+<a name="NC-55"></a> 
+### [NC-55] Functions not used internally could be marked external
 
 <details>
 <summary>
