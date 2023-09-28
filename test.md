@@ -18,7 +18,7 @@ Total <b>65</b> instances over <b>6</b> issues:
 ## Low Issues
 
 
-Total <b>418</b> instances over <b>27</b> issues:
+Total <b>430</b> instances over <b>30</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -44,11 +44,14 @@ Total <b>418</b> instances over <b>27</b> issues:
 | [L-20](#L-20) | Use Ownable2Step instead of Ownable | 12 |
 | [L-21](#L-21) | Using zero as a parameter | 3 |
 | [L-22](#L-22) | Missing zero address check in initializer | 2 |
-| [L-23](#L-23) | Do not use deprecated library functions | 2 |
-| [L-24](#L-24) | Empty Function Body - Consider commenting why | 8 |
-| [L-25](#L-25) | Initializers could be front-run | 9 |
-| [L-26](#L-26) | `safeApprove()` is deprecated | 2 |
-| [L-27](#L-27) | Unspecific compiler version pragma | 3 |
+| [L-23](#L-23) | `decimals()` is not a part of the ERC-20 standard | 4 |
+| [L-24](#L-24) | Do not use deprecated library functions | 2 |
+| [L-25](#L-25) | Empty Function Body - Consider commenting why | 8 |
+| [L-26](#L-26) | Initializers could be front-run | 9 |
+| [L-27](#L-27) | `name()` is not a part of the ERC-20 standard | 4 |
+| [L-28](#L-28) | `safeApprove()` is deprecated | 2 |
+| [L-29](#L-29) | `symbol()` is not a part of the ERC-20 standard | 4 |
+| [L-30](#L-30) | Unspecific compiler version pragma | 3 |
 
 ## Non Critical Issues
 
@@ -2792,7 +2795,52 @@ File: src/factories/ERC20hTokenBranchFactory.sol
 ---
 
 <a name="L-23"></a> 
-### [L-23] Do not use deprecated library functions
+### [L-23] `decimals()` is not a part of the ERC-20 standard
+The `decimals()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/ArbitrumCoreBranchRouter.sol
+
+58:             ERC20(_underlyingAddress).decimals()
+
+```
+[#L58](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumCoreBranchRouter.sol#L58) 
+
+```solidity
+File: src/CoreBranchRouter.sol
+
+64:         uint8 decimals = ERC20(_underlyingAddress).decimals();
+
+```
+[#L64](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreBranchRouter.sol#L64) 
+
+```solidity
+File: src/CoreRootRouter.sol
+
+428:             ERC20(_globalAddress).decimals(),
+
+```
+[#L428](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L428) 
+
+```solidity
+File: src/factories/ERC20hTokenBranchFactory.sol
+
+68:             ERC20(_wrappedNativeTokenAddress).decimals(),
+
+```
+[#L68](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L68) 
+
+</details>
+
+---
+
+<a name="L-24"></a> 
+### [L-24] Do not use deprecated library functions
 
 <details>
 <summary>
@@ -2813,8 +2861,8 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-24"></a> 
-### [L-24] Empty Function Body - Consider commenting why
+<a name="L-25"></a> 
+### [L-25] Empty Function Body - Consider commenting why
 
 <details>
 <summary>
@@ -2883,8 +2931,8 @@ File: src/factories/ArbitrumBranchBridgeAgentFactory.sol
 
 ---
 
-<a name="L-25"></a> 
-### [L-25] Initializers could be front-run
+<a name="L-26"></a> 
+### [L-26] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
@@ -2968,8 +3016,53 @@ File: src/factories/ERC20hTokenRootFactory.sol
 
 ---
 
-<a name="L-26"></a> 
-### [L-26] `safeApprove()` is deprecated
+<a name="L-27"></a> 
+### [L-27] `name()` is not a part of the ERC-20 standard
+The `name()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/ArbitrumCoreBranchRouter.sol
+
+56:             string.concat("Arbitrum Ulysses ", ERC20(_underlyingAddress).name()),
+
+```
+[#L56](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumCoreBranchRouter.sol#L56) 
+
+```solidity
+File: src/CoreBranchRouter.sol
+
+68:             ERC20(_underlyingAddress).name(), ERC20(_underlyingAddress).symbol(), decimals, true
+
+```
+[#L68](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreBranchRouter.sol#L68) 
+
+```solidity
+File: src/CoreRootRouter.sol
+
+426:             ERC20(_globalAddress).name(),
+
+```
+[#L426](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L426) 
+
+```solidity
+File: src/factories/ERC20hTokenBranchFactory.sol
+
+66:             ERC20(_wrappedNativeTokenAddress).name(),
+
+```
+[#L66](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L66) 
+
+</details>
+
+---
+
+<a name="L-28"></a> 
+### [L-28] `safeApprove()` is deprecated
 [Deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/bfff03c0d2a59bcd8e2ead1da9aed9edf0080d05/contracts/token/ERC20/utils/SafeERC20.sol#L38-L45) in favor of `safeIncreaseAllowance()` and `safeDecreaseAllowance()`. If only setting the initial allowance to the value that means infinite, `safeIncreaseAllowance()` can be used instead. The function may currently work, but if a bug is found in this version of OpenZeppelin, and the version that you're forced to upgrade to no longer has this function, you'll encounter unnecessary delays in porting and testing replacement contracts.
 
 <details>
@@ -2991,8 +3084,53 @@ File: src/MulticallRootRouter.sol
 
 ---
 
-<a name="L-27"></a> 
-### [L-27] Unspecific compiler version pragma
+<a name="L-29"></a> 
+### [L-29] `symbol()` is not a part of the ERC-20 standard
+The `symbol()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: src/ArbitrumCoreBranchRouter.sol
+
+57:             string.concat("arb-u", ERC20(_underlyingAddress).symbol()),
+
+```
+[#L57](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/ArbitrumCoreBranchRouter.sol#L57) 
+
+```solidity
+File: src/CoreBranchRouter.sol
+
+68:             ERC20(_underlyingAddress).name(), ERC20(_underlyingAddress).symbol(), decimals, true
+
+```
+[#L68](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreBranchRouter.sol#L68) 
+
+```solidity
+File: src/CoreRootRouter.sol
+
+427:             ERC20(_globalAddress).symbol(),
+
+```
+[#L427](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/CoreRootRouter.sol#L427) 
+
+```solidity
+File: src/factories/ERC20hTokenBranchFactory.sol
+
+67:             ERC20(_wrappedNativeTokenAddress).symbol(),
+
+```
+[#L67](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/factories/ERC20hTokenBranchFactory.sol#L67) 
+
+</details>
+
+---
+
+<a name="L-30"></a> 
+### [L-30] Unspecific compiler version pragma
 
 <details>
 <summary>
