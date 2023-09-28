@@ -4,14 +4,15 @@
 ## Medium Issues
 
 
-Total <b>52</b> instances over <b>4</b> issues:
+Total <b>53</b> instances over <b>5</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
 | [M-1](#M-1) | The remaining ETH may be locked in the contract after call | 7 |
 | [M-2](#M-2) | Return values of `transfer()`/`transferFrom()` not checked | 1 |
-| [M-3](#M-3) | Unsafe use of ERC20 `transfer()`/`transferFrom()` | 3 |
-| [M-4](#M-4) | Centralization Risk for trusted owners | 41 |
+| [M-3](#M-3) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 3 |
+| [M-4](#M-4) | Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs | 1 |
+| [M-5](#M-5) | Centralization Risk for trusted owners | 41 |
 
 ## Low Issues
 
@@ -214,7 +215,7 @@ File: src/VirtualAccount.sol
 ---
 
 <a name="M-3"></a> 
-### [M-3] Unsafe use of ERC20 `transfer()`/`transferFrom()`
+### [M-3] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
 Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
 
 <details>
@@ -245,7 +246,32 @@ File: src/VirtualAccount.sol
 ---
 
 <a name="M-4"></a> 
-### [M-4] Centralization Risk for trusted owners
+### [M-4] Use of `transferFrom()` rather than `safeTransferFrom()` for NFTs in will lead to the loss of NFTs
+The EIP-721 standard says the following about `transferFrom()`:
+```solidity/// @notice Transfer ownership of an NFT -- THE CALLER IS RESPONSIBLE///  TO CONFIRM THAT `_to` IS CAPABLE OF RECEIVING NFTS OR ELSE///  THEY MAY BE PERMANENTLY LOST/// @dev Throws unless `msg.sender` is the current owner, an authorized///  operator, or the approved address for this NFT. Throws if `_from` is///  not the current owner. Throws if `_to` is the zero address. Throws if///  `_tokenId` is not a valid NFT./// @param _from The current owner of the NFT/// @param _to The new owner/// @param _tokenId The NFT to transferfunction transferFrom(address _from, address _to, uint256 _tokenId) external payable;```
+https://github.com/ethereum/EIPs/blob/78e2c297611f5e92b6a5112819ab71f74041ff25/EIPS/eip-721.md?plain=1#L103-L113
+
+Code must use the `safeTransferFrom()` flavor if it hasn't otherwise verified that the receiving address can handle it
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: src/VirtualAccount.sol
+
+62:         ERC721(_token).transferFrom(address(this), msg.sender, _tokenId);
+
+```
+[#L62](https://github.com/code-423n4/2023-09-maia/blob/f5ba4de628836b2a29f9b5fff59499690008c463/src/VirtualAccount.sol#L62) 
+
+</details>
+
+---
+
+<a name="M-5"></a> 
+### [M-5] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
