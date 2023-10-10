@@ -13,7 +13,7 @@ Total <b>3</b> instances over <b>1</b> issue:
 ## Low Issues
 
 
-Total <b>270</b> instances over <b>13</b> issues:
+Total <b>268</b> instances over <b>13</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -22,7 +22,7 @@ Total <b>270</b> instances over <b>13</b> issues:
 | [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 1 |
 | [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 2 |
 | [L-5](#L-5) | Enum values should be used instead of constant array indexes | 2 |
-| [L-6](#L-6) | Governance functions should be controlled by time locks | 3 |
+| [L-6](#L-6) | Governance functions should be controlled by time locks | 1 |
 | [L-7](#L-7) | Loss of precision in divisions | 124 |
 | [L-8](#L-8) | Consider some checks for `address(0)` when setting address state variables | 3 |
 | [L-9](#L-9) | Missing storage gap for upgradable contracts | 2 |
@@ -563,20 +563,16 @@ Governance functions (such as upgrading contracts, setting critical parameters) 
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-118:     function initializeTokens(address[] calldata tokens_) external onlyOwner {
-
 177:     function setPrimeToken(address prime_) external onlyOwner {
 
-216:     function sweepToken(IERC20Upgradeable token_, address to_, uint256 amount_) external onlyOwner {
-
 ```
-[#L118](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L118) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) [#L216](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L216) 
+[#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) 
 
 </details>
 
