@@ -83,7 +83,7 @@ Total <b>338</b> instances over <b>41</b> issues:
 ## Gas Optimizations
 
 
-Total <b>397</b> instances over <b>33</b> issues:
+Total <b>393</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -100,7 +100,7 @@ Total <b>397</b> instances over <b>33</b> issues:
 | [GAS-11](#GAS-11) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 40 | 120 |
 | [GAS-12](#GAS-12) | Reduce gas usage by moving to Solidity 0.8.19 or later | 6 | 6000 |
 | [GAS-13](#GAS-13) | Remove or replace unused state variables | 1 | - |
-| [GAS-14](#GAS-14) | The result of a function call should be cached rather than re-calling the function | 5 | 500 |
+| [GAS-14](#GAS-14) | The result of a function call should be cached rather than re-calling the function | 1 | 100 |
 | [GAS-15](#GAS-15) | Unused named return variables without optimizer waste gas | 4 | 36 |
 | [GAS-16](#GAS-16) | Use assembly to emit events | 16 | 608 |
 | [GAS-17](#GAS-17) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
@@ -3832,35 +3832,17 @@ The function calls in solidity are expensive. If the same result of the same fun
 
 <details>
 <summary>
-There are <b>5</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit `claimInterest` is called 2 times
-433:     function claimInterest(address vToken) external whenNotPaused returns (uint256) {
-
-/// @audit `claimInterest` is called 2 times
-443:     function claimInterest(address vToken, address user) external whenNotPaused returns (uint256) {
-
 /// @audit `calculateScore` is called 2 times
 647:     function _calculateScore(address market, address user) internal returns (uint256) {
 
 ```
-[#L433](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L433) [#L443](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L443) [#L647](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L647) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-/// @audit `ln` is called 2 times
-53:     function ln(int256 x) internal pure returns (int256 r) {
-
-/// @audit `exp` is called 2 times
-58:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
+[#L647](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L647) 
 
 </details>
 
