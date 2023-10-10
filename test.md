@@ -83,7 +83,7 @@ Total <b>338</b> instances over <b>41</b> issues:
 ## Gas Optimizations
 
 
-Total <b>392</b> instances over <b>32</b> issues:
+Total <b>391</b> instances over <b>31</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -108,17 +108,16 @@ Total <b>392</b> instances over <b>32</b> issues:
 | [GAS-19](#GAS-19) | Using bitmap to store bool states can save gas | 1 | - |
 | [GAS-20](#GAS-20) | Using bools for storage incurs overhead | 1 | - |
 | [GAS-21](#GAS-21) | Cache array length outside of loop | 10 | - |
-| [GAS-22](#GAS-22) | State variables should be cached in stack variables rather than re-reading them from storage | 1 | 97 |
-| [GAS-23](#GAS-23) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
-| [GAS-24](#GAS-24) | Don't initialize variables with default value | 13 | - |
-| [GAS-25](#GAS-25) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 14 | 770 |
-| [GAS-26](#GAS-26) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
-| [GAS-27](#GAS-27) | Functions guaranteed to revert when called by normal users can be marked `payable` | 3 | 63 |
-| [GAS-28](#GAS-28) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 13 | 65 |
-| [GAS-29](#GAS-29) | Using `private` rather than `public` for constants, saves gas | 4 | - |
-| [GAS-30](#GAS-30) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 11 | 44 |
-| [GAS-31](#GAS-31) | Using assembly to check for zero can save gas | 35 | 210 |
-| [GAS-32](#GAS-32) | `internal` functions not called by the contract should be removed | 8 | - |
+| [GAS-22](#GAS-22) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
+| [GAS-23](#GAS-23) | Don't initialize variables with default value | 13 | - |
+| [GAS-24](#GAS-24) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 14 | 770 |
+| [GAS-25](#GAS-25) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
+| [GAS-26](#GAS-26) | Functions guaranteed to revert when called by normal users can be marked `payable` | 3 | 63 |
+| [GAS-27](#GAS-27) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 13 | 65 |
+| [GAS-28](#GAS-28) | Using `private` rather than `public` for constants, saves gas | 4 | - |
+| [GAS-29](#GAS-29) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 11 | 44 |
+| [GAS-30](#GAS-30) | Using assembly to check for zero can save gas | 35 | 210 |
+| [GAS-31](#GAS-31) | `internal` functions not called by the contract should be removed | 8 | - |
 
 ## Medium Issues
 
@@ -4157,29 +4156,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ---
 
 <a name="GAS-22"></a> 
-### [GAS-22] State variables should be cached in stack variables rather than re-reading them from storage
-The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (100 gas) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-/// @audit More than 1 read for `BLOCKS_PER_YEAR`, line 978 and 974
-978:         amount += BLOCKS_PER_YEAR * totalIncomePerBlockFromPLP;
-
-```
-[#L978](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L978) 
-
-</details>
-
----
-
-<a name="GAS-23"></a> 
-### [GAS-23] Use `calldata` instead of `memory` for function arguments that do not get mutated
+### [GAS-22] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 <details>
@@ -4199,8 +4176,8 @@ File: contracts/Tokens/Prime/Prime.sol
 
 ---
 
-<a name="GAS-24"></a> 
-### [GAS-24] Don't initialize variables with default value
+<a name="GAS-23"></a> 
+### [GAS-23] Don't initialize variables with default value
 
 <details>
 <summary>
@@ -4249,8 +4226,8 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 ---
 
-<a name="GAS-25"></a> 
-### [GAS-25] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+<a name="GAS-24"></a> 
+### [GAS-24] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
 Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
 
 <details>
@@ -4302,8 +4279,8 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 
 ---
 
-<a name="GAS-26"></a> 
-### [GAS-26] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-25"></a> 
+### [GAS-25] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
@@ -4331,8 +4308,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="GAS-27"></a> 
-### [GAS-27] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-26"></a> 
+### [GAS-26] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
@@ -4356,8 +4333,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="GAS-28"></a> 
-### [GAS-28] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+<a name="GAS-27"></a> 
+### [GAS-27] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
 
 <details>
@@ -4401,8 +4378,8 @@ File: contracts/Tokens/Prime/Prime.sol
 
 ---
 
-<a name="GAS-29"></a> 
-### [GAS-29] Using `private` rather than `public` for constants, saves gas
+<a name="GAS-28"></a> 
+### [GAS-28] Using `private` rather than `public` for constants, saves gas
 If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
 
 <details>
@@ -4434,8 +4411,8 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 
 ---
 
-<a name="GAS-30"></a> 
-### [GAS-30] Use `!= 0` instead of `> 0` for unsigned integer comparison
+<a name="GAS-29"></a> 
+### [GAS-29] Use `!= 0` instead of `> 0` for unsigned integer comparison
 Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
@@ -4481,8 +4458,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="GAS-31"></a> 
-### [GAS-31] Using assembly to check for zero can save gas
+<a name="GAS-30"></a> 
+### [GAS-30] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 <details>
@@ -4588,8 +4565,8 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 ---
 
-<a name="GAS-32"></a> 
-### [GAS-32] `internal` functions not called by the contract should be removed
+<a name="GAS-31"></a> 
+### [GAS-31] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
 <details>
