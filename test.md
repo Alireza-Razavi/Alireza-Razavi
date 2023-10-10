@@ -83,7 +83,7 @@ Total <b>338</b> instances over <b>41</b> issues:
 ## Gas Optimizations
 
 
-Total <b>393</b> instances over <b>33</b> issues:
+Total <b>395</b> instances over <b>33</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -100,7 +100,7 @@ Total <b>393</b> instances over <b>33</b> issues:
 | [GAS-11](#GAS-11) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 40 | 120 |
 | [GAS-12](#GAS-12) | Reduce gas usage by moving to Solidity 0.8.19 or later | 6 | 6000 |
 | [GAS-13](#GAS-13) | Remove or replace unused state variables | 1 | - |
-| [GAS-14](#GAS-14) | The result of a function call should be cached rather than re-calling the function | 1 | 100 |
+| [GAS-14](#GAS-14) | The result of a function call should be cached rather than re-calling the function | 3 | 300 |
 | [GAS-15](#GAS-15) | Unused named return variables without optimizer waste gas | 4 | 36 |
 | [GAS-16](#GAS-16) | Use assembly to emit events | 16 | 608 |
 | [GAS-17](#GAS-17) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
@@ -3832,23 +3832,30 @@ The function calls in solidity are expensive. If the same result of the same fun
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>3</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
+File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit `ln` is called 10 times
-22:     function calculateScore(
-            uint256 xvs,
-            uint256 capital,
-            uint256 alphaNumerator,
-            uint256 alphaDenominator
-        ) internal pure returns (uint256) {
-            // Score function is:
+/// @audit `claimInterest` is called 4 times
+/// @audit `_claimInterest` is called 2 times
+331:     function issue(bool isIrrevocable, address[] calldata users) external {
+
+/// @audit `_distributionPercentage` is called 2 times
+704:     function _mint(bool isIrrevocable, address user) internal {
 
 ```
-[#L22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L22) 
+[#L331](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L331) [#L704](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L704) 
+
+```solidity
+File: contracts/Tokens/Prime/libs/FixedMath.sol
+
+/// @audit `exp` is called 2 times
+34:     function uintDiv(uint256 u, int256 f) internal pure returns (uint256) {
+
+```
+[#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L34) 
 
 </details>
 
