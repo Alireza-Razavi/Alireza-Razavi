@@ -489,6 +489,9 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
+/// @audit `_xvsVaultPoolId` not validated
+/// @audit `_alphaNumerator` not validated
+/// @audit `_alphaDenominator` not validated
 /// @audit `_accessControlManager` not validated
 /// @audit `_loopsLimit` not validated
 130:     function initialize(
