@@ -489,16 +489,7 @@ There are <b>2</b> instances (click to show):
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit `_xvsVault` not validated
-/// @audit `_xvsVaultRewardToken` not validated
-/// @audit `_xvsVaultPoolId` not validated
-/// @audit `_alphaNumerator` not validated
-/// @audit `_alphaDenominator` not validated
 /// @audit `_accessControlManager` not validated
-/// @audit `_protocolShareReserve` not validated
-/// @audit `_primeLiquidityProvider` not validated
-/// @audit `_comptroller` not validated
-/// @audit `_oracle` not validated
 /// @audit `_loopsLimit` not validated
 130:     function initialize(
              address _xvsVault,
@@ -521,8 +512,6 @@ File: contracts/Tokens/Prime/Prime.sol
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 /// @audit `accessControlManager_` not validated
-/// @audit `tokens_` not validated
-/// @audit `distributionSpeeds_` not validated
 90:     function initialize(
             address accessControlManager_,
             address[] calldata tokens_,
