@@ -13,7 +13,7 @@ Total <b>3</b> instances over <b>1</b> issue:
 ## Low Issues
 
 
-Total <b>268</b> instances over <b>13</b> issues:
+Total <b>265</b> instances over <b>12</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -24,12 +24,11 @@ Total <b>268</b> instances over <b>13</b> issues:
 | [L-5](#L-5) | Enum values should be used instead of constant array indexes | 2 |
 | [L-6](#L-6) | Governance functions should be controlled by time locks | 1 |
 | [L-7](#L-7) | Loss of precision in divisions | 124 |
-| [L-8](#L-8) | Consider some checks for `address(0)` when setting address state variables | 3 |
-| [L-9](#L-9) | Missing storage gap for upgradable contracts | 2 |
-| [L-10](#L-10) | prevent re-setting a state variable with the same value | 1 |
-| [L-11](#L-11) | Timestamp may be manipulation | 3 |
-| [L-12](#L-12) | Missing zero address check in initializer | 2 |
-| [L-13](#L-13) | Initializers could be front-run | 2 |
+| [L-8](#L-8) | Missing storage gap for upgradable contracts | 2 |
+| [L-9](#L-9) | prevent re-setting a state variable with the same value | 1 |
+| [L-10](#L-10) | Timestamp may be manipulation | 3 |
+| [L-11](#L-11) | Missing zero address check in initializer | 2 |
+| [L-12](#L-12) | Initializers could be front-run | 2 |
 
 ## Non Critical Issues
 
@@ -860,37 +859,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ---
 
 <a name="L-8"></a> 
-### [L-8] Consider some checks for `address(0)` when setting address state variables
-
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-107:         WBNB = _wbnb;
-
-108:         VBNB = _vbnb;
-
-```
-[#L107](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L107) [#L108](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L108) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-181:         prime = prime_;
-
-```
-[#L181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L181) 
-
-</details>
-
----
-
-<a name="L-9"></a> 
-### [L-9] Missing storage gap for upgradable contracts
+### [L-8] Missing storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
 <details>
@@ -918,8 +887,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-10"></a> 
-### [L-10] prevent re-setting a state variable with the same value
+<a name="L-9"></a> 
+### [L-9] prevent re-setting a state variable with the same value
 Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
 <details>
@@ -939,8 +908,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-11"></a> 
-### [L-11] Timestamp may be manipulation
+<a name="L-10"></a> 
+### [L-10] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 <details>
@@ -964,8 +933,8 @@ File: contracts/Tokens/Prime/Prime.sol
 
 ---
 
-<a name="L-12"></a> 
-### [L-12] Missing zero address check in initializer
+<a name="L-11"></a> 
+### [L-11] Missing zero address check in initializer
 
 <details>
 <summary>
@@ -1010,8 +979,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-13"></a> 
-### [L-13] Initializers could be front-run
+<a name="L-12"></a> 
+### [L-12] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 <details>
