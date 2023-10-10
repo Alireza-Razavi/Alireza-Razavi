@@ -34,7 +34,7 @@ Total <b>268</b> instances over <b>13</b> issues:
 ## Non Critical Issues
 
 
-Total <b>337</b> instances over <b>40</b> issues:
+Total <b>332</b> instances over <b>40</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -61,7 +61,7 @@ Total <b>337</b> instances over <b>40</b> issues:
 | [NC-21](#NC-21) | NatSpec `@return` is missing | 4 |
 | [NC-22](#NC-22) | There is no need to initialize variables with 0 | 13 |
 | [NC-23](#NC-23) | Put all system-wide constants in one file | 12 |
-| [NC-24](#NC-24) | State variables should include comments | 6 |
+| [NC-24](#NC-24) | State variables should include comments | 1 |
 | [NC-25](#NC-25) | Contract declarations should have NatSpec `@title` annotations | 6 |
 | [NC-26](#NC-26) | Lines are too long | 6 |
 | [NC-27](#NC-27) | Unused errors | 1 |
@@ -2217,24 +2217,8 @@ Consider adding some comments on critical state variables to explain what they a
 
 <details>
 <summary>
-There are <b>6</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-528:         address market,
-
-529:         address user,
-
-530:         uint256 borrow,
-
-531:         uint256 supply,
-
-532:         uint256 xvsStaked
-
-```
-[#L528](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L528) [#L529](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L529) [#L530](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L530) [#L531](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L531) [#L532](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L532) 
 
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
