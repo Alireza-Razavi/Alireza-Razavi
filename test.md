@@ -34,7 +34,7 @@ Total <b>268</b> instances over <b>13</b> issues:
 ## Non Critical Issues
 
 
-Total <b>332</b> instances over <b>40</b> issues:
+Total <b>327</b> instances over <b>39</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -70,14 +70,13 @@ Total <b>332</b> instances over <b>40</b> issues:
 | [NC-30](#NC-30) | Solidity compiler version is not fixed | 1 |
 | [NC-31](#NC-31) | Expressions for constant values should use `immutable` rather than `constant` | 12 |
 | [NC-32](#NC-32) | Use the latest solidity version for deployment | 6 |
-| [NC-33](#NC-33) | Visibility of state variables is not explicitly defined | 5 |
-| [NC-34](#NC-34) | Whitespace in Expressions | 1 |
-| [NC-35](#NC-35) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
-| [NC-36](#NC-36) | Names of `private`/`internal` functions should be prefixed with an underscore | 9 |
-| [NC-37](#NC-37) | Names of `private`/`internal` state variables should be prefixed with an underscore | 12 |
-| [NC-38](#NC-38) | Variables should be named in mixedCase style | 16 |
-| [NC-39](#NC-39) | Event is missing `indexed` fields | 8 |
-| [NC-40](#NC-40) | Constants should be defined rather than using magic numbers | 20 |
+| [NC-33](#NC-33) | Whitespace in Expressions | 1 |
+| [NC-34](#NC-34) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
+| [NC-35](#NC-35) | Names of `private`/`internal` functions should be prefixed with an underscore | 9 |
+| [NC-36](#NC-36) | Names of `private`/`internal` state variables should be prefixed with an underscore | 12 |
+| [NC-37](#NC-37) | Variables should be named in mixedCase style | 16 |
+| [NC-38](#NC-38) | Event is missing `indexed` fields | 8 |
+| [NC-39](#NC-39) | Constants should be defined rather than using magic numbers | 20 |
 
 ## Gas Optimizations
 
@@ -2569,36 +2568,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ---
 
 <a name="NC-33"></a> 
-### [NC-33] Visibility of state variables is not explicitly defined
-To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
-
-<details>
-<summary>
-There are <b>5</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-528:         address market,
-
-529:         address user,
-
-530:         uint256 borrow,
-
-531:         uint256 supply,
-
-532:         uint256 xvsStaked
-
-```
-[#L528](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L528) [#L529](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L529) [#L530](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L530) [#L531](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L531) [#L532](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L532) 
-
-</details>
-
----
-
-<a name="NC-34"></a> 
-### [NC-34] Whitespace in Expressions
+### [NC-33] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 <details>
@@ -2618,8 +2588,8 @@ File: contracts/Tokens/Prime/Prime.sol
 
 ---
 
-<a name="NC-35"></a> 
-### [NC-35] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-34"></a> 
+### [NC-34] Missing checks for `address(0)` when assigning values to address state variables
 
 <details>
 <summary>
@@ -2638,8 +2608,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="NC-36"></a> 
-### [NC-36] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-35"></a> 
+### [NC-35] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2701,8 +2671,8 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 ---
 
-<a name="NC-37"></a> 
-### [NC-37] Names of `private`/`internal` state variables should be prefixed with an underscore
+<a name="NC-36"></a> 
+### [NC-36] Names of `private`/`internal` state variables should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 <details>
@@ -2756,8 +2726,8 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 ---
 
-<a name="NC-38"></a> 
-### [NC-38] Variables should be named in mixedCase style
+<a name="NC-37"></a> 
+### [NC-37] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -2825,8 +2795,8 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 ---
 
-<a name="NC-39"></a> 
-### [NC-39] Event is missing `indexed` fields
+<a name="NC-38"></a> 
+### [NC-38] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -2866,8 +2836,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="NC-40"></a> 
-### [NC-40] Constants should be defined rather than using magic numbers
+<a name="NC-39"></a> 
+### [NC-39] Constants should be defined rather than using magic numbers
 
 <details>
 <summary>
