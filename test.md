@@ -18,7 +18,7 @@ Total <b>108</b> instances over <b>5</b> issues:
 ## Low Issues
 
 
-Total <b>235</b> instances over <b>24</b> issues:
+Total <b>225</b> instances over <b>24</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -43,7 +43,7 @@ Total <b>235</b> instances over <b>24</b> issues:
 | [L-19](#L-19) | Using zero as a parameter | 6 |
 | [L-20](#L-20) |  `abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()` | 3 |
 | [L-21](#L-21) | `decimals()` is not a part of the ERC-20 standard | 1 |
-| [L-22](#L-22) | Do not use deprecated library functions | 21 |
+| [L-22](#L-22) | Do not use deprecated library functions | 11 |
 | [L-23](#L-23) | Empty Function Body - Consider commenting why | 1 |
 | [L-24](#L-24) | `safeApprove()` is deprecated | 4 |
 
@@ -1487,7 +1487,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 <details>
 <summary>
-There are <b>21</b> instances (click to show):
+There are <b>11</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1495,24 +1495,12 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 
 58:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
-200:     IERC20WithBurn(addresses.tokenA).safeApprove(
-
-204:     IERC20WithBurn(addresses.tokenB).safeApprove(
-
-268:     IERC20WithBurn(addresses.pair).safeApprove(addresses.ammRouter, lpAmount);
-
-328:     IERC20WithBurn(token1).safeApprove(addresses.ammRouter, token1Amount);
-
 ```
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
 80:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
-
-148:       TransferHelper.safeApprove(_token, _target, _amount);
-
-302:     TransferHelper.safeApprove(_tokenA, address(univ3_router), _amountAtoB);
 
 ```
 
@@ -1548,8 +1536,6 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 127:     _setupRole(MANAGER_ROLE, msg.sender);
 
-207:     collateralToken.safeApprove(
-
 ```
 
 ```solidity
@@ -1558,12 +1544,6 @@ File: contracts/reLP/ReLPContract.sol
 80:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
 81:     _setupRole(RDPXV2CORE_ROLE, msg.sender);
-
-150:     IERC20WithBurn(addresses.pair).safeApprove(
-
-155:     IERC20WithBurn(addresses.tokenA).safeApprove(
-
-160:     IERC20WithBurn(addresses.tokenB).safeApprove(
 
 ```
 
