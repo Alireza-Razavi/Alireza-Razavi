@@ -69,7 +69,7 @@ Total <b>66</b> instances over <b>30</b> issues:
 ## Gas Optimizations
 
 
-Total <b>44</b> instances over <b>19</b> issues:
+Total <b>43</b> instances over <b>19</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -83,7 +83,7 @@ Total <b>44</b> instances over <b>19</b> issues:
 | [GAS-8](#GAS-8) | Use assembly to compute hashes to save gas | 2 | 160 |
 | [GAS-9](#GAS-9) | Use assembly to emit events | 2 | 76 |
 | [GAS-10](#GAS-10) | Use a more recent version of solidity | 1 | - |
-| [GAS-11](#GAS-11) | Using `this` to access functions results in an external call, wasting gas | 2 | 200 |
+| [GAS-11](#GAS-11) | Using `this` to access functions results in an external call, wasting gas | 1 | 100 |
 | [GAS-12](#GAS-12) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
 | [GAS-13](#GAS-13) | Don't initialize variables with default value | 1 | - |
 | [GAS-14](#GAS-14) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 4 | 220 |
@@ -1114,16 +1114,14 @@ File: contracts/ERC20MultiDelegate.sol
 ### [GAS-11] Using `this` to access functions results in an external call, wasting gas
 External calls have an overhead of 100 gas, which can be avoided by not referencing the function using `this`. Contracts are allowed to override their parents' functions and change the visibility from `external` to `public`, so make this change if it's required in order to call the function internally.
 
-There are <b>2</b> instances:
+There is <b>1</b> instance:
 ```solidity
 File: contracts/ERC20MultiDelegate.sol
 
 195:         return ERC1155(this).balanceOf(msg.sender, uint256(uint160(delegate)));
 
-209:                 address(this),
-
 ```
-[#L195](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L195) [#L209](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L209) 
+[#L195](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L195) 
 
 ---
 
