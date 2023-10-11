@@ -158,11 +158,7 @@ Total <b>518</b> instances over <b>40</b> issues:
 ### [M-1] The remaining ETH may be locked in the contract after call
 After calling an external contract and forwards some ETH value, the contract balance should be checked. If there is excess eth left over due to a failed call, or more eth being delivered than needed, or any other reason, this eth must be refunded to the user or handled appropriately, otherwise the eth may be frozen in the contract forever.
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -176,8 +172,6 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
-
-</details>
 
 ---
 
@@ -249,11 +243,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 ### [M-3] Return values of `transfer()`/`transferFrom()` not checked
 Not all ERC20 implementations `revert()` when there's a failure in `transfer()` or `transferFrom()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually transfer anything.
 
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
+There are <b>6</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -281,19 +271,13 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="M-4"></a> 
 ### [M-4] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
 Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
@@ -306,8 +290,6 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 170:     collateral.transfer(receiver, assets);
 
 ```
-
-</details>
 
 ---
 
@@ -626,19 +608,13 @@ File: contracts/reLP/ReLPContract.sol
 ### [L-2] Array is `push()`ed but not `pop()`ed
 There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
 961:     delegates.push(delegatePosition);
 
 ```
-
-</details>
 
 ---
 
@@ -787,11 +763,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [L-4] Constructor / initialization function lacks parameter validation
 Constructors and initialization functions play a critical role in contracts by setting important initial states when the contract is first deployed before the system starts. The parameters passed to the constructor and initialization functions directly affect the behavior of the contract / protocol. If incorrect parameters are provided, the system may fail to run, behave abnormally, be unstable, or lack security. Therefore, it's crucial to carefully check each parameter in the constructor and initialization functions. If an exception is found, the transaction should be rolled back.
 
-<details>
-<summary>
-There are <b>5</b> instances (click to show):
-</summary>
-
+There are <b>5</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -859,19 +831,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-5"></a> 
 ### [L-5] Enum values should be used instead of constant array indexes
 Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
 
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
+There are <b>6</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -899,19 +865,13 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-6"></a> 
 ### [L-6] External call recipient can consume all remaining gas
 There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -919,19 +879,13 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-7"></a> 
 ### [L-7] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -945,8 +899,6 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 243:   function setLpAllowance(bool increase) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-
-</details>
 
 ---
 
@@ -1096,11 +1048,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [L-9] Missing contract existence checks before low-level calls
 Low-level calls return success if there is no code present at the specified address. In addition to the zero-address checks, add a check to verify that `<address>.code.length > 0`
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -1115,19 +1063,13 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-10"></a> 
 ### [L-10] Missing zero address check in constructor
 Constructors often take address parameters to initialize important components of a contract, such as owner or linked contracts. However, without a checking, there's a risk that an address parameter could be mistakenly set to the zero address (0x0). This could be due to an error or oversight during contract deployment. A zero address in a crucial role can cause serious issues, as it cannot perform actions like a normal address, and any funds sent to it will be irretrievable. It's therefore crucial to include a zero address check in constructors to prevent such potential problems. If a zero address is detected, the constructor should revert the transaction.
 
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
+There are <b>3</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -1166,18 +1108,12 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-11"></a> 
 ### [L-11] Consider some checks for `address(0)` when setting address state variables
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -1200,8 +1136,6 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 99:     rdpxRdpxV2Core = _rdpxRdpxV2Core;
 
 ```
-
-</details>
 
 ---
 
@@ -1293,11 +1227,7 @@ File: contracts/reLP/ReLPContract.sol
 <a name="L-13"></a> 
 ### [L-13] `SafeTransferLib` does not ensure that the token contract exists
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
@@ -1305,27 +1235,19 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-14"></a> 
 ### [L-14] Some tokens may revert when large transfers are made
 Tokens such as COMP or UNI will revert when an address' balance reaches `type(uint96).max`. Ensure that the calls below can be broken up into smaller batches if necessary.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 170:     collateral.transfer(receiver, assets);
 
 ```
-
-</details>
 
 ---
 
@@ -1333,19 +1255,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 ### [L-15] Some tokens may revert when zero value transfers are made
 Despite the fact that [EIP-20 states](https://github.com/ethereum/EIPs/blob/7500ac4fc1bbdfaf684e7ef851f798f6b667b2fe/EIPS/eip-20.md?plain=1#L116) that zero-value transfers must be accepted, some tokens, such as LEND, will revert if this is attempted, which may cause transactions that involve other tokens (such as batch operations) to fully revert. Consider skipping the transfer if the amount is zero, which will also save gas.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 170:     collateral.transfer(receiver, assets);
 
 ```
-
-</details>
 
 ---
 
@@ -1428,11 +1344,7 @@ File: contracts/reLP/ReLPContract.sol
 <a name="L-17"></a> 
 ### [L-17] Tokens may be minted to `address(0)`
 
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
+There are <b>3</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
 
@@ -1473,19 +1385,13 @@ File: contracts/dpxETH/DpxEthToken.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-18"></a> 
 ### [L-18] Unsafe solidity low-level call can cause gas grief attack
 Using the low-level calls of a solidity address can leave the contract open to gas grief attacks. These attacks occur when the called contract returns a large amount of data. So when calling an external contract, it is necessary to check the length of the return data before reading/copying it (using `returndatasize()`).
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -1500,19 +1406,13 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-19"></a> 
 ### [L-19] Using zero as a parameter
 Taking `0` as a valid argument in Solidity without checks can lead to severe security issues. A historical example is the infamous `0x0` address bug where numerous tokens were lost. This happens because 0 can be interpreted as an uninitialized `address`, leading to transfers to the 0x0 address, effectively burning tokens. Moreover, `0` as a denominator in division operations would cause a runtime exception. It's also often indicative of a logical error in the caller's code. It's important to always validate input and handle edge cases like `0` appropriately. Use `require()` statements to enforce conditions and provide clear error messages to facilitate debugging and safer code.
 
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
+There are <b>6</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -1541,8 +1441,6 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-20"></a> 
@@ -1550,11 +1448,7 @@ File: contracts/reLP/ReLPContract.sol
 Use `abi.encode()` instead which will pad items to 32 bytes, which will [prevent hash collisions](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html#non-standard-packed-mode) (e.g. `abi.encodePacked(0x123,0x456)` => `0x123456` => `abi.encodePacked(0x1,0x23456)`, but `abi.encode(0x123,0x456)` => `0x0...1230...456`). "Unless there is a compelling reason, `abi.encode` should be preferred". If there is only one argument to `abi.encodePacked()` it can often be cast to `bytes()` or `bytes32()` [instead](https://ethereum.stackexchange.com/questions/30912/how-to-compare-strings-in-solidity#answer-82739).
 If all arguments are strings and or bytes, `bytes.concat()` should be used instead
 
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
+There are <b>3</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -1571,27 +1465,19 @@ File: contracts/core/RdpxV2Core.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-21"></a> 
 ### [L-21] `decimals()` is not a part of the ERC-20 standard
 The `decimals()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 91:       ERC20(_collateral).decimals()
 
 ```
-
-</details>
 
 ---
 
@@ -1687,11 +1573,7 @@ File: contracts/reLP/ReLPContract.sol
 <a name="L-23"></a> 
 ### [L-23] Empty Function Body - Consider commenting why
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
@@ -1699,19 +1581,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="L-24"></a> 
 ### [L-24] `safeApprove()` is deprecated
 [Deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/bfff03c0d2a59bcd8e2ead1da9aed9edf0080d05/contracts/token/ERC20/utils/SafeERC20.sol#L38-L45) in favor of `safeIncreaseAllowance()` and `safeDecreaseAllowance()`. If only setting the initial allowance to the value that means infinite, `safeIncreaseAllowance()` can be used instead. The function may currently work, but if a bug is found in this version of OpenZeppelin, and the version that you're forced to upgrade to no longer has this function, you'll encounter unnecessary delays in porting and testing replacement contracts.
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -1730,8 +1606,6 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ```
 
-</details>
-
 ---
 
 
@@ -1741,11 +1615,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 ### [NC-1] Add inline comments for unnamed variables
 `function foo(address x, address)` -> `function foo(address x, address /* y */)`
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
@@ -1759,18 +1629,12 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-2"></a> 
 ### [NC-2] Contract declarations should have NatSpec `@author` annotations
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -1785,19 +1649,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-3"></a> 
 ### [NC-3] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability
 Well-organized data structures make code reviews easier, which may lead to fewer bugs. Consider combining related mappings into mappings to structs, so it's clear what data is related
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -1805,19 +1663,13 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-4"></a> 
 ### [NC-4] Consider adding a block/deny-list
 Doing so will significantly increase centralization, but will help to prevent hackers from using stolen tokens.
 
-<details>
-<summary>
-There are <b>10</b> instances (click to show):
-</summary>
-
+There are <b>10</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -1916,8 +1768,6 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-5"></a> 
@@ -1926,18 +1776,12 @@ Formal verification is the act of proving or disproving the correctness of inten
 
 Some tools that are currently available to perform these tests on smart contracts are [SMTChecker](https://docs.soliditylang.org/en/latest/smtchecker.html) and [Certora Prover](https://www.certora.com/).
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 
 Global finding
 
 ```
-
-</details>
 
 ---
 
@@ -1945,11 +1789,7 @@ Global finding
 ### [NC-6] Consider bounding input array length
 The functions below take in an unbounded array, and make function calls for entries in the array. While the function will revert if it eventually runs out of gas, it may be a nicer user experience to require() that the length of the array is below some reasonable maximum, so that the user doesn't have to use up a full transaction's gas only to see that the transaction reverts.
 
-<details>
-<summary>
-There are <b>7</b> instances (click to show):
-</summary>
-
+There are <b>7</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -1990,8 +1830,6 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
-
-</details>
 
 ---
 
@@ -2149,11 +1987,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [NC-8] Contract uses both `require()`/`revert()` as well as custom errors
 Consider using just one method in a single file.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -2161,26 +1995,18 @@ File: contracts/core/RdpxV2Core.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-9"></a> 
 ### [NC-9] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 
 Global finding
 
 ```
-
-</details>
 
 ---
 
@@ -2188,11 +2014,7 @@ Global finding
 ### [NC-10] Convert simple `if` statements to ternary expressions
 Converting some if statements to ternaries (such as `z = (a < b) ? x : y`) can make the code more concise and easier to read.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -2202,8 +2024,6 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
              startTime = nextFundingPaymentTimestamp() - fundingDuration;
 
 ```
-
-</details>
 
 ---
 
@@ -2333,11 +2153,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [NC-12] Custom errors should be used rather than `revert()`/`require()`
 Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
+There are <b>8</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -2374,8 +2190,6 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-13"></a> 
@@ -2398,11 +2212,7 @@ if (condition) {
 body2...
 ```
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -2413,19 +2223,13 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-14"></a> 
 ### [NC-14] Empty bytes check is missing
 Passing empty bytes to a function can cause unexpected behavior, such as certain operations failing, producing incorrect results, or wasting gas. It is recommended to check that all byte parameters are not empty.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -2438,26 +2242,18 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-15"></a> 
 ### [NC-15] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 
 Global finding
 
 ```
-
-</details>
 
 ---
 
@@ -2465,19 +2261,13 @@ Global finding
 ### [NC-16] Names of structs, events, enums and errors should use CapWords style
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html)
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
 379:   event log(uint);
 
 ```
-
-</details>
 
 ---
 
@@ -2581,11 +2371,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [NC-18] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
+There are <b>6</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -2603,19 +2389,13 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-19"></a> 
 ### [NC-19] Invalid NatSpec comment style
 NatSpec must begin with `///` or use `/* ... */` syntax
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -2623,26 +2403,18 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-20"></a> 
 ### [NC-20] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 
 Global finding
 
 ```
-
-</details>
 
 ---
 
@@ -3180,19 +2952,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 ### [NC-24] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
 120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
 ```
-
-</details>
 
 ---
 
@@ -3259,11 +3025,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 ### [NC-26] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -3277,8 +3039,6 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 21: contract PerpetualAtlanticVaultLP is ERC20, IPerpetualAtlanticVaultLP {
 
 ```
-
-</details>
 
 ---
 
@@ -3579,19 +3339,13 @@ File: contracts/reLP/ReLPContract.sol
 <a name="NC-29"></a> 
 ### [NC-29] Modifier declarations should have NatSpec descriptions
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 295:   modifier onlyPerpVault() {
 
 ```
-
-</details>
 
 ---
 
@@ -4593,11 +4347,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 ### [NC-33] There is no need to initialize variables with 0
 Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
 
-<details>
-<summary>
-There are <b>10</b> instances (click to show):
-</summary>
-
+There are <b>10</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -4642,8 +4392,6 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
-
-</details>
 
 ---
 
@@ -4727,11 +4475,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [NC-35] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -4739,19 +4483,13 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-36"></a> 
 ### [NC-36] Unused named return
 Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
 
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
+There are <b>8</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -4818,19 +4556,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-37"></a> 
 ### [NC-37] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
 
@@ -4838,27 +4570,19 @@ File: contracts/dpxETH/DpxEthToken.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-38"></a> 
 ### [NC-38] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 343:       optionPositions[optionIds[i]].strike = 0;
 
 ```
-
-</details>
 
 ---
 
@@ -4942,11 +4666,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [NC-40] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
-<details>
-<summary>
-There are <b>9</b> instances (click to show):
-</summary>
-
+There are <b>9</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -5010,19 +4730,13 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-41"></a> 
 ### [NC-41] Use of `override` is unnecessary
 Starting with Solidity version [0.8.8](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), using the `override` keyword when the function solely overrides an interface function, and the function doesn't exist in multiple base contracts, is unnecessary.
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
 
@@ -5032,19 +4746,13 @@ File: contracts/dpxETH/DpxEthToken.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-42"></a> 
 ### [NC-42] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -5052,19 +4760,13 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-43"></a> 
 ### [NC-43] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
+There are <b>3</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -5081,18 +4783,12 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-44"></a> 
 ### [NC-44] Missing checks for `address(0)` when assigning values to address state variables
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -5116,19 +4812,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-45"></a> 
 ### [NC-45] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
+There are <b>8</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -5184,27 +4874,19 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="NC-46"></a> 
 ### [NC-46] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 286:   function beforeWithdraw(uint256 assets, uint256 /*shares*/) internal {
 
 ```
-
-</details>
 
 ---
 
@@ -5530,11 +5212,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 ### [GAS-1] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, where appropriate
 Saves a storage slot for the mapping. Depending on the circumstances and sizes of types, can avoid a Gsset (20000 gas) per mapping combined. Reads and subsequent writes can also be cheaper when a function requires both values and they both fit in the same storage slot. Finally, if both fields are accessed in the same function, can save ~42 gas per access due to not having to [recalculate the key's keccak256 hash](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0) (Gkeccak256 - 30 gas) and that calculation's associated stack operations.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -5542,26 +5220,18 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-2"></a> 
 ### [GAS-2] Consider activating via-ir for deploying
 By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advanced [multi-function optimizations](https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html#solidity-ir-based-codegen-changes), for extra gas savings.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 
 Global finding
 
 ```
-
-</details>
 
 ---
 
@@ -5711,19 +5381,13 @@ File: contracts/reLP/ReLPContract.sol
 ### [GAS-4] Don't transfer with zero amount to save gas
 In Solidity, unnecessary operations can waste gas. For example, a transfer function without a zero amount check uses gas even if called with a zero amount, since the contract state remains unchanged. Implementing a zero amount check avoids these unnecessary function calls, saving gas and improving efficiency.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 170:     collateral.transfer(receiver, assets);
 
 ```
-
-</details>
 
 ---
 
@@ -5845,11 +5509,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 ### [GAS-6] `internal` functions only called once can be inlined to save gas
 If an `internal` function is only used once, there is no need to modularize it, unless the function calling it would otherwise be too long and complex. Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
 
-<details>
-<summary>
-There are <b>5</b> instances (click to show):
-</summary>
-
+There are <b>5</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -5875,19 +5535,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-7"></a> 
 ### [GAS-7] `keccak256()` hash of literals should only be computed once
 The result of the hash should be stored in an immutable variable, and the variable should be used instead. If the hash is being used as a part of a function selector, the cast to `bytes4` should also only be done once.
 
-<details>
-<summary>
-There are <b>9</b> instances (click to show):
-</summary>
-
+There are <b>9</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
 
@@ -5931,19 +5585,13 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-8"></a> 
 ### [GAS-8] Low level `call` can be optimized with assembly
 When using low-level calls, the `returnData` is copied to memory even if the variable is not utilized. The proper way to handle this is through a low level assembly call.
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -5957,8 +5605,6 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
-
-</details>
 
 ---
 
@@ -6045,11 +5691,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 ### [GAS-10] Newer versions of solidity are more gas efficient
 The solidity language continues to pursue more efficient gas optimization schemes. Adopting a newer version of solidity can be more gas efficient.
 
-<details>
-<summary>
-There are <b>9</b> instances (click to show):
-</summary>
-
+There are <b>9</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -6112,8 +5754,6 @@ File: contracts/reLP/ReLPContract.sol
 2: pragma solidity 0.8.19;
 
 ```
-
-</details>
 
 ---
 
@@ -6240,11 +5880,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [GAS-12] Redundant state variable getters
 Getters for public state variables are automatically generated so there is no need to code them manually and waste gas.
 
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
+There are <b>3</b> instances:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
@@ -6259,27 +5895,19 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-13"></a> 
 ### [GAS-13] Remove or replace unused state variables
 Saves a storage slot. If the variable is assigned a non-zero value, saves Gsset (20000 gas). If it's assigned a zero value, saves Gsreset (2900 gas). If the variable remains unassigned, there is no gas savings unless the variable is `public`, in which case the compiler-generated non-payable getter deployment cost is saved. If the state variable is overriding an interface's public function, mark the variable as `constant` or `immutable` so that it does not use a storage slot.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
 
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
-
-</details>
 
 ---
 
@@ -6376,11 +6004,7 @@ File: contracts/reLP/ReLPContract.sol
 ### [GAS-15] The result of a function call should be cached rather than re-calling the function
 The function calls in solidity are expensive. If the same result of the same function calls are to be used several times, the result should be cached to reduce the gas consumption of repeated calls.
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -6417,19 +6041,13 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-16"></a> 
 ### [GAS-16] Unlimited gas consumption risk due to external call recipients
 When calling an external function without specifying a gas limit , the called contract may consume all the remaining gas, causing the tx to be reverted. To mitigate this, it is recommended to explicitly set a gas limit when making low level external calls.
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -6437,19 +6055,13 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-17"></a> 
 ### [GAS-17] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
+There are <b>8</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -6515,8 +6127,6 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
        ) public view returns (uint256 shares) {
 
 ```
-
-</details>
 
 ---
 
@@ -6794,11 +6404,7 @@ File: contracts/reLP/ReLPContract.sol
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
 - Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
 
-<details>
-<summary>
-There are <b>9</b> instances (click to show):
-</summary>
-
+There are <b>9</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -6862,19 +6468,13 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-22"></a> 
 ### [GAS-22] Use `storage` instead of `memory` for structs/arrays
 When fetching data from a storage location, assigning the data to a `memory` variable causes all fields of the struct/array to be read from storage, which incurs a Gcoldsload (**2100 gas**) for *each* field of the struct/array. If the fields are read from the new memory variable, they incur an additional `MLOAD` rather than a cheap stack read. Instead of declaring the variable with the `memory` keyword, declaring the variable with the `storage` keyword and caching any fields that need to be re-read in stack variables, will be much cheaper, only incurring the Gcoldsload for the fields actually read. The only time it makes sense to read the whole struct/array into a `memory` variable, is if the full struct/array is being returned by the function, is being passed to a function that requires `memory`, or if the array/struct is being read from another `memory` array/struct.
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
 
@@ -6893,19 +6493,13 @@ File: contracts/core/RdpxV2Core.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-23"></a> 
 ### [GAS-23] Use `unchecked` block for safe subtractions
 If it can be confirmed that the subtraction operation will not overflow, using an unchecked block can save gas. For example, `require(x <= y); z = y - x;` can be optimized to `require(x <= y); unchecked { z = y - x; }`
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -6928,19 +6522,13 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-24"></a> 
 ### [GAS-24] Using bitmap to store bool states can save gas
 Using a bitmap instead of a bool array or a bool mapping to store boolean states can save gas fees. This is because the bitmap can store 256 boolean values in a single slot instead of 256 slots, which can save gas when writing bool values or when reading multiple bool values from the same slot.
 
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
+There are <b>2</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -6949,8 +6537,6 @@ File: contracts/core/RdpxV2Core.sol
 82:   mapping(uint256 => bool) public fundingPaidFor;
 
 ```
-
-</details>
 
 ---
 
@@ -6963,11 +6549,7 @@ This optimization can be particularly significant if the pattern occurs during a
 
 *Saves 28 gas for a storage array, 38 for a memory array*
 
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
+There is <b>1</b> instance:
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
@@ -6975,19 +6557,13 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-26"></a> 
 ### [GAS-26] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
 
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
+There are <b>4</b> instances:
 ```solidity
 File: contracts/core/RdpxV2Core.sol
 
@@ -7000,8 +6576,6 @@ File: contracts/core/RdpxV2Core.sol
 118:   bool public putOptionsRequired;
 
 ```
-
-</details>
 
 ---
 
@@ -7227,11 +6801,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
 
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
+There are <b>8</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -7268,19 +6838,13 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-31"></a> 
 ### [GAS-31] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
 Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
 
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
+There are <b>3</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -7302,18 +6866,12 @@ File: contracts/reLP/ReLPContract.sol
 
 ```
 
-</details>
-
 ---
 
 <a name="GAS-32"></a> 
 ### [GAS-32] Don't initialize variables with default value
 
-<details>
-<summary>
-There are <b>10</b> instances (click to show):
-</summary>
-
+There are <b>10</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -7358,8 +6916,6 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
-
-</details>
 
 ---
 
@@ -7418,11 +6974,7 @@ File: contracts/core/RdpxV2Core.sol
 ### [GAS-34] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
+There are <b>6</b> instances:
 ```solidity
 File: contracts/amo/UniV2LiquidityAmo.sol
 
@@ -7464,8 +7016,6 @@ File: contracts/reLP/ReLPContract.sol
 79:   constructor() {
 
 ```
-
-</details>
 
 ---
 
