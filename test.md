@@ -1517,6 +1517,7 @@ There are <b>6</b> instances (click to show):
 File: contracts/core/RdpxV2Core.sol
 
 129:     ReserveAsset memory zeroAsset = ReserveAsset({
+           tokenAddress: address(0),
 
 253:     ReserveAsset memory asset = ReserveAsset({
 
