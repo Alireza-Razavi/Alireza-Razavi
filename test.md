@@ -69,7 +69,7 @@ Total <b>66</b> instances over <b>30</b> issues:
 ## Gas Optimizations
 
 
-Total <b>42</b> instances over <b>18</b> issues:
+Total <b>44</b> instances over <b>19</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
@@ -83,14 +83,15 @@ Total <b>42</b> instances over <b>18</b> issues:
 | [GAS-8](#GAS-8) | Use assembly to compute hashes to save gas | 2 | 160 |
 | [GAS-9](#GAS-9) | Use assembly to emit events | 2 | 76 |
 | [GAS-10](#GAS-10) | Use a more recent version of solidity | 1 | - |
-| [GAS-11](#GAS-11) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
-| [GAS-12](#GAS-12) | Don't initialize variables with default value | 1 | - |
-| [GAS-13](#GAS-13) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 4 | 220 |
-| [GAS-14](#GAS-14) | Constructors can be marked as `payable` to save deployment gas | 1 | 21 |
-| [GAS-15](#GAS-15) | Functions guaranteed to revert when called by normal users can be marked `payable` | 1 | 21 |
-| [GAS-16](#GAS-16) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 1 | 5 |
-| [GAS-17](#GAS-17) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 4 | 16 |
-| [GAS-18](#GAS-18) | Using assembly to check for zero can save gas | 1 | 6 |
+| [GAS-11](#GAS-11) | Using `this` to access functions results in an external call, wasting gas | 2 | 200 |
+| [GAS-12](#GAS-12) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 2 | - |
+| [GAS-13](#GAS-13) | Don't initialize variables with default value | 1 | - |
+| [GAS-14](#GAS-14) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 4 | 220 |
+| [GAS-15](#GAS-15) | Constructors can be marked as `payable` to save deployment gas | 1 | 21 |
+| [GAS-16](#GAS-16) | Functions guaranteed to revert when called by normal users can be marked `payable` | 1 | 21 |
+| [GAS-17](#GAS-17) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 1 | 5 |
+| [GAS-18](#GAS-18) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 4 | 16 |
+| [GAS-19](#GAS-19) | Using assembly to check for zero can save gas | 1 | 6 |
 
 ## Medium Issues
 
@@ -1110,7 +1111,24 @@ File: contracts/ERC20MultiDelegate.sol
 ---
 
 <a name="GAS-11"></a> 
-### [GAS-11] Use `calldata` instead of `memory` for function arguments that do not get mutated
+### [GAS-11] Using `this` to access functions results in an external call, wasting gas
+External calls have an overhead of 100 gas, which can be avoided by not referencing the function using `this`. Contracts are allowed to override their parents' functions and change the visibility from `external` to `public`, so make this change if it's required in order to call the function internally.
+
+There are <b>2</b> instances:
+```solidity
+File: contracts/ERC20MultiDelegate.sol
+
+195:         return ERC1155(this).balanceOf(msg.sender, uint256(uint160(delegate)));
+
+209:                 address(this),
+
+```
+[#L195](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L195) [#L209](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L209) 
+
+---
+
+<a name="GAS-12"></a> 
+### [GAS-12] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
 There are <b>2</b> instances:
@@ -1126,8 +1144,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-12"></a> 
-### [GAS-12] Don't initialize variables with default value
+<a name="GAS-13"></a> 
+### [GAS-13] Don't initialize variables with default value
 
 There is <b>1</b> instance:
 ```solidity
@@ -1140,8 +1158,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-13"></a> 
-### [GAS-13] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+<a name="GAS-14"></a> 
+### [GAS-14] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
 Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
 
 There are <b>4</b> instances:
@@ -1161,8 +1179,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-14"></a> 
-### [GAS-14] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-15"></a> 
+### [GAS-15] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 There is <b>1</b> instance:
@@ -1176,8 +1194,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-15"></a> 
-### [GAS-15] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-16"></a> 
+### [GAS-16] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 There is <b>1</b> instance:
@@ -1191,8 +1209,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-16"></a> 
-### [GAS-16] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+<a name="GAS-17"></a> 
+### [GAS-17] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
 
 There is <b>1</b> instance:
@@ -1206,8 +1224,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-17"></a> 
-### [GAS-17] Use `!= 0` instead of `> 0` for unsigned integer comparison
+<a name="GAS-18"></a> 
+### [GAS-18] Use `!= 0` instead of `> 0` for unsigned integer comparison
 Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 There are <b>4</b> instances:
@@ -1227,8 +1245,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="GAS-18"></a> 
-### [GAS-18] Using assembly to check for zero can save gas
+<a name="GAS-19"></a> 
+### [GAS-19] Using assembly to check for zero can save gas
 Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
 
 There is <b>1</b> instance:
