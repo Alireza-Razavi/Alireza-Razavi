@@ -31,7 +31,7 @@ Total <b>8</b> instances over <b>7</b> issues:
 ## Non Critical Issues
 
 
-Total <b>64</b> instances over <b>29</b> issues:
+Total <b>66</b> instances over <b>30</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -42,28 +42,29 @@ Total <b>64</b> instances over <b>29</b> issues:
 | [NC-5](#NC-5) | Consider adding a block/deny-list | 2 |
 | [NC-6](#NC-6) | Consider adding formal verification proofs | 1 |
 | [NC-7](#NC-7) | Constants should be put on the left side of comparisons | 1 |
-| [NC-8](#NC-8) | Contracts should have full test coverage | 1 |
-| [NC-9](#NC-9) | Events that mark critical parameter changes should contain both the old and the new value | 2 |
-| [NC-10](#NC-10) | Enable IR-based code generation | 1 |
-| [NC-11](#NC-11) | Events are emitted without the sender information | 1 |
-| [NC-12](#NC-12) |  Function ordering does not follow the Solidity Style Guide | 1 |
-| [NC-13](#NC-13) | Functions with array parameters should have length checks in place | 1 |
-| [NC-14](#NC-14) | Import declarations should import specific identifiers, rather than the whole file | 4 |
-| [NC-15](#NC-15) | Large or complicated code bases should implement invariant tests | 1 |
-| [NC-16](#NC-16) | Long functions should be refactored into multiple, smaller, functions | 1 |
-| [NC-17](#NC-17) | Missing zero address check in functions with address parameters | 8 |
-| [NC-18](#NC-18) | Event declarations should have NatSpec descriptions | 2 |
-| [NC-19](#NC-19) | NatSpec documentation for function is missing | 8 |
-| [NC-20](#NC-20) | Missing NatSpec `@param` | 8 |
-| [NC-21](#NC-21) | Public variable declarations should have NatSpec descriptions | 1 |
-| [NC-22](#NC-22) | NatSpec `@return` is missing | 3 |
-| [NC-23](#NC-23) | There is no need to initialize variables with 0 | 1 |
-| [NC-24](#NC-24) | Contract declarations should have NatSpec `@title` annotations | 1 |
-| [NC-25](#NC-25) | Solidity compiler version is not fixed | 1 |
-| [NC-26](#NC-26) | Use the latest solidity version for deployment | 1 |
-| [NC-27](#NC-27) | Names of `private`/`internal` functions should be prefixed with an underscore | 5 |
-| [NC-28](#NC-28) | Return values of `approve()` not checked | 1 |
-| [NC-29](#NC-29) | Event is missing `indexed` fields | 2 |
+| [NC-8](#NC-8) | Contracts should each be defined in separate files | 2 |
+| [NC-9](#NC-9) | Contracts should have full test coverage | 1 |
+| [NC-10](#NC-10) | Events that mark critical parameter changes should contain both the old and the new value | 2 |
+| [NC-11](#NC-11) | Enable IR-based code generation | 1 |
+| [NC-12](#NC-12) | Events are emitted without the sender information | 1 |
+| [NC-13](#NC-13) |  Function ordering does not follow the Solidity Style Guide | 1 |
+| [NC-14](#NC-14) | Functions with array parameters should have length checks in place | 1 |
+| [NC-15](#NC-15) | Import declarations should import specific identifiers, rather than the whole file | 4 |
+| [NC-16](#NC-16) | Large or complicated code bases should implement invariant tests | 1 |
+| [NC-17](#NC-17) | Long functions should be refactored into multiple, smaller, functions | 1 |
+| [NC-18](#NC-18) | Missing zero address check in functions with address parameters | 8 |
+| [NC-19](#NC-19) | Event declarations should have NatSpec descriptions | 2 |
+| [NC-20](#NC-20) | NatSpec documentation for function is missing | 8 |
+| [NC-21](#NC-21) | Missing NatSpec `@param` | 8 |
+| [NC-22](#NC-22) | Public variable declarations should have NatSpec descriptions | 1 |
+| [NC-23](#NC-23) | NatSpec `@return` is missing | 3 |
+| [NC-24](#NC-24) | There is no need to initialize variables with 0 | 1 |
+| [NC-25](#NC-25) | Contract declarations should have NatSpec `@title` annotations | 1 |
+| [NC-26](#NC-26) | Solidity compiler version is not fixed | 1 |
+| [NC-27](#NC-27) | Use the latest solidity version for deployment | 1 |
+| [NC-28](#NC-28) | Names of `private`/`internal` functions should be prefixed with an underscore | 5 |
+| [NC-29](#NC-29) | Return values of `approve()` not checked | 1 |
+| [NC-30](#NC-30) | Event is missing `indexed` fields | 2 |
 
 ## Gas Optimizations
 
@@ -376,7 +377,24 @@ File: contracts/ERC20MultiDelegate.sol
 ---
 
 <a name="NC-8"></a> 
-### [NC-8] Contracts should have full test coverage
+### [NC-8] Contracts should each be defined in separate files
+Keeping each contract in a separate file makes it easier to work with multiple people, makes the code easier to maintain, and is a common practice on most projects. The following files each contains more than one contract/library/interface.
+
+There are <b>2</b> instances:
+```solidity
+File: contracts/ERC20MultiDelegate.sol
+
+15: contract ERC20ProxyDelegator {
+
+25: contract ERC20MultiDelegate is ERC1155, Ownable {
+
+```
+[#L15](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L15) [#L25](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L25) 
+
+---
+
+<a name="NC-9"></a> 
+### [NC-9] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
 There is <b>1</b> instance:
@@ -389,8 +407,8 @@ Global finding
 
 ---
 
-<a name="NC-9"></a> 
-### [NC-9] Events that mark critical parameter changes should contain both the old and the new value
+<a name="NC-10"></a> 
+### [NC-10] Events that mark critical parameter changes should contain both the old and the new value
 This should especially be done if the new value is not required to be different from the old value.
 
 There are <b>2</b> instances:
@@ -406,8 +424,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-10"></a> 
-### [NC-10] Enable IR-based code generation
+<a name="NC-11"></a> 
+### [NC-11] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
 There is <b>1</b> instance:
@@ -420,8 +438,8 @@ Global finding
 
 ---
 
-<a name="NC-11"></a> 
-### [NC-11] Events are emitted without the sender information
+<a name="NC-12"></a> 
+### [NC-12] Events are emitted without the sender information
 When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
 
 There is <b>1</b> instance:
@@ -435,8 +453,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-12"></a> 
-### [NC-12]  Function ordering does not follow the Solidity Style Guide
+<a name="NC-13"></a> 
+### [NC-13]  Function ordering does not follow the Solidity Style Guide
 According to the [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#order-of-functions), functions should be laid out in the following order: `constructor()`, `receive()`, `fallback()`, `external`, `public`, `internal`, `private`, but the cases below do not follow this pattern
 
 There is <b>1</b> instance:
@@ -453,8 +471,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-13"></a> 
-### [NC-13] Functions with array parameters should have length checks in place
+<a name="NC-14"></a> 
+### [NC-14] Functions with array parameters should have length checks in place
 
 There is <b>1</b> instance:
 ```solidity
@@ -474,8 +492,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-14"></a> 
-### [NC-14] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-15"></a> 
+### [NC-15] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 There are <b>4</b> instances:
@@ -495,8 +513,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-15"></a> 
-### [NC-15] Large or complicated code bases should implement invariant tests
+<a name="NC-16"></a> 
+### [NC-16] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
 There is <b>1</b> instance:
@@ -509,8 +527,8 @@ Global finding
 
 ---
 
-<a name="NC-16"></a> 
-### [NC-16] Long functions should be refactored into multiple, smaller, functions
+<a name="NC-17"></a> 
+### [NC-17] Long functions should be refactored into multiple, smaller, functions
 
 There is <b>1</b> instance:
 ```solidity
@@ -528,8 +546,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-17"></a> 
-### [NC-17] Missing zero address check in functions with address parameters
+<a name="NC-18"></a> 
+### [NC-18] Missing zero address check in functions with address parameters
 Adding a zero address check for each address type parameter can prevent errors.
 
 There are <b>8</b> instances:
@@ -585,8 +603,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-18"></a> 
-### [NC-18] Event declarations should have NatSpec descriptions
+<a name="NC-19"></a> 
+### [NC-19] Event declarations should have NatSpec descriptions
 
 There are <b>2</b> instances:
 ```solidity
@@ -601,8 +619,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-19"></a> 
-### [NC-19] NatSpec documentation for function is missing
+<a name="NC-20"></a> 
+### [NC-20] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 There are <b>8</b> instances:
@@ -648,8 +666,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-20"></a> 
-### [NC-20] Missing NatSpec `@param`
+<a name="NC-21"></a> 
+### [NC-21] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 There are <b>8</b> instances:
@@ -710,8 +728,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-21"></a> 
-### [NC-21] Public variable declarations should have NatSpec descriptions
+<a name="NC-22"></a> 
+### [NC-22] Public variable declarations should have NatSpec descriptions
 
 There is <b>1</b> instance:
 ```solidity
@@ -724,8 +742,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-22"></a> 
-### [NC-22] NatSpec `@return` is missing
+<a name="NC-23"></a> 
+### [NC-23] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 There are <b>3</b> instances:
@@ -750,8 +768,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-23"></a> 
-### [NC-23] There is no need to initialize variables with 0
+<a name="NC-24"></a> 
+### [NC-24] There is no need to initialize variables with 0
 Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
 
 There is <b>1</b> instance:
@@ -765,8 +783,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-24"></a> 
-### [NC-24] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-25"></a> 
+### [NC-25] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 There is <b>1</b> instance:
@@ -780,8 +798,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-25"></a> 
-### [NC-25] Solidity compiler version is not fixed
+<a name="NC-26"></a> 
+### [NC-26] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 There is <b>1</b> instance:
@@ -795,8 +813,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-26"></a> 
-### [NC-26] Use the latest solidity version for deployment
+<a name="NC-27"></a> 
+### [NC-27] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 There is <b>1</b> instance:
@@ -810,8 +828,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-27"></a> 
-### [NC-27] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-28"></a> 
+### [NC-28] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 There are <b>5</b> instances:
@@ -847,8 +865,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-28"></a> 
-### [NC-28] Return values of `approve()` not checked
+<a name="NC-29"></a> 
+### [NC-29] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 There is <b>1</b> instance:
@@ -862,8 +880,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-29"></a> 
-### [NC-29] Event is missing `indexed` fields
+<a name="NC-30"></a> 
+### [NC-30] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 There are <b>2</b> instances:
