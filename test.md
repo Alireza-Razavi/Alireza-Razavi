@@ -4,140 +4,335 @@
 ## Medium Issues
 
 
-Total <b>3</b> instances over <b>1</b> issue:
+Total <b>87</b> instances over <b>2</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [M-1](#M-1) | Centralization Risk for trusted owners | 3 |
+| [M-1](#M-1) | Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()` | 4 |
+| [M-2](#M-2) | Centralization Risk for trusted owners | 83 |
 
 ## Low Issues
 
 
-Total <b>265</b> instances over <b>12</b> issues:
+Total <b>187</b> instances over <b>14</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [L-1](#L-1) | Array is `push()`ed but not `pop()`ed | 1 |
-| [L-2](#L-2) | Check division by zero is prevented | 124 |
-| [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 1 |
-| [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 2 |
-| [L-5](#L-5) | Enum values should be used instead of constant array indexes | 2 |
-| [L-6](#L-6) | Governance functions should be controlled by time locks | 1 |
-| [L-7](#L-7) | Loss of precision in divisions | 124 |
-| [L-8](#L-8) | Missing storage gap for upgradable contracts | 2 |
-| [L-9](#L-9) | prevent re-setting a state variable with the same value | 1 |
-| [L-10](#L-10) | Timestamp may be manipulation | 3 |
-| [L-11](#L-11) | Missing zero address check in initializer | 2 |
-| [L-12](#L-12) | Initializers could be front-run | 2 |
+| [L-1](#L-1) | `approve()`/`safeApprove()` may revert if the current approval is not zero | 23 |
+| [L-2](#L-2) | Check division by zero is prevented | 52 |
+| [L-3](#L-3) | Enum values should be used instead of constant array indexes | 6 |
+| [L-4](#L-4) | Governance functions should be controlled by time locks | 2 |
+| [L-5](#L-5) | Loss of precision in divisions | 52 |
+| [L-6](#L-6) | `SafeTransferLib` does not ensure that the token contract exists | 1 |
+| [L-7](#L-7) | Some tokens may revert when large transfers are made | 1 |
+| [L-8](#L-8) | Some tokens may revert when zero value transfers are made | 1 |
+| [L-9](#L-9) | Timestamp may be manipulation | 19 |
+| [L-10](#L-10) |  `abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()` | 3 |
+| [L-11](#L-11) | `decimals()` is not a part of the ERC-20 standard | 1 |
+| [L-12](#L-12) | Do not use deprecated library functions | 21 |
+| [L-13](#L-13) | Empty Function Body - Consider commenting why | 1 |
+| [L-14](#L-14) | `safeApprove()` is deprecated | 4 |
 
 ## Non Critical Issues
 
 
-Total <b>327</b> instances over <b>39</b> issues:
+Total <b>183</b> instances over <b>18</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
-| [NC-1](#NC-1) | Contract declarations should have NatSpec `@author` annotations | 6 |
-| [NC-2](#NC-2) | Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability | 2 |
-| [NC-3](#NC-3) | Consider adding a block/deny-list | 3 |
-| [NC-4](#NC-4) | Consider adding formal verification proofs | 1 |
-| [NC-5](#NC-5) | Consider bounding input array length | 3 |
-| [NC-6](#NC-6) | Constants should be put on the left side of comparisons | 36 |
-| [NC-7](#NC-7) | Contracts should have full test coverage | 1 |
-| [NC-8](#NC-8) | Events that mark critical parameter changes should contain both the old and the new value | 15 |
-| [NC-9](#NC-9) | Custom errors has no error details | 17 |
-| [NC-10](#NC-10) | Duplicated `require()`/`revert()` checks should be refactored | 1 |
-| [NC-11](#NC-11) | `else` block not required | 3 |
-| [NC-12](#NC-12) | Enable IR-based code generation | 1 |
-| [NC-13](#NC-13) | Events are emitted without the sender information | 13 |
-| [NC-14](#NC-14) | Large or complicated code bases should implement invariant tests | 1 |
-| [NC-15](#NC-15) | Long functions should be refactored into multiple, smaller, functions | 2 |
-| [NC-16](#NC-16) | Magic numbers should be replaced with constants | 19 |
-| [NC-17](#NC-17) | Missing zero address check in functions with address parameters | 42 |
-| [NC-18](#NC-18) | Named mappings are recommended | 11 |
-| [NC-19](#NC-19) | NatSpec documentation for contract is missing | 6 |
-| [NC-20](#NC-20) | Missing NatSpec `@param` | 6 |
-| [NC-21](#NC-21) | NatSpec `@return` is missing | 4 |
-| [NC-22](#NC-22) | There is no need to initialize variables with 0 | 13 |
-| [NC-23](#NC-23) | Put all system-wide constants in one file | 12 |
-| [NC-24](#NC-24) | State variables should include comments | 1 |
-| [NC-25](#NC-25) | Contract declarations should have NatSpec `@title` annotations | 6 |
-| [NC-26](#NC-26) | Lines are too long | 6 |
-| [NC-27](#NC-27) | Unused errors | 1 |
-| [NC-28](#NC-28) | Unused named return | 4 |
-| [NC-29](#NC-29) | Consider using `delete` rather than assigning zero to clear values | 5 |
-| [NC-30](#NC-30) | Solidity compiler version is not fixed | 1 |
-| [NC-31](#NC-31) | Expressions for constant values should use `immutable` rather than `constant` | 12 |
-| [NC-32](#NC-32) | Use the latest solidity version for deployment | 6 |
-| [NC-33](#NC-33) | Whitespace in Expressions | 1 |
-| [NC-34](#NC-34) | Missing checks for `address(0)` when assigning values to address state variables | 1 |
-| [NC-35](#NC-35) | Names of `private`/`internal` functions should be prefixed with an underscore | 9 |
-| [NC-36](#NC-36) | Names of `private`/`internal` state variables should be prefixed with an underscore | 12 |
-| [NC-37](#NC-37) | Variables should be named in mixedCase style | 16 |
-| [NC-38](#NC-38) | Event is missing `indexed` fields | 8 |
-| [NC-39](#NC-39) | Constants should be defined rather than using magic numbers | 20 |
+| [NC-1](#NC-1) | Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability | 1 |
+| [NC-2](#NC-2) | Consider adding formal verification proofs | 1 |
+| [NC-3](#NC-3) | Constants should be put on the left side of comparisons | 56 |
+| [NC-4](#NC-4) | Contracts should have full test coverage | 1 |
+| [NC-5](#NC-5) | Events that mark critical parameter changes should contain both the old and the new value | 37 |
+| [NC-6](#NC-6) | Custom errors should be used rather than `revert()`/`require()` | 8 |
+| [NC-7](#NC-7) | Enable IR-based code generation | 1 |
+| [NC-8](#NC-8) | Import declarations should import specific identifiers, rather than the whole file | 6 |
+| [NC-9](#NC-9) | Large or complicated code bases should implement invariant tests | 1 |
+| [NC-10](#NC-10) | Consider moving `msg.sender` checks to `modifier`s | 1 |
+| [NC-11](#NC-11) | Named mappings are recommended | 13 |
+| [NC-12](#NC-12) | There is no need to initialize variables with 0 | 10 |
+| [NC-13](#NC-13) | Put all system-wide constants in one file | 14 |
+| [NC-14](#NC-14) | Consider using `delete` rather than assigning zero to clear values | 1 |
+| [NC-15](#NC-15) | Expressions for constant values should use `immutable` rather than `constant` | 14 |
+| [NC-16](#NC-16) | Use of `override` is unnecessary | 2 |
+| [NC-17](#NC-17) | Whitespace in Expressions | 3 |
+| [NC-18](#NC-18) | Return values of `approve()` not checked | 13 |
 
 ## Gas Optimizations
 
 
-Total <b>391</b> instances over <b>31</b> issues:
+Total <b>356</b> instances over <b>24</b> issues:
 
 |ID|Issue|Instances|Gas|
 |-|:-|:-:|:-:|
-| [GAS-1](#GAS-1) | Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, where appropriate | 2 | - |
+| [GAS-1](#GAS-1) | Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, where appropriate | 1 | - |
 | [GAS-2](#GAS-2) | Consider activating via-ir for deploying | 1 | - |
-| [GAS-3](#GAS-3) | Divisions can be `unchecked` to save gas | 124 | 2480 |
-| [GAS-4](#GAS-4) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 41 | 4633 |
-| [GAS-5](#GAS-5) | Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas | 1 | - |
-| [GAS-6](#GAS-6) | Increments can be `unchecked` to save gas | 3 | 180 |
-| [GAS-7](#GAS-7) | Initializers can be marked as payable to save deployment gas | 2 | 42 |
-| [GAS-8](#GAS-8) | `internal` functions only called once can be inlined to save gas | 6 | 180 |
-| [GAS-9](#GAS-9) | Multiple accesses of the same mapping/array key/index should be cached | 5 | 210 |
-| [GAS-10](#GAS-10) | Newer versions of solidity are more gas efficient | 6 | - |
-| [GAS-11](#GAS-11) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 40 | 120 |
-| [GAS-12](#GAS-12) | Reduce gas usage by moving to Solidity 0.8.19 or later | 6 | 6000 |
-| [GAS-13](#GAS-13) | Remove or replace unused state variables | 1 | - |
-| [GAS-14](#GAS-14) | Unused named return variables without optimizer waste gas | 4 | 36 |
-| [GAS-15](#GAS-15) | Use assembly to emit events | 16 | 608 |
-| [GAS-16](#GAS-16) | Using a double `if` statement instead of a logical AND (`&&`) | 9 | 270 |
-| [GAS-17](#GAS-17) | Use a more recent version of solidity | 6 | - |
-| [GAS-18](#GAS-18) | Use `unchecked` block for safe subtractions | 2 | 170 |
-| [GAS-19](#GAS-19) | Using bitmap to store bool states can save gas | 1 | - |
-| [GAS-20](#GAS-20) | Using bools for storage incurs overhead | 1 | - |
-| [GAS-21](#GAS-21) | Cache array length outside of loop | 10 | - |
-| [GAS-22](#GAS-22) | Use `calldata` instead of `memory` for function arguments that do not get mutated | 1 | - |
-| [GAS-23](#GAS-23) | Don't initialize variables with default value | 13 | - |
-| [GAS-24](#GAS-24) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 14 | 770 |
-| [GAS-25](#GAS-25) | Constructors can be marked as `payable` to save deployment gas | 2 | 42 |
-| [GAS-26](#GAS-26) | Functions guaranteed to revert when called by normal users can be marked `payable` | 3 | 63 |
-| [GAS-27](#GAS-27) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 13 | 65 |
-| [GAS-28](#GAS-28) | Using `private` rather than `public` for constants, saves gas | 4 | - |
-| [GAS-29](#GAS-29) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 11 | 44 |
-| [GAS-30](#GAS-30) | Using assembly to check for zero can save gas | 35 | 210 |
-| [GAS-31](#GAS-31) | `internal` functions not called by the contract should be removed | 8 | - |
+| [GAS-3](#GAS-3) | Divisions can be `unchecked` to save gas | 52 | 1040 |
+| [GAS-4](#GAS-4) | Don't transfer with zero amount to save gas | 1 | - |
+| [GAS-5](#GAS-5) | Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables | 41 | 4633 |
+| [GAS-6](#GAS-6) | `keccak256()` hash of literals should only be computed once | 9 | 378 |
+| [GAS-7](#GAS-7) | Operator `>=`/`<=` costs less gas than operator `>`/`<` | 38 | 114 |
+| [GAS-8](#GAS-8) | Use assembly to compute hashes to save gas | 12 | 960 |
+| [GAS-9](#GAS-9) | Use assembly to emit events | 45 | 1710 |
+| [GAS-10](#GAS-10) | Using a double `if` statement instead of a logical AND (`&&`) | 14 | 420 |
+| [GAS-11](#GAS-11) | Use `storage` instead of `memory` for structs/arrays | 4 | 16800 |
+| [GAS-12](#GAS-12) | Using bitmap to store bool states can save gas | 2 | - |
+| [GAS-13](#GAS-13) | Using bools for storage incurs overhead | 4 | - |
+| [GAS-14](#GAS-14) | Cache array length outside of loop | 11 | - |
+| [GAS-15](#GAS-15) | Use Custom Errors | 8 | 400 |
+| [GAS-16](#GAS-16) | Don't use `SafeMath` once the solidity version is 0.8.0 or greater | 3 | - |
+| [GAS-17](#GAS-17) | Don't initialize variables with default value | 10 | - |
+| [GAS-18](#GAS-18) | Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead | 14 | 770 |
+| [GAS-19](#GAS-19) | Constructors can be marked as `payable` to save deployment gas | 6 | 126 |
+| [GAS-20](#GAS-20) | Functions guaranteed to revert when called by normal users can be marked `payable` | 22 | 462 |
+| [GAS-21](#GAS-21) | `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too) | 12 | 60 |
+| [GAS-22](#GAS-22) | Using `private` rather than `public` for constants, saves gas | 14 | - |
+| [GAS-23](#GAS-23) | Use shift Right/Left instead of division/multiplication if possible | 13 | - |
+| [GAS-24](#GAS-24) | Use `!= 0` instead of `> 0` for unsigned integer comparison | 19 | 76 |
 
 ## Medium Issues
 
 <a name="M-1"></a> 
-### [M-1] Centralization Risk for trusted owners
+### [M-1] Unsafe use of ERC20 `transfer()`/`transferFrom()`/`approve()`
+Some tokens do not implement the ERC20 standard properly. For example Tether (USDT)'s `transfer()` and `transferFrom()` functions do not return booleans as the ERC20 specification requires, and instead have no return value. When these sorts of tokens are cast to IERC20/ERC20, their function signatures do not match and therefore the calls made will revert.It is recommended to use the [`SafeERC20`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/f347b410cf6aeeaaf5197e1fece139c793c03b2b/contracts/token/ERC20/utils/SafeERC20.sol#L19)'s `safeTransfer()` and `safeTransferFrom()` from OpenZeppelin instead.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+106:     collateral.approve(_perpetualAtlanticVault, type(uint256).max);
+
+107:     ERC20(rdpx).approve(_perpetualAtlanticVault, type(uint256).max);
+
+128:     collateral.transferFrom(msg.sender, address(this), assets);
+
+170:     collateral.transfer(receiver, assets);
+
+```
+
+</details>
+
+---
+
+<a name="M-2"></a> 
+### [M-2] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There are <b>83</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-118:     function initializeTokens(address[] calldata tokens_) external onlyOwner {
+5: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
 
-177:     function setPrimeToken(address prime_) external onlyOwner {
+22: contract UniV2LiquidityAMO is AccessControl {
 
-216:     function sweepToken(IERC20Upgradeable token_, address to_, uint256 amount_) external onlyOwner {
+82:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+111:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+130:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+144:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+195:     external
+
+263:     external
+
+308:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 token2Amount) {
 
 ```
-[#L118](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L118) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) [#L216](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L216) 
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+5: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+28: contract UniV3LiquidityAMO is AccessControl, ERC721Holder {
+
+119:   function collectFees() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+144:   ) public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+157:   ) public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+217:   ) public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+281:   ) public onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256) {
+
+316:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+327:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+343:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (bool, bytes memory) {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Bond.sol
+
+7: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+15:   AccessControl,
+
+29:   function pause() public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+33:   function unpause() public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+39:   ) public onlyRole(MINTER_ROLE) returns (uint256 tokenId) {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+5: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+35:   AccessControl,
+
+144:   function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+152:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+163:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+182:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+195:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+206:   function setIsreLP(bool _isReLPActive) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+218:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+230:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+243:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+272:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+315:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+361:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+378:   function addAMOAddress(address _addr) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+390:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+407:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+421:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+432:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+443:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+457:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+767:     external
+
+791:     external
+
+1054:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 wethReceived) {
+
+1085:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 dpxEthReceived) {
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+12: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+70:   function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+76:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+95:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+118:   ) external onlyRole(MINTER_ROLE) {
+
+142:   ) public onlyRole(RDPXV2CORE_ROLE) {
+
+151:   function getBondsOwned(
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+7: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+16:   AccessControl,
+
+29:   function pause() public onlyRole(PAUSER_ROLE) {
+
+33:   function unpause() public onlyRole(PAUSER_ROLE) {
+
+37:   function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
+
+43:   ) public override(ERC20Burnable, IDpxEthToken) onlyRole(BURNER_ROLE) {
+
+50:   ) public override onlyRole(BURNER_ROLE) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+13: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+35:   AccessControl,
+
+136:   function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+144:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+155:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+166:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+189:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+221:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+239:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+243:   function setLpAllowance(bool increase) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+261:     onlyRole(RDPXV2CORE_ROLE)
+
+320:     onlyRole(RDPXV2CORE_ROLE)
+
+372:   function payFunding() external onlyRole(RDPXV2CORE_ROLE) returns (uint256) {
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+5: import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+
+25: contract ReLPContract is AccessControl {
+
+92:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+125:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+173:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+188:   ) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+202:   function reLP(uint256 _amount) external onlyRole(RDPXV2CORE_ROLE) {
+
+```
 
 </details>
 
@@ -147,21 +342,89 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ## Low Issues
 
 <a name="L-1"></a> 
-### [L-1] Array is `push()`ed but not `pop()`ed
-There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
+### [L-1] `approve()`/`safeApprove()` may revert if the current approval is not zero
+Calling `approve()` without first calling `approve(0)` if the current approval is non-zero will revert with some tokens, such as Tether (USDT). While Tether is known to do this, it applies to other tokens as well, which are trying to protect against [this attack vector](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit). `safeApprove()` itself also implements this protection. Always reset the approval to zero before changing it to a new value (`SafeERC20.forceApprove()` does this for you), or use `safeIncreaseAllowance()`/`safeDecreaseAllowance()`
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>23</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-303:         allMarkets.push(vToken);
+134:     IERC20WithBurn(_token).approve(_spender, _amount);
+
+200:     IERC20WithBurn(addresses.tokenA).safeApprove(
+
+204:     IERC20WithBurn(addresses.tokenB).safeApprove(
+
+268:     IERC20WithBurn(addresses.pair).safeApprove(addresses.ammRouter, lpAmount);
+
+328:     IERC20WithBurn(token1).safeApprove(addresses.ammRouter, token1Amount);
 
 ```
-[#L303](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L303) 
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+148:       TransferHelper.safeApprove(_token, _target, _amount);
+
+150:       IERC20WithBurn(_token).approve(_target, _amount);
+
+169:     IERC20WithBurn(params._tokenA).approve(
+
+173:     IERC20WithBurn(params._tokenB).approve(
+
+302:     TransferHelper.safeApprove(_tokenA, address(univ3_router), _amountAtoB);
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+339:     IERC20WithBurn(weth).approve(
+
+343:     IERC20WithBurn(weth).approve(addresses.dopexAMMRouter, type(uint256).max);
+
+344:     IERC20WithBurn(weth).approve(addresses.dpxEthCurvePool, type(uint256).max);
+
+345:     IERC20WithBurn(weth).approve(
+
+411:     IERC20WithBurn(_token).approve(_spender, _amount);
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+207:     collateralToken.safeApprove(
+
+245:       ? collateralToken.approve(
+
+249:       : collateralToken.approve(addresses.perpetualAtlanticVaultLP, 0);
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+106:     collateral.approve(_perpetualAtlanticVault, type(uint256).max);
+
+107:     ERC20(rdpx).approve(_perpetualAtlanticVault, type(uint256).max);
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+150:     IERC20WithBurn(addresses.pair).safeApprove(
+
+155:     IERC20WithBurn(addresses.tokenA).safeApprove(
+
+160:     IERC20WithBurn(addresses.tokenB).safeApprove(
+
+```
 
 </details>
 
@@ -172,309 +435,185 @@ File: contracts/Tokens/Prime/Prime.sol
 
 <details>
 <summary>
-There are <b>124</b> instances (click to show):
+There are <b>52</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-501:         uint256 supply = (exchangeRate * balanceOfAccount) / EXP_SCALE;
-
-585:             delta = ((distributionIncome * EXP_SCALE) / markets[vToken].sumOfMembersScore);
-
-654:         uint256 supply = (exchangeRate * balanceOfAccount) / EXP_SCALE;
-
-881:         uint256 borrowCapUSD = (xvsPrice * ((xvs * markets[market].borrowMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-881:         uint256 borrowCapUSD = (xvsPrice * ((xvs * markets[market].borrowMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-882:         uint256 supplyCapUSD = (xvsPrice * ((xvs * markets[market].supplyMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-882:         uint256 supplyCapUSD = (xvsPrice * ((xvs * markets[market].supplyMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-885:         uint256 supplyUSD = (tokenPrice * supply) / EXP_SCALE;
-
-886:         uint256 borrowUSD = (tokenPrice * borrow) / EXP_SCALE;
-
-889:             supply = supplyUSD > 0 ? (supply * supplyCapUSD) / supplyUSD : 0;
-
-893:             borrow = borrowUSD > 0 ? (borrow * borrowCapUSD) / borrowUSD : 0;
-
-922:         return (index * score) / EXP_SCALE;
-
-949:         return ((((market.totalBorrows() * market.borrowRatePerBlock()) / EXP_SCALE) * market.reserveFactorMantissa()) /
-
-949:         return ((((market.totalBorrows() * market.borrowRatePerBlock()) / EXP_SCALE) * market.reserveFactorMantissa()) /
-
-972:         uint256 incomePerBlockForDistributionFromMarket = (totalIncomePerBlockFromMarket * _distributionPercentage()) /
-
-1004:         uint256 userYearlyIncome = (userScore * _incomeDistributionYearly(vToken)) / totalScore;
-
-1009:         uint256 userSupplyIncomeYearly = (userYearlyIncome * totalCappedSupply) / totalCappedValue;
-
-1010:         uint256 userBorrowIncomeYearly = (userYearlyIncome * totalCappedBorrow) / totalCappedValue;
-
-1012:         supplyAPR = totalSupply == 0 ? 0 : ((userSupplyIncomeYearly * MAXIMUM_BPS) / totalSupply);
-
-1013:         borrowAPR = totalBorrow == 0 ? 0 : ((userBorrowIncomeYearly * MAXIMUM_BPS) / totalBorrow);
+373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
-[#L501](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L501) [#L585](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L585) [#L654](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L654) [#L881](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L881) [#L881](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L881) [#L882](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L882) [#L882](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L882) [#L885](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L885) [#L886](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L886) [#L889](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L889) [#L893](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L893) [#L922](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L922) [#L949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949) [#L949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949) [#L972](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L972) [#L1004](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1004) [#L1009](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1009) [#L1010](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1010) [#L1012](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1012) [#L1013](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1013) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
+File: contracts/core/RdpxV2Core.sol
 
-25:         return (n.toInt256() * FixedMath0x.FIXED_1) / int256(d.toInt256());
+535:           ethBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
 
-37:         return uint256((u.toInt256() * FixedMath0x.FIXED_1) / f);
+539:           dpxEthBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
 
-49:         return uint256((u.toInt256() * f) / FixedMath0x.FIXED_1);
+546:       ? (((_amount * getDpxEthPrice()) / 1e8) -
+
+547:         (((_amount * getDpxEthPrice()) * slippageTolerance) / 1e16))
+
+548:       : (((_amount * getEthPrice()) / 1e8) -
+
+549:         (((_amount * getEthPrice()) * slippageTolerance) / 1e16));
+
+570:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= _amount / 2;
+
+574:       _amount / 2
+
+579:       .deposit(_amount / 2);
+
+605:     uint256 rdpxRequiredInWeth = (_rdpxRequired * getRdpxPrice()) / 1e8;
+
+608:     amount1 = ((rdpxRequiredInWeth * _amount) /
+
+612:     amount1 = (amount1 * (100e8 - _delegateFee)) / 1e10;
+
+658:         (_rdpxAmount * rdpxBurnPercentage) / 1e10
+
+665:           (_rdpxAmount * rdpxFeePercentage) / 1e10
+
+669:       uint256 rdpxAmountInWeth = (_rdpxAmount * getRdpxPrice()) / 1e8;
+
+673:       uint256 extraRdpxToWithdraw = (discountReceivedInWeth * 1e8) /
+
+1165:         1e2) / (Math.sqrt(1e18)); // 1e8 precision
+
+1170:         ((RDPX_RATIO_PERCENTAGE - (bondDiscount / 2)) *
+
+1172:           DEFAULT_PRECISION) /
+
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
+
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
+
+1181:         (RDPX_RATIO_PERCENTAGE * _amount * DEFAULT_PRECISION) /
+
+1185:         (ETH_RATIO_PERCENTAGE * _amount) /
+
+1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
-[#L25](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L25) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L37) [#L49](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L49) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-75:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000000001c8464f76164760000000); // / e ^ -32
+270:     uint256 strike = roundUp(currentPrice - (currentPrice / 4)); // 25% below the current price
 
-75:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000000001c8464f76164760000000); // / e ^ -32
+276:     uint256 requiredCollateral = (amount * strike) / 1e8;
 
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
+335:       ethAmount += (amount * strike) / 1e8;
 
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
+475:           (currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
 
-85:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000afe10820813d78000000000000000); // / e ^ -8
+481:             (currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
 
-85:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000afe10820813d78000000000000000); // / e ^ -8
+487:           ((currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
 
-90:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000002582ab704279ec00000000000000000); // / e ^ -4
+512:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
 
-90:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000002582ab704279ec00000000000000000); // / e ^ -4
+516:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
 
-95:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000001152aaa3bf81cc000000000000000000); // / e ^ -2
+521:       ((currentFundingRate * (block.timestamp - startTime)) / 1e18),
 
-95:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000001152aaa3bf81cc000000000000000000); // / e ^ -2
+550:     ) * _amount) / 1e8);
 
-100:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000002f16ac6c59de70000000000000000000); // / e ^ -1
+559:     return strike > price ? ((strike - price) * amount) / 1e8 : 0;
 
-100:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000002f16ac6c59de70000000000000000000); // / e ^ -1
+604:         (amount * 1e18) /
 
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-121:         w = (y * y) / FIXED_1;
-
-122:         r += (z * (0x100000000000000000000000000000000 - y)) / 0x100000000000000000000000000000000;
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-124:         r += (z * (0x0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa - y)) / 0x200000000000000000000000000000000;
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-126:         r += (z * (0x099999999999999999999999999999999 - y)) / 0x300000000000000000000000000000000;
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-128:         r += (z * (0x092492492492492492492492492492492 - y)) / 0x400000000000000000000000000000000;
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-130:         r += (z * (0x08e38e38e38e38e38e38e38e38e38e38e - y)) / 0x500000000000000000000000000000000;
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-132:         r += (z * (0x08ba2e8ba2e8ba2e8ba2e8ba2e8ba2e8b - y)) / 0x600000000000000000000000000000000;
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-134:         r += (z * (0x089d89d89d89d89d89d89d89d89d89d89 - y)) / 0x700000000000000000000000000000000;
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-163:         z = (z * y) / FIXED_1;
-
-164:         r += z * 0x10e1b3be415a0000; // add y^02 * (20! / 02!)
-
-165:         z = (z * y) / FIXED_1;
-
-166:         r += z * 0x05a0913f6b1e0000; // add y^03 * (20! / 03!)
-
-167:         z = (z * y) / FIXED_1;
-
-168:         r += z * 0x0168244fdac78000; // add y^04 * (20! / 04!)
-
-169:         z = (z * y) / FIXED_1;
-
-170:         r += z * 0x004807432bc18000; // add y^05 * (20! / 05!)
-
-171:         z = (z * y) / FIXED_1;
-
-172:         r += z * 0x000c0135dca04000; // add y^06 * (20! / 06!)
-
-173:         z = (z * y) / FIXED_1;
-
-174:         r += z * 0x0001b707b1cdc000; // add y^07 * (20! / 07!)
-
-175:         z = (z * y) / FIXED_1;
-
-176:         r += z * 0x000036e0f639b800; // add y^08 * (20! / 08!)
-
-177:         z = (z * y) / FIXED_1;
-
-178:         r += z * 0x00000618fee9f800; // add y^09 * (20! / 09!)
-
-179:         z = (z * y) / FIXED_1;
-
-180:         r += z * 0x0000009c197dcc00; // add y^10 * (20! / 10!)
-
-181:         z = (z * y) / FIXED_1;
-
-182:         r += z * 0x0000000e30dce400; // add y^11 * (20! / 11!)
-
-183:         z = (z * y) / FIXED_1;
-
-184:         r += z * 0x000000012ebd1300; // add y^12 * (20! / 12!)
-
-185:         z = (z * y) / FIXED_1;
-
-186:         r += z * 0x0000000017499f00; // add y^13 * (20! / 13!)
-
-187:         z = (z * y) / FIXED_1;
-
-188:         r += z * 0x0000000001a9d480; // add y^14 * (20! / 14!)
-
-189:         z = (z * y) / FIXED_1;
-
-190:         r += z * 0x00000000001c6380; // add y^15 * (20! / 15!)
-
-191:         z = (z * y) / FIXED_1;
-
-192:         r += z * 0x000000000001c638; // add y^16 * (20! / 16!)
-
-193:         z = (z * y) / FIXED_1;
-
-194:         r += z * 0x0000000000001ab8; // add y^17 * (20! / 17!)
-
-195:         z = (z * y) / FIXED_1;
-
-196:         r += z * 0x000000000000017c; // add y^18 * (20! / 18!)
-
-197:         z = (z * y) / FIXED_1;
-
-198:         r += z * 0x0000000000000014; // add y^19 * (20! / 19!)
-
-199:         z = (z * y) / FIXED_1;
-
-200:         r += z * 0x0000000000000001; // add y^20 * (20! / 20!)
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-208:                 (r * int256(0x00000000000000000000000000000000000000f1aaddd7742e56d32fb9f99744)) /
-
-214:                 (r * int256(0x00000000000000000000000000000000000afe10820813d65dfe6a33c07f738f)) /
-
-220:                 (r * int256(0x0000000000000000000000000000000002582ab704279e8efd15e0265855c47a)) /
-
-226:                 (r * int256(0x000000000000000000000000000000001152aaa3bf81cb9fdb76eae12d029571)) /
-
-232:                 (r * int256(0x000000000000000000000000000000002f16ac6c59de6f8d5d6f63c1482a7c86)) /
-
-238:                 (r * int256(0x000000000000000000000000000000004da2cbf1be5827f9eb3ad1aa9866ebb3)) /
-
-244:                 (r * int256(0x0000000000000000000000000000000063afbe7ab2082ba1a0ae5e4eb1b479dc)) /
-
-250:                 (r * int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d)) /
-
-256:                 (r * int256(0x00000000000000000000000000000000783eafef1c0a8f3978c7f81824d62ebf)) /
+612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
-[#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L75) [#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L75) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L85) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L85) [#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L90) [#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L90) [#L95](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L95) [#L95](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L95) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L100) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L100) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L121](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L121) [#L122](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L122) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L124) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L126](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L126) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L128](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L128) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L130) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L132](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L132) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L134](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L134) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L163](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L163) [#L164](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L164) [#L165](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L165) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L166) [#L167](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L167) [#L168](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L168) [#L169](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L169) [#L170](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L170) [#L171](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L171) [#L172](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L172) [#L173](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L173) [#L174](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L174) [#L175](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L175) [#L176](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L176) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L177) [#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L178) [#L179](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L179) [#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L180) [#L181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L181) [#L182](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L182) [#L183](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L183) [#L184](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L184) [#L185](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L185) [#L186](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L186) [#L187](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L187) [#L188](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L188) [#L189](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L189) [#L190](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L190) [#L191](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L191) [#L192](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L192) [#L193](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L193) [#L194](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L194) [#L195](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L195) [#L196](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L196) [#L197](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L197) [#L198](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L198) [#L199](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L199) [#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L200) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L208](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L208) [#L214](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L214) [#L220](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L220) [#L226](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L226) [#L232](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L232) [#L238](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L238) [#L244](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L244) [#L250](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L250) [#L256](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L256) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-59:             (FixedMath.ln(ratio) * alphaNumerator.toInt256()) / alphaDenominator.toInt256()
+281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
 
 ```
-[#L59](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L59) 
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+230:       1e2) / (Math.sqrt(1e18)); // 1e6 precision
+
+232:     uint256 tokenAToRemove = ((((_amount * 4) * 1e18) /
+
+235:       baseReLpRatio) / (1e18 * DEFAULT_PRECISION * 1e2);
+
+239:     uint256 lpToRemove = (tokenAToRemove * totalLpSupply) /
+
+251:       ((tokenAToRemove * liquiditySlippageTolerance) / 1e8);
+
+252:     uint256 mintokenBAmount = ((tokenAToRemove * tokenAInfo.tokenAPrice) /
+
+254:       ((tokenAToRemove * tokenAInfo.tokenAPrice) * liquiditySlippageTolerance) /
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+279:         amountB / 2,
+
+290:       amountB / 2,
+
+```
 
 </details>
 
 ---
 
 <a name="L-3"></a> 
-### [L-3] Consider implementing two-step procedure for updating protocol addresses
-A copy-paste error or a typo may end up bricking protocol functionality, or sending tokens to an address with no known private key. Consider implementing a two-step procedure for updating protocol addresses, where the recipient is set as pending, and must "accept" the assignment by making an affirmative call. A straight forward way of doing this would be to have the target contracts implement [EIP-165](https://eips.ethereum.org/EIPS/eip-165), and to have the "set" functions ensure that the recipient is of the right interface type.
+### [L-3] Enum values should be used instead of constant array indexes
+Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>6</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-177:     function setPrimeToken(address prime_) external onlyOwner {
+332:     path[0] = token1;
+
+333:     path[1] = token2;
 
 ```
-[#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) 
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+1094:       path[0] = reserveAsset[reservesIndex["RDPX"]].tokenAddress;
+
+1095:       path[1] = weth;
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+269:     path[0] = addresses.tokenB;
+
+270:     path[1] = addresses.tokenA;
+
+```
 
 </details>
 
 ---
 
 <a name="L-4"></a> 
-### [L-4] Constructor / initialization function lacks parameter validation
-Constructors and initialization functions play a critical role in contracts by setting important initial states when the contract is first deployed before the system starts. The parameters passed to the constructor and initialization functions directly affect the behavior of the contract / protocol. If incorrect parameters are provided, the system may fail to run, behave abnormally, be unstable, or lack security. Therefore, it's crucial to carefully check each parameter in the constructor and initialization functions. If an exception is found, the transaction should be rolled back.
+### [L-4] Governance functions should be controlled by time locks
+Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
 <details>
 <summary>
@@ -482,79 +621,167 @@ There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/core/RdpxV2Core.sol
 
-/// @audit `_xvsVaultPoolId` not validated
-/// @audit `_alphaNumerator` not validated
-/// @audit `_alphaDenominator` not validated
-/// @audit `_accessControlManager` not validated
-/// @audit `_loopsLimit` not validated
-130:     function initialize(
-             address _xvsVault,
-             address _xvsVaultRewardToken,
-             uint256 _xvsVaultPoolId,
-             uint128 _alphaNumerator,
-             uint128 _alphaDenominator,
-             address _accessControlManager,
-             address _protocolShareReserve,
-             address _primeLiquidityProvider,
-             address _comptroller,
-             address _oracle,
-             uint256 _loopsLimit
-         ) external virtual initializer {
+206:   function setIsreLP(bool _isReLPActive) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L130) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-/// @audit `accessControlManager_` not validated
-90:     function initialize(
-            address accessControlManager_,
-            address[] calldata tokens_,
-            uint256[] calldata distributionSpeeds_
-        ) external initializer {
+243:   function setLpAllowance(bool increase) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90) 
 
 </details>
 
 ---
 
 <a name="L-5"></a> 
-### [L-5] Enum values should be used instead of constant array indexes
-Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
+### [L-5] Loss of precision in divisions
+Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator.
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>52</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-684:             assets[0] = address(asset);
+373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
-[#L684](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L684) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
+File: contracts/core/RdpxV2Core.sol
 
-124:     uint256[25] private __gap;
+535:           ethBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
+
+539:           dpxEthBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
+
+546:       ? (((_amount * getDpxEthPrice()) / 1e8) -
+
+547:         (((_amount * getDpxEthPrice()) * slippageTolerance) / 1e16))
+
+548:       : (((_amount * getEthPrice()) / 1e8) -
+
+549:         (((_amount * getEthPrice()) * slippageTolerance) / 1e16));
+
+570:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= _amount / 2;
+
+574:       _amount / 2
+
+579:       .deposit(_amount / 2);
+
+605:     uint256 rdpxRequiredInWeth = (_rdpxRequired * getRdpxPrice()) / 1e8;
+
+608:     amount1 = ((rdpxRequiredInWeth * _amount) /
+
+612:     amount1 = (amount1 * (100e8 - _delegateFee)) / 1e10;
+
+658:         (_rdpxAmount * rdpxBurnPercentage) / 1e10
+
+665:           (_rdpxAmount * rdpxFeePercentage) / 1e10
+
+669:       uint256 rdpxAmountInWeth = (_rdpxAmount * getRdpxPrice()) / 1e8;
+
+673:       uint256 extraRdpxToWithdraw = (discountReceivedInWeth * 1e8) /
+
+1165:         1e2) / (Math.sqrt(1e18)); // 1e8 precision
+
+1170:         ((RDPX_RATIO_PERCENTAGE - (bondDiscount / 2)) *
+
+1172:           DEFAULT_PRECISION) /
+
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
+
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
+
+1181:         (RDPX_RATIO_PERCENTAGE * _amount * DEFAULT_PRECISION) /
+
+1185:         (ETH_RATIO_PERCENTAGE * _amount) /
+
+1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
-[#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L124) 
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+270:     uint256 strike = roundUp(currentPrice - (currentPrice / 4)); // 25% below the current price
+
+276:     uint256 requiredCollateral = (amount * strike) / 1e8;
+
+335:       ethAmount += (amount * strike) / 1e8;
+
+475:           (currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
+
+481:             (currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
+
+487:           ((currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
+
+512:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
+
+516:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
+
+521:       ((currentFundingRate * (block.timestamp - startTime)) / 1e18),
+
+550:     ) * _amount) / 1e8);
+
+559:     return strike > price ? ((strike - price) * amount) / 1e8 : 0;
+
+604:         (amount * 1e18) /
+
+612:         ((amount * 1e18) / (endTime - startTime));
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+230:       1e2) / (Math.sqrt(1e18)); // 1e6 precision
+
+232:     uint256 tokenAToRemove = ((((_amount * 4) * 1e18) /
+
+235:       baseReLpRatio) / (1e18 * DEFAULT_PRECISION * 1e2);
+
+239:     uint256 lpToRemove = (tokenAToRemove * totalLpSupply) /
+
+251:       ((tokenAToRemove * liquiditySlippageTolerance) / 1e8);
+
+252:     uint256 mintokenBAmount = ((tokenAToRemove * tokenAInfo.tokenAPrice) /
+
+254:       ((tokenAToRemove * tokenAInfo.tokenAPrice) * liquiditySlippageTolerance) /
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+279:         amountB / 2,
+
+290:       amountB / 2,
+
+```
 
 </details>
 
 ---
 
 <a name="L-6"></a> 
-### [L-6] Governance functions should be controlled by time locks
-Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
+### [L-6] `SafeTransferLib` does not ensure that the token contract exists
 
 <details>
 <summary>
@@ -562,334 +789,19 @@ There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-177:     function setPrimeToken(address prime_) external onlyOwner {
+172:     IERC20WithBurn(rdpx).safeTransfer(receiver, rdpxAmount);
 
 ```
-[#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) 
 
 </details>
 
 ---
 
 <a name="L-7"></a> 
-### [L-7] Loss of precision in divisions
-Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator.
-
-<details>
-<summary>
-There are <b>124</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-501:         uint256 supply = (exchangeRate * balanceOfAccount) / EXP_SCALE;
-
-585:             delta = ((distributionIncome * EXP_SCALE) / markets[vToken].sumOfMembersScore);
-
-654:         uint256 supply = (exchangeRate * balanceOfAccount) / EXP_SCALE;
-
-881:         uint256 borrowCapUSD = (xvsPrice * ((xvs * markets[market].borrowMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-881:         uint256 borrowCapUSD = (xvsPrice * ((xvs * markets[market].borrowMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-882:         uint256 supplyCapUSD = (xvsPrice * ((xvs * markets[market].supplyMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-882:         uint256 supplyCapUSD = (xvsPrice * ((xvs * markets[market].supplyMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-885:         uint256 supplyUSD = (tokenPrice * supply) / EXP_SCALE;
-
-886:         uint256 borrowUSD = (tokenPrice * borrow) / EXP_SCALE;
-
-889:             supply = supplyUSD > 0 ? (supply * supplyCapUSD) / supplyUSD : 0;
-
-893:             borrow = borrowUSD > 0 ? (borrow * borrowCapUSD) / borrowUSD : 0;
-
-922:         return (index * score) / EXP_SCALE;
-
-949:         return ((((market.totalBorrows() * market.borrowRatePerBlock()) / EXP_SCALE) * market.reserveFactorMantissa()) /
-
-949:         return ((((market.totalBorrows() * market.borrowRatePerBlock()) / EXP_SCALE) * market.reserveFactorMantissa()) /
-
-972:         uint256 incomePerBlockForDistributionFromMarket = (totalIncomePerBlockFromMarket * _distributionPercentage()) /
-
-1004:         uint256 userYearlyIncome = (userScore * _incomeDistributionYearly(vToken)) / totalScore;
-
-1009:         uint256 userSupplyIncomeYearly = (userYearlyIncome * totalCappedSupply) / totalCappedValue;
-
-1010:         uint256 userBorrowIncomeYearly = (userYearlyIncome * totalCappedBorrow) / totalCappedValue;
-
-1012:         supplyAPR = totalSupply == 0 ? 0 : ((userSupplyIncomeYearly * MAXIMUM_BPS) / totalSupply);
-
-1013:         borrowAPR = totalBorrow == 0 ? 0 : ((userBorrowIncomeYearly * MAXIMUM_BPS) / totalBorrow);
-
-```
-[#L501](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L501) [#L585](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L585) [#L654](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L654) [#L881](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L881) [#L881](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L881) [#L882](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L882) [#L882](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L882) [#L885](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L885) [#L886](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L886) [#L889](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L889) [#L893](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L893) [#L922](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L922) [#L949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949) [#L949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949) [#L972](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L972) [#L1004](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1004) [#L1009](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1009) [#L1010](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1010) [#L1012](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1012) [#L1013](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1013) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-25:         return (n.toInt256() * FixedMath0x.FIXED_1) / int256(d.toInt256());
-
-37:         return uint256((u.toInt256() * FixedMath0x.FIXED_1) / f);
-
-49:         return uint256((u.toInt256() * f) / FixedMath0x.FIXED_1);
-
-```
-[#L25](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L25) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L37) [#L49](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L49) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-75:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000000001c8464f76164760000000); // / e ^ -32
-
-75:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000000001c8464f76164760000000); // / e ^ -32
-
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
-
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
-
-85:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000afe10820813d78000000000000000); // / e ^ -8
-
-85:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000afe10820813d78000000000000000); // / e ^ -8
-
-90:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000002582ab704279ec00000000000000000); // / e ^ -4
-
-90:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000002582ab704279ec00000000000000000); // / e ^ -4
-
-95:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000001152aaa3bf81cc000000000000000000); // / e ^ -2
-
-95:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000001152aaa3bf81cc000000000000000000); // / e ^ -2
-
-100:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000002f16ac6c59de70000000000000000000); // / e ^ -1
-
-100:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000002f16ac6c59de70000000000000000000); // / e ^ -1
-
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-121:         w = (y * y) / FIXED_1;
-
-122:         r += (z * (0x100000000000000000000000000000000 - y)) / 0x100000000000000000000000000000000;
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-124:         r += (z * (0x0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa - y)) / 0x200000000000000000000000000000000;
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-126:         r += (z * (0x099999999999999999999999999999999 - y)) / 0x300000000000000000000000000000000;
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-128:         r += (z * (0x092492492492492492492492492492492 - y)) / 0x400000000000000000000000000000000;
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-130:         r += (z * (0x08e38e38e38e38e38e38e38e38e38e38e - y)) / 0x500000000000000000000000000000000;
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-132:         r += (z * (0x08ba2e8ba2e8ba2e8ba2e8ba2e8ba2e8b - y)) / 0x600000000000000000000000000000000;
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-134:         r += (z * (0x089d89d89d89d89d89d89d89d89d89d89 - y)) / 0x700000000000000000000000000000000;
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-163:         z = (z * y) / FIXED_1;
-
-164:         r += z * 0x10e1b3be415a0000; // add y^02 * (20! / 02!)
-
-165:         z = (z * y) / FIXED_1;
-
-166:         r += z * 0x05a0913f6b1e0000; // add y^03 * (20! / 03!)
-
-167:         z = (z * y) / FIXED_1;
-
-168:         r += z * 0x0168244fdac78000; // add y^04 * (20! / 04!)
-
-169:         z = (z * y) / FIXED_1;
-
-170:         r += z * 0x004807432bc18000; // add y^05 * (20! / 05!)
-
-171:         z = (z * y) / FIXED_1;
-
-172:         r += z * 0x000c0135dca04000; // add y^06 * (20! / 06!)
-
-173:         z = (z * y) / FIXED_1;
-
-174:         r += z * 0x0001b707b1cdc000; // add y^07 * (20! / 07!)
-
-175:         z = (z * y) / FIXED_1;
-
-176:         r += z * 0x000036e0f639b800; // add y^08 * (20! / 08!)
-
-177:         z = (z * y) / FIXED_1;
-
-178:         r += z * 0x00000618fee9f800; // add y^09 * (20! / 09!)
-
-179:         z = (z * y) / FIXED_1;
-
-180:         r += z * 0x0000009c197dcc00; // add y^10 * (20! / 10!)
-
-181:         z = (z * y) / FIXED_1;
-
-182:         r += z * 0x0000000e30dce400; // add y^11 * (20! / 11!)
-
-183:         z = (z * y) / FIXED_1;
-
-184:         r += z * 0x000000012ebd1300; // add y^12 * (20! / 12!)
-
-185:         z = (z * y) / FIXED_1;
-
-186:         r += z * 0x0000000017499f00; // add y^13 * (20! / 13!)
-
-187:         z = (z * y) / FIXED_1;
-
-188:         r += z * 0x0000000001a9d480; // add y^14 * (20! / 14!)
-
-189:         z = (z * y) / FIXED_1;
-
-190:         r += z * 0x00000000001c6380; // add y^15 * (20! / 15!)
-
-191:         z = (z * y) / FIXED_1;
-
-192:         r += z * 0x000000000001c638; // add y^16 * (20! / 16!)
-
-193:         z = (z * y) / FIXED_1;
-
-194:         r += z * 0x0000000000001ab8; // add y^17 * (20! / 17!)
-
-195:         z = (z * y) / FIXED_1;
-
-196:         r += z * 0x000000000000017c; // add y^18 * (20! / 18!)
-
-197:         z = (z * y) / FIXED_1;
-
-198:         r += z * 0x0000000000000014; // add y^19 * (20! / 19!)
-
-199:         z = (z * y) / FIXED_1;
-
-200:         r += z * 0x0000000000000001; // add y^20 * (20! / 20!)
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-208:                 (r * int256(0x00000000000000000000000000000000000000f1aaddd7742e56d32fb9f99744)) /
-
-214:                 (r * int256(0x00000000000000000000000000000000000afe10820813d65dfe6a33c07f738f)) /
-
-220:                 (r * int256(0x0000000000000000000000000000000002582ab704279e8efd15e0265855c47a)) /
-
-226:                 (r * int256(0x000000000000000000000000000000001152aaa3bf81cb9fdb76eae12d029571)) /
-
-232:                 (r * int256(0x000000000000000000000000000000002f16ac6c59de6f8d5d6f63c1482a7c86)) /
-
-238:                 (r * int256(0x000000000000000000000000000000004da2cbf1be5827f9eb3ad1aa9866ebb3)) /
-
-244:                 (r * int256(0x0000000000000000000000000000000063afbe7ab2082ba1a0ae5e4eb1b479dc)) /
-
-250:                 (r * int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d)) /
-
-256:                 (r * int256(0x00000000000000000000000000000000783eafef1c0a8f3978c7f81824d62ebf)) /
-
-```
-[#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L75) [#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L75) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L85) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L85) [#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L90) [#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L90) [#L95](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L95) [#L95](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L95) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L100) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L100) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L121](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L121) [#L122](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L122) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L124) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L126](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L126) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L128](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L128) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L130) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L132](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L132) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L134](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L134) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L163](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L163) [#L164](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L164) [#L165](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L165) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L166) [#L167](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L167) [#L168](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L168) [#L169](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L169) [#L170](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L170) [#L171](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L171) [#L172](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L172) [#L173](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L173) [#L174](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L174) [#L175](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L175) [#L176](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L176) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L177) [#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L178) [#L179](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L179) [#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L180) [#L181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L181) [#L182](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L182) [#L183](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L183) [#L184](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L184) [#L185](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L185) [#L186](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L186) [#L187](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L187) [#L188](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L188) [#L189](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L189) [#L190](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L190) [#L191](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L191) [#L192](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L192) [#L193](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L193) [#L194](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L194) [#L195](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L195) [#L196](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L196) [#L197](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L197) [#L198](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L198) [#L199](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L199) [#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L200) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L208](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L208) [#L214](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L214) [#L220](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L220) [#L226](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L226) [#L232](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L232) [#L238](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L238) [#L244](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L244) [#L250](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L250) [#L256](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L256) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-59:             (FixedMath.ln(ratio) * alphaNumerator.toInt256()) / alphaDenominator.toInt256()
-
-```
-[#L59](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L59) 
-
-</details>
-
----
-
-<a name="L-8"></a> 
-### [L-8] Missing storage gap for upgradable contracts
-Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
-
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-35: contract Prime is IIncomeDestination, AccessControlledV8, PausableUpgradeable, MaxLoopsLimitHelper, PrimeStorageV1 {
-
-```
-[#L35](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L35) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-8: contract PrimeLiquidityProvider is AccessControlledV8, PausableUpgradeable {
-
-```
-[#L8](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L8) 
-
-</details>
-
----
-
-<a name="L-9"></a> 
-### [L-9] prevent re-setting a state variable with the same value
-Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
+### [L-7] Some tokens may revert when large transfers are made
+Tokens such as COMP or UNI will revert when an address' balance reaches `type(uint96).max`. Ensure that the calls below can be broken up into smaller batches if necessary.
 
 <details>
 <summary>
@@ -897,20 +809,116 @@ There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-181:         prime = prime_;
+170:     collateral.transfer(receiver, assets);
 
 ```
-[#L181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L181) 
+
+</details>
+
+---
+
+<a name="L-8"></a> 
+### [L-8] Some tokens may revert when zero value transfers are made
+Despite the fact that [EIP-20 states](https://github.com/ethereum/EIPs/blob/7500ac4fc1bbdfaf684e7ef851f798f6b667b2fe/EIPS/eip-20.md?plain=1#L116) that zero-value transfers must be accepted, some tokens, such as LEND, will revert if this is attempted, which may cause transactions that involve other tokens (such as batch operations) to fully revert. Consider skipping the transfer if the amount is zero, which will also save gas.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+170:     collateral.transfer(receiver, assets);
+
+```
+
+</details>
+
+---
+
+<a name="L-9"></a> 
+### [L-9] Timestamp may be manipulation
+The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
+
+<details>
+<summary>
+There are <b>19</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+231:         block.timestamp + 1
+
+279:         block.timestamp + 1
+
+342:         block.timestamp + 1
+
+```
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+250:           block.timestamp
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+502:       maturity: block.timestamp + bondMaturity,
+
+503:       timestamp: block.timestamp
+
+636:       _validate(expiry >= block.timestamp, 2);
+
+1023:     _validate(block.timestamp > bonds[id].maturity, 7);
+
+1103:           block.timestamp + 10
+
+1194:     ).nextFundingPaymentTimestamp() - block.timestamp;
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+283:     uint256 timeToExpiry = nextFundingPaymentTimestamp() - block.timestamp;
+
+463:     while (block.timestamp >= nextFundingPaymentTimestamp()) {
+
+508:     lastUpdateTime = block.timestamp;
+
+512:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
+
+516:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
+
+521:       ((currentFundingRate * (block.timestamp - startTime)) / 1e18),
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+264:       block.timestamp + 10
+
+283:         block.timestamp + 10
+
+294:       block.timestamp + 10
+
+```
 
 </details>
 
 ---
 
 <a name="L-10"></a> 
-### [L-10] Timestamp may be manipulation
-The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
+### [L-10]  `abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()`
+Use `abi.encode()` instead which will pad items to 32 bytes, which will [prevent hash collisions](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html#non-standard-packed-mode) (e.g. `abi.encodePacked(0x123,0x456)` => `0x123456` => `abi.encodePacked(0x1,0x23456)`, but `abi.encode(0x123,0x456)` => `0x0...1230...456`). "Unless there is a compelling reason, `abi.encode` should be preferred". If there is only one argument to `abi.encodePacked()` it can often be cast to `bytes()` or `bytes32()` [instead](https://ethereum.stackexchange.com/questions/30912/how-to-compare-strings-in-solidity#answer-82739).
+If all arguments are strings and or bytes, `bytes.concat()` should be used instead
 
 <details>
 <summary>
@@ -918,91 +926,179 @@ There are <b>3</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-378:             stakedAt[user] = block.timestamp;
-
-399:         if (block.timestamp - stakedAt[msg.sender] < STAKING_PERIOD) revert WaitMoreTime();
-
-481:         uint256 totalTimeStaked = block.timestamp - stakedAt[user];
+106:       keccak256(abi.encodePacked(address(this), _tickLower, _tickUpper))
 
 ```
-[#L378](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L378) [#L399](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L399) [#L481](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L481) 
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+1141:       keccak256(abi.encodePacked(asset.tokenSymbol)) ==
+
+1142:         keccak256(abi.encodePacked(_token)),
+
+```
 
 </details>
 
 ---
 
 <a name="L-11"></a> 
-### [L-11] Missing zero address check in initializer
+### [L-11] `decimals()` is not a part of the ERC-20 standard
+The `decimals()` function is not a part of the ERC-20 standard, and was added later as an optional extension. As such, some valid ERC20 tokens do not support this interface, so it is unsafe to blindly cast all tokens to this interface, and then call this function.
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-/// @audit Missing zero check for `_accessControlManager`
-130:     function initialize(
-             address _xvsVault,
-             address _xvsVaultRewardToken,
-             uint256 _xvsVaultPoolId,
-             uint128 _alphaNumerator,
-             uint128 _alphaDenominator,
-             address _accessControlManager,
-             address _protocolShareReserve,
-             address _primeLiquidityProvider,
-             address _comptroller,
-             address _oracle,
-             uint256 _loopsLimit
-         ) external virtual initializer {
+91:       ERC20(_collateral).decimals()
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L130) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-/// @audit Missing zero check for `accessControlManager_`
-90:     function initialize(
-            address accessControlManager_,
-            address[] calldata tokens_,
-            uint256[] calldata distributionSpeeds_
-        ) external initializer {
-
-```
-[#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90) 
 
 </details>
 
 ---
 
 <a name="L-12"></a> 
-### [L-12] Initializers could be front-run
-Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
+### [L-12] Do not use deprecated library functions
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>21</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-130:     function initialize(
+58:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+200:     IERC20WithBurn(addresses.tokenA).safeApprove(
+
+204:     IERC20WithBurn(addresses.tokenB).safeApprove(
+
+268:     IERC20WithBurn(addresses.pair).safeApprove(addresses.ammRouter, lpAmount);
+
+328:     IERC20WithBurn(token1).safeApprove(addresses.ammRouter, token1Amount);
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L130) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-90:     function initialize(
+80:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+148:       TransferHelper.safeApprove(_token, _target, _amount);
+
+302:     TransferHelper.safeApprove(_tokenA, address(univ3_router), _amountAtoB);
 
 ```
-[#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90) 
+
+```solidity
+File: contracts/core/RdpxV2Bond.sol
+
+25:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+26:     _setupRole(MINTER_ROLE, msg.sender);
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+125:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+61:     _setupRole(MINTER_ROLE, msg.sender);
+
+62:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+126:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+127:     _setupRole(MANAGER_ROLE, msg.sender);
+
+207:     collateralToken.safeApprove(
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+80:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+
+81:     _setupRole(RDPXV2CORE_ROLE, msg.sender);
+
+150:     IERC20WithBurn(addresses.pair).safeApprove(
+
+155:     IERC20WithBurn(addresses.tokenA).safeApprove(
+
+160:     IERC20WithBurn(addresses.tokenB).safeApprove(
+
+```
+
+</details>
+
+---
+
+<a name="L-13"></a> 
+### [L-13] Empty Function Body - Consider commenting why
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+235:   ) internal virtual {}
+
+```
+
+</details>
+
+---
+
+<a name="L-14"></a> 
+### [L-14] `safeApprove()` is deprecated
+[Deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/bfff03c0d2a59bcd8e2ead1da9aed9edf0080d05/contracts/token/ERC20/utils/SafeERC20.sol#L38-L45) in favor of `safeIncreaseAllowance()` and `safeDecreaseAllowance()`. If only setting the initial allowance to the value that means infinite, `safeIncreaseAllowance()` can be used instead. The function may currently work, but if a bug is found in this version of OpenZeppelin, and the version that you're forced to upgrade to no longer has this function, you'll encounter unnecessary delays in porting and testing replacement contracts.
+
+<details>
+<summary>
+There are <b>4</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+268:     IERC20WithBurn(addresses.pair).safeApprove(addresses.ammRouter, lpAmount);
+
+328:     IERC20WithBurn(token1).safeApprove(addresses.ammRouter, token1Amount);
+
+```
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+148:       TransferHelper.safeApprove(_token, _target, _amount);
+
+302:     TransferHelper.safeApprove(_tokenA, address(univ3_router), _amountAtoB);
+
+```
 
 </details>
 
@@ -1012,127 +1108,27 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ## Non Critical Issues
 
 <a name="NC-1"></a> 
-### [NC-1] Contract declarations should have NatSpec `@author` annotations
+### [NC-1] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability
+Well-organized data structures make code reviews easier, which may lead to fewer bugs. Consider combining related mappings into mappings to structs, so it's clear what data is related
 
 <details>
 <summary>
-There are <b>6</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-35: contract Prime is IIncomeDestination, AccessControlledV8, PausableUpgradeable, MaxLoopsLimitHelper, PrimeStorageV1 {
-
-```
-[#L35](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L35) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-8: contract PrimeLiquidityProvider is AccessControlledV8, PausableUpgradeable {
+69:   mapping(uint256 => mapping(uint256 => uint256))
 
 ```
-[#L8](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L8) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-6: contract PrimeStorageV1 {
-
-```
-[#L6](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L6) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-13: library FixedMath {
-
-```
-[#L13](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L13) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-38: library FixedMath0x {
-
-```
-[#L38](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L38) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-10: library Scores {
-
-```
-[#L10](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L10) 
 
 </details>
 
 ---
 
 <a name="NC-2"></a> 
-### [NC-2] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability
-Well-organized data structures make code reviews easier, which may lead to fewer bugs. Consider combining related mappings into mappings to structs, so it's clear what data is related
-
-<details>
-<summary>
-There are <b>2</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-67:     mapping(address => mapping(address => Interest)) public interests;
-
-88:     mapping(uint256 => mapping(address => bool)) public isScoreUpdated;
-
-```
-[#L67](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L67) [#L88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88) 
-
-</details>
-
----
-
-<a name="NC-3"></a> 
-### [NC-3] Consider adding a block/deny-list
-Doing so will significantly increase centralization, but will help to prevent hackers from using stolen tokens.
-
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-35: contract Prime is IIncomeDestination, AccessControlledV8, PausableUpgradeable, MaxLoopsLimitHelper, PrimeStorageV1 {
-
-```
-[#L35](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L35) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-8: contract PrimeLiquidityProvider is AccessControlledV8, PausableUpgradeable {
-
-```
-[#L8](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L8) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-6: contract PrimeStorageV1 {
-
-```
-[#L6](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L6) 
-
-</details>
-
----
-
-<a name="NC-4"></a> 
-### [NC-4] Consider adding formal verification proofs
+### [NC-2] Consider adding formal verification proofs
 Formal verification is the act of proving or disproving the correctness of intended algorithms underlying a system with respect to a certain formal specification/property/invariant, using formal methods of mathematics.
 
 Some tools that are currently available to perform these tests on smart contracts are [SMTChecker](https://docs.soliditylang.org/en/latest/smtchecker.html) and [Certora Prover](https://www.certora.com/).
@@ -1148,156 +1144,162 @@ Global finding
 
 ```
 
-
 </details>
 
 ---
 
-<a name="NC-5"></a> 
-### [NC-5] Consider bounding input array length
-The functions below take in an unbounded array, and make function calls for entries in the array. While the function will revert if it eventually runs out of gas, it may be a nicer user experience to require() that the length of the array is below some reasonable maximum, so that the user doesn't have to use up a full transaction's gas only to see that the transaction reverts.
-
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-/// @audit Consider length check for `users`
-204:         for (uint256 i = 0; i < users.length; ) {
-
-/// @audit Consider length check for `users`
-335:             for (uint256 i = 0; i < users.length; ) {
-
-```
-[#L204](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L204) [#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L335) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-/// @audit Consider length check for `tokens_`
-119:         for (uint256 i; i < tokens_.length; ) {
-
-```
-[#L119](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L119) 
-
-</details>
-
----
-
-<a name="NC-6"></a> 
-### [NC-6] Constants should be put on the left side of comparisons
+<a name="NC-3"></a> 
+### [NC-3] Constants should be put on the left side of comparisons
 Putting constants on the left side of comparison statements is a best practice known as [Yoda conditions](https://en.wikipedia.org/wiki/Yoda_conditions). Although solidity's static typing system prevents accidental assignments within conditionals, adopting this practice can improve code readability and consistency, especially when working across multiple languages.
 
 <details>
 <summary>
-There are <b>36</b> instances (click to show):
+There are <b>56</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-104:         if (_wbnb == address(0)) revert InvalidAddress();
+84:       _tokenA != address(0) &&
 
-105:         if (_vbnb == address(0)) revert InvalidAddress();
+85:         _tokenB != address(0) &&
 
-106:         if (_blocksPerYear == 0) revert InvalidBlocksPerYear();
+86:         _pair != address(0) &&
 
-143:         if (_xvsVault == address(0)) revert InvalidAddress();
+87:         _rdpxV2Core != address(0) &&
 
-144:         if (_xvsVaultRewardToken == address(0)) revert InvalidAddress();
+88:         _rdpxOracle != address(0) &&
 
-145:         if (_protocolShareReserve == address(0)) revert InvalidAddress();
+89:         _ammFactory != address(0) &&
 
-146:         if (_comptroller == address(0)) revert InvalidAddress();
+90:         _ammRouter != address(0),
 
-147:         if (_oracle == address(0)) revert InvalidAddress();
+131:     require(_token != address(0), "reLPContract: token cannot be 0");
 
-148:         if (_primeLiquidityProvider == address(0)) revert InvalidAddress();
-
-201:         if (pendingScoreUpdates == 0) revert NoScoreUpdatesRequired();
-
-202:         if (nextScoreUpdateRoundId == 0) revert NoScoreUpdatesRequired();
-
-377:         } else if (stakedAt[user] == 0 && isAccountEligible && !tokens[user].exists) {
-
-398:         if (stakedAt[msg.sender] == 0) revert IneligibleToClaim();
-
-457:         if (vToken == address(0)) revert MarketNotSupported();
-
-479:         if (stakedAt[user] == 0) return STAKING_PERIOD;
-
-576:         if (distributionIncome == 0) {
-
-810:         if (_alphaDenominator == 0 || _alphaNumerator > _alphaDenominator) {
-
-1002:         if (totalScore == 0) return (0, 0);
-
-1007:         if (totalCappedValue == 0) return (0, 0);
-
-1012:         supplyAPR = totalSupply == 0 ? 0 : ((userSupplyIncomeYearly * MAXIMUM_BPS) / totalSupply);
-
-1013:         borrowAPR = totalBorrow == 0 ? 0 : ((userBorrowIncomeYearly * MAXIMUM_BPS) / totalBorrow);
+132:     require(_spender != address(0), "reLPContract: spender cannot be 0");
 
 ```
-[#L104](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L104) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L105) [#L106](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L106) [#L143](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L143) [#L144](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L144) [#L145](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L145) [#L146](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L146) [#L147](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L147) [#L148](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L148) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L201) [#L202](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L202) [#L377](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L377) [#L398](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L398) [#L457](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L457) [#L479](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L479) [#L576](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L576) [#L810](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L810) [#L1002](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1002) [#L1007](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1007) [#L1012](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1012) [#L1013](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1013) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/core/RdpxV2Core.sol
 
-335:         if (lastBlockAccrued == 0) {
+244:     require(_asset != address(0), "RdpxV2Core: asset cannot be 0 address");
 
-345:         if (address_ == address(0)) {
+274:     _validate(index != 0, 18);
+
+316:     _validate(_dopexAMMRouter != address(0), 17);
+
+317:     _validate(_dpxEthCurvePool != address(0), 17);
+
+318:     _validate(_rdpxDecayingBonds != address(0), 17);
+
+319:     _validate(_perpetualAtlanticVault != address(0), 17);
+
+320:     _validate(_perpetualAtlanticVaultLP != address(0), 17);
+
+321:     _validate(_rdpxReserve != address(0), 17);
+
+322:     _validate(_rdpxV2ReceiptToken != address(0), 17);
+
+323:     _validate(_feeDistributor != address(0), 17);
+
+324:     _validate(_reLPContract != address(0), 17);
+
+325:     _validate(_receiptTokenBonds != address(0), 17);
+
+362:     _validate(_rdpxPriceOracle != address(0), 17);
+
+363:     _validate(_dpxEthPriceOracle != address(0), 17);
+
+379:     _validate(_addr != address(0), 17);
+
+408:     _validate(_token != address(0), 17);
+
+409:     _validate(_spender != address(0), 17);
+
+630:     if (_bondId != 0) {
+
+1091:     if (_rdpxAmount != 0) {
+
+1162:     if (_rdpxBondId == 0) {
 
 ```
-[#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L335) [#L345](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L345) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-55:         if (x <= 0) {
+119:     _validate(_collateralToken != address(0), 1);
 
-145:         if (x == 0) {
+190:     _validate(_optionPricing != address(0), 1);
 
-206:         if ((x & int256(0x0000000000000000000000000000001000000000000000000000000000000000)) != 0) {
+191:     _validate(_assetPriceOracle != address(0), 1);
 
-212:         if ((x & int256(0x0000000000000000000000000000000800000000000000000000000000000000)) != 0) {
+192:     _validate(_volatilityOracle != address(0), 1);
 
-218:         if ((x & int256(0x0000000000000000000000000000000400000000000000000000000000000000)) != 0) {
+193:     _validate(_feeDistributor != address(0), 1);
 
-224:         if ((x & int256(0x0000000000000000000000000000000200000000000000000000000000000000)) != 0) {
+194:     _validate(_rdpx != address(0), 1);
 
-230:         if ((x & int256(0x0000000000000000000000000000000100000000000000000000000000000000)) != 0) {
+195:     _validate(_perpetualAtlanticVaultLP != address(0), 1);
 
-236:         if ((x & int256(0x0000000000000000000000000000000080000000000000000000000000000000)) != 0) {
+196:     _validate(_rdpxV2Core != address(0), 1);
 
-242:         if ((x & int256(0x0000000000000000000000000000000040000000000000000000000000000000)) != 0) {
+467:         uint256 startTime = lastUpdateTime == 0
 
-248:         if ((x & int256(0x0000000000000000000000000000000020000000000000000000000000000000)) != 0) {
+505:     uint256 startTime = lastUpdateTime == 0
 
-254:         if ((x & int256(0x0000000000000000000000000000000010000000000000000000000000000000)) != 0) {
+578:     if (remainder == 0) {
+
+595:     if (fundingRates[latestFundingPaymentPointer] == 0) {
 
 ```
-[#L55](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L55) [#L145](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L145) [#L206](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L206) [#L212](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L212) [#L218](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L218) [#L224](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L224) [#L230](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L230) [#L236](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L236) [#L242](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L242) [#L248](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L248) [#L254](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L254) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-44:         if (xvs == 0 || capital == 0) return 0;
+95:       _perpetualAtlanticVault != address(0) || _rdpx != address(0),
 
-44:         if (xvs == 0 || capital == 0) return 0;
+95:       _perpetualAtlanticVault != address(0) || _rdpx != address(0),
+
+123:     require((shares = previewDeposit(assets)) != 0, "ZERO_SHARES");
+
+162:     require(assets != 0, "ZERO_ASSETS");
+
+223:       (supply == 0)
+
+283:       supply == 0 ? assets : assets.mulDivDown(supply, totalVaultCollateral);
 
 ```
-[#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L44) [#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L44) 
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+127:       _tokenA != address(0) &&
+
+128:         _tokenB != address(0) &&
+
+129:         _pair != address(0) &&
+
+130:         _rdpxV2Core != address(0) &&
+
+131:         _tokenAReserve != address(0) &&
+
+132:         _amo != address(0) &&
+
+133:         _rdpxOracle != address(0) &&
+
+134:         _ammFactory != address(0) &&
+
+135:         _ammRouter != address(0),
+
+```
 
 </details>
 
 ---
 
-<a name="NC-7"></a> 
-### [NC-7] Contracts should have full test coverage
+<a name="NC-4"></a> 
+### [NC-4] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
 <details>
@@ -1311,202 +1313,183 @@ Global finding
 
 ```
 
-
 </details>
 
 ---
 
-<a name="NC-8"></a> 
-### [NC-8] Events that mark critical parameter changes should contain both the old and the new value
+<a name="NC-5"></a> 
+### [NC-5] Events that mark critical parameter changes should contain both the old and the new value
 This should especially be done if the new value is not required to be different from the old value.
 
 <details>
 <summary>
-There are <b>15</b> instances (click to show):
+There are <b>37</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-228:             emit UserScoreUpdated(user);
+152:     emit LogEmergencyWithdraw(msg.sender, tokens);
 
-241:         emit AlphaUpdated(alphaNumerator, alphaDenominator, _alphaNumerator, _alphaDenominator);
-
-308:         emit MarketAdded(vToken, supplyMultiplier, borrowMultiplier);
-
-320:         emit MintLimitsUpdated(irrevocableLimit, revocableLimit, _irrevocableLimit, _revocableLimit);
-
-462:         emit UpdatedAssetsState(comptroller, asset);
-
-694:         emit InterestClaimed(user, vToken, amount);
-
-718:         emit Mint(user, isIrrevocable);
-
-755:         emit Burn(user);
-
-771:         emit TokenUpgraded(user);
+177:     emit LogAssetsTransfered(msg.sender, tokenABalance, tokenBBalance);
 
 ```
-[#L228](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L228) [#L241](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L241) [#L308](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L308) [#L320](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L320) [#L462](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L462) [#L694](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L694) [#L718](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L718) [#L755](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L755) [#L771](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L771) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-180:         emit PrimeTokenUpdated(prime, prime_);
+268:     emit log(positions_array.length);
 
-202:         emit TokenTransferredToPrime(token_, accruedAmount);
+269:     emit log(positions_mapping[pos.token_id].token_id);
 
-222:         emit SweepToken(address(token_), to_, amount_);
+321:     emit RecoveredERC20(tokenAddress, tokenAmount);
 
-267:                 emit TokensAccrued(token_, tokenAccrued);
+335:     emit RecoveredERC721(tokenAddress, token_id);
 
-300:         emit TokenDistributionInitialized(token_);
-
-324:             emit TokenDistributionSpeedUpdated(token_, distributionSpeed_);
+363:     emit LogAssetsTransfered(tokenABalance, tokenBBalance, tokenA, tokenB);
 
 ```
-[#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L180) [#L202](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L202) [#L222](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L222) [#L267](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L267) [#L300](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L300) [#L324](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L324) 
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+172:     emit LogEmergencyWithdraw(msg.sender, tokens);
+
+185:     emit LogSetRdpxBurnPercentage(_rdpxBurnPercentage);
+
+198:     emit LogSetRdpxFeePercentage(_rdpxFeePercentage);
+
+208:     emit LogSetIsReLPActive(_isReLPActive);
+
+220:     emit LogSetputOptionsRequired(_putOptionsRequired);
+
+233:     emit LogSetBondMaturity(_bondMaturity);
+
+263:     emit LogAssetAddedTotokenReserves(_asset, _assetSymbol);
+
+289:     emit LogAssetRemovedFromtokenReserves(_assetSymbol, index);
+
+349:     emit LogSetAddresses(addresses);
+
+370:     emit LogSetPricingOracleAddresses(pricingOracleAddresses);
+
+447:     emit LogSetBondDiscountFactor(_bondDiscountFactor);
+
+461:     emit LogSetSlippageTolerance(_slippageTolerance);
+
+782:     emit LogSettle(optionIds);
+
+807:     emit LogProvideFunding(pointer, fundingAmount);
+
+932:     emit LogBond(rdpxRequired, wethRequired, receiptTokenAmount);
+
+966:     emit LogAddToDelegate(_amount, _fee, delegates.length - 1);
+
+989:     emit LogDelegateWithdraw(delegateId, amountWithdrawn);
+
+1007:     emit LogSync();
+
+1041:     emit LogRedeem(to, receiptTokenAmount);
+
+1069:     emit LogUpperDepeg(_amount, wethReceived);
+
+1123:     emit LogLowerDepeg(_rdpxAmount, _wethAmount, dpxEthReceived);
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+124:     emit BondMinted(to, bondId, expiry, rdpxAmount);
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+211:     emit AddressesSet(addresses);
+
+230:     emit EmergencyWithdraw(msg.sender, tokens);
+
+311:     emit Purchase(strike, amount, premium, to, msg.sender);
+
+368:     emit Settle(ethAmount, rdpxAmount, optionIds);
+
+494:       emit FundingPaymentPointerUpdated(latestFundingPaymentPointer);
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+134:     emit Deposit(msg.sender, receiver, assets, shares);
+
+174:     emit Withdraw(msg.sender, receiver, owner, assets, shares);
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+99:     emit LogSetReLpFactor(_reLPFactor);
+
+```
 
 </details>
 
 ---
 
-<a name="NC-9"></a> 
-### [NC-9] Custom errors has no error details
-Consider adding parameters to the error to indicate which user or values caused the failure.
+<a name="NC-6"></a> 
+### [NC-6] Custom errors should be used rather than `revert()`/`require()`
+Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
 <details>
 <summary>
-There are <b>17</b> instances (click to show):
+There are <b>8</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-20: error MarketNotSupported();
+131:     require(_token != address(0), "reLPContract: token cannot be 0");
 
-21: error InvalidLimit();
+132:     require(_spender != address(0), "reLPContract: spender cannot be 0");
 
-22: error IneligibleToClaim();
-
-23: error WaitMoreTime();
-
-24: error UserHasNoPrimeToken();
-
-25: error InvalidCaller();
-
-26: error InvalidComptroller();
-
-27: error NoScoreUpdatesRequired();
-
-28: error MarketAlreadyExists();
-
-29: error InvalidAddress();
-
-30: error InvalidBlocksPerYear();
-
-31: error InvalidAlphaArguments();
-
-32: error InvalidVToken();
+133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
 
 ```
-[#L20](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L20) [#L21](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L21) [#L22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L22) [#L23](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L23) [#L24](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L24) [#L25](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L25) [#L26](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L26) [#L27](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L27) [#L28](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L28) [#L29](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L29) [#L30](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L30) [#L31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L31) [#L32](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L32) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/core/RdpxV2Core.sol
 
-57:     error InvalidArguments();
-
-63:     error InvalidCaller();
-
-72:     error FundsTransferIsPaused();
+244:     require(_asset != address(0), "RdpxV2Core: asset cannot be 0 address");
 
 ```
-[#L57](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L57) [#L63](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L63) [#L72](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L72) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
-11: error InvalidFixedPoint();
+99:       require(success, "RdpxReserve: transfer failed");
+
+120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
 ```
-[#L11](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L11) 
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+123:     require((shares = previewDeposit(assets)) != 0, "ZERO_SHARES");
+
+162:     require(assets != 0, "ZERO_ASSETS");
+
+```
 
 </details>
 
 ---
 
-<a name="NC-10"></a> 
-### [NC-10] Duplicated `require()`/`revert()` checks should be refactored
-Refactoring duplicate `require()`/`revert()` checks into a modifier or function can make the code more concise, readable and maintainable, and less likely to make errors or omissions when modifying the `require()` or `revert()`.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-/// @audit Duplicated on line 158
-100:             revert InvalidArguments();
-
-```
-[#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L100) 
-
-</details>
-
----
-
-<a name="NC-11"></a> 
-### [NC-11] `else` block not required
-One level of nesting can be removed by not having an `else` block when the `if`-block always jumps at the end. For example:
-```solidity
-if (condition) {
-	body1...
-	return x;
-} else {
-	body2...
-}
-```
-can be changed to:
-```solidity
-if (condition) {
-	body1...
-	return x;
-}
-body2...
-```
-
-<details>
-<summary>
-There are <b>3</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-482:         if (totalTimeStaked < STAKING_PERIOD) {
-                 return STAKING_PERIOD - totalTimeStaked;
-             } else {
-
-855:         if (xvs > MAXIMUM_XVS_CAP) {
-                 return MAXIMUM_XVS_CAP;
-             } else {
-
-931:         if (vToken == VBNB) {
-                 return WBNB;
-             } else {
-
-```
-[#L482](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L482) [#L855](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L855) [#L931](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L931) 
-
-</details>
-
----
-
-<a name="NC-12"></a> 
-### [NC-12] Enable IR-based code generation
+<a name="NC-7"></a> 
+### [NC-7] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
 <details>
@@ -1520,64 +1503,42 @@ Global finding
 
 ```
 
-
 </details>
 
 ---
 
-<a name="NC-13"></a> 
-### [NC-13] Events are emitted without the sender information
-When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
+<a name="NC-8"></a> 
+### [NC-8] Import declarations should import specific identifiers, rather than the whole file
+Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 <details>
 <summary>
-There are <b>13</b> instances (click to show):
+There are <b>6</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-241:         emit AlphaUpdated(alphaNumerator, alphaDenominator, _alphaNumerator, _alphaDenominator);
+12: import "../uniswap_V3/IUniswapV3Factory.sol";
 
-269:         emit MultiplierUpdated(
+13: import "../uniswap_V3/libraries/TickMath.sol";
 
-308:         emit MarketAdded(vToken, supplyMultiplier, borrowMultiplier);
+14: import "../uniswap_V3/libraries/LiquidityAmounts.sol";
 
-320:         emit MintLimitsUpdated(irrevocableLimit, revocableLimit, _irrevocableLimit, _revocableLimit);
+15: import "../uniswap_V3/periphery/interfaces/INonfungiblePositionManager.sol";
 
-462:         emit UpdatedAssetsState(comptroller, asset);
+16: import "../uniswap_V3/IUniswapV3Pool.sol";
 
-694:         emit InterestClaimed(user, vToken, amount);
-
-718:         emit Mint(user, isIrrevocable);
-
-755:         emit Burn(user);
-
-771:         emit TokenUpgraded(user);
+17: import "../uniswap_V3/ISwapRouter.sol";
 
 ```
-[#L241](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L241) [#L269](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L269) [#L308](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L308) [#L320](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L320) [#L462](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L462) [#L694](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L694) [#L718](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L718) [#L755](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L755) [#L771](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L771) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-180:         emit PrimeTokenUpdated(prime, prime_);
-
-202:         emit TokenTransferredToPrime(token_, accruedAmount);
-
-222:         emit SweepToken(address(token_), to_, amount_);
-
-300:         emit TokenDistributionInitialized(token_);
-
-```
-[#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L180) [#L202](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L202) [#L222](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L222) [#L300](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L300) 
 
 </details>
 
 ---
 
-<a name="NC-14"></a> 
-### [NC-14] Large or complicated code bases should implement invariant tests
+<a name="NC-9"></a> 
+### [NC-9] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
 <details>
@@ -1591,491 +1552,33 @@ Global finding
 
 ```
 
-
 </details>
 
 ---
 
-<a name="NC-15"></a> 
-### [NC-15] Long functions should be refactored into multiple, smaller, functions
+<a name="NC-10"></a> 
+### [NC-10] Consider moving `msg.sender` checks to `modifier`s
+If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
-/// @audit 86 lines
-51:     function ln(int256 x) internal pure returns (int256 r) {
-            if (x > LN_MAX_VAL) {
-
-/// @audit 119 lines
-140:     function exp(int256 x) internal pure returns (int256 r) {
-             if (x < EXP_MIN_VAL) {
+120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
 ```
-[#L51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51) [#L140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140) 
 
 </details>
 
 ---
 
-<a name="NC-16"></a> 
-### [NC-16] Magic numbers should be replaced with constants
-Magic numbers are hard-coded values in code that can make it difficult for developers and maintainers to understand the code, and can also cause confusion or errors. To improve the readability and maintainability of code, it is recommended to replace magic numbers with constants that have good readability.
-
-<details>
-<summary>
-There are <b>19</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-78:         if (x <= int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000)) {
-
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
-
-113:         if (x <= int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d)) {
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-130:         r += (z * (0x08e38e38e38e38e38e38e38e38e38e38e - y)) / 0x500000000000000000000000000000000;
-
-132:         r += (z * (0x08ba2e8ba2e8ba2e8ba2e8ba2e8ba2e8b - y)) / 0x600000000000000000000000000000000;
-
-164:         r += z * 0x10e1b3be415a0000; // add y^02 * (20! / 02!)
-
-166:         r += z * 0x05a0913f6b1e0000; // add y^03 * (20! / 03!)
-
-176:         r += z * 0x000036e0f639b800; // add y^08 * (20! / 08!)
-
-182:         r += z * 0x0000000e30dce400; // add y^11 * (20! / 11!)
-
-208:                 (r * int256(0x00000000000000000000000000000000000000f1aaddd7742e56d32fb9f99744)) /
-
-209:                 int256(0x0000000000000000000000000043cbaf42a000812488fc5c220ad7b97bf6e99e); // * e ^ -32
-
-220:                 (r * int256(0x0000000000000000000000000000000002582ab704279e8efd15e0265855c47a)) /
-
-221:                 int256(0x0000000000000000000000000000001b4c902e273a58678d6d3bfdb93db96d02); // * e ^ -8
-
-233:                 int256(0x000000000000000000000000000000015bf0a8b1457695355fb8ac404e7a79e3); // * e ^ -2
-
-244:                 (r * int256(0x0000000000000000000000000000000063afbe7ab2082ba1a0ae5e4eb1b479dc)) /
-
-245:                 int256(0x00000000000000000000000000000000a45af1e1f40c333b3de1db4dd55f29a7); // * e ^ -0.5
-
-250:                 (r * int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d)) /
-
-257:                 int256(0x0000000000000000000000000000000088415abbe9a76bead8d00cf112e4d4a8); // * e ^ -0.125
-
-```
-[#L78](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L78) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L113](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L113) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L130) [#L132](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L132) [#L164](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L164) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L166) [#L176](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L176) [#L182](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L182) [#L208](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L208) [#L209](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L209) [#L220](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L220) [#L221](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L221) [#L233](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L233) [#L244](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L244) [#L245](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L245) [#L250](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L250) [#L257](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L257) 
-
-</details>
-
----
-
-<a name="NC-17"></a> 
-### [NC-17] Missing zero address check in functions with address parameters
-Adding a zero address check for each address type parameter can prevent errors.
-
-<details>
-<summary>
-There are <b>42</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-/// @audit Missing zero check for `_wbnb`
-/// @audit Missing zero check for `_vbnb`
-103:     constructor(address _wbnb, address _vbnb, uint256 _blocksPerYear) {
-
-/// @audit Missing zero check for `_accessControlManager`
-130:     function initialize(
-             address _xvsVault,
-             address _xvsVaultRewardToken,
-             uint256 _xvsVaultPoolId,
-             uint128 _alphaNumerator,
-             uint128 _alphaDenominator,
-             address _accessControlManager,
-             address _protocolShareReserve,
-             address _primeLiquidityProvider,
-             address _comptroller,
-             address _oracle,
-             uint256 _loopsLimit
-         ) external virtual initializer {
-
-/// @audit Missing zero check for `user`
-174:     function getPendingInterests(address user) external returns (PendingInterest[] memory pendingInterests) {
-
-/// @audit Missing zero check for `market`
-263:     function updateMultipliers(address market, uint256 supplyMultiplier, uint256 borrowMultiplier) external {
-
-/// @audit Missing zero check for `vToken`
-288:     function addMarket(address vToken, uint256 supplyMultiplier, uint256 borrowMultiplier) external {
-
-/// @audit Missing zero check for `user`
-365:     function xvsUpdated(address user) external {
-
-/// @audit Missing zero check for `user`
-/// @audit Missing zero check for `market`
-389:     function accrueInterestAndUpdateScore(address user, address market) external {
-
-/// @audit Missing zero check for `user`
-411:     function burn(address user) external {
-
-/// @audit Missing zero check for `vToken`
-433:     function claimInterest(address vToken) external whenNotPaused returns (uint256) {
-
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
-443:     function claimInterest(address vToken, address user) external whenNotPaused returns (uint256) {
-
-/// @audit Missing zero check for `_comptroller`
-/// @audit Missing zero check for `asset`
-452:     function updateAssetsState(address _comptroller, address asset) external {
-
-/// @audit Missing zero check for `user`
-478:     function claimTimeRemaining(address user) external view returns (uint256) {
-
-/// @audit Missing zero check for `market`
-/// @audit Missing zero check for `user`
-496:     function calculateAPR(address market, address user) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-/// @audit Missing zero check for `market`
-/// @audit Missing zero check for `user`
-527:     function estimateAPR(
-             address market,
-             address user,
-             uint256 borrow,
-             uint256 supply,
-             uint256 xvsStaked
-         ) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-/// @audit Missing zero check for `vToken`
-554:     function accrueInterest(address vToken) public {
-
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
-597:     function getInterestAccrued(address vToken, address user) public returns (uint256) {
-
-/// @audit Missing zero check for `user`
-607:     function _accrueInterestAndUpdateScore(address user) internal {
-
-/// @audit Missing zero check for `account`
-623:     function _initializeMarkets(address account) internal {
-
-/// @audit Missing zero check for `market`
-/// @audit Missing zero check for `user`
-647:     function _calculateScore(address market, address user) internal returns (uint256) {
-
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
-672:     function _claimInterest(address vToken, address user) internal returns (uint256) {
-
-/// @audit Missing zero check for `user`
-704:     function _mint(bool isIrrevocable, address user) internal {
-
-/// @audit Missing zero check for `user`
-725:     function _burn(address user) internal {
-
-/// @audit Missing zero check for `user`
-762:     function _upgrade(address user) internal {
-
-/// @audit Missing zero check for `user`
-/// @audit Missing zero check for `vToken`
-779:     function _executeBoost(address user, address vToken) internal {
-
-/// @audit Missing zero check for `user`
-/// @audit Missing zero check for `market`
-794:     function _updateScore(address user, address market) internal {
-
-/// @audit Missing zero check for `user`
-827:     function _updateRoundAfterTokenBurned(address user) internal {
-
-/// @audit Missing zero check for `user`
-840:     function _xvsBalanceOfUser(address user) internal view returns (uint256) {
-
-/// @audit Missing zero check for `market`
-872:     function _capitalForScore(
-             uint256 xvs,
-             uint256 borrow,
-             uint256 supply,
-             address market
-         ) internal view returns (uint256, uint256, uint256) {
-
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
-918:     function _interestAccrued(address vToken, address user) internal view returns (uint256) {
-
-/// @audit Missing zero check for `vToken`
-930:     function _getUnderlying(address vToken) internal view returns (address) {
-
-/// @audit Missing zero check for `vToken`
-947:     function _incomePerBlock(address vToken) internal view returns (uint256) {
-
-/// @audit Missing zero check for `vToken`
-970:     function _incomeDistributionYearly(address vToken) internal view returns (uint256 amount) {
-
-/// @audit Missing zero check for `vToken`
-993:     function _calculateUserAPR(
-             address vToken,
-             uint256 totalSupply,
-             uint256 totalBorrow,
-             uint256 totalCappedSupply,
-             uint256 totalCappedBorrow,
-             uint256 userScore,
-             uint256 totalScore
-         ) internal view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-```
-[#L103](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L103) [#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L130) [#L174](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L174) [#L263](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L263) [#L288](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L288) [#L365](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L365) [#L389](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L389) [#L411](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L411) [#L433](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L433) [#L443](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L443) [#L452](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L452) [#L478](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L478) [#L496](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L496) [#L527](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L527) [#L554](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L554) [#L597](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L597) [#L607](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L607) [#L623](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L623) [#L647](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L647) [#L672](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L672) [#L704](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L704) [#L725](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L725) [#L762](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L762) [#L779](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L779) [#L794](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L794) [#L827](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L827) [#L840](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L840) [#L872](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L872) [#L918](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L918) [#L930](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L930) [#L947](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L947) [#L970](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L970) [#L993](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L993) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-/// @audit Missing zero check for `accessControlManager_`
-90:     function initialize(
-            address accessControlManager_,
-            address[] calldata tokens_,
-            uint256[] calldata distributionSpeeds_
-        ) external initializer {
-
-/// @audit Missing zero check for `prime_`
-177:     function setPrimeToken(address prime_) external onlyOwner {
-
-/// @audit Missing zero check for `token_`
-192:     function releaseFunds(address token_) external {
-
-/// @audit Missing zero check for `to_`
-216:     function sweepToken(IERC20Upgradeable token_, address to_, uint256 amount_) external onlyOwner {
-
-/// @audit Missing zero check for `token_`
-232:     function getEffectiveDistributionSpeed(address token_) external view returns (uint256) {
-
-/// @audit Missing zero check for `token_`
-249:     function accrueTokens(address token_) public {
-
-/// @audit Missing zero check for `token_`
-286:     function _initializeToken(address token_) internal {
-
-/// @audit Missing zero check for `token_`
-310:     function _setTokenDistributionSpeed(address token_, uint256 distributionSpeed_) internal {
-
-/// @audit Missing zero check for `token_`
-332:     function _ensureTokenInitialized(address token_) internal view {
-
-```
-[#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) [#L192](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L192) [#L216](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L216) [#L232](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L232) [#L249](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L249) [#L286](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L286) [#L310](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L310) [#L332](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L332) 
-
-</details>
-
----
-
-<a name="NC-18"></a> 
-### [NC-18] Named mappings are recommended
+<a name="NC-11"></a> 
+### [NC-11] Named mappings are recommended
 [Named mappings](https://docs.soliditylang.org/en/v0.8.18/types.html#mapping-types) (with syntax `mapping(KeyType KeyName? => ValueType ValueName?)`) are recommended.It can make the mapping variables clearer, more readable and easier to maintain.
-
-<details>
-<summary>
-There are <b>11</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-21:     mapping(address => uint256) public tokenDistributionSpeeds;
-
-24:     mapping(address => uint256) public lastAccruedBlock;
-
-27:     mapping(address => uint256) public tokenAmountAccrued;
-
-```
-[#L21](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L21) [#L24](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L24) [#L27](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L27) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-46:     mapping(address => Token) public tokens;
-
-61:     mapping(address => uint256) public stakedAt;
-
-64:     mapping(address => Market) public markets;
-
-67:     mapping(address => mapping(address => Interest)) public interests;
-
-88:     mapping(uint256 => mapping(address => bool)) public isScoreUpdated;
-
-100:     mapping(address => address) public vTokenForAsset;
-
-110:     mapping(address => uint256) public unreleasedPSRIncome;
-
-114:     mapping(address => uint256) public unreleasedPLPIncome;
-
-```
-[#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L46) [#L61](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L61) [#L64](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L64) [#L67](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L67) [#L88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L100) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L110) [#L114](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L114) 
-
-</details>
-
----
-
-<a name="NC-19"></a> 
-### [NC-19] NatSpec documentation for contract is missing
-e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
-
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-35: contract Prime is IIncomeDestination, AccessControlledV8, PausableUpgradeable, MaxLoopsLimitHelper, PrimeStorageV1 {
-
-```
-[#L35](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L35) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-8: contract PrimeLiquidityProvider is AccessControlledV8, PausableUpgradeable {
-
-```
-[#L8](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L8) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-6: contract PrimeStorageV1 {
-
-```
-[#L6](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L6) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-13: library FixedMath {
-
-```
-[#L13](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L13) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-38: library FixedMath0x {
-
-```
-[#L38](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L38) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-10: library Scores {
-
-```
-[#L10](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L10) 
-
-</details>
-
----
-
-<a name="NC-20"></a> 
-### [NC-20] Missing NatSpec `@param`
-Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
-
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-/// @audit Missing @param for _wbnb
-/// @audit Missing @param for _vbnb
-/// @audit Missing @param for _blocksPerYear
-103:     constructor(address _wbnb, address _vbnb, uint256 _blocksPerYear) {
-
-/// @audit Missing @param for user
-827:     function _updateRoundAfterTokenBurned(address user) internal {
-
-```
-[#L103](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L103) [#L827](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L827) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-/// @audit Missing @param for x
-53:     function ln(int256 x) internal pure returns (int256 r) {
-
-/// @audit Missing @param for x
-58:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-/// @audit Missing @param for x
-51:     function ln(int256 x) internal pure returns (int256 r) {
-            if (x > LN_MAX_VAL) {
-
-/// @audit Missing @param for x
-140:     function exp(int256 x) internal pure returns (int256 r) {
-             if (x < EXP_MIN_VAL) {
-
-```
-[#L51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51) [#L140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140) 
-
-</details>
-
----
-
-<a name="NC-21"></a> 
-### [NC-21] NatSpec `@return` is missing
-It is recommended that Solidity contracts are fully annotated using NatSpec
-
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-53:     function ln(int256 x) internal pure returns (int256 r) {
-
-58:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-51:     function ln(int256 x) internal pure returns (int256 r) {
-            if (x > LN_MAX_VAL) {
-
-140:     function exp(int256 x) internal pure returns (int256 r) {
-             if (x < EXP_MIN_VAL) {
-
-```
-[#L51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51) [#L140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140) 
-
-</details>
-
----
-
-<a name="NC-22"></a> 
-### [NC-22] There is no need to initialize variables with 0
-Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
 
 <details>
 <summary>
@@ -2083,787 +1586,395 @@ There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-178:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-204:         for (uint256 i = 0; i < users.length; ) {
-
-211:             for (uint256 j = 0; j < _allMarkets.length; ) {
-
-246:         for (uint256 i = 0; i < allMarkets.length; ) {
-
-335:             for (uint256 i = 0; i < users.length; ) {
-
-349:             for (uint256 i = 0; i < users.length; ) {
-
-609:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-625:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-677:         interests[vToken][user].accrued = 0;
-
-730:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-736:             interests[_allMarkets[i]][user].score = 0;
-
-737:             interests[_allMarkets[i]][user].rewardIndex = 0;
+66:   mapping(uint256 => Position) public positions_mapping;
 
 ```
-[#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L178) [#L204](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L204) [#L211](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L211) [#L246](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L246) [#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L335) [#L349](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L349) [#L609](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L609) [#L625](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L625) [#L677](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L677) [#L730](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L730) [#L736](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L736) [#L737](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L737) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/core/RdpxV2Core.sol
 
-46:     int256 private constant EXP_MAX_VAL = 0;
+73:   mapping(string => uint256) public reservesIndex;
+
+76:   mapping(uint256 => Bond) public bonds;
+
+79:   mapping(uint256 => bool) public optionsOwned;
+
+82:   mapping(uint256 => bool) public fundingPaidFor;
 
 ```
-[#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L46) 
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+37:   mapping(uint256 => Bond) public bonds;
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+63:   mapping(uint256 => OptionPosition) public optionPositions;
+
+66:   mapping(uint256 => uint256) public fundingPaymentsAccountedFor;
+
+69:   mapping(uint256 => mapping(uint256 => uint256))
+
+73:   mapping(uint256 => uint256) public totalFundingForEpoch;
+
+76:   mapping(uint256 => uint256) public optionsPerStrike;
+
+79:   mapping(uint256 => uint256) public latestFundingPerStrike;
+
+82:   mapping(uint256 => uint256) public fundingRates;
+
+```
 
 </details>
 
 ---
 
-<a name="NC-23"></a> 
-### [NC-23] Put all system-wide constants in one file
+<a name="NC-12"></a> 
+### [NC-12] There is no need to initialize variables with 0
+Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
+
+<details>
+<summary>
+There are <b>10</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+147:     for (uint256 i = 0; i < tokens.length; i++) {
+
+```
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+120:     for (uint i = 0; i < positions_array.length; i++) {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+167:     for (uint256 i = 0; i < tokens.length; i++) {
+
+775:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+836:     for (uint256 i = 0; i < _amounts.length; i++) {
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+103:     for (uint256 i = 0; i < tokens.length; i++) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+89:   uint256 public latestFundingPaymentPointer = 0;
+
+225:     for (uint256 i = 0; i < tokens.length; i++) {
+
+328:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+413:     for (uint256 i = 0; i < strikes.length; i++) {
+
+```
+
+</details>
+
+---
+
+<a name="NC-13"></a> 
+### [NC-13] Put all system-wide constants in one file
 Putting all the system-wide constants in a single file improves code readability, makes it easier to understand the basic configuration and limitations of the system, and makes maintenance easier.
 
 <details>
 <summary>
-There are <b>12</b> instances (click to show):
+There are <b>14</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-12:     uint256 public constant MAX_DISTRIBUTION_SPEED = 1e18;
-
-15:     uint256 internal constant EXP_SCALE = 1e18;
+48:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
 ```
-[#L12](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L12) [#L15](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L15) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
+File: contracts/core/RdpxV2Bond.sol
 
-31:     uint256 internal constant EXP_SCALE = 1e18;
-
-34:     uint256 public constant MINIMUM_STAKED_XVS = 1000 * EXP_SCALE;
-
-37:     uint256 public constant MAXIMUM_XVS_CAP = 100000 * EXP_SCALE;
-
-40:     uint256 public constant STAKING_PERIOD = 90 * 24 * 60 * 60;
-
-43:     uint256 internal constant MAXIMUM_BPS = 10000;
+22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31) [#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L34) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L37) [#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L40) [#L43](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L43) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/core/RdpxV2Core.sol
 
-40:     int256 internal constant FIXED_1 = int256(0x0000000000000000000000000000000080000000000000000000000000000000);
+85:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
-42:     int256 private constant LN_MAX_VAL = FIXED_1;
+88:   uint256 public constant RDPX_RATIO_PERCENTAGE = 25 * DEFAULT_PRECISION;
 
-44:     int256 private constant LN_MIN_VAL = int256(0x0000000000000000000000000000000000000000000000000000000733048c5a);
-
-46:     int256 private constant EXP_MAX_VAL = 0;
-
-48:     int256 private constant EXP_MIN_VAL = -int256(0x0000000000000000000000000000001ff0000000000000000000000000000000);
+91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
 
 ```
-[#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L40) [#L42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L42) [#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L44) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L46) [#L48](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L48) 
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+31:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+19:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+20:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+45:   bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+
+48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+67:   uint256 public constant DEFAULT_PRECISION = 1e8;
+
+70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
 
 </details>
 
 ---
 
-<a name="NC-24"></a> 
-### [NC-24] State variables should include comments
-Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-31:     uint256 internal constant EXP_SCALE = 1e18;
-
-```
-[#L31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31) 
-
-</details>
-
----
-
-<a name="NC-25"></a> 
-### [NC-25] Contract declarations should have NatSpec `@title` annotations
-Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
-
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-35: contract Prime is IIncomeDestination, AccessControlledV8, PausableUpgradeable, MaxLoopsLimitHelper, PrimeStorageV1 {
-
-```
-[#L35](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L35) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-8: contract PrimeLiquidityProvider is AccessControlledV8, PausableUpgradeable {
-
-```
-[#L8](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L8) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-6: contract PrimeStorageV1 {
-
-```
-[#L6](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L6) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-13: library FixedMath {
-
-```
-[#L13](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L13) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-38: library FixedMath0x {
-
-```
-[#L38](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L38) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-10: library Scores {
-
-```
-[#L10](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L10) 
-
-</details>
-
----
-
-<a name="NC-26"></a> 
-### [NC-26] Lines are too long
-The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
-
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-4: import { SafeERC20Upgradeable, IERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-4: import { SafeERC20Upgradeable, IERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-```
-[#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) 
-
-</details>
-
----
-
-<a name="NC-27"></a> 
-### [NC-27] Unused errors
-The following `error`s are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion. Note that there may be cases where an error appears to be used because it has multiple definitions in different files. In such cases, the definitions should be moved to a separate file.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-36: error UnsignedValueTooLarge(uint256 x);
-
-```
-[#L36](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L36) 
-
-</details>
-
----
-
-<a name="NC-28"></a> 
-### [NC-28] Unused named return
-Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
-
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-/// @audit `supplyAPR` not used
-/// @audit `borrowAPR` not used
-496:     function calculateAPR(address market, address user) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-/// @audit `supplyAPR` not used
-/// @audit `borrowAPR` not used
-527:     function estimateAPR(
-             address market,
-             address user,
-             uint256 borrow,
-             uint256 supply,
-             uint256 xvsStaked
-         ) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-```
-[#L496](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L496) [#L527](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L527) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-/// @audit `r` not used
-53:     function ln(int256 x) internal pure returns (int256 r) {
-
-/// @audit `r` not used
-58:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
-
-</details>
-
----
-
-<a name="NC-29"></a> 
-### [NC-29] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-14"></a> 
+### [NC-14] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 <details>
 <summary>
-There are <b>5</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-295:         markets[vToken].rewardIndex = 0;
-
-298:         markets[vToken].sumOfMembersScore = 0;
-
-677:         interests[vToken][user].accrued = 0;
-
-736:             interests[_allMarkets[i]][user].score = 0;
-
-737:             interests[_allMarkets[i]][user].rewardIndex = 0;
-
-```
-[#L295](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L295) [#L298](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L298) [#L677](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L677) [#L736](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L736) [#L737](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L737) 
-
-</details>
-
----
-
-<a name="NC-30"></a> 
-### [NC-30] Solidity compiler version is not fixed
-To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
-
-<details>
-<summary>
 There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/IPrime.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-2: pragma solidity ^0.5.16;
+343:       optionPositions[optionIds[i]].strike = 0;
 
 ```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/IPrime.sol#L2) 
 
 </details>
 
 ---
 
-<a name="NC-31"></a> 
-### [NC-31] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-15"></a> 
+### [NC-15] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
 <summary>
-There are <b>12</b> instances (click to show):
+There are <b>14</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-12:     uint256 public constant MAX_DISTRIBUTION_SPEED = 1e18;
-
-15:     uint256 internal constant EXP_SCALE = 1e18;
+48:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
 ```
-[#L12](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L12) [#L15](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L15) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
+File: contracts/core/RdpxV2Bond.sol
 
-31:     uint256 internal constant EXP_SCALE = 1e18;
-
-34:     uint256 public constant MINIMUM_STAKED_XVS = 1000 * EXP_SCALE;
-
-37:     uint256 public constant MAXIMUM_XVS_CAP = 100000 * EXP_SCALE;
-
-40:     uint256 public constant STAKING_PERIOD = 90 * 24 * 60 * 60;
-
-43:     uint256 internal constant MAXIMUM_BPS = 10000;
+22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
-[#L31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31) [#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L34) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L37) [#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L40) [#L43](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L43) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/core/RdpxV2Core.sol
 
-40:     int256 internal constant FIXED_1 = int256(0x0000000000000000000000000000000080000000000000000000000000000000);
+85:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
-42:     int256 private constant LN_MAX_VAL = FIXED_1;
+88:   uint256 public constant RDPX_RATIO_PERCENTAGE = 25 * DEFAULT_PRECISION;
 
-44:     int256 private constant LN_MIN_VAL = int256(0x0000000000000000000000000000000000000000000000000000000733048c5a);
-
-46:     int256 private constant EXP_MAX_VAL = 0;
-
-48:     int256 private constant EXP_MIN_VAL = -int256(0x0000000000000000000000000000001ff0000000000000000000000000000000);
+91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
 
 ```
-[#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L40) [#L42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L42) [#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L44) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L46) [#L48](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L48) 
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+31:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+19:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+20:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+45:   bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+
+48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+67:   uint256 public constant DEFAULT_PRECISION = 1e8;
+
+70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
 
 </details>
 
 ---
 
-<a name="NC-32"></a> 
-### [NC-32] Use the latest solidity version for deployment
-Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
+<a name="NC-16"></a> 
+### [NC-16] Use of `override` is unnecessary
+Starting with Solidity version [0.8.8](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), using the `override` keyword when the function solely overrides an interface function, and the function doesn't exist in multiple base contracts, is unnecessary.
 
 <details>
 <summary>
-There are <b>6</b> instances (click to show):
+There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/dpxETH/DpxEthToken.sol
 
-2: pragma solidity 0.8.13;
+50:   ) public override onlyRole(BURNER_ROLE) {
 
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-2: pragma solidity 0.8.13;
+59:   ) internal override {
 
 ```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-3: pragma solidity 0.8.13;
-
-```
-[#L3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3) 
 
 </details>
 
 ---
 
-<a name="NC-33"></a> 
-### [NC-33] Whitespace in Expressions
+<a name="NC-17"></a> 
+### [NC-17] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>3</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-660:         (uint256 capital, , ) = _capitalForScore(xvsBalanceForScore, borrow, supply, market);
+105:     (uint128 liquidity, , , , ) = get_pool.positions(
+
+193:     (uint256 tokenId, uint128 amountLiquidity, , ) = univ3_positions.mint(
 
 ```
-[#L660](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L660) 
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
+
+```
 
 </details>
 
 ---
 
-<a name="NC-34"></a> 
-### [NC-34] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-18"></a> 
+### [NC-18] Return values of `approve()` not checked
+Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-181:         prime = prime_;
+134:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
-[#L181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L181) 
-
-</details>
-
----
-
-<a name="NC-35"></a> 
-### [NC-35] Names of `private`/`internal` functions should be prefixed with an underscore
-It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
-
-<details>
-<summary>
-There are <b>9</b> instances (click to show):
-</summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-904:     function isEligible(uint256 amount) internal view returns (bool) {
+150:       IERC20WithBurn(_token).approve(_target, _amount);
+
+169:     IERC20WithBurn(params._tokenA).approve(
+
+173:     IERC20WithBurn(params._tokenB).approve(
 
 ```
-[#L904](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L904) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
+File: contracts/core/RdpxV2Core.sol
 
-22:     function toFixed(uint256 n, uint256 d) internal pure returns (int256) {
+339:     IERC20WithBurn(weth).approve(
 
-34:     function uintDiv(uint256 u, int256 f) internal pure returns (uint256) {
+343:     IERC20WithBurn(weth).approve(addresses.dopexAMMRouter, type(uint256).max);
 
-46:     function uintMul(uint256 u, int256 f) internal pure returns (uint256) {
+344:     IERC20WithBurn(weth).approve(addresses.dpxEthCurvePool, type(uint256).max);
 
-53:     function ln(int256 x) internal pure returns (int256 r) {
+345:     IERC20WithBurn(weth).approve(
 
-58:     function exp(int256 x) internal pure returns (int256 r) {
+411:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
-[#L22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L22) [#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L34) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L46) [#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-51:     function ln(int256 x) internal pure returns (int256 r) {
-            if (x > LN_MAX_VAL) {
+245:       ? collateralToken.approve(
 
-140:     function exp(int256 x) internal pure returns (int256 r) {
-             if (x < EXP_MIN_VAL) {
+249:       : collateralToken.approve(addresses.perpetualAtlanticVaultLP, 0);
 
 ```
-[#L51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51) [#L140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-22:     function calculateScore(
-            uint256 xvs,
-            uint256 capital,
-            uint256 alphaNumerator,
-            uint256 alphaDenominator
-        ) internal pure returns (uint256) {
-            // Score function is:
+106:     collateral.approve(_perpetualAtlanticVault, type(uint256).max);
+
+107:     ERC20(rdpx).approve(_perpetualAtlanticVault, type(uint256).max);
 
 ```
-[#L22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L22) 
-
-</details>
-
----
-
-<a name="NC-36"></a> 
-### [NC-36] Names of `private`/`internal` state variables should be prefixed with an underscore
-It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
-
-<details>
-<summary>
-There are <b>12</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-15:     uint256 internal constant EXP_SCALE = 1e18;
-
-```
-[#L15](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L15) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-31:     uint256 internal constant EXP_SCALE = 1e18;
-
-43:     uint256 internal constant MAXIMUM_BPS = 10000;
-
-70:     address[] internal allMarkets;
-
-79:     address internal xvsVault;
-
-82:     address internal xvsVaultRewardToken;
-
-85:     uint256 internal xvsVaultPoolId;
-
-```
-[#L31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31) [#L43](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L43) [#L70](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L70) [#L79](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L79) [#L82](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L82) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L85) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-40:     int256 internal constant FIXED_1 = int256(0x0000000000000000000000000000000080000000000000000000000000000000);
-
-42:     int256 private constant LN_MAX_VAL = FIXED_1;
-
-44:     int256 private constant LN_MIN_VAL = int256(0x0000000000000000000000000000000000000000000000000000000733048c5a);
-
-46:     int256 private constant EXP_MAX_VAL = 0;
-
-48:     int256 private constant EXP_MIN_VAL = -int256(0x0000000000000000000000000000001ff0000000000000000000000000000000);
-
-```
-[#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L40) [#L42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L42) [#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L44) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L46) [#L48](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L48) 
-
-</details>
-
----
-
-<a name="NC-37"></a> 
-### [NC-37] Variables should be named in mixedCase style
-As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
-
-<details>
-<summary>
-There are <b>16</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-40:     uint256 public immutable BLOCKS_PER_YEAR;
-
-42:     /// @notice address of WBNB contract
-
-46:     /// @notice address of VBNB contract
-
-```
-[#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L40) [#L42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L42) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L46) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-12:     uint256 public constant MAX_DISTRIBUTION_SPEED = 1e18;
-
-15:     uint256 internal constant EXP_SCALE = 1e18;
-
-```
-[#L12](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L12) [#L15](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L15) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-31:     uint256 internal constant EXP_SCALE = 1e18;
-
-34:     uint256 public constant MINIMUM_STAKED_XVS = 1000 * EXP_SCALE;
-
-37:     uint256 public constant MAXIMUM_XVS_CAP = 100000 * EXP_SCALE;
-
-40:     uint256 public constant STAKING_PERIOD = 90 * 24 * 60 * 60;
-
-43:     uint256 internal constant MAXIMUM_BPS = 10000;
-
-124:     uint256[25] private __gap;
-
-```
-[#L31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31) [#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L34) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L37) [#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L40) [#L43](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L43) [#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L124) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-40:     int256 internal constant FIXED_1 = int256(0x0000000000000000000000000000000080000000000000000000000000000000);
-
-42:     int256 private constant LN_MAX_VAL = FIXED_1;
-
-43:     // Minimum ln argument. Notice this is related to EXP_MIN_VAL (e ^ -63.875)
-
-44:     int256 private constant LN_MIN_VAL = int256(0x0000000000000000000000000000000000000000000000000000000733048c5a);
-
-46:     int256 private constant EXP_MAX_VAL = 0;
-
-```
-[#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L40) [#L42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L42) [#L43](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L43) [#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L44) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L46) 
-
-</details>
-
----
-
-<a name="NC-38"></a> 
-### [NC-38] Event is missing `indexed` fields
-Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
-
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-51:     event Mint(address indexed user, bool isIrrevocable);
-
-91:     event InterestClaimed(address indexed user, address indexed market, uint256 amount);
-
-```
-[#L51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L51) [#L91](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L91) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-33:     event TokenDistributionSpeedUpdated(address indexed token, uint256 newSpeed);
-
-36:     event PrimeTokenUpdated(address oldPrimeToken, address newPrimeToken);
-
-39:     event TokensAccrued(address indexed token, uint256 amount);
-
-42:     event TokenTransferredToPrime(address indexed token, uint256 amount);
-
-45:     event SweepToken(address indexed token, address indexed to, uint256 sweepAmount);
-
-48:     event TokenInitialBalanceUpdated(address indexed token, uint256 balance);
-
-```
-[#L33](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L33) [#L36](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L36) [#L39](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L39) [#L42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L42) [#L45](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L45) [#L48](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L48) 
-
-</details>
-
----
-
-<a name="NC-39"></a> 
-### [NC-39] Constants should be defined rather than using magic numbers
-
-<details>
-<summary>
-There are <b>20</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-661:         capital = capital * (10 ** (18 - vToken.decimals()));
-
-```
-[#L661](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L661) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-164:         r += z * 0x10e1b3be415a0000; // add y^02 * (20! / 02!)
-
-166:         r += z * 0x05a0913f6b1e0000; // add y^03 * (20! / 03!)
-
-168:         r += z * 0x0168244fdac78000; // add y^04 * (20! / 04!)
-
-170:         r += z * 0x004807432bc18000; // add y^05 * (20! / 05!)
-
-172:         r += z * 0x000c0135dca04000; // add y^06 * (20! / 06!)
-
-174:         r += z * 0x0001b707b1cdc000; // add y^07 * (20! / 07!)
-
-176:         r += z * 0x000036e0f639b800; // add y^08 * (20! / 08!)
-
-178:         r += z * 0x00000618fee9f800; // add y^09 * (20! / 09!)
-
-180:         r += z * 0x0000009c197dcc00; // add y^10 * (20! / 10!)
-
-182:         r += z * 0x0000000e30dce400; // add y^11 * (20! / 11!)
-
-184:         r += z * 0x000000012ebd1300; // add y^12 * (20! / 12!)
-
-186:         r += z * 0x0000000017499f00; // add y^13 * (20! / 13!)
-
-188:         r += z * 0x0000000001a9d480; // add y^14 * (20! / 14!)
-
-190:         r += z * 0x00000000001c6380; // add y^15 * (20! / 15!)
-
-192:         r += z * 0x000000000001c638; // add y^16 * (20! / 16!)
-
-194:         r += z * 0x0000000000001ab8; // add y^17 * (20! / 17!)
-
-196:         r += z * 0x000000000000017c; // add y^18 * (20! / 18!)
-
-198:         r += z * 0x0000000000000014; // add y^19 * (20! / 19!)
-
-200:         r += z * 0x0000000000000001; // add y^20 * (20! / 20!)
-
-```
-[#L164](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L164) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L166) [#L168](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L168) [#L170](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L170) [#L172](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L172) [#L174](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L174) [#L176](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L176) [#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L178) [#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L180) [#L182](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L182) [#L184](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L184) [#L186](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L186) [#L188](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L188) [#L190](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L190) [#L192](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L192) [#L194](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L194) [#L196](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L196) [#L198](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L198) [#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L200) 
 
 </details>
 
@@ -2878,18 +1989,15 @@ Saves a storage slot for the mapping. Depending on the circumstances and sizes o
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There is <b>1</b> instance (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-67:     mapping(address => mapping(address => Interest)) public interests;
-
-88:     mapping(uint256 => mapping(address => bool)) public isScoreUpdated;
+69:   mapping(uint256 => mapping(uint256 => uint256))
 
 ```
-[#L67](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L67) [#L88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88) 
 
 </details>
 
@@ -2910,7 +2018,6 @@ Global finding
 
 ```
 
-
 </details>
 
 ---
@@ -2921,287 +2028,164 @@ The expression `type(int).min/(-1)` is the only case where division causes an ov
 
 <details>
 <summary>
-There are <b>124</b> instances (click to show):
+There are <b>52</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-501:         uint256 supply = (exchangeRate * balanceOfAccount) / EXP_SCALE;
-
-585:             delta = ((distributionIncome * EXP_SCALE) / markets[vToken].sumOfMembersScore);
-
-654:         uint256 supply = (exchangeRate * balanceOfAccount) / EXP_SCALE;
-
-881:         uint256 borrowCapUSD = (xvsPrice * ((xvs * markets[market].borrowMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-881:         uint256 borrowCapUSD = (xvsPrice * ((xvs * markets[market].borrowMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-882:         uint256 supplyCapUSD = (xvsPrice * ((xvs * markets[market].supplyMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-882:         uint256 supplyCapUSD = (xvsPrice * ((xvs * markets[market].supplyMultiplier) / EXP_SCALE)) / EXP_SCALE;
-
-885:         uint256 supplyUSD = (tokenPrice * supply) / EXP_SCALE;
-
-886:         uint256 borrowUSD = (tokenPrice * borrow) / EXP_SCALE;
-
-889:             supply = supplyUSD > 0 ? (supply * supplyCapUSD) / supplyUSD : 0;
-
-893:             borrow = borrowUSD > 0 ? (borrow * borrowCapUSD) / borrowUSD : 0;
-
-922:         return (index * score) / EXP_SCALE;
-
-949:         return ((((market.totalBorrows() * market.borrowRatePerBlock()) / EXP_SCALE) * market.reserveFactorMantissa()) /
-
-949:         return ((((market.totalBorrows() * market.borrowRatePerBlock()) / EXP_SCALE) * market.reserveFactorMantissa()) /
-
-972:         uint256 incomePerBlockForDistributionFromMarket = (totalIncomePerBlockFromMarket * _distributionPercentage()) /
-
-1004:         uint256 userYearlyIncome = (userScore * _incomeDistributionYearly(vToken)) / totalScore;
-
-1009:         uint256 userSupplyIncomeYearly = (userYearlyIncome * totalCappedSupply) / totalCappedValue;
-
-1010:         uint256 userBorrowIncomeYearly = (userYearlyIncome * totalCappedBorrow) / totalCappedValue;
-
-1012:         supplyAPR = totalSupply == 0 ? 0 : ((userSupplyIncomeYearly * MAXIMUM_BPS) / totalSupply);
-
-1013:         borrowAPR = totalBorrow == 0 ? 0 : ((userBorrowIncomeYearly * MAXIMUM_BPS) / totalBorrow);
+373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
-[#L501](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L501) [#L585](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L585) [#L654](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L654) [#L881](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L881) [#L881](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L881) [#L882](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L882) [#L882](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L882) [#L885](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L885) [#L886](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L886) [#L889](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L889) [#L893](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L893) [#L922](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L922) [#L949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949) [#L949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949) [#L972](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L972) [#L1004](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1004) [#L1009](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1009) [#L1010](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1010) [#L1012](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1012) [#L1013](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1013) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
+File: contracts/core/RdpxV2Core.sol
 
-25:         return (n.toInt256() * FixedMath0x.FIXED_1) / int256(d.toInt256());
+535:           ethBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
 
-37:         return uint256((u.toInt256() * FixedMath0x.FIXED_1) / f);
+539:           dpxEthBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
 
-49:         return uint256((u.toInt256() * f) / FixedMath0x.FIXED_1);
+546:       ? (((_amount * getDpxEthPrice()) / 1e8) -
+
+547:         (((_amount * getDpxEthPrice()) * slippageTolerance) / 1e16))
+
+548:       : (((_amount * getEthPrice()) / 1e8) -
+
+549:         (((_amount * getEthPrice()) * slippageTolerance) / 1e16));
+
+570:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= _amount / 2;
+
+574:       _amount / 2
+
+579:       .deposit(_amount / 2);
+
+605:     uint256 rdpxRequiredInWeth = (_rdpxRequired * getRdpxPrice()) / 1e8;
+
+608:     amount1 = ((rdpxRequiredInWeth * _amount) /
+
+612:     amount1 = (amount1 * (100e8 - _delegateFee)) / 1e10;
+
+658:         (_rdpxAmount * rdpxBurnPercentage) / 1e10
+
+665:           (_rdpxAmount * rdpxFeePercentage) / 1e10
+
+669:       uint256 rdpxAmountInWeth = (_rdpxAmount * getRdpxPrice()) / 1e8;
+
+673:       uint256 extraRdpxToWithdraw = (discountReceivedInWeth * 1e8) /
+
+1165:         1e2) / (Math.sqrt(1e18)); // 1e8 precision
+
+1170:         ((RDPX_RATIO_PERCENTAGE - (bondDiscount / 2)) *
+
+1172:           DEFAULT_PRECISION) /
+
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
+
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
+
+1181:         (RDPX_RATIO_PERCENTAGE * _amount * DEFAULT_PRECISION) /
+
+1185:         (ETH_RATIO_PERCENTAGE * _amount) /
+
+1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
-[#L25](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L25) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L37) [#L49](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L49) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-75:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000000001c8464f76164760000000); // / e ^ -32
+270:     uint256 strike = roundUp(currentPrice - (currentPrice / 4)); // 25% below the current price
 
-75:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000000001c8464f76164760000000); // / e ^ -32
+276:     uint256 requiredCollateral = (amount * strike) / 1e8;
 
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
+335:       ethAmount += (amount * strike) / 1e8;
 
-80:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000000f1aaddd7742e90000000000000); // / e ^ -16
+475:           (currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
 
-85:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000afe10820813d78000000000000000); // / e ^ -8
+481:             (currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
 
-85:             x = (x * FIXED_1) / int256(0x00000000000000000000000000000000000afe10820813d78000000000000000); // / e ^ -8
+487:           ((currentFundingRate * (nextFundingPaymentTimestamp() - startTime)) /
 
-90:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000002582ab704279ec00000000000000000); // / e ^ -4
+512:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
 
-90:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000002582ab704279ec00000000000000000); // / e ^ -4
+516:       (currentFundingRate * (block.timestamp - startTime)) / 1e18
 
-95:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000001152aaa3bf81cc000000000000000000); // / e ^ -2
+521:       ((currentFundingRate * (block.timestamp - startTime)) / 1e18),
 
-95:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000001152aaa3bf81cc000000000000000000); // / e ^ -2
+550:     ) * _amount) / 1e8);
 
-100:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000002f16ac6c59de70000000000000000000); // / e ^ -1
+559:     return strike > price ? ((strike - price) * amount) / 1e8 : 0;
 
-100:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000002f16ac6c59de70000000000000000000); // / e ^ -1
+604:         (amount * 1e18) /
 
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-105:             x = (x * FIXED_1) / int256(0x000000000000000000000000000000004da2cbf1be5828000000000000000000); // / e ^ -0.5
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-110:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000063afbe7ab2082c000000000000000000); // / e ^ -0.25
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-115:             x = (x * FIXED_1) / int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d); // / e ^ -0.125
-
-121:         w = (y * y) / FIXED_1;
-
-122:         r += (z * (0x100000000000000000000000000000000 - y)) / 0x100000000000000000000000000000000;
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-123:         z = (z * w) / FIXED_1; // add y^01 / 01 - y^02 / 02
-
-124:         r += (z * (0x0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa - y)) / 0x200000000000000000000000000000000;
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-125:         z = (z * w) / FIXED_1; // add y^03 / 03 - y^04 / 04
-
-126:         r += (z * (0x099999999999999999999999999999999 - y)) / 0x300000000000000000000000000000000;
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-127:         z = (z * w) / FIXED_1; // add y^05 / 05 - y^06 / 06
-
-128:         r += (z * (0x092492492492492492492492492492492 - y)) / 0x400000000000000000000000000000000;
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-129:         z = (z * w) / FIXED_1; // add y^07 / 07 - y^08 / 08
-
-130:         r += (z * (0x08e38e38e38e38e38e38e38e38e38e38e - y)) / 0x500000000000000000000000000000000;
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-131:         z = (z * w) / FIXED_1; // add y^09 / 09 - y^10 / 10
-
-132:         r += (z * (0x08ba2e8ba2e8ba2e8ba2e8ba2e8ba2e8b - y)) / 0x600000000000000000000000000000000;
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-133:         z = (z * w) / FIXED_1; // add y^11 / 11 - y^12 / 12
-
-134:         r += (z * (0x089d89d89d89d89d89d89d89d89d89d89 - y)) / 0x700000000000000000000000000000000;
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-135:         z = (z * w) / FIXED_1; // add y^13 / 13 - y^14 / 14
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-163:         z = (z * y) / FIXED_1;
-
-164:         r += z * 0x10e1b3be415a0000; // add y^02 * (20! / 02!)
-
-165:         z = (z * y) / FIXED_1;
-
-166:         r += z * 0x05a0913f6b1e0000; // add y^03 * (20! / 03!)
-
-167:         z = (z * y) / FIXED_1;
-
-168:         r += z * 0x0168244fdac78000; // add y^04 * (20! / 04!)
-
-169:         z = (z * y) / FIXED_1;
-
-170:         r += z * 0x004807432bc18000; // add y^05 * (20! / 05!)
-
-171:         z = (z * y) / FIXED_1;
-
-172:         r += z * 0x000c0135dca04000; // add y^06 * (20! / 06!)
-
-173:         z = (z * y) / FIXED_1;
-
-174:         r += z * 0x0001b707b1cdc000; // add y^07 * (20! / 07!)
-
-175:         z = (z * y) / FIXED_1;
-
-176:         r += z * 0x000036e0f639b800; // add y^08 * (20! / 08!)
-
-177:         z = (z * y) / FIXED_1;
-
-178:         r += z * 0x00000618fee9f800; // add y^09 * (20! / 09!)
-
-179:         z = (z * y) / FIXED_1;
-
-180:         r += z * 0x0000009c197dcc00; // add y^10 * (20! / 10!)
-
-181:         z = (z * y) / FIXED_1;
-
-182:         r += z * 0x0000000e30dce400; // add y^11 * (20! / 11!)
-
-183:         z = (z * y) / FIXED_1;
-
-184:         r += z * 0x000000012ebd1300; // add y^12 * (20! / 12!)
-
-185:         z = (z * y) / FIXED_1;
-
-186:         r += z * 0x0000000017499f00; // add y^13 * (20! / 13!)
-
-187:         z = (z * y) / FIXED_1;
-
-188:         r += z * 0x0000000001a9d480; // add y^14 * (20! / 14!)
-
-189:         z = (z * y) / FIXED_1;
-
-190:         r += z * 0x00000000001c6380; // add y^15 * (20! / 15!)
-
-191:         z = (z * y) / FIXED_1;
-
-192:         r += z * 0x000000000001c638; // add y^16 * (20! / 16!)
-
-193:         z = (z * y) / FIXED_1;
-
-194:         r += z * 0x0000000000001ab8; // add y^17 * (20! / 17!)
-
-195:         z = (z * y) / FIXED_1;
-
-196:         r += z * 0x000000000000017c; // add y^18 * (20! / 18!)
-
-197:         z = (z * y) / FIXED_1;
-
-198:         r += z * 0x0000000000000014; // add y^19 * (20! / 19!)
-
-199:         z = (z * y) / FIXED_1;
-
-200:         r += z * 0x0000000000000001; // add y^20 * (20! / 20!)
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-201:         r = r / 0x21c3677c82b40000 + y + FIXED_1; // divide by 20! and then add y^1 / 1! + y^0 / 0!
-
-208:                 (r * int256(0x00000000000000000000000000000000000000f1aaddd7742e56d32fb9f99744)) /
-
-214:                 (r * int256(0x00000000000000000000000000000000000afe10820813d65dfe6a33c07f738f)) /
-
-220:                 (r * int256(0x0000000000000000000000000000000002582ab704279e8efd15e0265855c47a)) /
-
-226:                 (r * int256(0x000000000000000000000000000000001152aaa3bf81cb9fdb76eae12d029571)) /
-
-232:                 (r * int256(0x000000000000000000000000000000002f16ac6c59de6f8d5d6f63c1482a7c86)) /
-
-238:                 (r * int256(0x000000000000000000000000000000004da2cbf1be5827f9eb3ad1aa9866ebb3)) /
-
-244:                 (r * int256(0x0000000000000000000000000000000063afbe7ab2082ba1a0ae5e4eb1b479dc)) /
-
-250:                 (r * int256(0x0000000000000000000000000000000070f5a893b608861e1f58934f97aea57d)) /
-
-256:                 (r * int256(0x00000000000000000000000000000000783eafef1c0a8f3978c7f81824d62ebf)) /
+612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
-[#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L75) [#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L75) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L80](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L80) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L85) [#L85](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L85) [#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L90) [#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L90) [#L95](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L95) [#L95](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L95) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L100) [#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L100) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115) [#L121](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L121) [#L122](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L122) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L123) [#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L124) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L125](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L125) [#L126](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L126) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L127](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L127) [#L128](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L128) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L129](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L129) [#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L130) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L131](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L131) [#L132](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L132) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L133](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L133) [#L134](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L134) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L135) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L163](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L163) [#L164](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L164) [#L165](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L165) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L166) [#L167](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L167) [#L168](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L168) [#L169](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L169) [#L170](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L170) [#L171](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L171) [#L172](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L172) [#L173](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L173) [#L174](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L174) [#L175](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L175) [#L176](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L176) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L177) [#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L178) [#L179](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L179) [#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L180) [#L181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L181) [#L182](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L182) [#L183](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L183) [#L184](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L184) [#L185](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L185) [#L186](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L186) [#L187](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L187) [#L188](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L188) [#L189](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L189) [#L190](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L190) [#L191](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L191) [#L192](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L192) [#L193](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L193) [#L194](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L194) [#L195](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L195) [#L196](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L196) [#L197](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L197) [#L198](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L198) [#L199](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L199) [#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L200) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L201) [#L208](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L208) [#L214](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L214) [#L220](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L220) [#L226](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L226) [#L232](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L232) [#L238](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L238) [#L244](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L244) [#L250](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L250) [#L256](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L256) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-59:             (FixedMath.ln(ratio) * alphaNumerator.toInt256()) / alphaDenominator.toInt256()
+281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
 
 ```
-[#L59](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L59) 
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+230:       1e2) / (Math.sqrt(1e18)); // 1e6 precision
+
+232:     uint256 tokenAToRemove = ((((_amount * 4) * 1e18) /
+
+235:       baseReLpRatio) / (1e18 * DEFAULT_PRECISION * 1e2);
+
+239:     uint256 lpToRemove = (tokenAToRemove * totalLpSupply) /
+
+251:       ((tokenAToRemove * liquiditySlippageTolerance) / 1e8);
+
+252:     uint256 mintokenBAmount = ((tokenAToRemove * tokenAInfo.tokenAPrice) /
+
+254:       ((tokenAToRemove * tokenAInfo.tokenAPrice) * liquiditySlippageTolerance) /
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+279:         amountB / 2,
+
+290:       amountB / 2,
+
+```
 
 </details>
 
 ---
 
 <a name="GAS-4"></a> 
-### [GAS-4] Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables
+### [GAS-4] Don't transfer with zero amount to save gas
+In Solidity, unnecessary operations can waste gas. For example, a transfer function without a zero amount check uses gas even if called with a zero amount, since the contract state remains unchanged. Implementing a zero amount check avoids these unnecessary function calls, saving gas and improving efficiency.
+
+<details>
+<summary>
+There is <b>1</b> instance (click to show):
+</summary>
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+170:     collateral.transfer(receiver, assets);
+
+```
+
+</details>
+
+---
+
+<a name="GAS-5"></a> 
+### [GAS-5] Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables
 
 <details>
 <summary>
@@ -3209,569 +2193,362 @@ There are <b>41</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-574:         distributionIncome += unreleasedPLPAccruedInterest;
+235:     lpTokenBalance += lpReceived;
 
-674:         amount += interests[vToken][user].accrued;
-
-785:         interests[vToken][user].accrued += _interestAccrued(vToken, user);
-
-978:         amount += BLOCKS_PER_YEAR * totalIncomePerBlockFromPLP;
+283:     lpTokenBalance -= lpAmount;
 
 ```
-[#L574](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L574) [#L674](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L674) [#L785](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L785) [#L978](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L978) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/core/RdpxV2Core.sol
 
-266:                 tokenAmountAccrued[token_] += tokenAccrued;
+486:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= premium;
+
+570:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= _amount / 2;
+
+650:       reserveAsset[reservesIndex["RDPX"]].tokenBalance += _rdpxAmount;
+
+681:       reserveAsset[reservesIndex["RDPX"]].tokenBalance +=
+
+711:     reserveAsset[reservesIndex["WETH"]].tokenBalance += wethRequired;
+
+717:     delegate.activeCollateral += wethRequired;
+
+720:     totalWethDelegated -= wethRequired;
+
+779:     reserveAsset[reservesIndex["WETH"]].tokenBalance += amountOfWeth;
+
+780:     reserveAsset[reservesIndex["RDPX"]].tokenBalance -= rdpxAmount;
+
+803:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= fundingAmount;
+
+851:       userTotalBondAmount += returnValues.bondAmountForUser;
+
+852:       totalBondAmount += _amounts[i];
+
+916:     reserveAsset[reservesIndex["WETH"]].tokenBalance += wethRequired;
+
+964:     totalWethDelegated += _amount;
+
+1067:     reserveAsset[reservesIndex["WETH"]].tokenBalance += wethReceived;
+
+1106:       reserveAsset[reservesIndex["RDPX"]].tokenBalance -= _rdpxAmount;
+
+1110:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= _wethAmount;
+
+1196:       wethRequired += IPerpetualAtlanticVault(addresses.perpetualAtlanticVault)
 
 ```
-[#L266](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L266) 
 
 ```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-74:             r -= int256(0x0000000000000000000000000000001000000000000000000000000000000000); // - 32
+302:     totalActiveOptions += amount;
 
-79:             r -= int256(0x0000000000000000000000000000000800000000000000000000000000000000); // - 16
+303:     fundingPaymentsAccountedFor[latestFundingPaymentPointer] += amount;
 
-84:             r -= int256(0x0000000000000000000000000000000400000000000000000000000000000000); // - 8
+304:     optionsPerStrike[strike] += amount;
 
-89:             r -= int256(0x0000000000000000000000000000000200000000000000000000000000000000); // - 4
+309:     ] += amount;
 
-94:             r -= int256(0x0000000000000000000000000000000100000000000000000000000000000000); // - 2
+335:       ethAmount += (amount * strike) / 1e8;
 
-99:             r -= int256(0x0000000000000000000000000000000080000000000000000000000000000000); // - 1
+336:       rdpxAmount += amount;
 
-104:             r -= int256(0x0000000000000000000000000000000040000000000000000000000000000000); // - 0.5
+337:       optionsPerStrike[strike] -= amount;
 
-109:             r -= int256(0x0000000000000000000000000000000020000000000000000000000000000000); // - 0.25
+338:       totalActiveOptions -= amount;
 
-114:             r -= int256(0x0000000000000000000000000000000010000000000000000000000000000000); // - 0.125
+437:       fundingAmount += premium;
 
-122:         r += (z * (0x100000000000000000000000000000000 - y)) / 0x100000000000000000000000000000000;
+440:       fundingPaymentsAccountedFor[latestFundingPaymentPointer] += amount;
 
-124:         r += (z * (0x0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa - y)) / 0x200000000000000000000000000000000;
+445:       ] += amount;
 
-126:         r += (z * (0x099999999999999999999999999999999 - y)) / 0x300000000000000000000000000000000;
+449:       totalFundingForEpoch[latestFundingPaymentPointer] += premium;
 
-128:         r += (z * (0x092492492492492492492492492492492 - y)) / 0x400000000000000000000000000000000;
-
-130:         r += (z * (0x08e38e38e38e38e38e38e38e38e38e38e - y)) / 0x500000000000000000000000000000000;
-
-132:         r += (z * (0x08ba2e8ba2e8ba2e8ba2e8ba2e8ba2e8b - y)) / 0x600000000000000000000000000000000;
-
-134:         r += (z * (0x089d89d89d89d89d89d89d89d89d89d89 - y)) / 0x700000000000000000000000000000000;
-
-136:         r += (z * (0x088888888888888888888888888888888 - y)) / 0x800000000000000000000000000000000; // add y^15 / 15 - y^16 / 16
-
-164:         r += z * 0x10e1b3be415a0000; // add y^02 * (20! / 02!)
-
-166:         r += z * 0x05a0913f6b1e0000; // add y^03 * (20! / 03!)
-
-168:         r += z * 0x0168244fdac78000; // add y^04 * (20! / 04!)
-
-170:         r += z * 0x004807432bc18000; // add y^05 * (20! / 05!)
-
-172:         r += z * 0x000c0135dca04000; // add y^06 * (20! / 06!)
-
-174:         r += z * 0x0001b707b1cdc000; // add y^07 * (20! / 07!)
-
-176:         r += z * 0x000036e0f639b800; // add y^08 * (20! / 08!)
-
-178:         r += z * 0x00000618fee9f800; // add y^09 * (20! / 09!)
-
-180:         r += z * 0x0000009c197dcc00; // add y^10 * (20! / 10!)
-
-182:         r += z * 0x0000000e30dce400; // add y^11 * (20! / 11!)
-
-184:         r += z * 0x000000012ebd1300; // add y^12 * (20! / 12!)
-
-186:         r += z * 0x0000000017499f00; // add y^13 * (20! / 13!)
-
-188:         r += z * 0x0000000001a9d480; // add y^14 * (20! / 14!)
-
-190:         r += z * 0x00000000001c6380; // add y^15 * (20! / 15!)
-
-192:         r += z * 0x000000000001c638; // add y^16 * (20! / 16!)
-
-194:         r += z * 0x0000000000001ab8; // add y^17 * (20! / 17!)
-
-196:         r += z * 0x000000000000017c; // add y^18 * (20! / 18!)
-
-198:         r += z * 0x0000000000000014; // add y^19 * (20! / 19!)
-
-200:         r += z * 0x0000000000000001; // add y^20 * (20! / 20!)
+493:       latestFundingPaymentPointer += 1;
 
 ```
-[#L74](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L74) [#L79](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L79) [#L84](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L84) [#L89](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L89) [#L94](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L94) [#L99](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L99) [#L104](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L104) [#L109](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L109) [#L114](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L114) [#L122](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L122) [#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L124) [#L126](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L126) [#L128](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L128) [#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L130) [#L132](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L132) [#L134](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L134) [#L136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136) [#L164](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L164) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L166) [#L168](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L168) [#L170](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L170) [#L172](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L172) [#L174](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L174) [#L176](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L176) [#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L178) [#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L180) [#L182](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L182) [#L184](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L184) [#L186](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L186) [#L188](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L188) [#L190](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L190) [#L192](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L192) [#L194](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L194) [#L196](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L196) [#L198](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L198) [#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L200) 
-
-</details>
-
----
-
-<a name="GAS-5"></a> 
-### [GAS-5] Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas
-Saves deployment costs.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
-/// @audit Duplicated on line 158
-100:             revert InvalidArguments();
+132:     _totalCollateral += assets;
+
+164:     _rdpxCollateral -= rdpxAmount;
+
+181:     _activeCollateral += amount;
+
+186:     _activeCollateral -= amount;
+
+195:     _totalCollateral += proceeds;
+
+204:     _totalCollateral -= loss;
+
+213:     _rdpxCollateral += amount;
+
+291:     _totalCollateral -= assets;
 
 ```
-[#L100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L100) 
 
 </details>
 
 ---
 
 <a name="GAS-6"></a> 
-### [GAS-6] Increments can be `unchecked` to save gas
-Using `unchecked` increments can save gas by bypassing the built-in overflow checks. This can save 30-40 gas per iteration. So it is recommended to use unchecked increments when overflow is not possible.
+### [GAS-6] `keccak256()` hash of literals should only be computed once
+The result of the hash should be stored in an immutable variable, and the variable should be used instead. If the hash is being used as a part of a function selector, the cast to `bytes4` should also only be done once.
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There are <b>9</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/core/RdpxV2Bond.sol
 
-108:                 ++i;
-
-123:                 ++i;
-
-166:                 ++i;
+22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
-[#L108](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L108) [#L123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L123) [#L166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L166) 
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+31:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+19:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+20:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+45:   bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+
+48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
 
 </details>
 
 ---
 
 <a name="GAS-7"></a> 
-### [GAS-7] Initializers can be marked as payable to save deployment gas
-Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. Initializers can be safely marked as payable, because only the deployer or the factory contract would call the function without carrying any funds.
+### [GAS-7] Operator `>=`/`<=` costs less gas than operator `>`/`<`
+The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only requires `LT` for `>=`. A similar behavior applies for `>`, which uses opcodes `LT` and `ISZERO`, but only requires `GT` for `<=`. It can save 3 gas for each. It should be converted to the `<=`/`>=` equivalent when comparing against integer literals.
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>38</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-130:     function initialize(
+113:       _slippageTolerance > 0,
+
+133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
+
+147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
-[#L130](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L130) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-90:     function initialize(
+120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
-[#L90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90) 
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+167:     for (uint256 i = 0; i < tokens.length; i++) {
+
+183:     _validate(_rdpxBurnPercentage > 0, 3);
+
+196:     _validate(_rdpxFeePercentage > 0, 3);
+
+231:     _validate(_bondMaturity > 0, 3);
+
+246:     for (uint256 i = 1; i < reserveAsset.length; i++) {
+
+391:     _validate(_index < amoAddresses.length, 18);
+
+410:     _validate(_amount > 0, 17);
+
+444:     _validate(_bondDiscountFactor > 0, 3);
+
+458:     _validate(_slippageTolerance > 0, 3);
+
+556:       minAmount > 0 ? minAmount : minOut
+
+775:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+836:     for (uint256 i = 0; i < _amounts.length; i++) {
+
+901:     _validate(_amount > 0, 4);
+
+947:     _validate(_fee < 100e8, 8);
+
+949:     _validate(_amount > 1e16, 4);
+
+979:     _validate(delegateId < delegates.length, 14);
+
+984:     _validate(amountWithdrawn > 0, 15);
+
+996:     for (uint256 i = 1; i < reserveAsset.length; i++) {
+
+1021:     _validate(bonds[id].timestamp > 0, 6);
+
+1023:     _validate(block.timestamp > bonds[id].maturity, 7);
+
+1167:       _validate(bondDiscount < 100e8, 14);
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+103:     for (uint256 i = 0; i < tokens.length; i++) {
+
+156:     for (uint256 i; i < ownerTokenCount; i++) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+225:     for (uint256 i = 0; i < tokens.length; i++) {
+
+265:     _validate(amount > 0, 2);
+
+328:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+413:     for (uint256 i = 0; i < strikes.length; i++) {
+
+464:       if (lastUpdateTime < nextFundingPaymentTimestamp()) {
+
+547:       _price > 0 ? _price : getUnderlyingPrice(),
+
+559:     return strike > price ? ((strike - price) * amount) / 1e8 : 0;
+
+597:       if (lastUpdateTime > nextFundingPaymentTimestamp() - fundingDuration) {
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+94:       _reLPFactor > 0,
+
+175:       _liquiditySlippageTolerance > 0,
+
+190:       _slippageTolerance > 0,
+
+```
 
 </details>
 
 ---
 
 <a name="GAS-8"></a> 
-### [GAS-8] `internal` functions only called once can be inlined to save gas
-If an `internal` function is only used once, there is no need to modularize it, unless the function calling it would otherwise be too long and complex. Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
+### [GAS-8] Use assembly to compute hashes to save gas
+If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (80 gas):
+
+`keccak256(abi.encodePacked(x, y)) -> assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
 
 <details>
 <summary>
-There are <b>6</b> instances (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-/// @audit `_upgrade` is used only once
-762:     function _upgrade(address user) internal {
-
-/// @audit `_updateRoundAfterTokenBurned` is used only once
-827:     function _updateRoundAfterTokenBurned(address user) internal {
-
-/// @audit `isEligible` is used only once
-904:     function isEligible(uint256 amount) internal view returns (bool) {
-
-/// @audit `_incomePerBlock` is used only once
-947:     function _incomePerBlock(address vToken) internal view returns (uint256) {
-
-/// @audit `_distributionPercentage` is used only once
-957:     function _distributionPercentage() internal view returns (uint256) {
-
-/// @audit `_incomeDistributionYearly` is used only once
-970:     function _incomeDistributionYearly(address vToken) internal view returns (uint256 amount) {
+106:       keccak256(abi.encodePacked(address(this), _tickLower, _tickUpper))
 
 ```
-[#L762](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L762) [#L827](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L827) [#L904](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L904) [#L947](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L947) [#L957](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L957) [#L970](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L970) 
+
+```solidity
+File: contracts/core/RdpxV2Bond.sol
+
+22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+1141:       keccak256(abi.encodePacked(asset.tokenSymbol)) ==
+
+1142:         keccak256(abi.encodePacked(_token)),
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+31:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+19:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+20:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+45:   bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+
+48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
 
 </details>
 
 ---
 
 <a name="GAS-9"></a> 
-### [GAS-9] Multiple accesses of the same mapping/array key/index should be cached
-The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local `storage` or `calldata` variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata
-
-<details>
-<summary>
-There are <b>5</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-/// @audit `tokenAmountAccrued[token_]` is also accessed on line 199
-200:         tokenAmountAccrued[token_] = 0;
-
-/// @audit `tokenAmountAccrued[token_]` is also accessed on line 261
-266:                 tokenAmountAccrued[token_] += tokenAccrued;
-
-/// @audit `lastAccruedBlock[token_]` is also accessed on line 255
-270:             lastAccruedBlock[token_] = blockNumber;
-
-/// @audit `lastAccruedBlock[token_]` is also accessed on line 289
-298:         lastAccruedBlock[token_] = blockNumber;
-
-/// @audit `tokenDistributionSpeeds[token_]` is also accessed on line 315
-322:             tokenDistributionSpeeds[token_] = distributionSpeed_;
-
-```
-[#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L200) [#L266](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L266) [#L270](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L270) [#L298](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L298) [#L322](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L322) 
-
-</details>
-
----
-
-<a name="GAS-10"></a> 
-### [GAS-10] Newer versions of solidity are more gas efficient
-The solidity language continues to pursue more efficient gas optimization schemes. Adopting a newer version of solidity can be more gas efficient.
-
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-3: pragma solidity 0.8.13;
-
-```
-[#L3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3) 
-
-</details>
-
----
-
-<a name="GAS-11"></a> 
-### [GAS-11] Operator `>=`/`<=` costs less gas than operator `>`/`<`
-The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only requires `LT` for `>=`. A similar behavior applies for `>`, which uses opcodes `LT` and `ISZERO`, but only requires `GT` for `<=`. It can save 3 gas for each. It should be converted to the `<=`/`>=` equivalent when comparing against integer literals.
-
-<details>
-<summary>
-There are <b>40</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-178:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-204:         for (uint256 i = 0; i < users.length; ) {
-
-211:             for (uint256 j = 0; j < _allMarkets.length; ) {
-
-246:         for (uint256 i = 0; i < allMarkets.length; ) {
-
-318:         if (_irrevocableLimit < totalIrrevocable || _revocableLimit < totalRevocable) revert InvalidLimit();
-
-318:         if (_irrevocableLimit < totalIrrevocable || _revocableLimit < totalRevocable) revert InvalidLimit();
-
-335:             for (uint256 i = 0; i < users.length; ) {
-
-349:             for (uint256 i = 0; i < users.length; ) {
-
-482:         if (totalTimeStaked < STAKING_PERIOD) {
-
-584:         if (markets[vToken].sumOfMembersScore > 0) {
-
-609:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-625:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-682:         if (amount > asset.balanceOf(address(this))) {
-
-686:             if (amount > asset.balanceOf(address(this))) {
-
-716:         if (totalIrrevocable > irrevocableLimit || totalRevocable > revocableLimit) revert InvalidLimit();
-
-716:         if (totalIrrevocable > irrevocableLimit || totalRevocable > revocableLimit) revert InvalidLimit();
-
-730:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-769:         if (totalIrrevocable > irrevocableLimit) revert InvalidLimit();
-
-810:         if (_alphaDenominator == 0 || _alphaNumerator > _alphaDenominator) {
-
-828:         if (totalScoreUpdatesRequired > 0) totalScoreUpdatesRequired--;
-
-830:         if (pendingScoreUpdates > 0 && !isScoreUpdated[nextScoreUpdateRoundId][user]) {
-
-855:         if (xvs > MAXIMUM_XVS_CAP) {
-
-889:             supply = supplyUSD > 0 ? (supply * supplyCapUSD) / supplyUSD : 0;
-
-893:             borrow = borrowUSD > 0 ? (borrow * borrowCapUSD) / borrowUSD : 0;
-
-```
-[#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L178) [#L204](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L204) [#L211](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L211) [#L246](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L246) [#L318](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L318) [#L318](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L318) [#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L335) [#L349](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L349) [#L482](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L482) [#L584](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L584) [#L609](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L609) [#L625](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L625) [#L682](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L682) [#L686](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L686) [#L716](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L716) [#L716](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L716) [#L730](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L730) [#L769](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L769) [#L810](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L810) [#L828](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L828) [#L830](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L830) [#L855](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L855) [#L889](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L889) [#L893](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L893) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-103:         for (uint256 i; i < numTokens; ) {
-
-119:         for (uint256 i; i < tokens_.length; ) {
-
-161:         for (uint256 i; i < numTokens; ) {
-
-218:         if (amount_ > balance) {
-
-237:         if (balance - accrued > 0) {
-
-257:         if (deltaBlocks > 0) {
-
-262:             if (distributionSpeed > 0 && balanceDiff > 0) {
-
-262:             if (distributionSpeed > 0 && balanceDiff > 0) {
-
-291:         if (initializedBlock > 0) {
-
-311:         if (distributionSpeed_ > MAX_DISTRIBUTION_SPEED) {
-
-```
-[#L103](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L103) [#L119](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L119) [#L161](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L161) [#L218](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L218) [#L237](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L237) [#L257](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L257) [#L262](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L262) [#L262](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L262) [#L291](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L291) [#L311](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L311) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-35:         if (f < 0) revert InvalidFixedPoint();
-
-47:         if (f < 0) revert InvalidFixedPoint();
-
-```
-[#L35](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L35) [#L47](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L47) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-52:         if (x > LN_MAX_VAL) {
-
-141:         if (x < EXP_MIN_VAL) {
-
-148:         if (x > EXP_MAX_VAL) {
-
-```
-[#L52](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L52) [#L141](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L141) [#L148](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L148) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-52:         bool lessxvsThanCapital = xvs < capital;
-
-```
-[#L52](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L52) 
-
-</details>
-
----
-
-<a name="GAS-12"></a> 
-### [GAS-12] Reduce gas usage by moving to Solidity 0.8.19 or later
-Solidity version 0.8.19 introduced a number of gas optimizations, refer to the [Solidity 0.8.19 Release Announcement](https://soliditylang.org/blog/2023/02/22/solidity-0.8.19-release-announcement/) for details.
-
-<details>
-<summary>
-There are <b>6</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-2: pragma solidity 0.8.13;
-
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-3: pragma solidity 0.8.13;
-
-```
-[#L3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3) 
-
-</details>
-
----
-
-<a name="GAS-13"></a> 
-### [GAS-13] Remove or replace unused state variables
-Saves a storage slot. If the variable is assigned a non-zero value, saves Gsset (20000 gas). If it's assigned a zero value, saves Gsreset (2900 gas). If the variable remains unassigned, there is no gas savings unless the variable is `public`, in which case the compiler-generated non-payable getter deployment cost is saved. If the state variable is overriding an interface's public function, mark the variable as `constant` or `immutable` so that it does not use a storage slot.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-124:     uint256[25] private __gap;
-
-```
-[#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L124) 
-
-</details>
-
----
-
-<a name="GAS-14"></a> 
-### [GAS-14] Unused named return variables without optimizer waste gas
-Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
-
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-/// @audit `supplyAPR` not used
-/// @audit `borrowAPR` not used
-496:     function calculateAPR(address market, address user) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-/// @audit `supplyAPR` not used
-/// @audit `borrowAPR` not used
-527:     function estimateAPR(
-             address market,
-             address user,
-             uint256 borrow,
-             uint256 supply,
-             uint256 xvsStaked
-         ) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
-
-```
-[#L496](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L496) [#L527](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L527) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-/// @audit `r` not used
-53:     function ln(int256 x) internal pure returns (int256 r) {
-
-/// @audit `r` not used
-58:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
-
-</details>
-
----
-
-<a name="GAS-15"></a> 
-### [GAS-15] Use assembly to emit events
+### [GAS-9] Use assembly to emit events
 To efficiently emit events, it's possible to utilize assembly by making use of scratch space and the free memory pointer. This approach has the advantage of potentially avoiding the costs associated with memory expansion.
 
 However, it's important to note that in order to safely optimize this process, it is preferable to cache and restore the free memory pointer.
@@ -3780,167 +2557,223 @@ A good example of such practice can be seen in [Solady's](https://github.com/Vec
 
 <details>
 <summary>
-There are <b>16</b> instances (click to show):
+There are <b>45</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-228:             emit UserScoreUpdated(user);
+152:     emit LogEmergencyWithdraw(msg.sender, tokens);
 
-241:         emit AlphaUpdated(alphaNumerator, alphaDenominator, _alphaNumerator, _alphaDenominator);
+177:     emit LogAssetsTransfered(msg.sender, tokenABalance, tokenBBalance);
 
-269:         emit MultiplierUpdated(
+240:     emit LogAddLiquidity(
 
-308:         emit MarketAdded(vToken, supplyMultiplier, borrowMultiplier);
+288:     emit LogRemoveLiquidity(
 
-320:         emit MintLimitsUpdated(irrevocableLimit, revocableLimit, _irrevocableLimit, _revocableLimit);
-
-462:         emit UpdatedAssetsState(comptroller, asset);
-
-694:         emit InterestClaimed(user, vToken, amount);
-
-718:         emit Mint(user, isIrrevocable);
-
-755:         emit Burn(user);
-
-771:         emit TokenUpgraded(user);
+348:     emit LogSwap(
 
 ```
-[#L228](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L228) [#L241](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L241) [#L269](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L269) [#L308](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L308) [#L320](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L320) [#L462](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L462) [#L694](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L694) [#L718](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L718) [#L755](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L755) [#L771](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L771) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-180:         emit PrimeTokenUpdated(prime, prime_);
+268:     emit log(positions_array.length);
 
-202:         emit TokenTransferredToPrime(token_, accruedAmount);
+269:     emit log(positions_mapping[pos.token_id].token_id);
 
-222:         emit SweepToken(address(token_), to_, amount_);
+321:     emit RecoveredERC20(tokenAddress, tokenAmount);
 
-267:                 emit TokensAccrued(token_, tokenAccrued);
+335:     emit RecoveredERC721(tokenAddress, token_id);
 
-300:         emit TokenDistributionInitialized(token_);
-
-324:             emit TokenDistributionSpeedUpdated(token_, distributionSpeed_);
+363:     emit LogAssetsTransfered(tokenABalance, tokenBBalance, tokenA, tokenB);
 
 ```
-[#L180](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L180) [#L202](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L202) [#L222](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L222) [#L267](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L267) [#L300](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L300) [#L324](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L324) 
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+172:     emit LogEmergencyWithdraw(msg.sender, tokens);
+
+185:     emit LogSetRdpxBurnPercentage(_rdpxBurnPercentage);
+
+198:     emit LogSetRdpxFeePercentage(_rdpxFeePercentage);
+
+208:     emit LogSetIsReLPActive(_isReLPActive);
+
+220:     emit LogSetputOptionsRequired(_putOptionsRequired);
+
+233:     emit LogSetBondMaturity(_bondMaturity);
+
+263:     emit LogAssetAddedTotokenReserves(_asset, _assetSymbol);
+
+289:     emit LogAssetRemovedFromtokenReserves(_assetSymbol, index);
+
+349:     emit LogSetAddresses(addresses);
+
+370:     emit LogSetPricingOracleAddresses(pricingOracleAddresses);
+
+447:     emit LogSetBondDiscountFactor(_bondDiscountFactor);
+
+461:     emit LogSetSlippageTolerance(_slippageTolerance);
+
+782:     emit LogSettle(optionIds);
+
+807:     emit LogProvideFunding(pointer, fundingAmount);
+
+875:     emit LogBondWithDelegate(
+
+932:     emit LogBond(rdpxRequired, wethRequired, receiptTokenAmount);
+
+966:     emit LogAddToDelegate(_amount, _fee, delegates.length - 1);
+
+989:     emit LogDelegateWithdraw(delegateId, amountWithdrawn);
+
+1007:     emit LogSync();
+
+1041:     emit LogRedeem(to, receiptTokenAmount);
+
+1069:     emit LogUpperDepeg(_amount, wethReceived);
+
+1123:     emit LogLowerDepeg(_rdpxAmount, _wethAmount, dpxEthReceived);
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+124:     emit BondMinted(to, bondId, expiry, rdpxAmount);
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+211:     emit AddressesSet(addresses);
+
+230:     emit EmergencyWithdraw(msg.sender, tokens);
+
+311:     emit Purchase(strike, amount, premium, to, msg.sender);
+
+368:     emit Settle(ethAmount, rdpxAmount, optionIds);
+
+389:     emit PayFunding(
+
+451:       emit CalculateFunding(
+
+485:         emit FundingPaid(
+
+494:       emit FundingPaymentPointerUpdated(latestFundingPaymentPointer);
+
+519:     emit FundingPaid(
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+134:     emit Deposit(msg.sender, receiver, assets, shares);
+
+174:     emit Withdraw(msg.sender, receiver, owner, assets, shares);
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+99:     emit LogSetReLpFactor(_reLPFactor);
+
+```
 
 </details>
 
 ---
 
-<a name="GAS-16"></a> 
-### [GAS-16] Using a double `if` statement instead of a logical AND (`&&`)
+<a name="GAS-10"></a> 
+### [GAS-10] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
 <details>
 <summary>
-There are <b>9</b> instances (click to show):
+There are <b>14</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-337:                 if (userToken.exists && !userToken.isIrrevocable) {
+84:       _tokenA != address(0) &&
 
-369:         if (tokens[user].exists && !isAccountEligible) {
+85:         _tokenB != address(0) &&
 
-375:         } else if (!isAccountEligible && !tokens[user].exists && stakedAt[user] > 0) {
+86:         _pair != address(0) &&
 
-375:         } else if (!isAccountEligible && !tokens[user].exists && stakedAt[user] > 0) {
+87:         _rdpxV2Core != address(0) &&
 
-377:         } else if (stakedAt[user] == 0 && isAccountEligible && !tokens[user].exists) {
+88:         _rdpxOracle != address(0) &&
 
-377:         } else if (stakedAt[user] == 0 && isAccountEligible && !tokens[user].exists) {
-
-379:         } else if (tokens[user].exists && isAccountEligible) {
-
-830:         if (pendingScoreUpdates > 0 && !isScoreUpdated[nextScoreUpdateRoundId][user]) {
+89:         _ammFactory != address(0) &&
 
 ```
-[#L337](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L337) [#L369](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L369) [#L375](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L375) [#L375](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L375) [#L377](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L377) [#L377](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L377) [#L379](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L379) [#L830](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L830) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/reLP/ReLPContract.sol
 
-262:             if (distributionSpeed > 0 && balanceDiff > 0) {
+127:       _tokenA != address(0) &&
+
+128:         _tokenB != address(0) &&
+
+129:         _pair != address(0) &&
+
+130:         _rdpxV2Core != address(0) &&
+
+131:         _tokenAReserve != address(0) &&
+
+132:         _amo != address(0) &&
+
+133:         _rdpxOracle != address(0) &&
+
+134:         _ammFactory != address(0) &&
 
 ```
-[#L262](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L262) 
 
 </details>
 
 ---
 
-<a name="GAS-17"></a> 
-### [GAS-17] Use a more recent version of solidity
-- Use a solidity version of at least 0.8.2 to get simple compiler automatic inlining.
-- Use a solidity version of at least 0.8.3 to get better struct packing and cheaper multiple storage reads.
-- Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
-- Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
+<a name="GAS-11"></a> 
+### [GAS-11] Use `storage` instead of `memory` for structs/arrays
+When fetching data from a storage location, assigning the data to a `memory` variable causes all fields of the struct/array to be read from storage, which incurs a Gcoldsload (**2100 gas**) for *each* field of the struct/array. If the fields are read from the new memory variable, they incur an additional `MLOAD` rather than a cheap stack read. Instead of declaring the variable with the `memory` keyword, declaring the variable with the `storage` keyword and caching any fields that need to be re-read in stack variables, will be much cheaper, only incurring the Gcoldsload for the fields actually read. The only time it makes sense to read the whole struct/array into a `memory` variable, is if the full struct/array is being returned by the function, is being passed to a function that requires `memory`, or if the array/struct is being read from another `memory` array/struct.
 
 <details>
 <summary>
-There are <b>6</b> instances (click to show):
+There are <b>4</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-2: pragma solidity 0.8.13;
+121:       Position memory current_position = positions_array[i];
+
+218:     Position memory pos = positions_array[positionIndex];
 
 ```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L2) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/core/RdpxV2Core.sol
 
-2: pragma solidity 0.8.13;
+1138:     ReserveAsset memory asset = reserveAsset[reservesIndex[_token]];
 
-```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-2: pragma solidity 0.8.13;
+1272:     Delegate memory delegatePosition = delegates[_delegateId];
 
 ```
-[#L2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L2) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-4: pragma solidity 0.8.13;
-
-```
-[#L4](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L4) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-3: pragma solidity 0.8.13;
-
-```
-[#L3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3) 
 
 </details>
 
 ---
 
-<a name="GAS-18"></a> 
-### [GAS-18] Use `unchecked` block for safe subtractions
-If it can be confirmed that the subtraction operation will not overflow, using an unchecked block can save gas. For example, `require(x <= y); z = y - x;` can be optimized to `require(x <= y); unchecked { z = y - x; }`
+<a name="GAS-12"></a> 
+### [GAS-12] Using bitmap to store bool states can save gas
+Using a bitmap instead of a bool array or a bool mapping to store boolean states can save gas fees. This is because the bitmap can store 256 boolean values in a single slot instead of 256 slots, which can save gas when writing bool values or when reading multiple bool values from the same slot.
 
 <details>
 <summary>
@@ -3948,72 +2781,190 @@ There are <b>2</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/core/RdpxV2Core.sol
 
-/// @audit Checked on line 482
-483:             return STAKING_PERIOD - totalTimeStaked;
+79:   mapping(uint256 => bool) public optionsOwned;
 
-```
-[#L483](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L483) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-/// @audit Checked on line 58
-120:         z = y = x - FIXED_1;
+82:   mapping(uint256 => bool) public fundingPaidFor;
 
 ```
-[#L120](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L120) 
 
 </details>
 
 ---
 
-<a name="GAS-19"></a> 
-### [GAS-19] Using bitmap to store bool states can save gas
-Using a bitmap instead of a bool array or a bool mapping to store boolean states can save gas fees. This is because the bitmap can store 256 boolean values in a single slot instead of 256 slots, which can save gas when writing bool values or when reading multiple bool values from the same slot.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-88:     mapping(uint256 => mapping(address => bool)) public isScoreUpdated;
-
-```
-[#L88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88) 
-
-</details>
-
----
-
-<a name="GAS-20"></a> 
-### [GAS-20] Using bools for storage incurs overhead
+<a name="GAS-13"></a> 
+### [GAS-13] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
 
 <details>
 <summary>
-There is <b>1</b> instance (click to show):
+There are <b>4</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
+File: contracts/core/RdpxV2Core.sol
 
-88:     mapping(uint256 => mapping(address => bool)) public isScoreUpdated;
+79:   mapping(uint256 => bool) public optionsOwned;
+
+82:   mapping(uint256 => bool) public fundingPaidFor;
+
+115:   bool public isReLPActive;
+
+118:   bool public putOptionsRequired;
 
 ```
-[#L88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88) 
 
 </details>
 
 ---
 
-<a name="GAS-21"></a> 
-### [GAS-21] Cache array length outside of loop
+<a name="GAS-14"></a> 
+### [GAS-14] Cache array length outside of loop
 If not cached, the solidity compiler will always read the length of the array during each iteration. That is, if it is a storage array, this is an extra sload operation (100 additional extra gas for each iteration except for the first) and if it is a memory array, this is an extra mload operation (3 additional gas for each iteration except for the first).
+
+<details>
+<summary>
+There are <b>11</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+147:     for (uint256 i = 0; i < tokens.length; i++) {
+
+```
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+120:     for (uint i = 0; i < positions_array.length; i++) {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+167:     for (uint256 i = 0; i < tokens.length; i++) {
+
+246:     for (uint256 i = 1; i < reserveAsset.length; i++) {
+
+775:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+836:     for (uint256 i = 0; i < _amounts.length; i++) {
+
+996:     for (uint256 i = 1; i < reserveAsset.length; i++) {
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+103:     for (uint256 i = 0; i < tokens.length; i++) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+225:     for (uint256 i = 0; i < tokens.length; i++) {
+
+328:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+413:     for (uint256 i = 0; i < strikes.length; i++) {
+
+```
+
+</details>
+
+---
+
+<a name="GAS-15"></a> 
+### [GAS-15] Use Custom Errors
+[Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
+Instead of using error strings, to reduce deployment and runtime cost, you should use Custom Errors. This would save both deployment and runtime cost.
+
+<details>
+<summary>
+There are <b>8</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+131:     require(_token != address(0), "reLPContract: token cannot be 0");
+
+132:     require(_spender != address(0), "reLPContract: spender cannot be 0");
+
+133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+244:     require(_asset != address(0), "RdpxV2Core: asset cannot be 0 address");
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+99:       require(success, "RdpxReserve: transfer failed");
+
+120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+123:     require((shares = previewDeposit(assets)) != 0, "ZERO_SHARES");
+
+162:     require(assets != 0, "ZERO_ASSETS");
+
+```
+
+</details>
+
+---
+
+<a name="GAS-16"></a> 
+### [GAS-16] Don't use `SafeMath` once the solidity version is 0.8.0 or greater
+Solidity 0.8.0 introduces internal overflow checks, so using SafeMath is redundant and adds overhead.
+
+<details>
+<summary>
+There are <b>3</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+6: import { SafeMath } from "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
+```
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+7: import { SafeMath } from "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+6: import { SafeMath } from "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
+```
+
+</details>
+
+---
+
+<a name="GAS-17"></a> 
+### [GAS-17] Don't initialize variables with default value
 
 <details>
 <summary>
@@ -4021,114 +2972,56 @@ There are <b>10</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-178:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-204:         for (uint256 i = 0; i < users.length; ) {
-
-211:             for (uint256 j = 0; j < _allMarkets.length; ) {
-
-246:         for (uint256 i = 0; i < allMarkets.length; ) {
-
-335:             for (uint256 i = 0; i < users.length; ) {
-
-349:             for (uint256 i = 0; i < users.length; ) {
-
-609:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-625:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-730:         for (uint256 i = 0; i < _allMarkets.length; ) {
+147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
-[#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L178) [#L204](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L204) [#L211](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L211) [#L246](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L246) [#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L335) [#L349](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L349) [#L609](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L609) [#L625](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L625) [#L730](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L730) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-119:         for (uint256 i; i < tokens_.length; ) {
+120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
-[#L119](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L119) 
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+167:     for (uint256 i = 0; i < tokens.length; i++) {
+
+775:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+836:     for (uint256 i = 0; i < _amounts.length; i++) {
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+103:     for (uint256 i = 0; i < tokens.length; i++) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+89:   uint256 public latestFundingPaymentPointer = 0;
+
+225:     for (uint256 i = 0; i < tokens.length; i++) {
+
+328:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+413:     for (uint256 i = 0; i < strikes.length; i++) {
+
+```
 
 </details>
 
 ---
 
-<a name="GAS-22"></a> 
-### [GAS-22] Use `calldata` instead of `memory` for function arguments that do not get mutated
-Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
-
-<details>
-<summary>
-There is <b>1</b> instance (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-200:     function updateScores(address[] memory users) external {
-
-```
-[#L200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L200) 
-
-</details>
-
----
-
-<a name="GAS-23"></a> 
-### [GAS-23] Don't initialize variables with default value
-
-<details>
-<summary>
-There are <b>13</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-178:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-204:         for (uint256 i = 0; i < users.length; ) {
-
-211:             for (uint256 j = 0; j < _allMarkets.length; ) {
-
-246:         for (uint256 i = 0; i < allMarkets.length; ) {
-
-335:             for (uint256 i = 0; i < users.length; ) {
-
-349:             for (uint256 i = 0; i < users.length; ) {
-
-609:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-625:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-677:         interests[vToken][user].accrued = 0;
-
-730:         for (uint256 i = 0; i < _allMarkets.length; ) {
-
-736:             interests[_allMarkets[i]][user].score = 0;
-
-737:             interests[_allMarkets[i]][user].rewardIndex = 0;
-
-```
-[#L178](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L178) [#L204](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L204) [#L211](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L211) [#L246](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L246) [#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L335) [#L349](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L349) [#L609](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L609) [#L625](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L625) [#L677](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L677) [#L730](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L730) [#L736](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L736) [#L737](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L737) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-46:     int256 private constant EXP_MAX_VAL = 0;
-
-```
-[#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L46) 
-
-</details>
-
----
-
-<a name="GAS-24"></a> 
-### [GAS-24] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
+<a name="GAS-18"></a> 
+### [GAS-18] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
 Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because the EVM operates on 32 bytes at a time, so if an element is smaller than 32 bytes, the EVM must perform more operations to reduce the size of the element from 32 bytes to the desired size.
 
 <details>
@@ -4137,106 +3030,339 @@ There are <b>14</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-75:         uint128 indexed oldNumerator,
+43:     uint128 liquidity; // the liquidity of the position
 
-76:         uint128 indexed oldDenominator,
+99:   ) public view returns (uint128) {
 
-77:         uint128 indexed newNumerator,
+105:     (uint128 liquidity, , , , ) = get_pool.positions(
 
-78:         uint128 newDenominator
+126:           type(uint128).max,
 
-134:         uint128 _alphaNumerator,
+127:           type(uint128).max
 
-135:         uint128 _alphaDenominator,
+193:     (uint256 tokenId, uint128 amountLiquidity, , ) = univ3_positions.mint(
 
-237:     function updateAlpha(uint128 _alphaNumerator, uint128 _alphaDenominator) external {
+223:         type(uint128).max,
 
-237:     function updateAlpha(uint128 _alphaNumerator, uint128 _alphaDenominator) external {
+224:         type(uint128).max
 
-238:         _checkAccessAllowed("updateAlpha(uint128,uint128)");
+235:       uint128 liquidity,
 
-238:         _checkAccessAllowed("updateAlpha(uint128,uint128)");
-
-809:     function _checkAlphaArguments(uint128 _alphaNumerator, uint128 _alphaDenominator) internal {
-
-809:     function _checkAlphaArguments(uint128 _alphaNumerator, uint128 _alphaDenominator) internal {
+280:     uint160 _sqrtPriceLimitX96
 
 ```
-[#L75](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L75) [#L76](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L76) [#L77](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L77) [#L78](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L78) [#L134](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L134) [#L135](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L135) [#L237](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L237) [#L237](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L237) [#L238](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L238) [#L238](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L238) [#L809](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L809) [#L809](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L809) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
+File: contracts/core/RdpxV2Core.sol
 
-73:     uint128 public alphaNumerator;
+553:       _ethToDpxEth ? int128(int256(a)) : int128(int256(b)),
 
-76:     uint128 public alphaDenominator;
+553:       _ethToDpxEth ? int128(int256(a)) : int128(int256(b)),
+
+554:       _ethToDpxEth ? int128(int256(b)) : int128(int256(a)),
+
+554:       _ethToDpxEth ? int128(int256(b)) : int128(int256(a)),
 
 ```
-[#L73](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L73) [#L76](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L76) 
 
 </details>
 
 ---
 
-<a name="GAS-25"></a> 
-### [GAS-25] Constructors can be marked as `payable` to save deployment gas
+<a name="GAS-19"></a> 
+### [GAS-19] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
 <details>
 <summary>
-There are <b>2</b> instances (click to show):
+There are <b>6</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-103:     constructor(address _wbnb, address _vbnb, uint256 _blocksPerYear) {
+57:   constructor() {
 
 ```
-[#L103](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L103) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-78:     constructor() {
+76:   constructor(address _rdpx, address _rdpxV2Core) {
 
 ```
-[#L78](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L78) 
+
+```solidity
+File: contracts/core/RdpxV2Bond.sol
+
+24:   constructor() ERC721("rDPX V2 Bond", "rDPXV2Bond") {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+124:   constructor(address _weth) {
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+23:   constructor() ERC20("Dopex Synthetic ETH", "dpxETH") {
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+79:   constructor() {
+
+```
 
 </details>
 
 ---
 
-<a name="GAS-26"></a> 
-### [GAS-26] Functions guaranteed to revert when called by normal users can be marked `payable`
+<a name="GAS-20"></a> 
+### [GAS-20] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
 <details>
 <summary>
-There are <b>3</b> instances (click to show):
+There are <b>22</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/amo/UniV3LiquidityAmo.sol
 
-118:     function initializeTokens(address[] calldata tokens_) external onlyOwner {
-
-177:     function setPrimeToken(address prime_) external onlyOwner {
-
-216:     function sweepToken(IERC20Upgradeable token_, address to_, uint256 amount_) external onlyOwner {
+119:   function collectFees() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
-[#L118](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L118) [#L177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177) [#L216](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L216) 
+
+```solidity
+File: contracts/core/RdpxV2Bond.sol
+
+29:   function pause() public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+33:   function unpause() public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+144:   function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+152:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+206:   function setIsreLP(bool _isReLPActive) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+378:   function addAMOAddress(address _addr) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+70:   function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+76:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+29:   function pause() public onlyRole(PAUSER_ROLE) {
+
+33:   function unpause() public onlyRole(PAUSER_ROLE) {
+
+37:   function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+136:   function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+144:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+243:   function setLpAllowance(bool increase) external onlyRole(DEFAULT_ADMIN_ROLE) {
+
+372:   function payFunding() external onlyRole(RDPXV2CORE_ROLE) returns (uint256) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
+
+180:   function lockCollateral(uint256 amount) public onlyPerpVault {
+
+185:   function unlockLiquidity(uint256 amount) public onlyPerpVault {
+
+190:   function addProceeds(uint256 proceeds) public onlyPerpVault {
+
+199:   function subtractLoss(uint256 loss) public onlyPerpVault {
+
+208:   function addRdpx(uint256 amount) public onlyPerpVault {
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+202:   function reLP(uint256 _amount) external onlyRole(RDPXV2CORE_ROLE) {
+
+```
 
 </details>
 
 ---
 
-<a name="GAS-27"></a> 
-### [GAS-27] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+<a name="GAS-21"></a> 
+### [GAS-21] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
 *Saves 5 gas per loop*
+
+<details>
+<summary>
+There are <b>12</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+147:     for (uint256 i = 0; i < tokens.length; i++) {
+
+```
+
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+120:     for (uint i = 0; i < positions_array.length; i++) {
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+167:     for (uint256 i = 0; i < tokens.length; i++) {
+
+246:     for (uint256 i = 1; i < reserveAsset.length; i++) {
+
+775:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+836:     for (uint256 i = 0; i < _amounts.length; i++) {
+
+996:     for (uint256 i = 1; i < reserveAsset.length; i++) {
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+103:     for (uint256 i = 0; i < tokens.length; i++) {
+
+156:     for (uint256 i; i < ownerTokenCount; i++) {
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+225:     for (uint256 i = 0; i < tokens.length; i++) {
+
+328:     for (uint256 i = 0; i < optionIds.length; i++) {
+
+413:     for (uint256 i = 0; i < strikes.length; i++) {
+
+```
+
+</details>
+
+---
+
+<a name="GAS-22"></a> 
+### [GAS-22] Using `private` rather than `public` for constants, saves gas
+If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
+
+<details>
+<summary>
+There are <b>14</b> instances (click to show):
+</summary>
+
+```solidity
+File: contracts/amo/UniV2LiquidityAmo.sol
+
+48:   uint256 public constant DEFAULT_PRECISION = 1e8;
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Bond.sol
+
+22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+```
+
+```solidity
+File: contracts/core/RdpxV2Core.sol
+
+85:   uint256 public constant DEFAULT_PRECISION = 1e8;
+
+88:   uint256 public constant RDPX_RATIO_PERCENTAGE = 25 * DEFAULT_PRECISION;
+
+91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
+
+```
+
+```solidity
+File: contracts/decaying-bonds/RdpxDecayingBonds.sol
+
+31:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/dpxETH/DpxEthToken.sol
+
+19:   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
+
+20:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
+
+```
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+45:   bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+
+48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+67:   uint256 public constant DEFAULT_PRECISION = 1e8;
+
+70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
+
+```
+
+</details>
+
+---
+
+<a name="GAS-23"></a> 
+### [GAS-23] Use shift Right/Left instead of division/multiplication if possible
 
 <details>
 <summary>
@@ -4244,270 +3370,116 @@ There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/core/RdpxV2Core.sol
 
-189:                 i++;
+535:           ethBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
 
-217:                     j++;
+539:           dpxEthBalance + _amount <= (ethBalance + dpxEthBalance) / 2,
 
-225:                 i++;
+570:     reserveAsset[reservesIndex["WETH"]].tokenBalance -= _amount / 2;
 
-250:                 i++;
+574:       _amount / 2
 
-345:                     i++;
+579:       .deposit(_amount / 2);
 
-355:                     i++;
+1170:         ((RDPX_RATIO_PERCENTAGE - (bondDiscount / 2)) *
 
-614:                 i++;
+1176:         ((ETH_RATIO_PERCENTAGE - (bondDiscount / 2)) * _amount) /
 
-636:                 i++;
-
-711:             totalIrrevocable++;
-
-713:             totalRevocable++;
-
-740:                 i++;
-
-766:         totalIrrevocable++;
-
-819:         nextScoreUpdateRoundId++;
+1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
-[#L189](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L189) [#L217](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L217) [#L225](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L225) [#L250](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L250) [#L345](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L345) [#L355](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L355) [#L614](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L614) [#L636](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L636) [#L711](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L711) [#L713](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L713) [#L740](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L740) [#L766](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L766) [#L819](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L819) 
+
+```solidity
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
+
+270:     uint256 strike = roundUp(currentPrice - (currentPrice / 4)); // 25% below the current price
+
+```
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+274:       (((amountB / 2) * tokenAInfo.tokenAPrice) / 1e8) -
+
+275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
+
+279:         amountB / 2,
+
+290:       amountB / 2,
+
+```
 
 </details>
 
 ---
 
-<a name="GAS-28"></a> 
-### [GAS-28] Using `private` rather than `public` for constants, saves gas
-If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
-
-<details>
-<summary>
-There are <b>4</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
-
-12:     uint256 public constant MAX_DISTRIBUTION_SPEED = 1e18;
-
-```
-[#L12](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L12) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-34:     uint256 public constant MINIMUM_STAKED_XVS = 1000 * EXP_SCALE;
-
-37:     uint256 public constant MAXIMUM_XVS_CAP = 100000 * EXP_SCALE;
-
-40:     uint256 public constant STAKING_PERIOD = 90 * 24 * 60 * 60;
-
-```
-[#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L34) [#L37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L37) [#L40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L40) 
-
-</details>
-
----
-
-<a name="GAS-29"></a> 
-### [GAS-29] Use `!= 0` instead of `> 0` for unsigned integer comparison
+<a name="GAS-24"></a> 
+### [GAS-24] Use `!= 0` instead of `> 0` for unsigned integer comparison
 Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
 <summary>
-There are <b>11</b> instances (click to show):
+There are <b>19</b> instances (click to show):
 </summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/amo/UniV2LiquidityAmo.sol
 
-375:         } else if (!isAccountEligible && !tokens[user].exists && stakedAt[user] > 0) {
+113:       _slippageTolerance > 0,
 
-584:         if (markets[vToken].sumOfMembersScore > 0) {
-
-828:         if (totalScoreUpdatesRequired > 0) totalScoreUpdatesRequired--;
-
-830:         if (pendingScoreUpdates > 0 && !isScoreUpdated[nextScoreUpdateRoundId][user]) {
-
-889:             supply = supplyUSD > 0 ? (supply * supplyCapUSD) / supplyUSD : 0;
-
-893:             borrow = borrowUSD > 0 ? (borrow * borrowCapUSD) / borrowUSD : 0;
+133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
 
 ```
-[#L375](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L375) [#L584](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L584) [#L828](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L828) [#L830](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L830) [#L889](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L889) [#L893](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L893) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/core/RdpxV2Core.sol
 
-237:         if (balance - accrued > 0) {
+183:     _validate(_rdpxBurnPercentage > 0, 3);
 
-257:         if (deltaBlocks > 0) {
+196:     _validate(_rdpxFeePercentage > 0, 3);
 
-262:             if (distributionSpeed > 0 && balanceDiff > 0) {
+231:     _validate(_bondMaturity > 0, 3);
 
-262:             if (distributionSpeed > 0 && balanceDiff > 0) {
+410:     _validate(_amount > 0, 17);
 
-291:         if (initializedBlock > 0) {
+444:     _validate(_bondDiscountFactor > 0, 3);
+
+458:     _validate(_slippageTolerance > 0, 3);
+
+556:       minAmount > 0 ? minAmount : minOut
+
+838:       _validate(_amounts[i] > 0, 4);
+
+901:     _validate(_amount > 0, 4);
+
+984:     _validate(amountWithdrawn > 0, 15);
+
+1021:     _validate(bonds[id].timestamp > 0, 6);
 
 ```
-[#L237](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L237) [#L257](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L257) [#L262](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L262) [#L262](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L262) [#L291](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L291) 
-
-</details>
-
----
-
-<a name="GAS-30"></a> 
-### [GAS-30] Using assembly to check for zero can save gas
-Using assembly to check for zero can save gas by allowing more direct access to the evm and reducing some of the overhead associated with high-level operations in solidity.
-
-<details>
-<summary>
-There are <b>35</b> instances (click to show):
-</summary>
 
 ```solidity
-File: contracts/Tokens/Prime/Prime.sol
+File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
-104:         if (_wbnb == address(0)) revert InvalidAddress();
+265:     _validate(amount > 0, 2);
 
-105:         if (_vbnb == address(0)) revert InvalidAddress();
+414:       _validate(optionsPerStrike[strikes[i]] > 0, 4);
 
-106:         if (_blocksPerYear == 0) revert InvalidBlocksPerYear();
-
-143:         if (_xvsVault == address(0)) revert InvalidAddress();
-
-144:         if (_xvsVaultRewardToken == address(0)) revert InvalidAddress();
-
-145:         if (_protocolShareReserve == address(0)) revert InvalidAddress();
-
-146:         if (_comptroller == address(0)) revert InvalidAddress();
-
-147:         if (_oracle == address(0)) revert InvalidAddress();
-
-148:         if (_primeLiquidityProvider == address(0)) revert InvalidAddress();
-
-201:         if (pendingScoreUpdates == 0) revert NoScoreUpdatesRequired();
-
-202:         if (nextScoreUpdateRoundId == 0) revert NoScoreUpdatesRequired();
-
-377:         } else if (stakedAt[user] == 0 && isAccountEligible && !tokens[user].exists) {
-
-398:         if (stakedAt[msg.sender] == 0) revert IneligibleToClaim();
-
-457:         if (vToken == address(0)) revert MarketNotSupported();
-
-479:         if (stakedAt[user] == 0) return STAKING_PERIOD;
-
-576:         if (distributionIncome == 0) {
-
-810:         if (_alphaDenominator == 0 || _alphaNumerator > _alphaDenominator) {
-
-1002:         if (totalScore == 0) return (0, 0);
-
-1007:         if (totalCappedValue == 0) return (0, 0);
-
-1012:         supplyAPR = totalSupply == 0 ? 0 : ((userSupplyIncomeYearly * MAXIMUM_BPS) / totalSupply);
-
-1013:         borrowAPR = totalBorrow == 0 ? 0 : ((userBorrowIncomeYearly * MAXIMUM_BPS) / totalBorrow);
+547:       _price > 0 ? _price : getUnderlyingPrice(),
 
 ```
-[#L104](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L104) [#L105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L105) [#L106](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L106) [#L143](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L143) [#L144](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L144) [#L145](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L145) [#L146](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L146) [#L147](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L147) [#L148](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L148) [#L201](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L201) [#L202](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L202) [#L377](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L377) [#L398](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L398) [#L457](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L457) [#L479](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L479) [#L576](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L576) [#L810](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L810) [#L1002](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1002) [#L1007](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1007) [#L1012](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1012) [#L1013](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L1013) 
 
 ```solidity
-File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+File: contracts/reLP/ReLPContract.sol
 
-335:         if (lastBlockAccrued == 0) {
+94:       _reLPFactor > 0,
 
-345:         if (address_ == address(0)) {
+175:       _liquiditySlippageTolerance > 0,
 
-```
-[#L335](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L335) [#L345](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L345) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-145:         if (x == 0) {
-
-206:         if ((x & int256(0x0000000000000000000000000000001000000000000000000000000000000000)) != 0) {
-
-212:         if ((x & int256(0x0000000000000000000000000000000800000000000000000000000000000000)) != 0) {
-
-218:         if ((x & int256(0x0000000000000000000000000000000400000000000000000000000000000000)) != 0) {
-
-224:         if ((x & int256(0x0000000000000000000000000000000200000000000000000000000000000000)) != 0) {
-
-230:         if ((x & int256(0x0000000000000000000000000000000100000000000000000000000000000000)) != 0) {
-
-236:         if ((x & int256(0x0000000000000000000000000000000080000000000000000000000000000000)) != 0) {
-
-242:         if ((x & int256(0x0000000000000000000000000000000040000000000000000000000000000000)) != 0) {
-
-248:         if ((x & int256(0x0000000000000000000000000000000020000000000000000000000000000000)) != 0) {
-
-254:         if ((x & int256(0x0000000000000000000000000000000010000000000000000000000000000000)) != 0) {
+190:       _slippageTolerance > 0,
 
 ```
-[#L145](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L145) [#L206](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L206) [#L212](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L212) [#L218](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L218) [#L224](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L224) [#L230](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L230) [#L236](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L236) [#L242](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L242) [#L248](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L248) [#L254](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L254) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-44:         if (xvs == 0 || capital == 0) return 0;
-
-46:         // If both sides are equal, we have:
-
-```
-[#L44](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L44) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L46) 
-
-</details>
-
----
-
-<a name="GAS-31"></a> 
-### [GAS-31] `internal` functions not called by the contract should be removed
-If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
-
-<details>
-<summary>
-There are <b>8</b> instances (click to show):
-</summary>
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath.sol
-
-22:     function toFixed(uint256 n, uint256 d) internal pure returns (int256) {
-
-34:     function uintDiv(uint256 u, int256 f) internal pure returns (uint256) {
-
-46:     function uintMul(uint256 u, int256 f) internal pure returns (uint256) {
-
-53:     function ln(int256 x) internal pure returns (int256 r) {
-
-58:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L22) [#L34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L34) [#L46](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L46) [#L53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53) [#L58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/FixedMath0x.sol
-
-51:     function ln(int256 x) internal pure returns (int256 r) {
-
-140:     function exp(int256 x) internal pure returns (int256 r) {
-
-```
-[#L51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51) [#L140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140) 
-
-```solidity
-File: contracts/Tokens/Prime/libs/Scores.sol
-
-22:     function calculateScore(
-
-```
-[#L22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L22) 
 
 </details>
 
