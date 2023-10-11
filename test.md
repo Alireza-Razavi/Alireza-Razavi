@@ -31,7 +31,7 @@ Total <b>8</b> instances over <b>7</b> issues:
 ## Non Critical Issues
 
 
-Total <b>66</b> instances over <b>30</b> issues:
+Total <b>67</b> instances over <b>31</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -59,12 +59,13 @@ Total <b>66</b> instances over <b>30</b> issues:
 | [NC-22](#NC-22) | Public variable declarations should have NatSpec descriptions | 1 |
 | [NC-23](#NC-23) | NatSpec `@return` is missing | 3 |
 | [NC-24](#NC-24) | There is no need to initialize variables with 0 | 1 |
-| [NC-25](#NC-25) | Contract declarations should have NatSpec `@title` annotations | 1 |
-| [NC-26](#NC-26) | Solidity compiler version is not fixed | 1 |
-| [NC-27](#NC-27) | Use the latest solidity version for deployment | 1 |
-| [NC-28](#NC-28) | Names of `private`/`internal` functions should be prefixed with an underscore | 5 |
-| [NC-29](#NC-29) | Return values of `approve()` not checked | 1 |
-| [NC-30](#NC-30) | Event is missing `indexed` fields | 2 |
+| [NC-25](#NC-25) | Non-assembly method available | 1 |
+| [NC-26](#NC-26) | Contract declarations should have NatSpec `@title` annotations | 1 |
+| [NC-27](#NC-27) | Solidity compiler version is not fixed | 1 |
+| [NC-28](#NC-28) | Use the latest solidity version for deployment | 1 |
+| [NC-29](#NC-29) | Names of `private`/`internal` functions should be prefixed with an underscore | 5 |
+| [NC-30](#NC-30) | Return values of `approve()` not checked | 1 |
+| [NC-31](#NC-31) | Event is missing `indexed` fields | 2 |
 
 ## Gas Optimizations
 
@@ -787,7 +788,27 @@ File: contracts/ERC20MultiDelegate.sol
 ---
 
 <a name="NC-25"></a> 
-### [NC-25] Contract declarations should have NatSpec `@title` annotations
+### [NC-25] Non-assembly method available
+There are some automated tools that will flag a project as having higher complexity if there is inline-assembly, so it's best to avoid using it where it's not necessary. In addition, most assembly methods can be replaced by non-assembly methods, for example:
+- `assembly{ g := gas() }` => `uint256 g = gasleft()`
+- `assembly{ id := chainid() }` => `uint256 id = block.chainid`
+- `assembly { r := mulmod(a, b, d) }` => `uint256 m = mulmod(x, y, k)`
+- `assembly { size := extcodesize() }` => `uint256 size = address(a).code.length`
+- etc.
+
+There is <b>1</b> instance:
+```solidity
+File: contracts/ERC20MultiDelegate.sol
+
+181:             bytecodeSize := extcodesize(proxyAddress)
+
+```
+[#L181](https://github.com/code-423n4/2023-10-ens/blob/ed25379c06e42c8218eb1e80e141412496950685/contracts/ERC20MultiDelegate.sol#L181) 
+
+---
+
+<a name="NC-26"></a> 
+### [NC-26] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 There is <b>1</b> instance:
@@ -801,8 +822,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-26"></a> 
-### [NC-26] Solidity compiler version is not fixed
+<a name="NC-27"></a> 
+### [NC-27] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
 There is <b>1</b> instance:
@@ -816,8 +837,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-27"></a> 
-### [NC-27] Use the latest solidity version for deployment
+<a name="NC-28"></a> 
+### [NC-28] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 There is <b>1</b> instance:
@@ -831,8 +852,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-28"></a> 
-### [NC-28] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-29"></a> 
+### [NC-29] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 There are <b>5</b> instances:
@@ -868,8 +889,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-29"></a> 
-### [NC-29] Return values of `approve()` not checked
+<a name="NC-30"></a> 
+### [NC-30] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 There is <b>1</b> instance:
@@ -883,8 +904,8 @@ File: contracts/ERC20MultiDelegate.sol
 
 ---
 
-<a name="NC-30"></a> 
-### [NC-30] Event is missing `indexed` fields
+<a name="NC-31"></a> 
+### [NC-31] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 There are <b>2</b> instances:
