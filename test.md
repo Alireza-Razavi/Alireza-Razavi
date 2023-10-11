@@ -384,8 +384,10 @@ There are <b>2</b> instances:
 ```solidity
 File: contracts/ERC20MultiDelegate.sol
 
+/// @audit Another contract is defined in this file
 15: contract ERC20ProxyDelegator {
 
+/// @audit Another contract is defined in this file
 25: contract ERC20MultiDelegate is ERC1155, Ownable {
 
 ```
