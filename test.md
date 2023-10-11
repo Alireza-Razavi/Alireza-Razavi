@@ -167,6 +167,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 344:     (bool success, bytes memory result) = _to.call{ value: _value }(_data);
 
 ```
+[#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L344) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -174,6 +175,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
+[#L98](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L98) 
 
 ---
 
@@ -192,6 +194,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 134:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
+[#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L134) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -203,6 +206,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 173:     IERC20WithBurn(params._tokenB).approve(
 
 ```
+[#L150](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L150) [#L169](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L169) [#L173](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L173) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -218,6 +222,7 @@ File: contracts/core/RdpxV2Core.sol
 411:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
+[#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L339) [#L343](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L343) [#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L344) [#L345](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L345) [#L411](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L411) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -227,6 +232,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 249:       : collateralToken.approve(addresses.perpetualAtlanticVaultLP, 0);
 
 ```
+[#L245](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L245) [#L249](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L249) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -236,6 +242,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 107:     ERC20(rdpx).approve(_perpetualAtlanticVault, type(uint256).max);
 
 ```
+[#L106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L106) [#L107](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L107) 
 
 </details>
 
@@ -256,6 +263,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 283:     IERC20WithBurn(_tokenA).transferFrom(
 
 ```
+[#L158](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L158) [#L163](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L163) [#L283](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L283) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -265,6 +273,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 170:     collateral.transfer(receiver, assets);
 
 ```
+[#L128](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L128) [#L170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L170) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -272,6 +281,7 @@ File: contracts/reLP/ReLPContract.sol
 243:     IERC20WithBurn(addresses.pair).transferFrom(
 
 ```
+[#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L243) 
 
 ---
 
@@ -292,6 +302,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 170:     collateral.transfer(receiver, assets);
 
 ```
+[#L106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L106) [#L107](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L107) [#L128](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L128) [#L170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L170) 
 
 ---
 
@@ -326,6 +337,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 308:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 token2Amount) {
 
 ```
+[#L5](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L5) [#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L22) [#L82](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L82) [#L111](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L111) [#L130](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L130) [#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L144) [#L195](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L195) [#L263](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L263) [#L308](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L308) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -351,6 +363,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 343:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (bool, bytes memory) {
 
 ```
+[#L5](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L5) [#L28](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L28) [#L119](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L119) [#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L144) [#L157](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L157) [#L217](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L217) [#L281](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L281) [#L316](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L316) [#L327](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L327) [#L343](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L343) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -366,6 +379,7 @@ File: contracts/core/RdpxV2Bond.sol
 39:   ) public onlyRole(MINTER_ROLE) returns (uint256 tokenId) {
 
 ```
+[#L7](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L7) [#L15](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L15) [#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L33) [#L39](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L39) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -421,6 +435,7 @@ File: contracts/core/RdpxV2Core.sol
 1085:   ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 dpxEthReceived) {
 
 ```
+[#L5](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L5) [#L35](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L35) [#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L144) [#L152](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L152) [#L163](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L163) [#L182](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L182) [#L195](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L195) [#L206](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L206) [#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L218) [#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L230) [#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L243) [#L272](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L272) [#L315](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L315) [#L361](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L361) [#L378](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L378) [#L390](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L390) [#L407](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L407) [#L421](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L421) [#L432](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L432) [#L443](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L443) [#L457](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L457) [#L767](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L767) [#L791](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L791) [#L1054](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1054) [#L1085](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1085) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -440,6 +455,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 151:   function getBondsOwned(
 
 ```
+[#L12](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L12) [#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L70) [#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L76) [#L95](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L95) [#L118](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L118) [#L142](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L142) [#L151](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L151) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -459,6 +475,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 50:   ) public override onlyRole(BURNER_ROLE) {
 
 ```
+[#L7](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L7) [#L16](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L16) [#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L33) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) [#L43](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L43) [#L50](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L50) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -490,6 +507,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 372:   function payFunding() external onlyRole(RDPXV2CORE_ROLE) returns (uint256) {
 
 ```
+[#L13](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L13) [#L35](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L35) [#L136](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L136) [#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L144) [#L155](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L155) [#L166](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L166) [#L189](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L189) [#L221](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L221) [#L239](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L239) [#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L243) [#L261](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L261) [#L320](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L320) [#L372](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L372) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -509,6 +527,7 @@ File: contracts/reLP/ReLPContract.sol
 202:   function reLP(uint256 _amount) external onlyRole(RDPXV2CORE_ROLE) {
 
 ```
+[#L5](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L5) [#L25](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L25) [#L92](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L92) [#L125](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L125) [#L173](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L173) [#L188](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L188) [#L202](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L202) 
 
 </details>
 
@@ -540,6 +559,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 328:     IERC20WithBurn(token1).safeApprove(addresses.ammRouter, token1Amount);
 
 ```
+[#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L134) [#L200](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L200) [#L204](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L204) [#L268](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L268) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L328) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -555,6 +575,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 302:     TransferHelper.safeApprove(_tokenA, address(univ3_router), _amountAtoB);
 
 ```
+[#L148](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L148) [#L150](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L150) [#L169](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L169) [#L173](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L173) [#L302](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L302) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -570,6 +591,7 @@ File: contracts/core/RdpxV2Core.sol
 411:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
+[#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L339) [#L343](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L343) [#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L344) [#L345](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L345) [#L411](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L411) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -581,6 +603,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 249:       : collateralToken.approve(addresses.perpetualAtlanticVaultLP, 0);
 
 ```
+[#L207](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L207) [#L245](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L245) [#L249](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L249) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -590,6 +613,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 107:     ERC20(rdpx).approve(_perpetualAtlanticVault, type(uint256).max);
 
 ```
+[#L106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L106) [#L107](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L107) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -601,6 +625,7 @@ File: contracts/reLP/ReLPContract.sol
 160:     IERC20WithBurn(addresses.tokenB).safeApprove(
 
 ```
+[#L150](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L150) [#L155](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L155) [#L160](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L160) 
 
 </details>
 
@@ -617,6 +642,7 @@ File: contracts/core/RdpxV2Core.sol
 961:     delegates.push(delegatePosition);
 
 ```
+[#L961](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L961) 
 
 ---
 
@@ -634,6 +660,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
+[#L373](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L373) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -687,6 +714,7 @@ File: contracts/core/RdpxV2Core.sol
 1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
+[#L535](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L535) [#L539](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L539) [#L546](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L546) [#L547](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L547) [#L548](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L548) [#L549](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L549) [#L570](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L570) [#L574](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L574) [#L579](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L579) [#L605](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L605) [#L608](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L608) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L612) [#L658](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L658) [#L665](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L665) [#L669](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L669) [#L673](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L673) [#L1165](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1165) [#L1170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1170) [#L1172](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1172) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1181](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1181) [#L1185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1185) [#L1190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1190) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -718,6 +746,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
+[#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L270) [#L276](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L276) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L335) [#L475](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L475) [#L481](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L481) [#L487](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L487) [#L512](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L512) [#L516](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L516) [#L521](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L521) [#L550](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L550) [#L559](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L559) [#L604](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L604) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L612) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -725,6 +754,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
 
 ```
+[#L281](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L281) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -756,6 +786,7 @@ File: contracts/reLP/ReLPContract.sol
 290:       amountB / 2,
 
 ```
+[#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L230) [#L232](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L232) [#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L235) [#L239](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L239) [#L251](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L251) [#L252](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L252) [#L254](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L254) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L279](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L279) [#L290](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L290) 
 
 </details>
 
@@ -774,6 +805,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 76:   constructor(address _rdpx, address _rdpxV2Core) {
 
 ```
+[#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -782,6 +814,7 @@ File: contracts/core/RdpxV2Core.sol
 124:   constructor(address _weth) {
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -794,6 +827,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
       ) ERC721(_name, _symbol) {
 
 ```
+[#L56](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L56) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -810,6 +844,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          _validate(_collateralToken != address(0), 1);
 
 ```
+[#L113](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L113) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -832,6 +867,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
       {
 
 ```
+[#L81](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L81) 
 
 ---
 
@@ -848,6 +884,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 333:     path[1] = token2;
 
 ```
+[#L332](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L332) [#L333](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L333) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -857,6 +894,7 @@ File: contracts/core/RdpxV2Core.sol
 1095:       path[1] = weth;
 
 ```
+[#L1094](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1094) [#L1095](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1095) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -866,6 +904,7 @@ File: contracts/reLP/ReLPContract.sol
 270:     path[1] = addresses.tokenA;
 
 ```
+[#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L269) [#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L270) 
 
 ---
 
@@ -880,6 +919,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 344:     (bool success, bytes memory result) = _to.call{ value: _value }(_data);
 
 ```
+[#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L344) 
 
 ---
 
@@ -894,6 +934,7 @@ File: contracts/core/RdpxV2Core.sol
 206:   function setIsreLP(bool _isReLPActive) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L206](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L206) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -901,6 +942,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 243:   function setLpAllowance(bool increase) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L243) 
 
 ---
 
@@ -919,6 +961,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
+[#L373](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L373) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -972,6 +1015,7 @@ File: contracts/core/RdpxV2Core.sol
 1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
+[#L535](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L535) [#L539](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L539) [#L546](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L546) [#L547](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L547) [#L548](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L548) [#L549](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L549) [#L570](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L570) [#L574](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L574) [#L579](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L579) [#L605](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L605) [#L608](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L608) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L612) [#L658](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L658) [#L665](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L665) [#L669](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L669) [#L673](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L673) [#L1165](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1165) [#L1170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1170) [#L1172](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1172) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1181](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1181) [#L1185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1185) [#L1190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1190) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1003,6 +1047,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
+[#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L270) [#L276](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L276) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L335) [#L475](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L475) [#L481](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L481) [#L487](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L487) [#L512](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L512) [#L516](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L516) [#L521](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L521) [#L550](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L550) [#L559](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L559) [#L604](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L604) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L612) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1010,6 +1055,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
 
 ```
+[#L281](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L281) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1041,6 +1087,7 @@ File: contracts/reLP/ReLPContract.sol
 290:       amountB / 2,
 
 ```
+[#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L230) [#L232](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L232) [#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L235) [#L239](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L239) [#L251](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L251) [#L252](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L252) [#L254](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L254) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L279](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L279) [#L290](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L290) 
 
 </details>
 
@@ -1057,6 +1104,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 344:     (bool success, bytes memory result) = _to.call{ value: _value }(_data);
 
 ```
+[#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L344) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -1064,6 +1112,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
+[#L98](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L98) 
 
 ---
 
@@ -1080,6 +1129,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 76:   constructor(address _rdpx, address _rdpxV2Core) {
 
 ```
+[#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1088,6 +1138,7 @@ File: contracts/core/RdpxV2Core.sol
 124:   constructor(address _weth) {
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1109,6 +1160,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
       {
 
 ```
+[#L81](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L81) 
 
 ---
 
@@ -1124,6 +1176,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 78:     rdpxV2Core = _rdpxV2Core;
 
 ```
+[#L77](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L77) [#L78](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L78) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1131,6 +1184,7 @@ File: contracts/core/RdpxV2Core.sol
 126:     weth = _weth;
 
 ```
+[#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L126) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1138,6 +1192,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 99:     rdpxRdpxV2Core = _rdpxRdpxV2Core;
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L99) 
 
 ---
 
@@ -1156,6 +1211,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 116:     slippageTolerance = _slippageTolerance;
 
 ```
+[#L116](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L116) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -1165,6 +1221,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 78:     rdpxV2Core = _rdpxV2Core;
 
 ```
+[#L77](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L77) [#L78](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L78) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1186,6 +1243,7 @@ File: contracts/core/RdpxV2Core.sol
 459:     slippageTolerance = _slippageTolerance;
 
 ```
+[#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L126) [#L184](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L184) [#L197](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L197) [#L207](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L207) [#L219](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L219) [#L232](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L232) [#L445](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L445) [#L459](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L459) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1195,6 +1253,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 240:     fundingDuration = _fundingDuration;
 
 ```
+[#L121](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L121) [#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L240) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1210,6 +1269,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 102:     collateral = ERC20(_collateral);
 
 ```
+[#L98](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L98) [#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L99) [#L100](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L100) [#L101](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L101) [#L102](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L102) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1221,6 +1281,7 @@ File: contracts/reLP/ReLPContract.sol
 193:     slippageTolerance = _slippageTolerance;
 
 ```
+[#L97](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L97) [#L178](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L178) [#L193](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L193) 
 
 </details>
 
@@ -1236,6 +1297,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 172:     IERC20WithBurn(rdpx).safeTransfer(receiver, rdpxAmount);
 
 ```
+[#L172](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L172) 
 
 ---
 
@@ -1250,6 +1312,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 170:     collateral.transfer(receiver, assets);
 
 ```
+[#L170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L170) 
 
 ---
 
@@ -1264,6 +1327,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 170:     collateral.transfer(receiver, assets);
 
 ```
+[#L170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L170) 
 
 ---
 
@@ -1286,6 +1350,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 342:         block.timestamp + 1
 
 ```
+[#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L231) [#L279](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L279) [#L342](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L342) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -1293,6 +1358,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 250:           block.timestamp
 
 ```
+[#L250](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L250) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1310,6 +1376,7 @@ File: contracts/core/RdpxV2Core.sol
 1194:     ).nextFundingPaymentTimestamp() - block.timestamp;
 
 ```
+[#L502](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L502) [#L503](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L503) [#L636](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L636) [#L1023](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1023) [#L1103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1103) [#L1194](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1194) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1327,6 +1394,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 521:       ((currentFundingRate * (block.timestamp - startTime)) / 1e18),
 
 ```
+[#L283](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L283) [#L463](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L463) [#L508](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L508) [#L512](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L512) [#L516](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L516) [#L521](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L521) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1338,6 +1406,7 @@ File: contracts/reLP/ReLPContract.sol
 294:       block.timestamp + 10
 
 ```
+[#L264](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L264) [#L283](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L283) [#L294](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L294) 
 
 </details>
 
@@ -1359,6 +1428,7 @@ File: contracts/core/RdpxV2Bond.sol
       }
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L37) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -1377,6 +1447,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
        }
 
 ```
+[#L114](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L114) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -1386,6 +1457,7 @@ File: contracts/dpxETH/DpxEthToken.sol
       }
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) 
 
 ---
 
@@ -1400,6 +1472,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 344:     (bool success, bytes memory result) = _to.call{ value: _value }(_data);
 
 ```
+[#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L344) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -1407,6 +1480,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
+[#L98](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L98) 
 
 ---
 
@@ -1428,6 +1502,7 @@ File: contracts/core/RdpxV2Core.sol
 955:     Delegate memory delegatePosition = Delegate({
 
 ```
+[#L129](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L129) [#L253](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L253) [#L841](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L841) [#L955](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L955) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1435,6 +1510,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 286:     premium = calculatePremium(strike, amount, timeToExpiry, 0);
 
 ```
+[#L286](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L286) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1442,6 +1518,7 @@ File: contracts/reLP/ReLPContract.sol
 214:     TokenAInfo memory tokenAInfo = TokenAInfo(0, 0, 0);
 
 ```
+[#L214](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L214) 
 
 ---
 
@@ -1457,6 +1534,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 106:       keccak256(abi.encodePacked(address(this), _tickLower, _tickUpper))
 
 ```
+[#L106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L106) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1466,6 +1544,7 @@ File: contracts/core/RdpxV2Core.sol
 1142:         keccak256(abi.encodePacked(_token)),
 
 ```
+[#L1141](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1141) [#L1142](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1142) 
 
 ---
 
@@ -1480,6 +1559,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 91:       ERC20(_collateral).decimals()
 
 ```
+[#L91](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L91) 
 
 ---
 
@@ -1497,6 +1577,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 58:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
 ```
+[#L58](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L58) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -1504,6 +1585,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 80:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
 ```
+[#L80](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L80) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -1513,6 +1595,7 @@ File: contracts/core/RdpxV2Bond.sol
 26:     _setupRole(MINTER_ROLE, msg.sender);
 
 ```
+[#L25](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L25) [#L26](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L26) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1520,6 +1603,7 @@ File: contracts/core/RdpxV2Core.sol
 125:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
 ```
+[#L125](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L125) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -1529,6 +1613,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 62:     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
 ```
+[#L61](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L61) [#L62](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L62) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1538,6 +1623,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 127:     _setupRole(MANAGER_ROLE, msg.sender);
 
 ```
+[#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L126) [#L127](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L127) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1547,6 +1633,7 @@ File: contracts/reLP/ReLPContract.sol
 81:     _setupRole(RDPXV2CORE_ROLE, msg.sender);
 
 ```
+[#L80](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L80) [#L81](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L81) 
 
 </details>
 
@@ -1562,6 +1649,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 235:   ) internal virtual {}
 
 ```
+[#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L235) 
 
 ---
 
@@ -1578,6 +1666,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 328:     IERC20WithBurn(token1).safeApprove(addresses.ammRouter, token1Amount);
 
 ```
+[#L268](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L268) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L328) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -1587,6 +1676,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 302:     TransferHelper.safeApprove(_tokenA, address(univ3_router), _amountAtoB);
 
 ```
+[#L148](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L148) [#L302](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L302) 
 
 ---
 
@@ -1610,6 +1700,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 286:   function beforeWithdraw(uint256 assets, uint256 /*shares*/) internal {
 
 ```
+[#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L231) [#L286](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L286) 
 
 ---
 
@@ -1623,6 +1714,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 22: abstract contract OracleLike {
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L22) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1630,6 +1722,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 21: contract PerpetualAtlanticVaultLP is ERC20, IPerpetualAtlanticVaultLP {
 
 ```
+[#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L21) 
 
 ---
 
@@ -1644,6 +1737,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 69:   mapping(uint256 => mapping(uint256 => uint256))
 
 ```
+[#L69](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L69) 
 
 ---
 
@@ -1658,6 +1752,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 22: contract UniV2LiquidityAMO is AccessControl {
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L22) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -1667,6 +1762,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 28: contract UniV3LiquidityAMO is AccessControl, ERC721Holder {
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L22) [#L28](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L28) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -1680,6 +1776,7 @@ File: contracts/core/RdpxV2Bond.sol
     {
 
 ```
+[#L11](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L11) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1693,6 +1790,7 @@ File: contracts/core/RdpxV2Core.sol
     {
 
 ```
+[#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L33) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -1706,6 +1804,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
     {
 
 ```
+[#L18](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L18) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -1719,6 +1818,7 @@ File: contracts/dpxETH/DpxEthToken.sol
     {
 
 ```
+[#L12](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L12) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1735,6 +1835,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
     {
 
 ```
+[#L28](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L28) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1742,6 +1843,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 21: contract PerpetualAtlanticVaultLP is ERC20, IPerpetualAtlanticVaultLP {
 
 ```
+[#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L21) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1749,6 +1851,7 @@ File: contracts/reLP/ReLPContract.sol
 25: contract ReLPContract is AccessControl {
 
 ```
+[#L25](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L25) 
 
 ---
 
@@ -1765,6 +1868,7 @@ Global finding
 
 ```
 
+
 ---
 
 <a name="NC-6"></a> 
@@ -1779,6 +1883,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L147](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L147) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1790,6 +1895,7 @@ File: contracts/core/RdpxV2Core.sol
 775:     for (uint256 i = 0; i < optionIds.length; i++) {
 
 ```
+[#L167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L167) [#L775](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L775) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -1798,6 +1904,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 103:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L103) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1812,6 +1919,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
+[#L225](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L225) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L328) [#L413](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L413) 
 
 ---
 
@@ -1846,6 +1954,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 132:     require(_spender != address(0), "reLPContract: spender cannot be 0");
 
 ```
+[#L84](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L84) [#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L85) [#L86](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L86) [#L87](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L87) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L88) [#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L89) [#L90](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L90) [#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L132) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -1891,6 +2000,7 @@ File: contracts/core/RdpxV2Core.sol
 1162:     if (_rdpxBondId == 0) {
 
 ```
+[#L244](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L244) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L274) [#L316](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L316) [#L317](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L317) [#L318](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L318) [#L319](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L319) [#L320](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L320) [#L321](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L321) [#L322](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L322) [#L323](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L323) [#L324](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L324) [#L325](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L325) [#L362](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L362) [#L363](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L363) [#L379](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L379) [#L408](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L408) [#L409](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L409) [#L630](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L630) [#L1091](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1091) [#L1162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1162) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -1920,6 +2030,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 595:     if (fundingRates[latestFundingPaymentPointer] == 0) {
 
 ```
+[#L119](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L119) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L190) [#L191](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L191) [#L192](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L192) [#L193](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L193) [#L194](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L194) [#L195](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L195) [#L196](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L196) [#L467](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L467) [#L505](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L505) [#L578](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L578) [#L595](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L595) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -1937,6 +2048,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 283:       supply == 0 ? assets : assets.mulDivDown(supply, totalVaultCollateral);
 
 ```
+[#L95](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L95) [#L95](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L95) [#L123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L123) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L162) [#L223](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L223) [#L283](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L283) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -1960,6 +2072,7 @@ File: contracts/reLP/ReLPContract.sol
 135:         _ammRouter != address(0),
 
 ```
+[#L127](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L127) [#L128](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L128) [#L129](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L129) [#L130](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L130) [#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L132) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L133) [#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L134) [#L135](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L135) 
 
 </details>
 
@@ -1976,6 +2089,7 @@ File: contracts/core/RdpxV2Core.sol
 33: contract RdpxV2Core is
 
 ```
+[#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L33) 
 
 ---
 
@@ -1989,6 +2103,7 @@ There is <b>1</b> instance:
 Global finding
 
 ```
+
 
 ---
 
@@ -2006,6 +2121,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
              startTime = nextFundingPaymentTimestamp() - fundingDuration;
 
 ```
+[#L597](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L597) 
 
 ---
 
@@ -2026,6 +2142,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 177:     emit LogAssetsTransfered(msg.sender, tokenABalance, tokenBBalance);
 
 ```
+[#L152](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L152) [#L177](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L177) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -2041,6 +2158,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 363:     emit LogAssetsTransfered(tokenABalance, tokenBBalance, tokenA, tokenB);
 
 ```
+[#L268](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L268) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L269) [#L321](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L321) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L335) [#L363](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L363) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -2088,6 +2206,7 @@ File: contracts/core/RdpxV2Core.sol
 1123:     emit LogLowerDepeg(_rdpxAmount, _wethAmount, dpxEthReceived);
 
 ```
+[#L172](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L172) [#L185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L185) [#L198](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L198) [#L208](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L208) [#L220](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L220) [#L233](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L233) [#L263](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L263) [#L289](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L289) [#L349](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L349) [#L370](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L370) [#L447](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L447) [#L461](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L461) [#L782](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L782) [#L807](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L807) [#L932](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L932) [#L966](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L966) [#L989](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L989) [#L1007](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1007) [#L1041](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1041) [#L1069](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1069) [#L1123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1123) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -2095,6 +2214,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 124:     emit BondMinted(to, bondId, expiry, rdpxAmount);
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L124) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -2110,6 +2230,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 494:       emit FundingPaymentPointerUpdated(latestFundingPaymentPointer);
 
 ```
+[#L211](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L211) [#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L230) [#L311](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L311) [#L368](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L368) [#L494](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L494) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -2119,6 +2240,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 174:     emit Withdraw(msg.sender, receiver, owner, assets, shares);
 
 ```
+[#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L134) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L174) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -2126,6 +2248,7 @@ File: contracts/reLP/ReLPContract.sol
 99:     emit LogSetReLpFactor(_reLPFactor);
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L99) 
 
 </details>
 
@@ -2146,6 +2269,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
 
 ```
+[#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L132) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L133) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -2153,6 +2277,7 @@ File: contracts/core/RdpxV2Core.sol
 244:     require(_asset != address(0), "RdpxV2Core: asset cannot be 0 address");
 
 ```
+[#L244](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L244) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -2162,6 +2287,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L99) [#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L120) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -2171,6 +2297,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 162:     require(assets != 0, "ZERO_ASSETS");
 
 ```
+[#L123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L123) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L162) 
 
 ---
 
@@ -2204,6 +2331,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
            return _strike - remainder + roundingPrecision;
 
 ```
+[#L578](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L578) 
 
 ---
 
@@ -2223,6 +2351,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (bool, bytes memory) {
 
 ```
+[#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L339) 
 
 ---
 
@@ -2237,6 +2366,7 @@ Global finding
 
 ```
 
+
 ---
 
 <a name="NC-16"></a> 
@@ -2250,6 +2380,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 379:   event log(uint);
 
 ```
+[#L379](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L379) 
 
 ---
 
@@ -2276,6 +2407,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 363:     emit LogAssetsTransfered(tokenABalance, tokenBBalance, tokenA, tokenB);
 
 ```
+[#L268](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L268) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L269) [#L321](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L321) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L335) [#L363](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L363) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -2321,6 +2453,7 @@ File: contracts/core/RdpxV2Core.sol
 1123:     emit LogLowerDepeg(_rdpxAmount, _wethAmount, dpxEthReceived);
 
 ```
+[#L185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L185) [#L198](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L198) [#L208](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L208) [#L220](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L220) [#L233](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L233) [#L263](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L263) [#L289](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L289) [#L349](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L349) [#L370](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L370) [#L447](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L447) [#L461](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L461) [#L782](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L782) [#L807](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L807) [#L875](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L875) [#L932](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L932) [#L966](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L966) [#L989](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L989) [#L1041](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1041) [#L1069](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1069) [#L1123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1123) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -2328,6 +2461,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 124:     emit BondMinted(to, bondId, expiry, rdpxAmount);
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L124) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -2337,6 +2471,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 368:     emit Settle(ethAmount, rdpxAmount, optionIds);
 
 ```
+[#L211](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L211) [#L368](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L368) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -2344,6 +2479,7 @@ File: contracts/reLP/ReLPContract.sol
 99:     emit LogSetReLpFactor(_reLPFactor);
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L99) 
 
 </details>
 
@@ -2383,6 +2519,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 381:   function getLpPrice() public view returns (uint256) {
 
 ```
+[#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L57) [#L189](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L189) [#L258](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L258) [#L304](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L304) [#L362](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L362) [#L372](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L372) [#L381](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L381) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -2421,6 +2558,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 339:   function execute(
 
 ```
+[#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) [#L119](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L119) [#L313](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L313) [#L324](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L324) [#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L339) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -2429,6 +2567,7 @@ File: contracts/core/RdpxV2Bond.sol
 57:   function supportsInterface(
 
 ```
+[#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L57) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -2641,6 +2780,7 @@ File: contracts/core/RdpxV2Core.sol
 1260:   function getDelegatePosition(
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) [#L764](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L764) [#L790](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L790) [#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L894](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L894) [#L941](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L941) [#L975](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L975) [#L995](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L995) [#L1016](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1016) [#L1051](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1051) [#L1080](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1080) [#L1135](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1135) [#L1156](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1156) [#L1206](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1206) [#L1216](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1216) [#L1227](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1227) [#L1238](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1238) [#L1248](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1248) [#L1260](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1260) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -2664,6 +2804,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 174:   function supportsInterface(
 
 ```
+[#L56](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L56) [#L139](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L139) [#L151](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L151) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L162) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L174) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -2672,6 +2813,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 23:   constructor() ERC20("Dopex Synthetic ETH", "dpxETH") {
 
 ```
+[#L23](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L23) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -2710,6 +2852,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 645:   function supportsInterface(
 
 ```
+[#L113](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L113) [#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L243) [#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L255) [#L315](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L315) [#L372](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L372) [#L405](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L405) [#L635](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L635) [#L645](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L645) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -2747,6 +2890,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 274:   function convertToShares(
 
 ```
+[#L81](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L81) [#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L240) [#L245](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L245) [#L250](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L250) [#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L255) [#L262](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L262) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L269) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L274) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -2756,6 +2900,7 @@ File: contracts/reLP/ReLPContract.sol
 79:   constructor() {
 
 ```
+[#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L79) 
 
 </details>
 
@@ -2782,6 +2927,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 17: import "../uniswap_V3/ISwapRouter.sol";
 
 ```
+[#L12](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L12) [#L13](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L13) [#L14](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L14) [#L15](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L15) [#L16](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L16) [#L17](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L17) 
 
 ---
 
@@ -2796,6 +2942,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 81:   // @dev Funding rate for the epoch
 
 ```
+[#L81](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L81) 
 
 ---
 
@@ -2809,6 +2956,7 @@ There is <b>1</b> instance:
 Global finding
 
 ```
+
 
 ---
 
@@ -2843,6 +2991,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 token2Amount) {
 
 ```
+[#L189](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L189) [#L304](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L304) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -2860,6 +3009,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
        ) public onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L155](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L155) [#L213](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L213) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -2888,6 +3038,7 @@ File: contracts/core/RdpxV2Core.sol
        ) public returns (uint256 receiptTokenAmount) {
 
 ```
+[#L624](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L624) [#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L894](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L894) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -2922,6 +3073,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          _whenNotPaused();
 
 ```
+[#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L255) [#L315](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L315) [#L405](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L405) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -2930,6 +3082,7 @@ File: contracts/reLP/ReLPContract.sol
 202:   function reLP(uint256 _amount) external onlyRole(RDPXV2CORE_ROLE) {
 
 ```
+[#L202](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L202) 
 
 </details>
 
@@ -2950,6 +3103,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
+[#L373](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L373) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -2997,6 +3151,7 @@ File: contracts/core/RdpxV2Core.sol
 1186:         (DEFAULT_PRECISION * 1e2);
 
 ```
+[#L546](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L546) [#L547](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L547) [#L548](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L548) [#L549](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L549) [#L605](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L605) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L612) [#L658](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L658) [#L665](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L665) [#L669](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L669) [#L673](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L673) [#L947](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L947) [#L949](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L949) [#L951](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L951) [#L1057](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1057) [#L1087](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1087) [#L1165](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1165) [#L1167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1167) [#L1173](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1173) [#L1177](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1177) [#L1182](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1182) [#L1186](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1186) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -3022,6 +3177,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
+[#L104](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L104) [#L276](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L276) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L335) [#L476](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L476) [#L482](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L482) [#L488](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L488) [#L550](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L550) [#L559](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L559) [#L604](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L604) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L612) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -3029,6 +3185,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
 
 ```
+[#L281](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L281) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -3050,6 +3207,7 @@ File: contracts/reLP/ReLPContract.sol
 275:       (((amountB / 2) * tokenAInfo.tokenAPrice * slippageTolerance) / 1e16);
 
 ```
+[#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L230) [#L232](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L232) [#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L235) [#L251](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L251) [#L253](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L253) [#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L255) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) 
 
 </details>
 
@@ -3123,6 +3281,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 353:   function _sendTokensToRdpxV2Core(address tokenA, address tokenB) internal {
 
 ```
+[#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) [#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L94) [#L139](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L139) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L274) [#L313](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L313) [#L324](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L324) [#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L339) [#L353](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L353) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -3142,6 +3301,7 @@ File: contracts/core/RdpxV2Bond.sol
       ) internal override(ERC721, ERC721Enumerable) {
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L37) [#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L45) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -3193,6 +3353,7 @@ File: contracts/core/RdpxV2Core.sol
         ) external returns (uint256 receiptTokenAmount) {
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) [#L419](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L419) [#L430](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L430) [#L495](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L495) [#L566](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L566) [#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L894](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L894) [#L1016](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1016) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -3231,6 +3392,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
        ) internal override(ERC721, ERC721Enumerable) {
 
 ```
+[#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L89) [#L114](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L114) [#L129](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L129) [#L151](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L151) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L162) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -3253,6 +3415,7 @@ File: contracts/dpxETH/DpxEthToken.sol
       ) internal override {
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) [#L47](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L47) [#L55](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L55) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -3292,6 +3455,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          _whenNotPaused();
 
 ```
+[#L153](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L153) [#L164](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L164) [#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L255) [#L635](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L635) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -3337,6 +3501,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
        ) internal virtual {}
 
 ```
+[#L81](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L81) [#L118](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L118) [#L145](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L145) [#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L231) 
 
 </details>
 
@@ -3353,6 +3518,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
 ```
+[#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L120) 
 
 ---
 
@@ -3371,6 +3537,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 66:   mapping(uint256 => Position) public positions_mapping;
 
 ```
+[#L66](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L66) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -3384,6 +3551,7 @@ File: contracts/core/RdpxV2Core.sol
 82:   mapping(uint256 => bool) public fundingPaidFor;
 
 ```
+[#L73](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L73) [#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L76) [#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L79) [#L82](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L82) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -3391,6 +3559,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 37:   mapping(uint256 => Bond) public bonds;
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L37) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -3410,6 +3579,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 82:   mapping(uint256 => uint256) public fundingRates;
 
 ```
+[#L63](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L63) [#L66](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L66) [#L69](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L69) [#L73](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L73) [#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L76) [#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L79) [#L82](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L82) 
 
 </details>
 
@@ -3426,6 +3596,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 22: abstract contract OracleLike {
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L22) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -3433,6 +3604,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 21: contract PerpetualAtlanticVaultLP is ERC20, IPerpetualAtlanticVaultLP {
 
 ```
+[#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L21) 
 
 ---
 
@@ -3458,6 +3630,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 421:   event LogEmergencyWithdraw(address sender, address[] tokens);
 
 ```
+[#L387](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L387) [#L398](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L398) [#L407](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L407) [#L415](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L415) [#L421](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L421) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -3471,6 +3644,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 379:   event log(uint);
 
 ```
+[#L368](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L368) [#L369](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L369) [#L370](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L370) [#L379](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L379) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -3480,6 +3654,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 53:   event EmergencyWithdraw(address sender);
 
 ```
+[#L46](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L46) [#L53](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L53) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -3489,6 +3664,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 35:   event Withdraw(
 
 ```
+[#L28](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L28) [#L35](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L35) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -3496,6 +3672,7 @@ File: contracts/reLP/ReLPContract.sol
 311:   event LogSetReLpFactor(uint256 _reLPFactor);
 
 ```
+[#L311](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L311) 
 
 </details>
 
@@ -3516,6 +3693,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 57:   constructor() {
 
 ```
+[#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L57) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -3580,6 +3758,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (bool, bytes memory) {
 
 ```
+[#L23](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L23) [#L25](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L25) [#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) [#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L94) [#L112](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L112) [#L119](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L119) [#L139](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L139) [#L155](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L155) [#L213](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L213) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L274) [#L313](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L313) [#L324](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L324) [#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L339) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -3611,6 +3790,7 @@ File: contracts/core/RdpxV2Bond.sol
       {
 
 ```
+[#L24](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L24) [#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L33) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L37) [#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L45) [#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L57) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -3618,6 +3798,7 @@ File: contracts/core/RdpxV2Core.sol
 124:   constructor(address _weth) {
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -3644,6 +3825,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
        {
 
 ```
+[#L56](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L56) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L162) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L174) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -3672,6 +3854,7 @@ File: contracts/dpxETH/DpxEthToken.sol
       ) internal override {
 
 ```
+[#L23](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L23) [#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L33) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) [#L41](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L41) [#L47](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L47) [#L55](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L55) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -3701,6 +3884,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          return super.supportsInterface(interfaceId);
 
 ```
+[#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L243) [#L594](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L594) [#L635](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L635) [#L645](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L645) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -3718,6 +3902,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 286:   function beforeWithdraw(uint256 assets, uint256 /*shares*/) internal {
 
 ```
+[#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L218) [#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L231) [#L286](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L286) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -3725,6 +3910,7 @@ File: contracts/reLP/ReLPContract.sol
 79:   constructor() {
 
 ```
+[#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L79) 
 
 </details>
 
@@ -3740,6 +3926,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 295:   modifier onlyPerpVault() {
 
 ```
+[#L295](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L295) 
 
 ---
 
@@ -3787,6 +3974,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L74](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L74) [#L109](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L109) [#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L126) [#L142](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L142) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -3874,6 +4062,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 353:   function _sendTokensToRdpxV2Core(address tokenA, address tokenB) internal {
 
 ```
+[#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) [#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L94) [#L139](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L139) [#L155](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L155) [#L213](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L213) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L274) [#L313](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L313) [#L324](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L324) [#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L339) [#L353](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L353) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -3905,6 +4094,7 @@ File: contracts/core/RdpxV2Bond.sol
       {
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L37) [#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L45) [#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L57) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -4139,6 +4329,7 @@ File: contracts/core/RdpxV2Core.sol
         ) public view returns (uint256 rdpxRequired, uint256 wethRequired) {
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) [#L161](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L161) [#L180](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L180) [#L193](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L193) [#L206](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L206) [#L216](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L216) [#L228](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L228) [#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L240) [#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L270) [#L304](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L304) [#L358](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L358) [#L378](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L378) [#L388](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L388) [#L403](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L403) [#L419](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L419) [#L430](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L430) [#L441](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L441) [#L455](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L455) [#L495](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L495) [#L566](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L566) [#L598](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L598) [#L624](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L624) [#L699](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L699) [#L751](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L751) [#L764](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L764) [#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L894](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L894) [#L941](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L941) [#L975](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L975) [#L1016](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1016) [#L1051](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1051) [#L1080](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1080) [#L1156](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1156) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -4185,6 +4376,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
        {
 
 ```
+[#L56](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L56) [#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L89) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L162) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L174) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -4215,6 +4407,7 @@ File: contracts/dpxETH/DpxEthToken.sol
       ) internal override {
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) [#L41](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L41) [#L47](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L47) [#L55](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L55) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -4354,6 +4547,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          return super.supportsInterface(interfaceId);
 
 ```
+[#L153](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L153) [#L164](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L164) [#L181](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L181) [#L219](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L219) [#L237](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L237) [#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L243) [#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L255) [#L315](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L315) [#L405](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L405) [#L534](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L534) [#L539](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L539) [#L554](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L554) [#L594](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L594) [#L621](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L621) [#L635](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L635) [#L645](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L645) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -4402,6 +4596,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 286:   function beforeWithdraw(uint256 assets, uint256 /*shares*/) internal {
 
 ```
+[#L180](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L180) [#L185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L185) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L190) [#L199](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L199) [#L208](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L208) [#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L218) [#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L231) [#L262](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L262) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L269) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L274) [#L286](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L286) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -4435,6 +4630,7 @@ File: contracts/reLP/ReLPContract.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L90](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L90) [#L115](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L115) [#L171](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L171) [#L186](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L186) 
 
 </details>
 
@@ -4466,6 +4662,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 72:   address public rdpxV2Core;
 
 ```
+[#L35](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L35) [#L36](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L36) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L37) [#L63](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L63) [#L66](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L66) [#L69](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L69) [#L72](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L72) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -4473,6 +4670,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -4484,6 +4682,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 37:   mapping(uint256 => Bond) public bonds;
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L37) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -4495,6 +4694,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -4502,6 +4702,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 82:   mapping(uint256 => uint256) public fundingRates;
 
 ```
+[#L82](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L82) 
 
 </details>
 
@@ -4547,6 +4748,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 token2Amount) {
 
 ```
+[#L189](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L189) [#L258](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L258) [#L304](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L304) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -4580,6 +4782,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (bool, bytes memory) {
 
 ```
+[#L23](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L23) [#L25](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L25) [#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L94) [#L112](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L112) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L274) [#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L339) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -4598,6 +4801,7 @@ File: contracts/core/RdpxV2Bond.sol
       {
 
 ```
+[#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L37) [#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L57) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -4615,6 +4819,7 @@ File: contracts/core/RdpxV2Core.sol
         ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (uint256 dpxEthReceived) {
 
 ```
+[#L1051](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1051) [#L1080](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1080) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -4635,6 +4840,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
        {
 
 ```
+[#L129](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L129) [#L151](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L151) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L174) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -4705,6 +4911,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          return super.supportsInterface(interfaceId);
 
 ```
+[#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L255) [#L315](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L315) [#L372](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L372) [#L529](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L529) [#L534](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L534) [#L539](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L539) [#L554](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L554) [#L563](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L563) [#L588](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L588) [#L645](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L645) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -4732,6 +4939,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
        ) public view returns (uint256 shares) {
 
 ```
+[#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L218) [#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L240) [#L245](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L245) [#L250](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L250) [#L255](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L255) [#L262](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L262) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L269) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L274) 
 
 </details>
 
@@ -4748,6 +4956,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L147](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L147) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -4755,6 +4964,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
+[#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L120) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -4766,6 +4976,7 @@ File: contracts/core/RdpxV2Core.sol
 836:     for (uint256 i = 0; i < _amounts.length; i++) {
 
 ```
+[#L167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L167) [#L775](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L775) [#L836](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L836) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -4773,6 +4984,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 103:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L103) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -4786,6 +4998,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
+[#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L89) [#L225](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L225) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L328) [#L413](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L413) 
 
 ---
 
@@ -4804,6 +5017,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 48:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
 ```
+[#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L48) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -4811,6 +5025,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -4822,6 +5037,7 @@ File: contracts/core/RdpxV2Core.sol
 91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
 
 ```
+[#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L85) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L88) [#L91](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L91) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -4831,6 +5047,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -4842,6 +5059,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -4851,6 +5069,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L45) [#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L48) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -4860,6 +5079,7 @@ File: contracts/reLP/ReLPContract.sol
 70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L67](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L67) [#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L70) 
 
 </details>
 
@@ -4876,6 +5096,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 22: abstract contract OracleLike {
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L22) 
 
 ---
 
@@ -4916,6 +5137,7 @@ File: contracts/core/RdpxV2Core.sol
         {
 
 ```
+[#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L1216](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1216) [#L1227](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1227) [#L1260](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1260) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -4933,6 +5155,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          uint256 remainder = _strike % roundingPrecision;
 
 ```
+[#L563](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L563) [#L576](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L576) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -4949,6 +5172,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
        ) public view returns (uint256 shares) {
 
 ```
+[#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L218) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L274) 
 
 ---
 
@@ -4963,6 +5187,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ---
 
@@ -4977,6 +5202,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 343:       optionPositions[optionIds[i]].strike = 0;
 
 ```
+[#L343](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L343) 
 
 ---
 
@@ -4995,6 +5221,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 48:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
 ```
+[#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L48) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -5002,6 +5229,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5013,6 +5241,7 @@ File: contracts/core/RdpxV2Core.sol
 91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
 
 ```
+[#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L85) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L88) [#L91](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L91) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5022,6 +5251,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -5033,6 +5263,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5042,6 +5273,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L45) [#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L48) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5051,6 +5283,7 @@ File: contracts/reLP/ReLPContract.sol
 70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L67](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L67) [#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L70) 
 
 </details>
 
@@ -5067,6 +5300,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L2) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -5074,6 +5308,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L2) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -5081,6 +5316,7 @@ File: contracts/core/RdpxV2Bond.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L2) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5088,6 +5324,7 @@ File: contracts/core/RdpxV2Core.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L2) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5095,6 +5332,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L2) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -5102,6 +5340,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L2) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5109,6 +5348,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L2) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5116,6 +5356,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L2) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5123,6 +5364,7 @@ File: contracts/reLP/ReLPContract.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L2) 
 
 ---
 
@@ -5139,6 +5381,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 59:   ) internal override {
 
 ```
+[#L50](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L50) [#L59](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L59) 
 
 ---
 
@@ -5153,6 +5396,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 69:   mapping(uint256 => mapping(uint256 => uint256))
 
 ```
+[#L69](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L69) 
 
 ---
 
@@ -5169,6 +5413,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 193:     (uint256 tokenId, uint128 amountLiquidity, , ) = univ3_positions.mint(
 
 ```
+[#L105](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L105) [#L193](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L193) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5176,6 +5421,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
+[#L98](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L98) 
 
 ---
 
@@ -5191,6 +5437,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 78:     rdpxV2Core = _rdpxV2Core;
 
 ```
+[#L77](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L77) [#L78](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L78) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5198,6 +5445,7 @@ File: contracts/core/RdpxV2Core.sol
 126:     weth = _weth;
 
 ```
+[#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L126) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5205,6 +5453,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 99:     rdpxRdpxV2Core = _rdpxRdpxV2Core;
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L99) 
 
 ---
 
@@ -5222,6 +5471,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L109](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L109) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5233,6 +5483,7 @@ File: contracts/core/RdpxV2Core.sol
 152:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L144) [#L152](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L152) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5244,6 +5495,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 76:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L70) [#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L76) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5257,6 +5509,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          _unpause();
 
 ```
+[#L136](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L136) [#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L144) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5267,6 +5520,7 @@ File: contracts/reLP/ReLPContract.sol
        ) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L186](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L186) 
 
 ---
 
@@ -5281,6 +5535,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 286:   function beforeWithdraw(uint256 assets, uint256 /*shares*/) internal {
 
 ```
+[#L286](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L286) 
 
 ---
 
@@ -5299,6 +5554,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 134:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
+[#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L134) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -5310,6 +5566,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 173:     IERC20WithBurn(params._tokenB).approve(
 
 ```
+[#L150](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L150) [#L169](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L169) [#L173](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L173) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5325,6 +5582,7 @@ File: contracts/core/RdpxV2Core.sol
 411:     IERC20WithBurn(_token).approve(_spender, _amount);
 
 ```
+[#L339](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L339) [#L343](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L343) [#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L344) [#L345](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L345) [#L411](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L411) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5334,6 +5592,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 249:       : collateralToken.approve(addresses.perpetualAtlanticVaultLP, 0);
 
 ```
+[#L245](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L245) [#L249](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L249) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5343,6 +5602,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 107:     ERC20(rdpx).approve(_perpetualAtlanticVault, type(uint256).max);
 
 ```
+[#L106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L106) [#L107](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L107) 
 
 </details>
 
@@ -5363,6 +5623,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 48:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
 ```
+[#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L48) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -5370,6 +5631,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5381,6 +5643,7 @@ File: contracts/core/RdpxV2Core.sol
 91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
 
 ```
+[#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L85) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L88) [#L91](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L91) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5390,6 +5653,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -5401,6 +5665,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5410,6 +5675,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L45) [#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L48) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5419,6 +5685,7 @@ File: contracts/reLP/ReLPContract.sol
 70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L67](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L67) [#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L70) 
 
 </details>
 
@@ -5447,6 +5714,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 421:   event LogEmergencyWithdraw(address sender, address[] tokens);
 
 ```
+[#L387](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L387) [#L398](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L398) [#L407](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L407) [#L415](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L415) [#L421](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L421) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -5460,6 +5728,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 379:   event log(uint);
 
 ```
+[#L368](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L368) [#L369](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L369) [#L370](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L370) [#L379](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L379) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5469,6 +5738,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 53:   event EmergencyWithdraw(address sender);
 
 ```
+[#L46](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L46) [#L53](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L53) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5476,6 +5746,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 28:   event Deposit(
 
 ```
+[#L28](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L28) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5483,6 +5754,7 @@ File: contracts/reLP/ReLPContract.sol
 311:   event LogSetReLpFactor(uint256 _reLPFactor);
 
 ```
+[#L311](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L311) 
 
 </details>
 
@@ -5512,6 +5784,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 274:   function swap(
 
 ```
+[#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L94) [#L112](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L112) [#L139](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L139) [#L155](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L155) [#L213](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L213) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L274) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -5525,6 +5798,7 @@ File: contracts/core/RdpxV2Bond.sol
 57:   function supportsInterface(
 
 ```
+[#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L33) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L37) [#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L57) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5540,6 +5814,7 @@ File: contracts/core/RdpxV2Core.sol
 1260:   function getDelegatePosition(
 
 ```
+[#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L894](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L894) [#L1135](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1135) [#L1206](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1206) [#L1260](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1260) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5549,6 +5824,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 174:   function supportsInterface(
 
 ```
+[#L139](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L139) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L174) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -5564,6 +5840,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 47:   function burnFrom(
 
 ```
+[#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L33) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) [#L41](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L41) [#L47](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L47) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5573,6 +5850,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 645:   function supportsInterface(
 
 ```
+[#L554](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L554) [#L645](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L645) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5594,6 +5872,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 250:   function rdpxCollateral() public view returns (uint256) {
 
 ```
+[#L145](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L145) [#L180](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L180) [#L185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L185) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L190) [#L199](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L199) [#L208](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L208) [#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L240) [#L250](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L250) 
 
 </details>
 
@@ -5613,6 +5892,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 69:   mapping(uint256 => mapping(uint256 => uint256))
 
 ```
+[#L69](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L69) 
 
 ---
 
@@ -5626,6 +5906,7 @@ There is <b>1</b> instance:
 Global finding
 
 ```
+
 
 ---
 
@@ -5644,6 +5925,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 373:     return (lpTokenBalance * getLpPrice()) / 1e8;
 
 ```
+[#L373](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L373) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5697,6 +5979,7 @@ File: contracts/core/RdpxV2Core.sol
 1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
+[#L535](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L535) [#L539](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L539) [#L546](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L546) [#L547](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L547) [#L548](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L548) [#L549](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L549) [#L570](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L570) [#L574](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L574) [#L579](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L579) [#L605](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L605) [#L608](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L608) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L612) [#L658](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L658) [#L665](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L665) [#L669](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L669) [#L673](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L673) [#L1165](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1165) [#L1170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1170) [#L1172](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1172) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1181](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1181) [#L1185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1185) [#L1190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1190) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5728,6 +6011,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
+[#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L270) [#L276](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L276) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L335) [#L475](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L475) [#L481](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L481) [#L487](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L487) [#L512](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L512) [#L516](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L516) [#L521](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L521) [#L550](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L550) [#L559](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L559) [#L604](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L604) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L612) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5735,6 +6019,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 281:       ((_rdpxCollateral * rdpxPriceInAlphaToken) / 1e8);
 
 ```
+[#L281](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L281) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5766,6 +6051,7 @@ File: contracts/reLP/ReLPContract.sol
 290:       amountB / 2,
 
 ```
+[#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L230) [#L232](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L232) [#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L235) [#L239](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L239) [#L251](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L251) [#L252](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L252) [#L254](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L254) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L279](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L279) [#L290](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L290) 
 
 </details>
 
@@ -5782,6 +6068,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 170:     collateral.transfer(receiver, assets);
 
 ```
+[#L170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L170) 
 
 ---
 
@@ -5801,6 +6088,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 283:     lpTokenBalance -= lpAmount;
 
 ```
+[#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L235) [#L283](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L283) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -5842,6 +6130,7 @@ File: contracts/core/RdpxV2Core.sol
 1196:       wethRequired += IPerpetualAtlanticVault(addresses.perpetualAtlanticVault)
 
 ```
+[#L486](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L486) [#L570](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L570) [#L650](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L650) [#L681](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L681) [#L711](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L711) [#L717](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L717) [#L720](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L720) [#L779](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L779) [#L780](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L780) [#L803](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L803) [#L851](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L851) [#L852](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L852) [#L916](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L916) [#L964](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L964) [#L1067](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1067) [#L1106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1106) [#L1110](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1110) [#L1196](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1196) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5873,6 +6162,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 493:       latestFundingPaymentPointer += 1;
 
 ```
+[#L302](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L302) [#L303](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L303) [#L304](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L304) [#L309](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L309) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L335) [#L336](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L336) [#L337](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L337) [#L338](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L338) [#L437](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L437) [#L440](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L440) [#L445](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L445) [#L449](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L449) [#L493](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L493) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5894,6 +6184,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 291:     _totalCollateral -= assets;
 
 ```
+[#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L132) [#L164](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L164) [#L181](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L181) [#L186](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L186) [#L195](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L195) [#L204](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L204) [#L213](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L213) [#L291](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L291) 
 
 </details>
 
@@ -5917,6 +6208,7 @@ File: contracts/core/RdpxV2Core.sol
 699:   function _bondWithDelegate(
 
 ```
+[#L495](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L495) [#L598](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L598) [#L699](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L699) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -5928,6 +6220,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 286:   function beforeWithdraw(uint256 assets, uint256 /*shares*/) internal {
 
 ```
+[#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L218) [#L286](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L286) 
 
 ---
 
@@ -5942,6 +6235,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5951,6 +6245,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -5962,6 +6257,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -5971,6 +6267,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L45) [#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L48) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -5978,6 +6275,7 @@ File: contracts/reLP/ReLPContract.sol
 70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L70) 
 
 ---
 
@@ -5992,6 +6290,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 344:     (bool success, bytes memory result) = _to.call{ value: _value }(_data);
 
 ```
+[#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L344) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -5999,6 +6298,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 98:       (bool success, ) = to.call{ value: amount, gas: gas }("");
 
 ```
+[#L98](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L98) 
 
 ---
 
@@ -6021,6 +6321,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 269:     emit log(positions_mapping[pos.token_id].token_id);
 
 ```
+[#L259](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L259) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L269) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6053,6 +6354,7 @@ File: contracts/core/RdpxV2Core.sol
 1106:       reserveAsset[reservesIndex["RDPX"]].tokenBalance -= _rdpxAmount;
 
 ```
+[#L277](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L277) [#L805](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L805) [#L1001](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1001) [#L1004](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1004) [#L1023](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1023) [#L1035](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1035) [#L1094](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1094) [#L1106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1106) [#L1106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1106) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6076,6 +6378,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 443:       fundingPaymentsAccountedForPerStrike[latestFundingPaymentPointer][
 
 ```
+[#L330](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L330) [#L343](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L343) [#L387](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L387) [#L391](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L391) [#L395](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L395) [#L443](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L443) 
 
 </details>
 
@@ -6092,6 +6395,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L2) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -6099,6 +6403,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L2) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -6106,6 +6411,7 @@ File: contracts/core/RdpxV2Bond.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L2) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6113,6 +6419,7 @@ File: contracts/core/RdpxV2Core.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L2) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -6120,6 +6427,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L2) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -6127,6 +6435,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L2) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6134,6 +6443,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L2) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -6141,6 +6451,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L2) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6148,6 +6459,7 @@ File: contracts/reLP/ReLPContract.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L2) 
 
 ---
 
@@ -6170,6 +6482,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L113](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L113) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L133) [#L147](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L147) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -6177,6 +6490,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
+[#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L120) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6224,6 +6538,7 @@ File: contracts/core/RdpxV2Core.sol
 1167:       _validate(bondDiscount < 100e8, 14);
 
 ```
+[#L167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L167) [#L183](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L183) [#L196](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L196) [#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L231) [#L246](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L246) [#L391](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L391) [#L410](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L410) [#L444](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L444) [#L458](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L458) [#L556](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L556) [#L775](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L775) [#L836](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L836) [#L901](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L901) [#L947](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L947) [#L949](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L949) [#L979](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L979) [#L984](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L984) [#L996](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L996) [#L1021](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1021) [#L1023](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1023) [#L1167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1167) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -6233,6 +6548,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 156:     for (uint256 i; i < ownerTokenCount; i++) {
 
 ```
+[#L103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L103) [#L156](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L156) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6254,6 +6570,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 597:       if (lastUpdateTime > nextFundingPaymentTimestamp() - fundingDuration) {
 
 ```
+[#L225](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L225) [#L265](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L265) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L328) [#L413](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L413) [#L464](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L464) [#L547](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L547) [#L559](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L559) [#L597](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L597) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6265,6 +6582,7 @@ File: contracts/reLP/ReLPContract.sol
 190:       _slippageTolerance > 0,
 
 ```
+[#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L94) [#L175](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L175) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L190) 
 
 </details>
 
@@ -6288,6 +6606,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
          return _rdpxCollateral;
 
 ```
+[#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L240) [#L245](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L245) [#L250](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L250) 
 
 ---
 
@@ -6302,6 +6621,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ---
 
@@ -6336,6 +6656,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
 
 ```
+[#L83](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L83) [#L112](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L112) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L132) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L133) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6343,6 +6664,7 @@ File: contracts/core/RdpxV2Core.sol
 244:     require(_asset != address(0), "RdpxV2Core: asset cannot be 0 address");
 
 ```
+[#L244](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L244) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -6360,6 +6682,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
            "Not enough available assets to satisfy withdrawal"
 
 ```
+[#L191](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L191) [#L200](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L200) [#L287](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L287) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6389,6 +6712,7 @@ File: contracts/reLP/ReLPContract.sol
            "reLPContract: slippage tolerance must be greater than 0"
 
 ```
+[#L93](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L93) [#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L126) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L174) [#L189](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L189) 
 
 </details>
 
@@ -6421,6 +6745,7 @@ File: contracts/core/RdpxV2Core.sol
        ) internal {
 
 ```
+[#L515](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L515) [#L624](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L624) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6434,6 +6759,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          if (fundingRates[latestFundingPaymentPointer] == 0) {
 
 ```
+[#L462](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L462) [#L594](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L594) 
 
 ---
 
@@ -6448,6 +6774,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 344:     (bool success, bytes memory result) = _to.call{ value: _value }(_data);
 
 ```
+[#L344](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L344) 
 
 ---
 
@@ -6488,6 +6815,7 @@ File: contracts/core/RdpxV2Core.sol
         {
 
 ```
+[#L819](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L819) [#L1216](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1216) [#L1227](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1227) [#L1260](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1260) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6505,6 +6833,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
          uint256 remainder = _strike % roundingPrecision;
 
 ```
+[#L563](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L563) [#L576](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L576) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -6521,6 +6850,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
        ) public view returns (uint256 shares) {
 
 ```
+[#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L218) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L274) 
 
 ---
 
@@ -6541,6 +6871,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 106:       keccak256(abi.encodePacked(address(this), _tickLower, _tickUpper))
 
 ```
+[#L106](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L106) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -6548,6 +6879,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6557,6 +6889,7 @@ File: contracts/core/RdpxV2Core.sol
 1142:         keccak256(abi.encodePacked(_token)),
 
 ```
+[#L1141](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1141) [#L1142](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1142) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -6566,6 +6899,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -6577,6 +6911,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6586,6 +6921,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L45) [#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L48) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6593,6 +6929,7 @@ File: contracts/reLP/ReLPContract.sol
 70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L70) 
 
 </details>
 
@@ -6625,6 +6962,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 348:     emit LogSwap(
 
 ```
+[#L152](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L152) [#L177](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L177) [#L240](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L240) [#L288](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L288) [#L348](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L348) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -6640,6 +6978,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 363:     emit LogAssetsTransfered(tokenABalance, tokenBBalance, tokenA, tokenB);
 
 ```
+[#L268](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L268) [#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L269) [#L321](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L321) [#L335](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L335) [#L363](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L363) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6689,6 +7028,7 @@ File: contracts/core/RdpxV2Core.sol
 1123:     emit LogLowerDepeg(_rdpxAmount, _wethAmount, dpxEthReceived);
 
 ```
+[#L172](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L172) [#L185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L185) [#L198](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L198) [#L208](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L208) [#L220](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L220) [#L233](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L233) [#L263](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L263) [#L289](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L289) [#L349](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L349) [#L370](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L370) [#L447](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L447) [#L461](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L461) [#L782](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L782) [#L807](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L807) [#L875](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L875) [#L932](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L932) [#L966](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L966) [#L989](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L989) [#L1007](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1007) [#L1041](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1041) [#L1069](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1069) [#L1123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1123) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -6696,6 +7036,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 124:     emit BondMinted(to, bondId, expiry, rdpxAmount);
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L124) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6719,6 +7060,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 519:     emit FundingPaid(
 
 ```
+[#L211](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L211) [#L230](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L230) [#L311](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L311) [#L368](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L368) [#L389](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L389) [#L451](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L451) [#L485](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L485) [#L494](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L494) [#L519](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L519) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -6728,6 +7070,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 174:     emit Withdraw(msg.sender, receiver, owner, assets, shares);
 
 ```
+[#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L134) [#L174](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L174) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6735,6 +7078,7 @@ File: contracts/reLP/ReLPContract.sol
 99:     emit LogSetReLpFactor(_reLPFactor);
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L99) 
 
 </details>
 
@@ -6765,6 +7109,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 89:         _ammFactory != address(0) &&
 
 ```
+[#L84](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L84) [#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L85) [#L86](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L86) [#L87](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L87) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L88) [#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L89) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6786,6 +7131,7 @@ File: contracts/reLP/ReLPContract.sol
 134:         _ammFactory != address(0) &&
 
 ```
+[#L127](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L127) [#L128](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L128) [#L129](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L129) [#L130](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L130) [#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L132) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L133) [#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L134) 
 
 </details>
 
@@ -6805,6 +7151,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L2) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -6812,6 +7159,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L2) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -6819,6 +7167,7 @@ File: contracts/core/RdpxV2Bond.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L2) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6826,6 +7175,7 @@ File: contracts/core/RdpxV2Core.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L2) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -6833,6 +7183,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L2) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -6840,6 +7191,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L2) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6847,6 +7199,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L2) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -6854,6 +7207,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L2) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -6861,6 +7215,7 @@ File: contracts/reLP/ReLPContract.sol
 2: pragma solidity 0.8.19;
 
 ```
+[#L2](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L2) 
 
 ---
 
@@ -6877,6 +7232,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 218:     Position memory pos = positions_array[positionIndex];
 
 ```
+[#L121](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L121) [#L218](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L218) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -6886,6 +7242,7 @@ File: contracts/core/RdpxV2Core.sol
 1272:     Delegate memory delegatePosition = delegates[_delegateId];
 
 ```
+[#L1138](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1138) [#L1272](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1272) 
 
 ---
 
@@ -6901,6 +7258,7 @@ File: contracts/core/RdpxV2Core.sol
 645:         amount - _rdpxAmount
 
 ```
+[#L645](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L645) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -6915,6 +7273,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 612:         ((amount * 1e18) / (endTime - startTime));
 
 ```
+[#L559](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L559) [#L605](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L605) [#L612](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L612) 
 
 ---
 
@@ -6931,6 +7290,7 @@ File: contracts/core/RdpxV2Core.sol
 82:   mapping(uint256 => bool) public fundingPaidFor;
 
 ```
+[#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L79) [#L82](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L82) 
 
 ---
 
@@ -6950,6 +7310,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 610:       fundingRates[latestFundingPaymentPointer] =
 
 ```
+[#L610](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L610) 
 
 ---
 
@@ -6970,6 +7331,7 @@ File: contracts/core/RdpxV2Core.sol
 118:   bool public putOptionsRequired;
 
 ```
+[#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L79) [#L82](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L82) [#L115](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L115) [#L118](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L118) 
 
 ---
 
@@ -6988,6 +7350,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L147](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L147) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -6995,6 +7358,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
+[#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L120) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7010,6 +7374,7 @@ File: contracts/core/RdpxV2Core.sol
 996:     for (uint256 i = 1; i < reserveAsset.length; i++) {
 
 ```
+[#L167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L167) [#L246](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L246) [#L775](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L775) [#L836](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L836) [#L996](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L996) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7017,6 +7382,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 103:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L103) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7028,6 +7394,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
+[#L225](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L225) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L328) [#L413](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L413) 
 
 </details>
 
@@ -7055,6 +7422,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 318:       token2 = addresses.tokenA;
 
 ```
+[#L315](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L315) [#L317](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L317) [#L318](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L318) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -7063,6 +7431,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 259:     positions_array[positionIndex] = positions_array[
 
 ```
+[#L259](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L259) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7077,6 +7446,7 @@ File: contracts/core/RdpxV2Core.sol
 720:     totalWethDelegated -= wethRequired;
 
 ```
+[#L716](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L716) [#L717](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L717) [#L720](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L720) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7094,6 +7464,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 436:       latestFundingPerStrike[strike] = latestFundingPaymentPointer;
 
 ```
+[#L121](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L121) [#L122](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L122) [#L330](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L330) [#L436](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L436) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -7108,6 +7479,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 213:     _rdpxCollateral += amount;
 
 ```
+[#L195](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L195) [#L204](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L204) [#L213](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L213) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7119,6 +7491,7 @@ File: contracts/reLP/ReLPContract.sol
 270:     path[1] = addresses.tokenA;
 
 ```
+[#L269](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L269) [#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L270) 
 
 </details>
 
@@ -7139,6 +7512,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 156:     AddLiquidityParams memory params
 
 ```
+[#L156](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L156) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7156,6 +7530,7 @@ File: contracts/core/RdpxV2Core.sol
 1136:     string memory _token
 
 ```
+[#L242](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L242) [#L271](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L271) [#L765](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L765) [#L821](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L821) [#L822](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L822) [#L1136](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1136) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7165,6 +7540,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 58:     string memory _symbol
 
 ```
+[#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L57) [#L58](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L58) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7178,6 +7554,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 406:     uint256[] memory strikes
 
 ```
+[#L114](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L114) [#L115](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L115) [#L316](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L316) [#L406](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L406) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -7185,6 +7562,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 86:     string memory _collateralSymbol
 
 ```
+[#L86](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L86) 
 
 </details>
 
@@ -7206,6 +7584,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
 
 ```
+[#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L132) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L133) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7213,6 +7592,7 @@ File: contracts/core/RdpxV2Core.sol
 244:     require(_asset != address(0), "RdpxV2Core: asset cannot be 0 address");
 
 ```
+[#L244](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L244) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7222,6 +7602,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 120:     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
 
 ```
+[#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L99) [#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L120) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -7231,6 +7612,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 162:     require(assets != 0, "ZERO_ASSETS");
 
 ```
+[#L123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L123) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L162) 
 
 ---
 
@@ -7245,6 +7627,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 6: import { SafeMath } from "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
+[#L6](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L6) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -7252,6 +7635,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 7: import { SafeMath } from "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
+[#L7](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L7) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7259,6 +7643,7 @@ File: contracts/reLP/ReLPContract.sol
 6: import { SafeMath } from "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 ```
+[#L6](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L6) 
 
 ---
 
@@ -7272,6 +7657,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L147](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L147) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -7279,6 +7665,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
+[#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L120) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7290,6 +7677,7 @@ File: contracts/core/RdpxV2Core.sol
 836:     for (uint256 i = 0; i < _amounts.length; i++) {
 
 ```
+[#L167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L167) [#L775](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L775) [#L836](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L836) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7297,6 +7685,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 103:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L103) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7310,6 +7699,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
+[#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L89) [#L225](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L225) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L328) [#L413](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L413) 
 
 ---
 
@@ -7346,6 +7736,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 280:     uint160 _sqrtPriceLimitX96
 
 ```
+[#L43](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L43) [#L99](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L99) [#L105](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L105) [#L126](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L126) [#L127](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L127) [#L193](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L193) [#L223](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L223) [#L224](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L224) [#L235](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L235) [#L280](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L280) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7359,6 +7750,7 @@ File: contracts/core/RdpxV2Core.sol
 554:       _ethToDpxEth ? int128(int256(b)) : int128(int256(a)),
 
 ```
+[#L553](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L553) [#L553](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L553) [#L554](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L554) [#L554](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L554) 
 
 </details>
 
@@ -7375,6 +7767,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 57:   constructor() {
 
 ```
+[#L57](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L57) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -7382,6 +7775,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 76:   constructor(address _rdpx, address _rdpxV2Core) {
 
 ```
+[#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L76) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -7389,6 +7783,7 @@ File: contracts/core/RdpxV2Bond.sol
 24:   constructor() ERC721("rDPX V2 Bond", "rDPXV2Bond") {
 
 ```
+[#L24](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L24) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7396,6 +7791,7 @@ File: contracts/core/RdpxV2Core.sol
 124:   constructor(address _weth) {
 
 ```
+[#L124](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L124) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -7403,6 +7799,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 23:   constructor() ERC20("Dopex Synthetic ETH", "dpxETH") {
 
 ```
+[#L23](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L23) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7410,6 +7807,7 @@ File: contracts/reLP/ReLPContract.sol
 79:   constructor() {
 
 ```
+[#L79](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L79) 
 
 ---
 
@@ -7428,6 +7826,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 119:   function collectFees() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L119](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L119) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -7437,6 +7836,7 @@ File: contracts/core/RdpxV2Bond.sol
 33:   function unpause() public onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L33) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7450,6 +7850,7 @@ File: contracts/core/RdpxV2Core.sol
 378:   function addAMOAddress(address _addr) external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L144) [#L152](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L152) [#L206](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L206) [#L378](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L378) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7459,6 +7860,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 76:   function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
 
 ```
+[#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L70) [#L76](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L76) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -7470,6 +7872,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 37:   function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
 
 ```
+[#L29](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L29) [#L33](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L33) [#L37](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L37) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7483,6 +7886,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 372:   function payFunding() external onlyRole(RDPXV2CORE_ROLE) returns (uint256) {
 
 ```
+[#L136](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L136) [#L144](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L144) [#L243](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L243) [#L372](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L372) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -7498,6 +7902,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 208:   function addRdpx(uint256 amount) public onlyPerpVault {
 
 ```
+[#L180](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L180) [#L185](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L185) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L190) [#L199](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L199) [#L208](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L208) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7505,6 +7910,7 @@ File: contracts/reLP/ReLPContract.sol
 202:   function reLP(uint256 _amount) external onlyRole(RDPXV2CORE_ROLE) {
 
 ```
+[#L202](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L202) 
 
 </details>
 
@@ -7525,6 +7931,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 147:     for (uint256 i = 0; i < tokens.length; i++) {
 
 ```
+[#L147](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L147) 
 
 ```solidity
 File: contracts/amo/UniV3LiquidityAmo.sol
@@ -7532,6 +7939,7 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 120:     for (uint i = 0; i < positions_array.length; i++) {
 
 ```
+[#L120](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L120) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7547,6 +7955,7 @@ File: contracts/core/RdpxV2Core.sol
 996:     for (uint256 i = 1; i < reserveAsset.length; i++) {
 
 ```
+[#L167](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L167) [#L246](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L246) [#L775](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L775) [#L836](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L836) [#L996](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L996) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7556,6 +7965,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 156:     for (uint256 i; i < ownerTokenCount; i++) {
 
 ```
+[#L103](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L103) [#L156](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L156) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7567,6 +7977,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 413:     for (uint256 i = 0; i < strikes.length; i++) {
 
 ```
+[#L225](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L225) [#L328](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L328) [#L413](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L413) 
 
 </details>
 
@@ -7587,6 +7998,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 48:   uint256 public constant DEFAULT_PRECISION = 1e8;
 
 ```
+[#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L48) 
 
 ```solidity
 File: contracts/core/RdpxV2Bond.sol
@@ -7594,6 +8006,7 @@ File: contracts/core/RdpxV2Bond.sol
 22:   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
 ```
+[#L22](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Bond.sol#L22) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7605,6 +8018,7 @@ File: contracts/core/RdpxV2Core.sol
 91:   uint256 public constant ETH_RATIO_PERCENTAGE = 75 * DEFAULT_PRECISION;
 
 ```
+[#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L85) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L88) [#L91](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L91) 
 
 ```solidity
 File: contracts/decaying-bonds/RdpxDecayingBonds.sol
@@ -7614,6 +8028,7 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 34:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L31](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L31) [#L34](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/decaying-bonds/RdpxDecayingBonds.sol#L34) 
 
 ```solidity
 File: contracts/dpxETH/DpxEthToken.sol
@@ -7625,6 +8040,7 @@ File: contracts/dpxETH/DpxEthToken.sol
 21:   bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
 
 ```
+[#L19](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L19) [#L20](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L20) [#L21](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/dpxETH/DpxEthToken.sol#L21) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7634,6 +8050,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 48:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L45](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L45) [#L48](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L48) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7643,6 +8060,7 @@ File: contracts/reLP/ReLPContract.sol
 70:   bytes32 public constant RDPXV2CORE_ROLE = keccak256("RDPXV2CORE_ROLE");
 
 ```
+[#L67](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L67) [#L70](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L70) 
 
 </details>
 
@@ -7676,6 +8094,7 @@ File: contracts/core/RdpxV2Core.sol
 1190:       .roundUp(rdpxPrice - (rdpxPrice / 4)); // 25% below the current price
 
 ```
+[#L535](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L535) [#L539](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L539) [#L570](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L570) [#L574](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L574) [#L579](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L579) [#L1170](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1170) [#L1176](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1176) [#L1190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1190) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7683,6 +8102,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 270:     uint256 strike = roundUp(currentPrice - (currentPrice / 4)); // 25% below the current price
 
 ```
+[#L270](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L270) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7696,6 +8116,7 @@ File: contracts/reLP/ReLPContract.sol
 290:       amountB / 2,
 
 ```
+[#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L274) [#L275](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L275) [#L279](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L279) [#L290](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L290) 
 
 </details>
 
@@ -7718,6 +8139,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 133:     require(_amount > 0, "reLPContract: amount must be greater than 0");
 
 ```
+[#L113](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L113) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L133) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7745,6 +8167,7 @@ File: contracts/core/RdpxV2Core.sol
 1021:     _validate(bonds[id].timestamp > 0, 6);
 
 ```
+[#L183](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L183) [#L196](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L196) [#L231](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L231) [#L410](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L410) [#L444](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L444) [#L458](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L458) [#L556](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L556) [#L838](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L838) [#L901](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L901) [#L984](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L984) [#L1021](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1021) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7756,6 +8179,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 547:       _price > 0 ? _price : getUnderlyingPrice(),
 
 ```
+[#L265](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L265) [#L414](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L414) [#L547](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L547) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7767,6 +8191,7 @@ File: contracts/reLP/ReLPContract.sol
 190:       _slippageTolerance > 0,
 
 ```
+[#L94](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L94) [#L175](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L175) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L190) 
 
 </details>
 
@@ -7803,6 +8228,7 @@ File: contracts/amo/UniV2LiquidityAmo.sol
 132:     require(_spender != address(0), "reLPContract: spender cannot be 0");
 
 ```
+[#L84](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L84) [#L85](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L85) [#L86](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L86) [#L87](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L87) [#L88](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L88) [#L89](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L89) [#L90](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L90) [#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV2LiquidityAmo.sol#L132) 
 
 ```solidity
 File: contracts/core/RdpxV2Core.sol
@@ -7848,6 +8274,7 @@ File: contracts/core/RdpxV2Core.sol
 1162:     if (_rdpxBondId == 0) {
 
 ```
+[#L244](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L244) [#L274](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L274) [#L316](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L316) [#L317](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L317) [#L318](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L318) [#L319](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L319) [#L320](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L320) [#L321](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L321) [#L322](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L322) [#L323](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L323) [#L324](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L324) [#L325](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L325) [#L362](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L362) [#L363](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L363) [#L379](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L379) [#L408](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L408) [#L409](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L409) [#L630](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L630) [#L1091](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1091) [#L1162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/core/RdpxV2Core.sol#L1162) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVault.sol
@@ -7877,6 +8304,7 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 595:     if (fundingRates[latestFundingPaymentPointer] == 0) {
 
 ```
+[#L119](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L119) [#L190](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L190) [#L191](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L191) [#L192](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L192) [#L193](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L193) [#L194](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L194) [#L195](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L195) [#L196](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L196) [#L467](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L467) [#L505](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L505) [#L578](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L578) [#L595](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVault.sol#L595) 
 
 ```solidity
 File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
@@ -7894,6 +8322,7 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 283:       supply == 0 ? assets : assets.mulDivDown(supply, totalVaultCollateral);
 
 ```
+[#L95](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L95) [#L95](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L95) [#L123](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L123) [#L162](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L162) [#L223](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L223) [#L283](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/perp-vault/PerpetualAtlanticVaultLP.sol#L283) 
 
 ```solidity
 File: contracts/reLP/ReLPContract.sol
@@ -7917,6 +8346,7 @@ File: contracts/reLP/ReLPContract.sol
 135:         _ammRouter != address(0),
 
 ```
+[#L127](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L127) [#L128](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L128) [#L129](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L129) [#L130](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L130) [#L131](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L131) [#L132](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L132) [#L133](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L133) [#L134](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L134) [#L135](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L135) 
 
 </details>
 
