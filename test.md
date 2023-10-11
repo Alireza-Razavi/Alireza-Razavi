@@ -50,7 +50,7 @@ Total <b>225</b> instances over <b>24</b> issues:
 ## Non Critical Issues
 
 
-Total <b>659</b> instances over <b>51</b> issues:
+Total <b>661</b> instances over <b>52</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -60,51 +60,52 @@ Total <b>659</b> instances over <b>51</b> issues:
 | [NC-4](#NC-4) | Consider adding a block/deny-list | 10 |
 | [NC-5](#NC-5) | Consider adding formal verification proofs | 1 |
 | [NC-6](#NC-6) | Consider bounding input array length | 7 |
-| [NC-7](#NC-7) | Constants should be put on the left side of comparisons | 56 |
-| [NC-8](#NC-8) | Contract uses both `require()`/`revert()` as well as custom errors | 1 |
-| [NC-9](#NC-9) | Contracts should have full test coverage | 1 |
-| [NC-10](#NC-10) | Convert simple `if` statements to ternary expressions | 1 |
-| [NC-11](#NC-11) | Events that mark critical parameter changes should contain both the old and the new value | 37 |
-| [NC-12](#NC-12) | Custom errors should be used rather than `revert()`/`require()` | 8 |
-| [NC-13](#NC-13) | `else` block not required | 1 |
-| [NC-14](#NC-14) | Empty bytes check is missing | 1 |
-| [NC-15](#NC-15) | Enable IR-based code generation | 1 |
-| [NC-16](#NC-16) | Names of structs, events, enums and errors should use CapWords style | 1 |
-| [NC-17](#NC-17) | Events are emitted without the sender information | 29 |
-| [NC-18](#NC-18) |  Function ordering does not follow the Solidity Style Guide | 48 |
-| [NC-19](#NC-19) | Import declarations should import specific identifiers, rather than the whole file | 6 |
-| [NC-20](#NC-20) | Invalid NatSpec comment style | 1 |
-| [NC-21](#NC-21) | Large or complicated code bases should implement invariant tests | 1 |
-| [NC-22](#NC-22) | Long functions should be refactored into multiple, smaller, functions | 11 |
-| [NC-23](#NC-23) | Magic numbers should be replaced with constants | 41 |
-| [NC-24](#NC-24) | Missing zero address check in functions with address parameters | 34 |
-| [NC-25](#NC-25) | Consider moving `msg.sender` checks to `modifier`s | 1 |
-| [NC-26](#NC-26) | Named mappings are recommended | 13 |
-| [NC-27](#NC-27) | NatSpec documentation for contract is missing | 2 |
-| [NC-28](#NC-28) | Event declarations should have NatSpec descriptions | 14 |
-| [NC-29](#NC-29) | NatSpec documentation for function is missing | 39 |
-| [NC-30](#NC-30) | Modifier declarations should have NatSpec descriptions | 1 |
-| [NC-31](#NC-31) | Missing NatSpec `@param` | 89 |
-| [NC-32](#NC-32) | Public variable declarations should have NatSpec descriptions | 15 |
-| [NC-33](#NC-33) | NatSpec `@return` is missing | 34 |
-| [NC-34](#NC-34) | There is no need to initialize variables with 0 | 10 |
-| [NC-35](#NC-35) | Put all system-wide constants in one file | 14 |
-| [NC-36](#NC-36) | Contract declarations should have NatSpec `@title` annotations | 1 |
-| [NC-37](#NC-37) | Unused named return | 8 |
-| [NC-38](#NC-38) | Unused contract variables | 1 |
-| [NC-39](#NC-39) | Consider using `delete` rather than assigning zero to clear values | 1 |
-| [NC-40](#NC-40) | Expressions for constant values should use `immutable` rather than `constant` | 14 |
-| [NC-41](#NC-41) | Use the latest solidity version for deployment | 9 |
-| [NC-42](#NC-42) | Use of `override` is unnecessary | 2 |
-| [NC-43](#NC-43) | Visibility of state variables is not explicitly defined | 1 |
-| [NC-44](#NC-44) | Whitespace in Expressions | 3 |
-| [NC-45](#NC-45) | Missing checks for `address(0)` when assigning values to address state variables | 4 |
-| [NC-46](#NC-46) | Common functions should be refactored to a common base contract | 8 |
-| [NC-47](#NC-47) | Names of `private`/`internal` functions should be prefixed with an underscore | 1 |
-| [NC-48](#NC-48) | Return values of `approve()` not checked | 13 |
-| [NC-49](#NC-49) | Variables should be named in mixedCase style | 14 |
-| [NC-50](#NC-50) | Event is missing `indexed` fields | 13 |
-| [NC-51](#NC-51) | Functions not used internally could be marked `external` | 32 |
+| [NC-7](#NC-7) | Consider using `AccessControlDefaultAdminRules` rather than `AccessControl` | 2 |
+| [NC-8](#NC-8) | Constants should be put on the left side of comparisons | 56 |
+| [NC-9](#NC-9) | Contract uses both `require()`/`revert()` as well as custom errors | 1 |
+| [NC-10](#NC-10) | Contracts should have full test coverage | 1 |
+| [NC-11](#NC-11) | Convert simple `if` statements to ternary expressions | 1 |
+| [NC-12](#NC-12) | Events that mark critical parameter changes should contain both the old and the new value | 37 |
+| [NC-13](#NC-13) | Custom errors should be used rather than `revert()`/`require()` | 8 |
+| [NC-14](#NC-14) | `else` block not required | 1 |
+| [NC-15](#NC-15) | Empty bytes check is missing | 1 |
+| [NC-16](#NC-16) | Enable IR-based code generation | 1 |
+| [NC-17](#NC-17) | Names of structs, events, enums and errors should use CapWords style | 1 |
+| [NC-18](#NC-18) | Events are emitted without the sender information | 29 |
+| [NC-19](#NC-19) |  Function ordering does not follow the Solidity Style Guide | 48 |
+| [NC-20](#NC-20) | Import declarations should import specific identifiers, rather than the whole file | 6 |
+| [NC-21](#NC-21) | Invalid NatSpec comment style | 1 |
+| [NC-22](#NC-22) | Large or complicated code bases should implement invariant tests | 1 |
+| [NC-23](#NC-23) | Long functions should be refactored into multiple, smaller, functions | 11 |
+| [NC-24](#NC-24) | Magic numbers should be replaced with constants | 41 |
+| [NC-25](#NC-25) | Missing zero address check in functions with address parameters | 34 |
+| [NC-26](#NC-26) | Consider moving `msg.sender` checks to `modifier`s | 1 |
+| [NC-27](#NC-27) | Named mappings are recommended | 13 |
+| [NC-28](#NC-28) | NatSpec documentation for contract is missing | 2 |
+| [NC-29](#NC-29) | Event declarations should have NatSpec descriptions | 14 |
+| [NC-30](#NC-30) | NatSpec documentation for function is missing | 39 |
+| [NC-31](#NC-31) | Modifier declarations should have NatSpec descriptions | 1 |
+| [NC-32](#NC-32) | Missing NatSpec `@param` | 89 |
+| [NC-33](#NC-33) | Public variable declarations should have NatSpec descriptions | 15 |
+| [NC-34](#NC-34) | NatSpec `@return` is missing | 34 |
+| [NC-35](#NC-35) | There is no need to initialize variables with 0 | 10 |
+| [NC-36](#NC-36) | Put all system-wide constants in one file | 14 |
+| [NC-37](#NC-37) | Contract declarations should have NatSpec `@title` annotations | 1 |
+| [NC-38](#NC-38) | Unused named return | 8 |
+| [NC-39](#NC-39) | Unused contract variables | 1 |
+| [NC-40](#NC-40) | Consider using `delete` rather than assigning zero to clear values | 1 |
+| [NC-41](#NC-41) | Expressions for constant values should use `immutable` rather than `constant` | 14 |
+| [NC-42](#NC-42) | Use the latest solidity version for deployment | 9 |
+| [NC-43](#NC-43) | Use of `override` is unnecessary | 2 |
+| [NC-44](#NC-44) | Visibility of state variables is not explicitly defined | 1 |
+| [NC-45](#NC-45) | Whitespace in Expressions | 3 |
+| [NC-46](#NC-46) | Missing checks for `address(0)` when assigning values to address state variables | 4 |
+| [NC-47](#NC-47) | Common functions should be refactored to a common base contract | 8 |
+| [NC-48](#NC-48) | Names of `private`/`internal` functions should be prefixed with an underscore | 1 |
+| [NC-49](#NC-49) | Return values of `approve()` not checked | 13 |
+| [NC-50](#NC-50) | Variables should be named in mixedCase style | 14 |
+| [NC-51](#NC-51) | Event is missing `indexed` fields | 13 |
+| [NC-52](#NC-52) | Functions not used internally could be marked `external` | 32 |
 
 ## Gas Optimizations
 
@@ -1924,7 +1925,30 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 ---
 
 <a name="NC-7"></a> 
-### [NC-7] Constants should be put on the left side of comparisons
+### [NC-7] Consider using `AccessControlDefaultAdminRules` rather than `AccessControl`
+`AccessControlDefaultAdminRules` implements multiple [security best practices](https://docs.openzeppelin.com/contracts/4.x/api/access#AccessControlDefaultAdminRules) on top of the normal `AccessControl` rules, so consider using it instead.
+
+There are <b>2</b> instances:
+```solidity
+File: contracts/amo/UniV3LiquidityAmo.sol
+
+28: contract UniV3LiquidityAMO is AccessControl, ERC721Holder {
+
+```
+[#L28](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/amo/UniV3LiquidityAmo.sol#L28) 
+
+```solidity
+File: contracts/reLP/ReLPContract.sol
+
+25: contract ReLPContract is AccessControl {
+
+```
+[#L25](https://github.com/code-423n4/2023-08-dopex/blob/0ea4387a4851cd6c8811dfb61da95a677f3f63ae/contracts/reLP/ReLPContract.sol#L25) 
+
+---
+
+<a name="NC-8"></a> 
+### [NC-8] Constants should be put on the left side of comparisons
 Putting constants on the left side of comparison statements is a best practice known as [Yoda conditions](https://en.wikipedia.org/wiki/Yoda_conditions). Although solidity's static typing system prevents accidental assignments within conditionals, adopting this practice can improve code readability and consistency, especially when working across multiple languages.
 
 <details>
@@ -2078,8 +2102,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-8"></a> 
-### [NC-8] Contract uses both `require()`/`revert()` as well as custom errors
+<a name="NC-9"></a> 
+### [NC-9] Contract uses both `require()`/`revert()` as well as custom errors
 Consider using just one method in a single file.
 
 There is <b>1</b> instance:
@@ -2093,8 +2117,8 @@ File: contracts/core/RdpxV2Core.sol
 
 ---
 
-<a name="NC-9"></a> 
-### [NC-9] Contracts should have full test coverage
+<a name="NC-10"></a> 
+### [NC-10] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
 There is <b>1</b> instance:
@@ -2107,8 +2131,8 @@ Global finding
 
 ---
 
-<a name="NC-10"></a> 
-### [NC-10] Convert simple `if` statements to ternary expressions
+<a name="NC-11"></a> 
+### [NC-11] Convert simple `if` statements to ternary expressions
 Converting some if statements to ternaries (such as `z = (a < b) ? x : y`) can make the code more concise and easier to read.
 
 There is <b>1</b> instance:
@@ -2125,8 +2149,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-11"></a> 
-### [NC-11] Events that mark critical parameter changes should contain both the old and the new value
+<a name="NC-12"></a> 
+### [NC-12] Events that mark critical parameter changes should contain both the old and the new value
 This should especially be done if the new value is not required to be different from the old value.
 
 <details>
@@ -2254,8 +2278,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-12"></a> 
-### [NC-12] Custom errors should be used rather than `revert()`/`require()`
+<a name="NC-13"></a> 
+### [NC-13] Custom errors should be used rather than `revert()`/`require()`
 Custom errors are available from solidity version 0.8.4. Custom errors are more easily processed in try-catch blocks, and are easier to re-use and maintain.
 
 There are <b>8</b> instances:
@@ -2301,8 +2325,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-13"></a> 
-### [NC-13] `else` block not required
+<a name="NC-14"></a> 
+### [NC-14] `else` block not required
 One level of nesting can be removed by not having an `else` block when the `if`-block always jumps at the end. For example:
 ```solidity
 if (condition) {
@@ -2335,8 +2359,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-14"></a> 
-### [NC-14] Empty bytes check is missing
+<a name="NC-15"></a> 
+### [NC-15] Empty bytes check is missing
 Passing empty bytes to a function can cause unexpected behavior, such as certain operations failing, producing incorrect results, or wasting gas. It is recommended to check that all byte parameters are not empty.
 
 There is <b>1</b> instance:
@@ -2355,8 +2379,8 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ---
 
-<a name="NC-15"></a> 
-### [NC-15] Enable IR-based code generation
+<a name="NC-16"></a> 
+### [NC-16] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
 There is <b>1</b> instance:
@@ -2369,8 +2393,8 @@ Global finding
 
 ---
 
-<a name="NC-16"></a> 
-### [NC-16] Names of structs, events, enums and errors should use CapWords style
+<a name="NC-17"></a> 
+### [NC-17] Names of structs, events, enums and errors should use CapWords style
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html)
 
 There is <b>1</b> instance:
@@ -2384,8 +2408,8 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ---
 
-<a name="NC-17"></a> 
-### [NC-17] Events are emitted without the sender information
+<a name="NC-18"></a> 
+### [NC-18] Events are emitted without the sender information
 When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the `msg.sender` the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
 
 <details>
@@ -2485,8 +2509,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-18"></a> 
-### [NC-18]  Function ordering does not follow the Solidity Style Guide
+<a name="NC-19"></a> 
+### [NC-19]  Function ordering does not follow the Solidity Style Guide
 According to the [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#order-of-functions), functions should be laid out in the following order: `constructor()`, `receive()`, `fallback()`, `external`, `public`, `internal`, `private`, but the cases below do not follow this pattern
 
 <details>
@@ -2861,8 +2885,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-19"></a> 
-### [NC-19] Import declarations should import specific identifiers, rather than the whole file
+<a name="NC-20"></a> 
+### [NC-20] Import declarations should import specific identifiers, rather than the whole file
 Using import declarations of the form `import {<identifier_name>} from "some/file.sol"` avoids polluting the symbol namespace making flattened files smaller, and speeds up compilation (but does not save any gas).
 
 There are <b>6</b> instances:
@@ -2886,8 +2910,8 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ---
 
-<a name="NC-20"></a> 
-### [NC-20] Invalid NatSpec comment style
+<a name="NC-21"></a> 
+### [NC-21] Invalid NatSpec comment style
 NatSpec must begin with `///` or use `/* ... */` syntax
 
 There is <b>1</b> instance:
@@ -2901,8 +2925,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-21"></a> 
-### [NC-21] Large or complicated code bases should implement invariant tests
+<a name="NC-22"></a> 
+### [NC-22] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
 There is <b>1</b> instance:
@@ -2915,8 +2939,8 @@ Global finding
 
 ---
 
-<a name="NC-22"></a> 
-### [NC-22] Long functions should be refactored into multiple, smaller, functions
+<a name="NC-23"></a> 
+### [NC-23] Long functions should be refactored into multiple, smaller, functions
 
 <details>
 <summary>
@@ -3043,8 +3067,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-23"></a> 
-### [NC-23] Magic numbers should be replaced with constants
+<a name="NC-24"></a> 
+### [NC-24] Magic numbers should be replaced with constants
 Magic numbers are hard-coded values in code that can make it difficult for developers and maintainers to understand the code, and can also cause confusion or errors. To improve the readability and maintainability of code, it is recommended to replace magic numbers with constants that have good readability.
 
 <details>
@@ -3168,8 +3192,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-24"></a> 
-### [NC-24] Missing zero address check in functions with address parameters
+<a name="NC-25"></a> 
+### [NC-25] Missing zero address check in functions with address parameters
 Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
@@ -3462,8 +3486,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-25"></a> 
-### [NC-25] Consider moving `msg.sender` checks to `modifier`s
+<a name="NC-26"></a> 
+### [NC-26] Consider moving `msg.sender` checks to `modifier`s
 If some functions are only allowed to be called by some specific users, consider using a modifier instead of checking with a require statement, especially if this check is done in multiple functions.
 
 There is <b>1</b> instance:
@@ -3477,8 +3501,8 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
 ---
 
-<a name="NC-26"></a> 
-### [NC-26] Named mappings are recommended
+<a name="NC-27"></a> 
+### [NC-27] Named mappings are recommended
 [Named mappings](https://docs.soliditylang.org/en/v0.8.18/types.html#mapping-types) (with syntax `mapping(KeyType KeyName? => ValueType ValueName?)`) are recommended.It can make the mapping variables clearer, more readable and easier to maintain.
 
 <details>
@@ -3540,8 +3564,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-27"></a> 
-### [NC-27] NatSpec documentation for contract is missing
+<a name="NC-28"></a> 
+### [NC-28] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
 There are <b>2</b> instances:
@@ -3563,8 +3587,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-28"></a> 
-### [NC-28] Event declarations should have NatSpec descriptions
+<a name="NC-29"></a> 
+### [NC-29] Event declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -3633,8 +3657,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-29"></a> 
-### [NC-29] NatSpec documentation for function is missing
+<a name="NC-30"></a> 
+### [NC-30] NatSpec documentation for function is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
 
 <details>
@@ -3871,8 +3895,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-30"></a> 
-### [NC-30] Modifier declarations should have NatSpec descriptions
+<a name="NC-31"></a> 
+### [NC-31] Modifier declarations should have NatSpec descriptions
 
 There is <b>1</b> instance:
 ```solidity
@@ -3885,8 +3909,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-31"></a> 
-### [NC-31] Missing NatSpec `@param`
+<a name="NC-32"></a> 
+### [NC-32] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
 <details>
@@ -4591,8 +4615,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-32"></a> 
-### [NC-32] Public variable declarations should have NatSpec descriptions
+<a name="NC-33"></a> 
+### [NC-33] Public variable declarations should have NatSpec descriptions
 
 <details>
 <summary>
@@ -4663,8 +4687,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-33"></a> 
-### [NC-33] NatSpec `@return` is missing
+<a name="NC-34"></a> 
+### [NC-34] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
 <details>
@@ -4900,8 +4924,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-34"></a> 
-### [NC-34] There is no need to initialize variables with 0
+<a name="NC-35"></a> 
+### [NC-35] There is no need to initialize variables with 0
 Since the variables are automatically set to 0 when created, it is redundant to initialize it with 0 again.
 
 There are <b>10</b> instances:
@@ -4957,8 +4981,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-35"></a> 
-### [NC-35] Put all system-wide constants in one file
+<a name="NC-36"></a> 
+### [NC-36] Put all system-wide constants in one file
 Putting all the system-wide constants in a single file improves code readability, makes it easier to understand the basic configuration and limitations of the system, and makes maintenance easier.
 
 <details>
@@ -5040,8 +5064,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-36"></a> 
-### [NC-36] Contract declarations should have NatSpec `@title` annotations
+<a name="NC-37"></a> 
+### [NC-37] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
 There is <b>1</b> instance:
@@ -5055,8 +5079,8 @@ File: contracts/amo/UniV3LiquidityAmo.sol
 
 ---
 
-<a name="NC-37"></a> 
-### [NC-37] Unused named return
+<a name="NC-38"></a> 
+### [NC-38] Unused named return
 Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
 
 There are <b>8</b> instances:
@@ -5131,8 +5155,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-38"></a> 
-### [NC-38] Unused contract variables
+<a name="NC-39"></a> 
+### [NC-39] Unused contract variables
 The following state variables are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion.
 
 There is <b>1</b> instance:
@@ -5146,8 +5170,8 @@ File: contracts/dpxETH/DpxEthToken.sol
 
 ---
 
-<a name="NC-39"></a> 
-### [NC-39] Consider using `delete` rather than assigning zero to clear values
+<a name="NC-40"></a> 
+### [NC-40] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
 There is <b>1</b> instance:
@@ -5161,8 +5185,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-40"></a> 
-### [NC-40] Expressions for constant values should use `immutable` rather than `constant`
+<a name="NC-41"></a> 
+### [NC-41] Expressions for constant values should use `immutable` rather than `constant`
 While it doesn't save any gas because the compiler knows that developers often make this mistake, it's still best to use the right tool for the task at hand. There is a difference between `constant` variables and `immutable` variables, and they should each be used in their appropriate contexts. `constants` should be used for literal values written into the code, and `immutable` variables should be used for expressions, or values calculated in, or passed into the constructor.
 
 <details>
@@ -5244,8 +5268,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-41"></a> 
-### [NC-41] Use the latest solidity version for deployment
+<a name="NC-42"></a> 
+### [NC-42] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
 There are <b>9</b> instances:
@@ -5323,8 +5347,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-42"></a> 
-### [NC-42] Use of `override` is unnecessary
+<a name="NC-43"></a> 
+### [NC-43] Use of `override` is unnecessary
 Starting with Solidity version [0.8.8](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), using the `override` keyword when the function solely overrides an interface function, and the function doesn't exist in multiple base contracts, is unnecessary.
 
 There are <b>2</b> instances:
@@ -5340,8 +5364,8 @@ File: contracts/dpxETH/DpxEthToken.sol
 
 ---
 
-<a name="NC-43"></a> 
-### [NC-43] Visibility of state variables is not explicitly defined
+<a name="NC-44"></a> 
+### [NC-44] Visibility of state variables is not explicitly defined
 To avoid misunderstandings and unexpected state accesses, it is recommended to explicitly define the visibility of each state variable.
 
 There is <b>1</b> instance:
@@ -5355,8 +5379,8 @@ File: contracts/perp-vault/PerpetualAtlanticVault.sol
 
 ---
 
-<a name="NC-44"></a> 
-### [NC-44] Whitespace in Expressions
+<a name="NC-45"></a> 
+### [NC-45] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
 There are <b>3</b> instances:
@@ -5380,8 +5404,8 @@ File: contracts/decaying-bonds/RdpxDecayingBonds.sol
 
 ---
 
-<a name="NC-45"></a> 
-### [NC-45] Missing checks for `address(0)` when assigning values to address state variables
+<a name="NC-46"></a> 
+### [NC-46] Missing checks for `address(0)` when assigning values to address state variables
 
 There are <b>4</b> instances:
 ```solidity
@@ -5412,8 +5436,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-46"></a> 
-### [NC-46] Common functions should be refactored to a common base contract
+<a name="NC-47"></a> 
+### [NC-47] Common functions should be refactored to a common base contract
 The functions below have the same implementation as is seen in other files. The functions should be refactored into functions of a common base contract.
 
 There are <b>8</b> instances:
@@ -5479,8 +5503,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-47"></a> 
-### [NC-47] Names of `private`/`internal` functions should be prefixed with an underscore
+<a name="NC-48"></a> 
+### [NC-48] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
 There is <b>1</b> instance:
@@ -5494,8 +5518,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-48"></a> 
-### [NC-48] Return values of `approve()` not checked
+<a name="NC-49"></a> 
+### [NC-49] Return values of `approve()` not checked
 Not all IERC20 implementations `revert()` when there's a failure in `approve()`. The function signature has a boolean return value and they indicate errors that way instead. By not checking the return value, operations that should have marked as failed, may potentially go through without actually approving anything
 
 <details>
@@ -5563,8 +5587,8 @@ File: contracts/perp-vault/PerpetualAtlanticVaultLP.sol
 
 ---
 
-<a name="NC-49"></a> 
-### [NC-49] Variables should be named in mixedCase style
+<a name="NC-50"></a> 
+### [NC-50] Variables should be named in mixedCase style
 As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
 
 <details>
@@ -5646,8 +5670,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-50"></a> 
-### [NC-50] Event is missing `indexed` fields
+<a name="NC-51"></a> 
+### [NC-51] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 <details>
@@ -5715,8 +5739,8 @@ File: contracts/reLP/ReLPContract.sol
 
 ---
 
-<a name="NC-51"></a> 
-### [NC-51] Functions not used internally could be marked `external`
+<a name="NC-52"></a> 
+### [NC-52] Functions not used internally could be marked `external`
 
 <details>
 <summary>
