@@ -1088,8 +1088,6 @@ Some tools that are currently available to perform these tests on smart contract
 Global finding
 
 ```
-*Github:* []
-
 
 ---
 
@@ -1271,8 +1269,6 @@ While 100% code coverage does not guarantee that there are no bugs, it often wil
 Global finding
 
 ```
-*Github:* []
-
 
 ---
 
@@ -1470,8 +1466,6 @@ The IR-based code generator was introduced with an aim to not only allow code ge
 Global finding
 
 ```
-*Github:* []
-
 
 ---
 
@@ -1582,8 +1576,6 @@ This includes: large code bases, or code with lots of inline-assembly, complicat
 Global finding
 
 ```
-*Github:* []
-
 
 ---
 
@@ -2878,8 +2870,6 @@ By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advan
 Global finding
 
 ```
-*Github:* []
-
 
 ---
 
