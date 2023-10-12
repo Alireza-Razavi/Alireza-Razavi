@@ -1260,7 +1260,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [NC-7] Contract should expose an `interface`
 All `external`/`public` functions should extend an `interface`. This is useful to make sure that the whole API is extracted.
 
-**Note:** It is possible that the interface is out-of-scope.
+*Note:* It is possible that the interface is out-of-scope and has not been seen by the bot.
 
 <details>
 <summary>
