@@ -126,7 +126,7 @@ Total <b>391</b> instances over <b>31</b> issues:
 ### [M-1] Centralization Risk for trusted owners
 Contracts have owners with privileged rights to perform admin tasks and need to be trusted to not perform malicious updates or drain funds.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -148,7 +148,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [L-1] Array is `push()`ed but not `pop()`ed
 There is no limit specified on the amount of gas used, so the recipient can use up all of the remaining gas (`gasleft()`), causing it to revert. Therefore, when calling an external contract, it is necessary to specify a limited amount of gas to forward.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -164,7 +164,7 @@ File: contracts/Tokens/Prime/Prime.sol
 
 <details>
 <summary>
-There are <b>124</b> instances (click to show):
+*There are <b>124</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -447,7 +447,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [L-3] Consider implementing two-step procedure for updating protocol addresses
 A copy-paste error or a typo may end up bricking protocol functionality, or sending tokens to an address with no known private key. Consider implementing a two-step procedure for updating protocol addresses, where the recipient is set as pending, and must "accept" the assignment by making an affirmative call. A straight forward way of doing this would be to have the target contracts implement [EIP-165](https://eips.ethereum.org/EIPS/eip-165), and to have the "set" functions ensure that the recipient is of the right interface type.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -462,7 +462,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [L-4] Constructor / initialization function lacks parameter validation
 Constructors and initialization functions play a critical role in contracts by setting important initial states when the contract is first deployed before the system starts. The parameters passed to the constructor and initialization functions directly affect the behavior of the contract / protocol. If incorrect parameters are provided, the system may fail to run, behave abnormally, be unstable, or lack security. Therefore, it's crucial to carefully check each parameter in the constructor and initialization functions. If an exception is found, the transaction should be rolled back.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -507,7 +507,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [L-5] Enum values should be used instead of constant array indexes
 Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -530,7 +530,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [L-6] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -547,7 +547,7 @@ Division by large numbers may result in the result being zero, due to solidity n
 
 <details>
 <summary>
-There are <b>124</b> instances (click to show):
+*There are <b>124</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -830,7 +830,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [L-8] Check storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -853,7 +853,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [L-9] Prevent re-setting a state variable with the same value
 Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -868,7 +868,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [L-10] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -886,7 +886,7 @@ File: contracts/Tokens/Prime/Prime.sol
 <a name="L-11"></a> 
 ### [L-11] Missing zero address check in initializer
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -927,7 +927,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [L-12] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -952,7 +952,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 <a name="NC-1"></a> 
 ### [NC-1] Contract declarations should have NatSpec `@author` annotations
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1007,7 +1007,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [NC-2] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability
 Well-organized data structures make code reviews easier, which may lead to fewer bugs. Consider combining related mappings into mappings to structs, so it's clear what data is related
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
@@ -1024,7 +1024,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [NC-3] Consider adding a block/deny-list
 Doing so will significantly increase centralization, but will help to prevent hackers from using stolen tokens.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1057,7 +1057,7 @@ Formal verification is the act of proving or disproving the correctness of inten
 
 Some tools that are currently available to perform these tests on smart contracts are [SMTChecker](https://docs.soliditylang.org/en/latest/smtchecker.html) and [Certora Prover](https://www.certora.com/).
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 
 Global finding
@@ -1071,7 +1071,7 @@ Global finding
 ### [NC-5] Consider bounding input array length
 The functions below take in an unbounded array, and make function calls for entries in the array. While the function will revert if it eventually runs out of gas, it may be a nicer user experience to require() that the length of the array is below some reasonable maximum, so that the user doesn't have to use up a full transaction's gas only to see that the transaction reverts.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1099,7 +1099,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [NC-6] Consider using `AccessControlDefaultAdminRules` rather than `AccessControl`
 `AccessControlDefaultAdminRules` implements multiple [security best practices](https://docs.openzeppelin.com/contracts/4.x/api/access#AccessControlDefaultAdminRules) on top of the normal `AccessControl` rules, so consider using it instead.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1124,7 +1124,7 @@ Putting constants on the left side of comparison statements is a best practice k
 
 <details>
 <summary>
-There are <b>36</b> instances (click to show):
+*There are <b>36</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1231,7 +1231,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [NC-8] Contracts should have full test coverage
 While 100% code coverage does not guarantee that there are no bugs, it often will catch easy-to-find bugs, and will ensure that there are fewer regressions when the code invariably has to be modified. Furthermore, in order to get full coverage, code authors will often have to re-organize their code so that it is more modular, so that each component can be tested separately, which reduces interdependencies between modules and layers, and makes for code that is easier to reason about and audit.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 
 Global finding
@@ -1247,7 +1247,7 @@ This should especially be done if the new value is not required to be different 
 
 <details>
 <summary>
-There are <b>15</b> instances (click to show):
+*There are <b>15</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1302,7 +1302,7 @@ Consider adding parameters to the error to indicate which user or values caused 
 
 <details>
 <summary>
-There are <b>17</b> instances (click to show):
+*There are <b>17</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1365,7 +1365,7 @@ File: contracts/Tokens/Prime/libs/FixedMath.sol
 ### [NC-11] Duplicated `require()`/`revert()` checks should be refactored
 Refactoring duplicate `require()`/`revert()` checks into a modifier or function can make the code more concise, readable and maintainable, and less likely to make errors or omissions when modifying the `require()` or `revert()`.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -1397,7 +1397,7 @@ if (condition) {
 body2...
 ```
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1422,7 +1422,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ### [NC-13] Enable IR-based code generation
 The IR-based code generator was introduced with an aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions. You can enable it on the command line using `--via-ir` or with the option `{"viaIR": true}`. This will take longer to compile, but you can just simple test it before deploying and if you got a better benchmark then you can add --via-ir to your deploy command More on: https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 
 Global finding
@@ -1438,7 +1438,7 @@ When an action is triggered based on a user's action, not being able to filter b
 
 <details>
 <summary>
-There are <b>13</b> instances (click to show):
+*There are <b>13</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1487,7 +1487,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [NC-15]  Function ordering does not follow the Solidity Style Guide
 According to the [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#order-of-functions), functions should be laid out in the following order: `constructor()`, `receive()`, `fallback()`, `external`, `public`, `internal`, `private`, but the cases below do not follow this pattern
 
-There are <b>10</b> instances:
+*There are <b>10</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1530,7 +1530,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ### [NC-16] Large or complicated code bases should implement invariant tests
 This includes: large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts. Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers may help significantly.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 
 Global finding
@@ -1543,7 +1543,7 @@ Global finding
 <a name="NC-17"></a> 
 ### [NC-17] Long functions should be refactored into multiple, smaller, functions
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
@@ -1566,7 +1566,7 @@ Magic numbers are hard-coded values in code that can make it difficult for devel
 
 <details>
 <summary>
-There are <b>19</b> instances (click to show):
+*There are <b>19</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1623,7 +1623,7 @@ Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
 <summary>
-There are <b>42</b> instances (click to show):
+*There are <b>42</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1821,7 +1821,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 <details>
 <summary>
-There are <b>11</b> instances (click to show):
+*There are <b>11</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -1866,7 +1866,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [NC-21] NatSpec documentation for contract is missing
 e.g. `@dev` or `@notice`, and it must appear above the contract definition braces in order to be identified by the compiler as NatSpec.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1921,7 +1921,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [NC-22] Missing NatSpec `@param`
 Some functions have an incomplete NatSpec: add a `@param` notation to describe the function parameters to improve the code documentation.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -1968,7 +1968,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [NC-23] NatSpec `@return` is missing
 It is recommended that Solidity contracts are fully annotated using NatSpec
 
-There are <b>4</b> instances:
+*There are <b>4</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath.sol
 
@@ -1999,7 +1999,7 @@ Since the variables are automatically set to 0 when created, it is redundant to 
 
 <details>
 <summary>
-There are <b>13</b> instances (click to show):
+*There are <b>13</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -2050,7 +2050,7 @@ Putting all the system-wide constants in a single file improves code readability
 
 <details>
 <summary>
-There are <b>12</b> instances (click to show):
+*There are <b>12</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -2103,7 +2103,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [NC-26] State variables should include comments
 Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
@@ -2118,7 +2118,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [NC-27] Contract declarations should have NatSpec `@title` annotations
 Some contract definitions have an incomplete NatSpec: add a `@title` notation to describe the contract to improve the code documentation.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2173,7 +2173,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [NC-28] Lines are too long
 The [solidity style guide](https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length) recommends a maximum line length of 120 characters. Lines of code that are longer than 120 should be wrapped.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2210,7 +2210,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [NC-29] Unused errors
 The following `error`s are defined but not used. It is recommended to check the code for logical omissions that cause them not to be used. If it's determined that they are not needed anywhere, it's best to remove them from the codebase to improve code clarity and minimize confusion. Note that there may be cases where an error appears to be used because it has multiple definitions in different files. In such cases, the definitions should be moved to a separate file.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
@@ -2225,7 +2225,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [NC-30] Unused `event` definition
 Note that there may be cases where an event superficially appears to be used, but this is only because there are multiple definitions of the event in different files. In such cases, the event definition should be moved into a separate file. The instances below are the unused definitions.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -2244,7 +2244,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [NC-31] Unused named return
 Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
 
-There are <b>4</b> instances:
+*There are <b>4</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2283,7 +2283,7 @@ File: contracts/Tokens/Prime/libs/FixedMath.sol
 ### [NC-32] Consider using `delete` rather than assigning zero to clear values
 The `delete` keyword more closely matches the semantics of what is being done, and draws more attention to the changing of state, which may lead to a more thorough audit of its associated logic.
 
-There are <b>5</b> instances:
+*There are <b>5</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2306,7 +2306,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ### [NC-33] Solidity compiler version is not fixed
 To prevent the actual contracts deployed from behaving differently depending on the compiler version, it is recommended to use a fixed solidity version.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/IPrime.sol
 
@@ -2323,7 +2323,7 @@ While it doesn't save any gas because the compiler knows that developers often m
 
 <details>
 <summary>
-There are <b>12</b> instances (click to show):
+*There are <b>12</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -2376,7 +2376,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [NC-35] Use the latest solidity version for deployment
 Upgrading to a newer Solidity release can optimize gas usage, take advantage of new features and improve overall contract efficiency. Where possible, based on compatibility requirements, it is recommended to use newer/latest solidity version to take advantage of the latest optimizations and features.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2431,7 +2431,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [NC-36] Whitespace in Expressions
 See the [Whitespace in Expressions](https://docs.soliditylang.org/en/latest/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2445,7 +2445,7 @@ File: contracts/Tokens/Prime/Prime.sol
 <a name="NC-37"></a> 
 ### [NC-37] Missing checks for `address(0)` when assigning values to address state variables
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -2460,7 +2460,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [NC-38] Names of `private`/`internal` functions should be prefixed with an underscore
 It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.20/style-guide.html#underscore-prefix-for-non-external-functions-and-variables)
 
-There are <b>9</b> instances:
+*There are <b>9</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2519,7 +2519,7 @@ It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en
 
 <details>
 <summary>
-There are <b>12</b> instances (click to show):
+*There are <b>12</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -2574,7 +2574,7 @@ As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guid
 
 <details>
 <summary>
-There are <b>16</b> instances (click to show):
+*There are <b>16</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -2641,7 +2641,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [NC-41] Event is missing `indexed` fields
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
-There are <b>8</b> instances:
+*There are <b>8</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -2677,7 +2677,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 <details>
 <summary>
-There are <b>20</b> instances (click to show):
+*There are <b>20</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -2743,7 +2743,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [GAS-1] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, where appropriate
 Saves a storage slot for the mapping. Depending on the circumstances and sizes of types, can avoid a Gsset (20000 gas) per mapping combined. Reads and subsequent writes can also be cheaper when a function requires both values and they both fit in the same storage slot. Finally, if both fields are accessed in the same function, can save ~42 gas per access due to not having to [recalculate the key's keccak256 hash](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0) (Gkeccak256 - 30 gas) and that calculation's associated stack operations.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
@@ -2760,7 +2760,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [GAS-2] Consider activating via-ir for deploying
 By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advanced [multi-function optimizations](https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html#solidity-ir-based-codegen-changes), for extra gas savings.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 
 Global finding
@@ -2776,7 +2776,7 @@ The expression `type(int).min/(-1)` is the only case where division causes an ov
 
 <details>
 <summary>
-There are <b>124</b> instances (click to show):
+*There are <b>124</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -3060,7 +3060,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 <details>
 <summary>
-There are <b>41</b> instances (click to show):
+*There are <b>41</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -3171,7 +3171,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [GAS-5] Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas
 Saves deployment costs.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -3187,7 +3187,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-6] Increments can be `unchecked` to save gas
 Using `unchecked` increments can save gas by bypassing the built-in overflow checks. This can save 30-40 gas per iteration. So it is recommended to use unchecked increments when overflow is not possible.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -3206,7 +3206,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-7] Initializers can be marked as payable to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. Initializers can be safely marked as payable, because only the deployer or the factory contract would call the function without carrying any funds.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3229,7 +3229,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-8] `internal` functions only called once can be inlined to save gas
 If an `internal` function is only used once, there is no need to modularize it, unless the function calling it would otherwise be too long and complex. Not inlining costs 20 to 40 gas because of two extra JUMP instructions and additional stack operations needed for function calls.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3260,7 +3260,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ### [GAS-9] Multiple accesses of the same mapping/array key/index should be cached
 The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local `storage` or `calldata` variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key's keccak256 hash (Gkeccak256 - 30 gas) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata
 
-There are <b>5</b> instances:
+*There are <b>5</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -3288,7 +3288,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-10] Newer versions of solidity are more gas efficient
 The solidity language continues to pursue more efficient gas optimization schemes. Adopting a newer version of solidity can be more gas efficient.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3345,7 +3345,7 @@ The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only req
 
 <details>
 <summary>
-There are <b>40</b> instances (click to show):
+*There are <b>40</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -3466,7 +3466,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [GAS-12] Reduce gas usage by moving to Solidity 0.8.19 or later
 Solidity version 0.8.19 introduced a number of gas optimizations, refer to the [Solidity 0.8.19 Release Announcement](https://soliditylang.org/blog/2023/02/22/solidity-0.8.19-release-announcement/) for details.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3521,7 +3521,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [GAS-13] Remove or replace unused state variables
 Saves a storage slot. If the variable is assigned a non-zero value, saves Gsset (20000 gas). If it's assigned a zero value, saves Gsreset (2900 gas). If the variable remains unassigned, there is no gas savings unless the variable is `public`, in which case the compiler-generated non-payable getter deployment cost is saved. If the state variable is overriding an interface's public function, mark the variable as `constant` or `immutable` so that it does not use a storage slot.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
@@ -3536,7 +3536,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [GAS-14] Unused named return variables without optimizer waste gas
 Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name. If the optimizer is not turned on, leaving the code as it is will also waste gas for the stack variable.
 
-There are <b>4</b> instances:
+*There are <b>4</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3581,7 +3581,7 @@ A good example of such practice can be seen in [Solady's](https://github.com/Vec
 
 <details>
 <summary>
-There are <b>16</b> instances (click to show):
+*There are <b>16</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -3636,7 +3636,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-16] Using a double `if` statement instead of a logical AND (`&&`)
 Using a double `if` statement instead of a logical AND (`&&`) can provide similar short-circuiting behavior whereas double if is slightly [more gas efficient](https://gist.github.com/DadeKuma/931ce6794a050201ec6544dbcc31316c).
 
-There are <b>9</b> instances:
+*There are <b>9</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3676,7 +3676,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 - Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings.
 - Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value.
 
-There are <b>6</b> instances:
+*There are <b>6</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3731,7 +3731,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [GAS-18] Use `unchecked` block for safe subtractions
 If it can be confirmed that the subtraction operation will not overflow, using an unchecked block can save gas. For example, `require(x <= y); z = y - x;` can be optimized to `require(x <= y); unchecked { z = y - x; }`
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3756,7 +3756,7 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 ### [GAS-19] Using bitmap to store bool states can save gas
 Using a bitmap instead of a bool array or a bool mapping to store boolean states can save gas fees. This is because the bitmap can store 256 boolean values in a single slot instead of 256 slots, which can save gas when writing bool values or when reading multiple bool values from the same slot.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
@@ -3771,7 +3771,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [GAS-20] Using bools for storage incurs overhead
 Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas), and to avoid Gsset (20000 gas) when changing from ‘false’ to ‘true’, after having been ‘true’ in the past. See [source](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27).
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
@@ -3786,7 +3786,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [GAS-21] Cache array length outside of loop
 If not cached, the solidity compiler will always read the length of the array during each iteration. That is, if it is a storage array, this is an extra sload operation (100 additional extra gas for each iteration except for the first) and if it is a memory array, this is an extra mload operation (3 additional gas for each iteration except for the first).
 
-There are <b>10</b> instances:
+*There are <b>10</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3825,7 +3825,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-22] Use `calldata` instead of `memory` for function arguments that do not get mutated
 Mark data types as `calldata` instead of `memory` where possible. This makes it so that the data is not automatically loaded into memory. If the data passed into the function does not need to be changed (like updating values in an array), it can be passed in as `calldata`. The one exception to this is if the argument must later be passed into another function that takes an argument that specifies `memory` storage.
 
-There is <b>1</b> instance:
+*There is one instance of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3841,7 +3841,7 @@ File: contracts/Tokens/Prime/Prime.sol
 
 <details>
 <summary>
-There are <b>13</b> instances (click to show):
+*There are <b>13</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -3892,7 +3892,7 @@ Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because th
 
 <details>
 <summary>
-There are <b>14</b> instances (click to show):
+*There are <b>14</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -3943,7 +3943,7 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 ### [GAS-25] Constructors can be marked as `payable` to save deployment gas
 Payable functions cost less gas to execute, because the compiler does not have to add extra checks to ensure that no payment is provided. A constructor can be safely marked as payable, because only the deployer would be able to pass funds, and the project itself would not pass any funds.
 
-There are <b>2</b> instances:
+*There are <b>2</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
@@ -3966,7 +3966,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ### [GAS-26] Functions guaranteed to revert when called by normal users can be marked `payable`
 If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided.
 
-There are <b>3</b> instances:
+*There are <b>3</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -3987,7 +3987,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 <details>
 <summary>
-There are <b>13</b> instances (click to show):
+*There are <b>13</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -4030,7 +4030,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ### [GAS-28] Using `private` rather than `public` for constants, saves gas
 If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
 
-There are <b>4</b> instances:
+*There are <b>4</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
@@ -4059,7 +4059,7 @@ Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
 <summary>
-There are <b>11</b> instances (click to show):
+*There are <b>11</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -4106,7 +4106,7 @@ Using assembly to check for zero can save gas by allowing more direct access to 
 
 <details>
 <summary>
-There are <b>35</b> instances (click to show):
+*There are <b>35</b> instances of this issue (click to show):
 </summary>
 
 ```solidity
@@ -4211,7 +4211,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 ### [GAS-31] `internal` functions not called by the contract should be removed
 If the functions are required by an interface, the contract should inherit from that interface and use the `override` keyword
 
-There are <b>8</b> instances:
+*There are <b>8</b> instances of this issue:*
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath.sol
 
