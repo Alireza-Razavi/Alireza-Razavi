@@ -172,7 +172,7 @@ File: contracts/Tokens/Prime/Prime.sol
 
 <details>
 <summary>
-There are <b>124</b> instances of this issue (click to show):
+There are <b>124</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -556,7 +556,7 @@ Division by large numbers may result in the result being zero, due to solidity n
 
 <details>
 <summary>
-There are <b>124</b> instances of this issue (click to show):
+There are <b>124</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1149,7 +1149,7 @@ Putting constants on the left side of comparison statements is a best practice k
 
 <details>
 <summary>
-There are <b>36</b> instances of this issue (click to show):
+There are <b>36</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1264,7 +1264,7 @@ All `external`/`public` functions should extend an `interface`. This is useful t
 
 <details>
 <summary>
-There are <b>33</b> instances of this issue (click to show):
+There are <b>33</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1370,7 +1370,7 @@ This should especially be done if the new value is not required to be different 
 
 <details>
 <summary>
-There are <b>15</b> instances of this issue (click to show):
+There are <b>15</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1427,7 +1427,7 @@ Consider adding parameters to the error to indicate which user or values caused 
 
 <details>
 <summary>
-There are <b>17</b> instances of this issue (click to show):
+There are <b>17</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1567,7 +1567,7 @@ When an action is triggered based on a user's action, not being able to filter b
 
 <details>
 <summary>
-There are <b>13</b> instances of this issue (click to show):
+There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1736,7 +1736,7 @@ Magic numbers are hard-coded values in code that can make it difficult for devel
 
 <details>
 <summary>
-There are <b>19</b> instances of this issue (click to show):
+There are <b>19</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1794,7 +1794,7 @@ Adding a zero address check for each address type parameter can prevent errors.
 
 <details>
 <summary>
-There are <b>42</b> instances of this issue (click to show):
+There are <b>42</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -1994,7 +1994,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 <details>
 <summary>
-There are <b>11</b> instances of this issue (click to show):
+There are <b>11</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -2185,7 +2185,7 @@ Since the variables are automatically set to 0 when created, it is redundant to 
 
 <details>
 <summary>
-There are <b>13</b> instances of this issue (click to show):
+There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -2238,7 +2238,7 @@ Putting all the system-wide constants in a single file improves code readability
 
 <details>
 <summary>
-There are <b>12</b> instances of this issue (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -2592,7 +2592,7 @@ The `delete` keyword more closely matches the semantics of what is being done, a
 
 <details>
 <summary>
-There are <b>12</b> instances of this issue (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -2659,7 +2659,7 @@ While it doesn't save any gas because the compiler knows that developers often m
 
 <details>
 <summary>
-There are <b>12</b> instances of this issue (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -2870,7 +2870,7 @@ It is recommended by the [Solidity Style Guide](https://docs.soliditylang.org/en
 
 <details>
 <summary>
-There are <b>12</b> instances of this issue (click to show):
+There are <b>12</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -2928,7 +2928,7 @@ As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guid
 
 <details>
 <summary>
-There are <b>16</b> instances of this issue (click to show):
+There are <b>16</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3037,7 +3037,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 <details>
 <summary>
-There are <b>20</b> instances of this issue (click to show):
+There are <b>20</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3138,7 +3138,7 @@ The expression `type(int).min/(-1)` is the only case where division causes an ov
 
 <details>
 <summary>
-There are <b>124</b> instances of this issue (click to show):
+There are <b>124</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3426,7 +3426,7 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 <details>
 <summary>
-There are <b>41</b> instances of this issue (click to show):
+There are <b>41</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3726,7 +3726,7 @@ The compiler uses opcodes `GT` and `ISZERO` for code that uses `>`, but only req
 
 <details>
 <summary>
-There are <b>40</b> instances of this issue (click to show):
+There are <b>40</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -3976,7 +3976,7 @@ A good example of such practice can be seen in [Solady's](https://github.com/Vec
 
 <details>
 <summary>
-There are <b>16</b> instances of this issue (click to show):
+There are <b>16</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -4290,7 +4290,7 @@ File: contracts/Tokens/Prime/Prime.sol
 
 <details>
 <summary>
-There are <b>13</b> instances of this issue (click to show):
+There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -4343,7 +4343,7 @@ Using `int`s/`uint`s smaller than 32 bytes may cost more gas. This is because th
 
 <details>
 <summary>
-There are <b>14</b> instances of this issue (click to show):
+There are <b>14</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -4443,7 +4443,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 <details>
 <summary>
-There are <b>13</b> instances of this issue (click to show):
+There are <b>13</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -4518,7 +4518,7 @@ Using `== 0`, `!= 0` instead of `> 0`, `>= 1`, `< 1`, `<= 0` can save gas.
 
 <details>
 <summary>
-There are <b>11</b> instances of this issue (click to show):
+There are <b>11</b> instances (click to show):
 </summary>
 
 ```solidity
@@ -4567,7 +4567,7 @@ Using assembly to check for zero can save gas by allowing more direct access to 
 
 <details>
 <summary>
-There are <b>35</b> instances of this issue (click to show):
+There are <b>35</b> instances (click to show):
 </summary>
 
 ```solidity
