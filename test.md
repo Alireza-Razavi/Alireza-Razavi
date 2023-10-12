@@ -14,7 +14,7 @@ Total <b>3</b> instances over <b>1</b> issue:
 ## Low Issues
 
 
-Total <b>265</b> instances over <b>12</b> issues:
+Total <b>263</b> instances over <b>11</b> issues:
 
 |ID|Issue|Instances|
 |-|:-|:-:|
@@ -22,14 +22,13 @@ Total <b>265</b> instances over <b>12</b> issues:
 | [L-2](#L-2) | Check division by zero is prevented | 124 |
 | [L-3](#L-3) | Consider implementing two-step procedure for updating protocol addresses | 1 |
 | [L-4](#L-4) | Constructor / initialization function lacks parameter validation | 2 |
-| [L-5](#L-5) | Enum values should be used instead of constant array indexes | 2 |
-| [L-6](#L-6) | Governance functions should be controlled by time locks | 1 |
-| [L-7](#L-7) | Loss of precision in divisions | 124 |
-| [L-8](#L-8) | Check storage gap for upgradable contracts | 2 |
-| [L-9](#L-9) | Prevent re-setting a state variable with the same value | 1 |
-| [L-10](#L-10) | Timestamp may be manipulation | 3 |
-| [L-11](#L-11) | Missing zero address check in initializer | 2 |
-| [L-12](#L-12) | Initializers could be front-run | 2 |
+| [L-5](#L-5) | Governance functions should be controlled by time locks | 1 |
+| [L-6](#L-6) | Loss of precision in divisions | 124 |
+| [L-7](#L-7) | Check storage gap for upgradable contracts | 2 |
+| [L-8](#L-8) | Prevent re-setting a state variable with the same value | 1 |
+| [L-9](#L-9) | Timestamp may be manipulation | 3 |
+| [L-10](#L-10) | Missing zero address check in initializer | 2 |
+| [L-11](#L-11) | Initializers could be front-run | 2 |
 
 ## Non Critical Issues
 
@@ -504,30 +503,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ---
 
 <a name="L-5"></a> 
-### [L-5] Enum values should be used instead of constant array indexes
-Create a commented enum value to use instead of constant array indexes, this makes the code far easier to understand.
-
-*There are <b>2</b> instances of this issue:*
-```solidity
-File: contracts/Tokens/Prime/Prime.sol
-
-684:             assets[0] = address(asset);
-
-```
-[#L684](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L684) 
-
-```solidity
-File: contracts/Tokens/Prime/PrimeStorage.sol
-
-124:     uint256[25] private __gap;
-
-```
-[#L124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L124) 
-
----
-
-<a name="L-6"></a> 
-### [L-6] Governance functions should be controlled by time locks
+### [L-5] Governance functions should be controlled by time locks
 Governance functions (such as upgrading contracts, setting critical parameters) should be controlled using time locks to introduce a delay between a proposal and its execution. This gives users time to exit before a potentially dangerous or malicious operation is applied.
 
 *There is one instance of this issue:*
@@ -541,8 +517,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-7"></a> 
-### [L-7] Loss of precision in divisions
+<a name="L-6"></a> 
+### [L-6] Loss of precision in divisions
 Division by large numbers may result in the result being zero, due to solidity not supporting fractions. Consider requiring a minimum amount for the numerator to ensure that it is always larger than the denominator.
 
 <details>
@@ -826,8 +802,8 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 ---
 
-<a name="L-8"></a> 
-### [L-8] Check storage gap for upgradable contracts
+<a name="L-7"></a> 
+### [L-7] Check storage gap for upgradable contracts
 Each upgradable contract should include a state variable (usually named `__gap`) to provide reserved space in storage. This allows the team to freely add new state variables in the future upgrades without compromising the storage compatibility with existing deployments.
 
 *There are <b>2</b> instances of this issue:*
@@ -849,8 +825,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-9"></a> 
-### [L-9] Prevent re-setting a state variable with the same value
+<a name="L-8"></a> 
+### [L-8] Prevent re-setting a state variable with the same value
 Not only is wasteful in terms of gas, but this is especially problematic when an event is emitted and the old and new values set are the same, as listeners might not expect this kind of scenario.
 
 *There is one instance of this issue:*
@@ -864,8 +840,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-10"></a> 
-### [L-10] Timestamp may be manipulation
+<a name="L-9"></a> 
+### [L-9] Timestamp may be manipulation
 The `block.timestamp` can be manipulated by miners to perform MEV profiting or other time-based attacks.
 
 *There are <b>3</b> instances of this issue:*
@@ -883,8 +859,8 @@ File: contracts/Tokens/Prime/Prime.sol
 
 ---
 
-<a name="L-11"></a> 
-### [L-11] Missing zero address check in initializer
+<a name="L-10"></a> 
+### [L-10] Missing zero address check in initializer
 
 *There are <b>2</b> instances of this issue:*
 ```solidity
@@ -923,8 +899,8 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 ---
 
-<a name="L-12"></a> 
-### [L-12] Initializers could be front-run
+<a name="L-11"></a> 
+### [L-11] Initializers could be front-run
 Initializers could be front-run, allowing an attacker to either set their own values, take ownership of the contract, and in the best case forcing a re-deployment
 
 *There are <b>2</b> instances of this issue:*
