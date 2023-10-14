@@ -1899,11 +1899,11 @@ There are <b>42</b> instances (click to show):
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit Missing zero check for `_wbnb`
-/// @audit Missing zero check for `_vbnb`
+/// @audit missing zero check for `_wbnb`
+/// @audit missing zero check for `_vbnb`
 103:     constructor(address _wbnb, address _vbnb, uint256 _blocksPerYear) {
 
-/// @audit Missing zero check for `_accessControlManager`
+/// @audit missing zero check for `_accessControlManager`
 130:     function initialize(
              address _xvsVault,
              address _xvsVaultRewardToken,
@@ -1918,45 +1918,45 @@ File: contracts/Tokens/Prime/Prime.sol
              uint256 _loopsLimit
          ) external virtual initializer {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 174:     function getPendingInterests(address user) external returns (PendingInterest[] memory pendingInterests) {
 
-/// @audit Missing zero check for `market`
+/// @audit missing zero check for `market`
 263:     function updateMultipliers(address market, uint256 supplyMultiplier, uint256 borrowMultiplier) external {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 288:     function addMarket(address vToken, uint256 supplyMultiplier, uint256 borrowMultiplier) external {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 365:     function xvsUpdated(address user) external {
 
-/// @audit Missing zero check for `user`
-/// @audit Missing zero check for `market`
+/// @audit missing zero check for `user`
+/// @audit missing zero check for `market`
 389:     function accrueInterestAndUpdateScore(address user, address market) external {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 411:     function burn(address user) external {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 433:     function claimInterest(address vToken) external whenNotPaused returns (uint256) {
 
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `vToken`
+/// @audit missing zero check for `user`
 443:     function claimInterest(address vToken, address user) external whenNotPaused returns (uint256) {
 
-/// @audit Missing zero check for `_comptroller`
-/// @audit Missing zero check for `asset`
+/// @audit missing zero check for `_comptroller`
+/// @audit missing zero check for `asset`
 452:     function updateAssetsState(address _comptroller, address asset) external {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 478:     function claimTimeRemaining(address user) external view returns (uint256) {
 
-/// @audit Missing zero check for `market`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `market`
+/// @audit missing zero check for `user`
 496:     function calculateAPR(address market, address user) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
 
-/// @audit Missing zero check for `market`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `market`
+/// @audit missing zero check for `user`
 527:     function estimateAPR(
              address market,
              address user,
@@ -1965,51 +1965,51 @@ File: contracts/Tokens/Prime/Prime.sol
              uint256 xvsStaked
          ) external view returns (uint256 supplyAPR, uint256 borrowAPR) {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 554:     function accrueInterest(address vToken) public {
 
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `vToken`
+/// @audit missing zero check for `user`
 597:     function getInterestAccrued(address vToken, address user) public returns (uint256) {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 607:     function _accrueInterestAndUpdateScore(address user) internal {
 
-/// @audit Missing zero check for `account`
+/// @audit missing zero check for `account`
 623:     function _initializeMarkets(address account) internal {
 
-/// @audit Missing zero check for `market`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `market`
+/// @audit missing zero check for `user`
 647:     function _calculateScore(address market, address user) internal returns (uint256) {
 
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `vToken`
+/// @audit missing zero check for `user`
 672:     function _claimInterest(address vToken, address user) internal returns (uint256) {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 704:     function _mint(bool isIrrevocable, address user) internal {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 725:     function _burn(address user) internal {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 762:     function _upgrade(address user) internal {
 
-/// @audit Missing zero check for `user`
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `user`
+/// @audit missing zero check for `vToken`
 779:     function _executeBoost(address user, address vToken) internal {
 
-/// @audit Missing zero check for `user`
-/// @audit Missing zero check for `market`
+/// @audit missing zero check for `user`
+/// @audit missing zero check for `market`
 794:     function _updateScore(address user, address market) internal {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 827:     function _updateRoundAfterTokenBurned(address user) internal {
 
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `user`
 840:     function _xvsBalanceOfUser(address user) internal view returns (uint256) {
 
-/// @audit Missing zero check for `market`
+/// @audit missing zero check for `market`
 872:     function _capitalForScore(
              uint256 xvs,
              uint256 borrow,
@@ -2017,20 +2017,20 @@ File: contracts/Tokens/Prime/Prime.sol
              address market
          ) internal view returns (uint256, uint256, uint256) {
 
-/// @audit Missing zero check for `vToken`
-/// @audit Missing zero check for `user`
+/// @audit missing zero check for `vToken`
+/// @audit missing zero check for `user`
 918:     function _interestAccrued(address vToken, address user) internal view returns (uint256) {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 930:     function _getUnderlying(address vToken) internal view returns (address) {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 947:     function _incomePerBlock(address vToken) internal view returns (uint256) {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 970:     function _incomeDistributionYearly(address vToken) internal view returns (uint256 amount) {
 
-/// @audit Missing zero check for `vToken`
+/// @audit missing zero check for `vToken`
 993:     function _calculateUserAPR(
              address vToken,
              uint256 totalSupply,
@@ -2048,35 +2048,35 @@ File: contracts/Tokens/Prime/Prime.sol
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-/// @audit Missing zero check for `accessControlManager_`
+/// @audit missing zero check for `accessControlManager_`
 90:     function initialize(
             address accessControlManager_,
             address[] calldata tokens_,
             uint256[] calldata distributionSpeeds_
         ) external initializer {
 
-/// @audit Missing zero check for `prime_`
+/// @audit missing zero check for `prime_`
 177:     function setPrimeToken(address prime_) external onlyOwner {
 
-/// @audit Missing zero check for `token_`
+/// @audit missing zero check for `token_`
 192:     function releaseFunds(address token_) external {
 
-/// @audit Missing zero check for `to_`
+/// @audit missing zero check for `to_`
 216:     function sweepToken(IERC20Upgradeable token_, address to_, uint256 amount_) external onlyOwner {
 
-/// @audit Missing zero check for `token_`
+/// @audit missing zero check for `token_`
 232:     function getEffectiveDistributionSpeed(address token_) external view returns (uint256) {
 
-/// @audit Missing zero check for `token_`
+/// @audit missing zero check for `token_`
 249:     function accrueTokens(address token_) public {
 
-/// @audit Missing zero check for `token_`
+/// @audit missing zero check for `token_`
 286:     function _initializeToken(address token_) internal {
 
-/// @audit Missing zero check for `token_`
+/// @audit missing zero check for `token_`
 310:     function _setTokenDistributionSpeed(address token_, uint256 distributionSpeed_) internal {
 
-/// @audit Missing zero check for `token_`
+/// @audit missing zero check for `token_`
 332:     function _ensureTokenInitialized(address token_) internal view {
 
 ```
@@ -2202,12 +2202,12 @@ Some functions have an incomplete NatSpec: add a `@param` notation to describe t
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit Missing @param for _wbnb
-/// @audit Missing @param for _vbnb
-/// @audit Missing @param for _blocksPerYear
+/// @audit Missing @param for `_wbnb`
+/// @audit Missing @param for `_vbnb`
+/// @audit Missing @param for `_blocksPerYear`
 103:     constructor(address _wbnb, address _vbnb, uint256 _blocksPerYear) {
 
-/// @audit Missing @param for user
+/// @audit Missing @param for `user`
 827:     function _updateRoundAfterTokenBurned(address user) internal {
 
 ```
@@ -2217,10 +2217,10 @@ File: contracts/Tokens/Prime/Prime.sol
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath.sol
 
-/// @audit Missing @param for x
+/// @audit Missing @param for `x`
 53:     function ln(int256 x) internal pure returns (int256 r) {
 
-/// @audit Missing @param for x
+/// @audit Missing @param for `x`
 58:     function exp(int256 x) internal pure returns (int256 r) {
 
 ```
@@ -2230,11 +2230,11 @@ File: contracts/Tokens/Prime/libs/FixedMath.sol
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
-/// @audit Missing @param for x
+/// @audit Missing @param for `x`
 51:     function ln(int256 x) internal pure returns (int256 r) {
             if (x > LN_MAX_VAL) {
 
-/// @audit Missing @param for x
+/// @audit Missing @param for `x`
 140:     function exp(int256 x) internal pure returns (int256 r) {
              if (x < EXP_MIN_VAL) {
 
