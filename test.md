@@ -150,7 +150,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[118](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L118), [177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177), [216](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L216)]
 
 
----
 
 
 ## Low Issues
@@ -169,7 +168,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[303](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L303)]
 
 
----
 
 <a name="L-2"></a> 
 ### [L-2] Check division by zero is prevented
@@ -457,7 +455,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 </details>
 
----
 
 <a name="L-3"></a> 
 ### [L-3] Consider implementing two-step procedure for updating protocol addresses
@@ -473,7 +470,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177)]
 
 
----
 
 <a name="L-4"></a> 
 ### [L-4] Constructor / initialization function lacks parameter validation
@@ -520,7 +516,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90)]
 
 
----
 
 <a name="L-5"></a> 
 ### [L-5] Enum values should be used instead of constant array indexes
@@ -536,7 +531,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[684](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L684)]
 
 
----
 
 <a name="L-6"></a> 
 ### [L-6] Governance functions should be controlled by time locks
@@ -552,7 +546,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177)]
 
 
----
 
 <a name="L-7"></a> 
 ### [L-7] Loss of precision in divisions
@@ -841,7 +834,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 </details>
 
----
 
 <a name="L-8"></a> 
 ### [L-8] Check storage gap for upgradable contracts
@@ -866,7 +858,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[8](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L8)]
 
 
----
 
 <a name="L-9"></a> 
 ### [L-9] Multiplication on the result of a division
@@ -882,7 +873,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[949](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L949)]
 
 
----
 
 <a name="L-10"></a> 
 ### [L-10] Prevent re-setting a state variable with the same value
@@ -898,7 +888,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L181)]
 
 
----
 
 <a name="L-11"></a> 
 ### [L-11] Timestamp may be manipulation
@@ -918,7 +907,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[378](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L378), [399](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L399), [481](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L481)]
 
 
----
 
 <a name="L-12"></a> 
 ### [L-12] Missing zero address check in initializer
@@ -960,7 +948,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90)]
 
 
----
 
 <a name="L-13"></a> 
 ### [L-13] Initializers could be front-run
@@ -985,7 +972,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90)]
 
 
----
 
 
 ## Non Critical Issues
@@ -1048,7 +1034,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[10](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L10)]
 
 
----
 
 <a name="NC-2"></a> 
 ### [NC-2] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, for readability
@@ -1066,7 +1051,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[67](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L67), [88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88)]
 
 
----
 
 <a name="NC-3"></a> 
 ### [NC-3] Consider adding a block/deny-list
@@ -1100,7 +1084,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[6](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L6)]
 
 
----
 
 <a name="NC-4"></a> 
 ### [NC-4] Consider adding formal verification proofs
@@ -1115,7 +1098,6 @@ Global finding
 
 ```
 
----
 
 <a name="NC-5"></a> 
 ### [NC-5] Consider bounding input array length
@@ -1145,7 +1127,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[119](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L119)]
 
 
----
 
 <a name="NC-6"></a> 
 ### [NC-6] Constant redefined elsewhere
@@ -1162,7 +1143,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31)]
 
 
----
 
 <a name="NC-7"></a> 
 ### [NC-7] Constants should be put on the left side of comparisons
@@ -1275,7 +1255,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 </details>
 
----
 
 <a name="NC-8"></a> 
 ### [NC-8] Contract should expose an `interface`
@@ -1370,7 +1349,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="NC-9"></a> 
 ### [NC-9] Contracts should have full test coverage
@@ -1383,7 +1361,6 @@ Global finding
 
 ```
 
----
 
 <a name="NC-10"></a> 
 ### [NC-10] Events that mark critical parameter changes should contain both the old and the new value
@@ -1440,7 +1417,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="NC-11"></a> 
 ### [NC-11] Custom errors has no error details
@@ -1508,7 +1484,6 @@ File: contracts/Tokens/Prime/libs/FixedMath.sol
 
 </details>
 
----
 
 <a name="NC-12"></a> 
 ### [NC-12] Polymorphic functions make security audits more time-consuming and error-prone
@@ -1528,7 +1503,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[433](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L433), [443](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L443)]
 
 
----
 
 <a name="NC-13"></a> 
 ### [NC-13] Duplicated `require()`/`revert()` checks should be refactored
@@ -1545,7 +1519,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L100)]
 
 
----
 
 <a name="NC-14"></a> 
 ### [NC-14] `else` block not required
@@ -1587,7 +1560,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[482](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L482), [855](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L855), [931](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L931)]
 
 
----
 
 <a name="NC-15"></a> 
 ### [NC-15] Enable IR-based code generation
@@ -1600,7 +1572,6 @@ Global finding
 
 ```
 
----
 
 <a name="NC-16"></a> 
 ### [NC-16] Events are emitted without the sender information
@@ -1653,7 +1624,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="NC-17"></a> 
 ### [NC-17] Events should use parameters to convey information
@@ -1671,7 +1641,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L51), [54](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L54)]
 
 
----
 
 <a name="NC-18"></a> 
 ### [NC-18]  Function ordering does not follow the Solidity Style Guide
@@ -1715,7 +1684,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[397](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L397), [411](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L411), [419](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L419), [433](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L433), [443](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L443), [452](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L452), [469](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L469), [478](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L478), [496](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L496), [527](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L527)]
 
 
----
 
 <a name="NC-19"></a> 
 ### [NC-19] High cyclomatic complexity
@@ -1735,7 +1703,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51), [140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140)]
 
 
----
 
 <a name="NC-20"></a> 
 ### [NC-20] Large or complicated code bases should implement invariant tests
@@ -1748,7 +1715,6 @@ Global finding
 
 ```
 
----
 
 <a name="NC-21"></a> 
 ### [NC-21] Long functions should be refactored into multiple, smaller, functions
@@ -1769,7 +1735,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51), [140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140)]
 
 
----
 
 <a name="NC-22"></a> 
 ### [NC-22] Magic numbers should be replaced with constants
@@ -1827,7 +1792,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="NC-23"></a> 
 ### [NC-23] Missing zero address check in functions with address parameters
@@ -2027,7 +1991,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="NC-24"></a> 
 ### [NC-24] Named mappings are recommended
@@ -2076,7 +2039,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 
 </details>
 
----
 
 <a name="NC-25"></a> 
 ### [NC-25] NatSpec documentation for contract is missing
@@ -2137,7 +2099,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[10](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L10)]
 
 
----
 
 <a name="NC-26"></a> 
 ### [NC-26] Missing NatSpec `@param`
@@ -2187,7 +2148,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51), [140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140)]
 
 
----
 
 <a name="NC-27"></a> 
 ### [NC-27] NatSpec `@return` is missing
@@ -2218,7 +2178,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51), [140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140)]
 
 
----
 
 <a name="NC-28"></a> 
 ### [NC-28] There is no need to initialize variables with 0
@@ -2271,7 +2230,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="NC-29"></a> 
 ### [NC-29] Put all system-wide constants in one file
@@ -2329,7 +2287,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="NC-30"></a> 
 ### [NC-30] Redundant `return` statement in a function with named return variables
@@ -2367,7 +2324,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L51), [140](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L140)]
 
 
----
 
 <a name="NC-31"></a> 
 ### [NC-31] State variables should include comments
@@ -2383,7 +2339,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[31](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L31)]
 
 
----
 
 <a name="NC-32"></a> 
 ### [NC-32] Contract declarations should have NatSpec `@title` annotations
@@ -2444,7 +2399,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[10](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L10)]
 
 
----
 
 <a name="NC-33"></a> 
 ### [NC-33] Lines are too long
@@ -2484,7 +2438,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[105](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L105), [110](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L110), [115](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L115), [136](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L136)]
 
 
----
 
 <a name="NC-34"></a> 
 ### [NC-34] Typos
@@ -2548,7 +2501,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[119](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L119), [158](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L158)]
 
 
----
 
 <a name="NC-35"></a> 
 ### [NC-35] Unused errors
@@ -2564,7 +2516,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[36](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L36)]
 
 
----
 
 <a name="NC-36"></a> 
 ### [NC-36] Unused `event` definition
@@ -2584,7 +2535,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[48](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L48), [51](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L51), [54](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L54)]
 
 
----
 
 <a name="NC-37"></a> 
 ### [NC-37] Unused named return
@@ -2625,7 +2575,6 @@ File: contracts/Tokens/Prime/libs/FixedMath.sol
 *Github:* [[53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53), [58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58)]
 
 
----
 
 <a name="NC-38"></a> 
 ### [NC-38] Consider using `delete` rather than assigning zero/false to clear values
@@ -2676,7 +2625,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="NC-39"></a> 
 ### [NC-39] Solidity compiler version is not fixed
@@ -2692,7 +2640,6 @@ File: contracts/Tokens/Prime/IPrime.sol
 *Github:* [[2](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/IPrime.sol#L2)]
 
 
----
 
 <a name="NC-40"></a> 
 ### [NC-40] Expressions for constant values should use `immutable` rather than `constant`
@@ -2750,7 +2697,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="NC-41"></a> 
 ### [NC-41] Use the latest solidity version for deployment
@@ -2811,7 +2757,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3)]
 
 
----
 
 <a name="NC-42"></a> 
 ### [NC-42] Whitespace in Expressions
@@ -2827,7 +2772,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[660](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L660)]
 
 
----
 
 <a name="NC-43"></a> 
 ### [NC-43] Missing checks for `address(0)` when assigning values to address state variables
@@ -2842,7 +2786,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L181)]
 
 
----
 
 <a name="NC-44"></a> 
 ### [NC-44] Names of `private`/`internal` functions should be prefixed with an underscore
@@ -2903,7 +2846,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L22)]
 
 
----
 
 <a name="NC-45"></a> 
 ### [NC-45] Names of `private`/`internal` state variables should be prefixed with an underscore
@@ -2961,7 +2903,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="NC-46"></a> 
 ### [NC-46] Variables should be named in mixedCase style
@@ -3034,7 +2975,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="NC-47"></a> 
 ### [NC-47] Event is missing `indexed` fields
@@ -3071,7 +3011,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[33](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L33), [36](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L36), [39](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L39), [42](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L42), [45](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L45), [48](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L48)]
 
 
----
 
 <a name="NC-48"></a> 
 ### [NC-48] Constants should be defined rather than using magic numbers
@@ -3137,7 +3076,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 
 ## Gas Optimizations
@@ -3158,7 +3096,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[67](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L67), [88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88)]
 
 
----
 
 <a name="GAS-2"></a> 
 ### [GAS-2] Consider activating via-ir for deploying
@@ -3171,7 +3108,6 @@ Global finding
 
 ```
 
----
 
 <a name="GAS-3"></a> 
 ### [GAS-3] Divisions can be `unchecked` to save gas
@@ -3460,7 +3396,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 </details>
 
----
 
 <a name="GAS-4"></a> 
 ### [GAS-4] Operator `+=` costs more gas than `<x> = <x> + <y>` for state variables
@@ -3575,7 +3510,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="GAS-5"></a> 
 ### [GAS-5] Duplicated `require()`/`revert()` checks should be refactored to a modifier or function to save gas
@@ -3592,7 +3526,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[100](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L100)]
 
 
----
 
 <a name="GAS-6"></a> 
 ### [GAS-6] Events should be emitted outside of loops
@@ -3608,7 +3541,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[228](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L228)]
 
 
----
 
 <a name="GAS-7"></a> 
 ### [GAS-7] Increments can be `unchecked` to save gas
@@ -3628,7 +3560,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[108](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L108), [123](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L123), [166](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L166)]
 
 
----
 
 <a name="GAS-8"></a> 
 ### [GAS-8] Initializers can be marked as payable to save deployment gas
@@ -3653,7 +3584,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[90](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L90)]
 
 
----
 
 <a name="GAS-9"></a> 
 ### [GAS-9] `internal` functions only called once can be inlined to save gas
@@ -3685,7 +3615,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[762](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L762), [827](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L827), [904](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L904), [947](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L947), [957](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L957), [970](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L970)]
 
 
----
 
 <a name="GAS-10"></a> 
 ### [GAS-10] Multiple accesses of the same mapping/array key/index should be cached
@@ -3714,7 +3643,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L200), [266](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L266), [270](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L270), [298](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L298), [322](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L322)]
 
 
----
 
 <a name="GAS-11"></a> 
 ### [GAS-11] Newer versions of solidity are more gas efficient
@@ -3775,7 +3703,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3)]
 
 
----
 
 <a name="GAS-12"></a> 
 ### [GAS-12] Operator `>=`/`<=` costs less gas than operator `>`/`<`
@@ -3903,7 +3830,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 </details>
 
----
 
 <a name="GAS-13"></a> 
 ### [GAS-13] Reduce gas usage by moving to Solidity 0.8.19 or later
@@ -3964,7 +3890,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3)]
 
 
----
 
 <a name="GAS-14"></a> 
 ### [GAS-14] Redundant state variable getters
@@ -3981,7 +3906,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[469](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L469)]
 
 
----
 
 <a name="GAS-15"></a> 
 ### [GAS-15] Remove or replace unused state variables
@@ -3997,7 +3921,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[124](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L124)]
 
 
----
 
 <a name="GAS-16"></a> 
 ### [GAS-16] Unused named return variables without optimizer waste gas
@@ -4038,7 +3961,6 @@ File: contracts/Tokens/Prime/libs/FixedMath.sol
 *Github:* [[53](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L53), [58](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath.sol#L58)]
 
 
----
 
 <a name="GAS-17"></a> 
 ### [GAS-17] Use assembly to emit events
@@ -4101,7 +4023,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="GAS-18"></a> 
 ### [GAS-18] Use assembly to write address/contract type storage values
@@ -4138,7 +4059,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[181](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L181)]
 
 
----
 
 <a name="GAS-19"></a> 
 ### [GAS-19] Using a double `if` statement instead of a logical AND (`&&`)
@@ -4177,7 +4097,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[262](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L262)]
 
 
----
 
 <a name="GAS-20"></a> 
 ### [GAS-20] Use a more recent version of solidity
@@ -4241,7 +4160,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[3](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L3)]
 
 
----
 
 <a name="GAS-21"></a> 
 ### [GAS-21] Use `unchecked` block for safe subtractions
@@ -4268,7 +4186,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 *Github:* [[120](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/FixedMath0x.sol#L120)]
 
 
----
 
 <a name="GAS-22"></a> 
 ### [GAS-22] Using bitmap to store bool states can save gas
@@ -4284,7 +4201,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88)]
 
 
----
 
 <a name="GAS-23"></a> 
 ### [GAS-23] Using bools for storage incurs overhead
@@ -4300,7 +4216,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[88](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L88)]
 
 
----
 
 <a name="GAS-24"></a> 
 ### [GAS-24] Cache array length outside of loop
@@ -4341,7 +4256,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[119](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L119)]
 
 
----
 
 <a name="GAS-25"></a> 
 ### [GAS-25] Use `calldata` instead of `memory` for function arguments that do not get mutated
@@ -4357,7 +4271,6 @@ File: contracts/Tokens/Prime/Prime.sol
 *Github:* [[200](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/Prime.sol#L200)]
 
 
----
 
 <a name="GAS-26"></a> 
 ### [GAS-26] Don't initialize variables with default value
@@ -4409,7 +4322,6 @@ File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
 </details>
 
----
 
 <a name="GAS-27"></a> 
 ### [GAS-27] Usage of `int`s/`uint`s smaller than 32 bytes incurs overhead
@@ -4464,7 +4376,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 
 </details>
 
----
 
 <a name="GAS-28"></a> 
 ### [GAS-28] Constructors can be marked as `payable` to save deployment gas
@@ -4489,7 +4400,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[78](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L78)]
 
 
----
 
 <a name="GAS-29"></a> 
 ### [GAS-29] Functions guaranteed to revert when called by normal users can be marked `payable`
@@ -4509,7 +4419,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 *Github:* [[118](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L118), [177](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L177), [216](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeLiquidityProvider.sol#L216)]
 
 
----
 
 <a name="GAS-30"></a> 
 ### [GAS-30] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
@@ -4555,7 +4464,6 @@ File: contracts/Tokens/Prime/Prime.sol
 
 </details>
 
----
 
 <a name="GAS-31"></a> 
 ### [GAS-31] Using `private` rather than `public` for constants, saves gas
@@ -4584,7 +4492,6 @@ File: contracts/Tokens/Prime/PrimeStorage.sol
 *Github:* [[34](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L34), [37](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L37), [40](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/PrimeStorage.sol#L40)]
 
 
----
 
 <a name="GAS-32"></a> 
 ### [GAS-32] Use `!= 0` instead of `> 0` for unsigned integer comparison
@@ -4633,7 +4540,6 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
 </details>
 
----
 
 <a name="GAS-33"></a> 
 ### [GAS-33] Using assembly to check for zero can save gas
@@ -4744,7 +4650,6 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 
 </details>
 
----
 
 <a name="GAS-34"></a> 
 ### [GAS-34] `internal` functions not called by the contract should be removed
@@ -4788,5 +4693,4 @@ File: contracts/Tokens/Prime/libs/Scores.sol
 *Github:* [[22](https://github.com/code-423n4/2023-09-venus/blob/b11d9ef9db8237678567e66759003138f2368d23/contracts/Tokens/Prime/libs/Scores.sol#L22)]
 
 
----
 
