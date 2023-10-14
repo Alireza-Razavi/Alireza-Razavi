@@ -915,7 +915,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit Missing zero check for `_accessControlManager`
+/// @audit missing zero check for `_accessControlManager`
 130:     function initialize(
              address _xvsVault,
              address _xvsVaultRewardToken,
@@ -937,7 +937,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-/// @audit Missing zero check for `accessControlManager_`
+/// @audit missing zero check for `accessControlManager_`
 90:     function initialize(
             address accessControlManager_,
             address[] calldata tokens_,
@@ -1107,10 +1107,10 @@ The functions below take in an unbounded array, and make function calls for entr
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit Consider length check for `users`
+/// @audit consider length check for `users`
 204:         for (uint256 i = 0; i < users.length; ) {
 
-/// @audit Consider length check for `users`
+/// @audit consider length check for `users`
 335:             for (uint256 i = 0; i < users.length; ) {
 
 ```
@@ -1120,7 +1120,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-/// @audit Consider length check for `tokens_`
+/// @audit consider length check for `tokens_`
 119:         for (uint256 i; i < tokens_.length; ) {
 
 ```
@@ -1136,7 +1136,7 @@ Consider defining in only one contract so that values cannot become out of sync 
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
-/// @audit Also seen in contracts/Tokens/Prime/PrimeLiquidityProvider.sol
+/// @audit also seen in contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 31:     uint256 internal constant EXP_SCALE = 1e18;
 
 ```
@@ -1493,10 +1493,10 @@ The instances below point to one of two functions with the same name. Consider n
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit Also found on line 443
+/// @audit also found on line 443
 433:     function claimInterest(address vToken) external whenNotPaused returns (uint256) {
 
-/// @audit Also found on line 433
+/// @audit also found on line 433
 443:     function claimInterest(address vToken, address user) external whenNotPaused returns (uint256) {
 
 ```
@@ -1512,7 +1512,7 @@ Refactoring duplicate `require()`/`revert()` checks into a modifier or function 
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-/// @audit Duplicated on line 158
+/// @audit duplicated on line 158
 100:             revert InvalidArguments();
 
 ```
@@ -3519,7 +3519,7 @@ Saves deployment costs.
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-/// @audit Duplicated on line 158
+/// @audit duplicated on line 158
 100:             revert InvalidArguments();
 
 ```
@@ -4169,7 +4169,7 @@ If it can be confirmed that the subtraction operation will not overflow, using a
 ```solidity
 File: contracts/Tokens/Prime/Prime.sol
 
-/// @audit Checked on line 482
+/// @audit checked on line 482
 483:             return STAKING_PERIOD - totalTimeStaked;
 
 ```
@@ -4179,7 +4179,7 @@ File: contracts/Tokens/Prime/Prime.sol
 ```solidity
 File: contracts/Tokens/Prime/libs/FixedMath0x.sol
 
-/// @audit Checked on line 58
+/// @audit checked on line 58
 120:         z = y = x - FIXED_1;
 
 ```
