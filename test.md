@@ -1155,7 +1155,7 @@ Consider defining in only one contract so that values cannot become out of sync 
 ```solidity
 File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 
-/// @audit seen in contracts/Tokens/Prime/PrimeStorage.sol
+/// @audit seen in contracts/Tokens/Prime/PrimeStorage.sol, contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 15:     uint256 internal constant EXP_SCALE = 1e18;
 
 ```
@@ -1165,7 +1165,7 @@ File: contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 ```solidity
 File: contracts/Tokens/Prime/PrimeStorage.sol
 
-/// @audit seen in contracts/Tokens/Prime/PrimeStorage.sol
+/// @audit seen in contracts/Tokens/Prime/PrimeStorage.sol, contracts/Tokens/Prime/PrimeLiquidityProvider.sol
 31:     uint256 internal constant EXP_SCALE = 1e18;
 
 ```
