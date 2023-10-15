@@ -202,14 +202,14 @@ Calling external functions within loops can easily result in insufficient gas. T
 ```solidity
 File: contracts/ERC20MultiDelegate.sol
 
-/// @audit `.transferFrom(..)` is called in loop
+/// @audit `.transferFrom(..)` is called in `createProxyDelegatorAndTransfer` and `[object Object]` is called in loop
 85:         for (
                 uint transferIndex = 0;
                 transferIndex < Math.max(sourcesLength, targetsLength);
                 transferIndex++
             ) {
 
-/// @audit `.transferFrom(..)` is called in loop
+/// @audit `.transferFrom(..)` is called in `_reimburse` and `[object Object]` is called in loop
 85:         for (
                 uint transferIndex = 0;
                 transferIndex < Math.max(sourcesLength, targetsLength);
