@@ -2145,37 +2145,18 @@ File: src/core/SafeDeployer.sol
 
 /// @audit `_owners`
 56:     function deployConsoleAccount(address[] calldata _owners, uint256 _threshold, bytes32 _policyCommit, bytes32 _salt)
-            external
-            nonReentrant
-            returns (address _safe)
-        {
 
 /// @audit `_owners`
 82:     function deploySubAccount(address[] calldata _owners, uint256 _threshold, bytes32 _policyCommit, bytes32 _salt)
-            external
-            nonReentrant
-            returns (address _subAcc)
-        {
 
 /// @audit `_owners`
 110:     function _setupConsoleAccount(address[] memory _owners, uint256 _threshold, bool _policyHashValid)
-             private
-             view
-             returns (bytes memory)
-         {
 
 /// @audit `_owners`
 168:     function _setupSubAccount(address[] memory _owners, uint256 _threshold, address _consoleAccount)
-             private
-             view
-             returns (bytes memory)
-         {
 
 /// @audit `_owners`
 219:     function _createSafe(address[] calldata _owners, bytes memory _initializer, bytes32 _salt)
-             private
-             returns (address _safe)
-         {
 
 ```
 *Github:* [[56](https://github.com/code-423n4/2023-10-brahma/blob/c217699448ffd7ec0253472bf0d156e52d45ca71/contracts/src/core/SafeDeployer.sol#L56), [82](https://github.com/code-423n4/2023-10-brahma/blob/c217699448ffd7ec0253472bf0d156e52d45ca71/contracts/src/core/SafeDeployer.sol#L82), [110](https://github.com/code-423n4/2023-10-brahma/blob/c217699448ffd7ec0253472bf0d156e52d45ca71/contracts/src/core/SafeDeployer.sol#L110), [168](https://github.com/code-423n4/2023-10-brahma/blob/c217699448ffd7ec0253472bf0d156e52d45ca71/contracts/src/core/SafeDeployer.sol#L168), [219](https://github.com/code-423n4/2023-10-brahma/blob/c217699448ffd7ec0253472bf0d156e52d45ca71/contracts/src/core/SafeDeployer.sol#L219)]
