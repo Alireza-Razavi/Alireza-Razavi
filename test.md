@@ -1451,7 +1451,7 @@ File: src/market/WildcatMarketWithdrawals.sol
 
 <a name="NC-11"></a> 
 ### [NC-11] Contract does not follow the Solidity Style Guide's suggested layout ordering
-The [style guide](https://docs.soliditylang.org/en/v0.8.16/style-guide.html#order-of-layout) says that, within a contract, the ordering should be `1) Type declarations`, 2) State variables, 3) Events, 4) Modifiers, and 5) Functions, but the contract(s) below do not follow this ordering
+The [style guide](https://docs.soliditylang.org/en/v0.8.16/style-guide.html#order-of-layout) says that, within a contract, the ordering should be `1) Type declarations`, `2) State variables`, `3) Events`, `4) Modifiers`, and `5) Functions`, but the contract(s) below do not follow this ordering
 
 *There are <b>5</b> instances of this issue:*
 ```solidity
@@ -1473,10 +1473,10 @@ File: src/ReentrancyGuard.sol
 ```solidity
 File: src/market/WildcatMarketBase.sol
 
-/// @audit function `` came earlier
+/// @audit function `constructor` came earlier
 131:   modifier onlyBorrower() {
 
-/// @audit function `` came earlier
+/// @audit function `constructor` came earlier
 136:   modifier onlyController() {
 
 ```
