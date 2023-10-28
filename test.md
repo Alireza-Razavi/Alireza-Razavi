@@ -2945,6 +2945,7 @@ File: contracts/USDe.sol
 
 <a name="NC-46"></a> 
 ### [NC-46] Upgrade `openzeppelin` to the Latest Version (`5.0.0`)
+These contracts import contracts from @openzeppelin/contracts but they are not using the latest version. For more information, please visit: [OpenZeppelin GitHub Releases](https://github.com/OpenZeppelin/openzeppelin-contracts/releases) It is recommended to always use the latest version to take advantage of updates and security fixes.
 
 <details>
 <summary>
