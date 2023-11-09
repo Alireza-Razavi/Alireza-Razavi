@@ -9771,24 +9771,6 @@ File: smart-contracts/RandomizerVRF.sol
  *	  INextGenAdmins adminsContract         (20 Bytes)
  */
 19: contract NextGenRandomizerVRF is VRFConsumerBaseV2, Ownable {
-        event RequestFulfilled(uint256 requestId, uint256[] randomWords);
-    
-        VRFCoordinatorV2Interface public COORDINATOR;
-    
-        // chainlink data
-        uint64 s_subscriptionId;
-        bytes32 public keyHash = 0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15;
-        uint32 public callbackGasLimit = 40000;
-        uint16 public requestConfirmations = 3;
-        uint32 public numWords = 1;
-    
-        mapping(uint256 => uint256) public tokenIdToCollection;
-        mapping(uint256 => uint256) public tokenToRequest;
-        mapping(uint256 => uint256) public requestToToken;
-    
-        address gencore;
-        INextGenCore public gencoreContract;
-        INextGenAdmins private adminsContract;
 
 ```
 *Github:* [[19](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/RandomizerVRF.sol#L19)]
