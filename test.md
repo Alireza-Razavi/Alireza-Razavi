@@ -9754,11 +9754,14 @@ Each slot saved can avoid an extra Gsset (20000 gas) for the first setting of th
 ```solidity
 File: smart-contracts/AuctionDemo.sol
 
-/// @audit 3 slots to 2 slots by new order:
-///		uint256 bid (32 Bytes)
-///		address bidder (20 Bytes)
-///		bool status (1 Byte)
+/// @audit 3 slots -> 2 slots by new order:
+///	uint256 bid    (32 Bytes)
+///	address bidder (20 Bytes)
+///	bool status      (1 Byte)
 43:     struct auctionInfoStru {
+            address bidder;
+            uint256 bid;
+            bool status;
 
 ```
 *Github:* [[43](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/AuctionDemo.sol#L43)]
@@ -9767,25 +9770,39 @@ File: smart-contracts/AuctionDemo.sol
 ```solidity
 File: smart-contracts/MinterContract.sol
 
-/// @audit 7 slots to 6 slots by new order:
-///		uint256 add1Percentage (32 Bytes)
-///		uint256 add2Percentage (32 Bytes)
-///		uint256 add3Percentage (32 Bytes)
-///		address primaryAdd1 (20 Bytes)
-///		address primaryAdd2 (20 Bytes)
-///		address primaryAdd3 (20 Bytes)
-///		bool status (1 Byte)
+/// @audit 7 slots -> 6 slots by new order:
+///	uint256 add1Percentage (32 Bytes)
+///	uint256 add2Percentage (32 Bytes)
+///	uint256 add3Percentage (32 Bytes)
+///	address primaryAdd1    (20 Bytes)
+///	address primaryAdd2    (20 Bytes)
+///	address primaryAdd3    (20 Bytes)
+///	bool status              (1 Byte)
 73:     struct collectionPrimaryAddresses {
+            address primaryAdd1;
+            address primaryAdd2;
+            address primaryAdd3;
+            uint256 add1Percentage;
+            uint256 add2Percentage;
+            uint256 add3Percentage;
+            bool status;
 
-/// @audit 7 slots to 6 slots by new order:
-///		uint256 add1Percentage (32 Bytes)
-///		uint256 add2Percentage (32 Bytes)
-///		uint256 add3Percentage (32 Bytes)
-///		address secondaryAdd1 (20 Bytes)
-///		address secondaryAdd2 (20 Bytes)
-///		address secondaryAdd3 (20 Bytes)
-///		bool status (1 Byte)
+/// @audit 7 slots -> 6 slots by new order:
+///	uint256 add1Percentage (32 Bytes)
+///	uint256 add2Percentage (32 Bytes)
+///	uint256 add3Percentage (32 Bytes)
+///	address secondaryAdd1  (20 Bytes)
+///	address secondaryAdd2  (20 Bytes)
+///	address secondaryAdd3  (20 Bytes)
+///	bool status              (1 Byte)
 98:     struct collectionSecondaryAddresses {
+            address secondaryAdd1;
+            address secondaryAdd2;
+            address secondaryAdd3;
+            uint256 add1Percentage;
+            uint256 add2Percentage;
+            uint256 add3Percentage;
+            bool status;
 
 ```
 *Github:* [[73](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L73), [98](https://github.com/code-423n4/2023-10-nextgen/blob/08a56bacd286ee52433670f3bb73a0e4a4525dd4/smart-contracts/MinterContract.sol#L98)]
