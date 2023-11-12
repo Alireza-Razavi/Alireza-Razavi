@@ -1,37 +1,22 @@
 ## Impact
-Malicious user is able to DoS the function `depositAsset`, by increasing the balance of `LRTDepositPool` for an underlying asset.
+A malicious MEV bot can prevent others from participating in the auction and they always get a revert (DoS on other participants).
 
 ## Proof of Concept
-There is a condition inside `depositAsset` which checks if the balance of the protocol for an underlying token is reached to the depositLimit (limit will be set by MANAGER role), then `depositAssets` doesn't let anyone to deposit that underlying asset:
+Let's describe this in the following scenario:
+- MEV bot tracks the mempool and see there is submitted a transaction with value `x` (let's say this transaction is submitted by actor `Alice`).
+- It front-runs the Alice transaction and submits a transaction with higher value (`x` + 1) and higher gas price.
+- Transaction of MEV bot will be executed first, and now `returnHighestBid` returns (`x` + 1)
+- Transaction of Alice will be reverted, because of this line:
 ```solidity
-if (depositAmount > getAssetCurrentLimit(asset)) {
-     revert MaximumDepositLimitReached();
-}
+require(msg.value > returnHighestBid(_tokenid) && block.timestamp <= minter.getAuctionEndTime(_tokenid) && minter.getAuctionStatus(_tokenid) == true);
 ```
-So imagine this scenario (See also getAssetCurrentLimit(), getTotalAssetDeposits(), getAssetDistributionData() and you see how `getAssetCurrentLimit` depends on balance of `LRTDepositPool`):
-- MANAGER inserts a new supported assets `X` and sets `depositLimit` of asset `X` to 10 (not real number, just an example).
-- Attacker transfers `10 X` directly to `LRTDepositPool` (without calling `depositAsset`).
-- now `X`.balanceOf(`LRTDepositPool`) returns 10 and also `getTotalAssetDeposits()` returns 10.
-- `getAssetCurrentLimit` returns 0, because:
-```solidity
-lrtConfig.depositLimitByAsset(asset) - getTotalAssetDeposits(asset); // <--- (10 - 10) = 0
-```
-- Bob calls `depositAssets` and wants to mint some amount of `rsETH`.
-- Bob gets a revert `MaximumDepositLimitReached` because the balance of protocol for asset `X` is reached to `depositLimit` and no one is able to mint any rsETH until the MANAGER calls `updateAssetDepositLimit`.
-
+(The above condition is checking `x` > (`x` + 1) ? No, so the transaction will be reverted. In other words, participants should always offer a higher price than the previous highest price, otherwise the transaction will be reverted)
+- Now MEV bot cancels its bid (it gets-back its funds) and repeats this act until the auction ends and prevents others from participating in auction. (Auction may ends without any winner)
 
 ## Tools Used
 Manual Review
-
 ## Recommended Mitigation Steps
-Consider adding a mapping:
-```solidity
-mapping(address asset => uint256 amount)
-```
-which stores how much asset is deposited through `depositAsset`.
-
-
-
+Consider some solutions that prevents against this attack.
 
 
 
