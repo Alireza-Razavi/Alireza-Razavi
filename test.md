@@ -11,7 +11,8 @@ This is how the price of rsETH is calculated (see LRTOracle#getRSETHPrice):
             address asset = supportedAssets[asset_idx]; // <-- address of asset `X`
             uint256 assetER = getAssetPrice(asset); // <-- price of asset `X`
 
-            uint256 totalAssetAmt = ILRTDepositPool(lrtDepositPoolAddr).getTotalAssetDeposits(asset); // <-- amount of asset `X` owned by Protocol (Attacker can directly transfer some amount of asset `X` to LRTDepositPool, this increases balance of LRTDepositPool contract and also balance of Protocol (because balanceOfProtocol = balanceOfLRTDepositPool + balanceOfNodeDelegators + amountOfAssetDepositedIntoStrategies) and rsETH price will be manipulated)
+            uint256 totalAssetAmt = ILRTDepositPool(lrtDepositPoolAddr).getTotalAssetDeposits(asset); // <-- amount of asset `X` owned by Protocol (Attacker can directly transfer some amount of asset `X` to LRTDepositPool, this increases balance of LRTDepositPool contract, so when LRTDepositPool's balance increases, as a result, Protocol's balance also increases and rsETH price will be manipulated)
+
             totalETHInPool += totalAssetAmt * assetER; // <-- (number of asset `X` owned by Protocol) * (price of asset `X`)
 
             unchecked {
@@ -27,11 +28,14 @@ The answer is: totalSupply of rsETH will remain the same, but the `totalETHInPoo
 Let's imagine an example:
 - Assume there is one supported asset `X` and price of `X` is $2.
 - Assume LRTDepositPool owns 1000 tokens of `X` (`getTotalAssetDeposits` returns 1000) and minted 2 rsETH (totalSupply of rsETH is 2).
+
 Now:
 `totalETHInPool = 2000$ (because 1000 * 2$)`
 `rsEthSupply = 2`
 `rsETH_price = totalETHInPool / rsEthSupply = $2000 / 2 = $1000`
+
 - Attacker transfers 1000 `X` directly to LRTDepositPool and increases the balance of LRTDepositPool for asset `X`.
+
 Now:
 `totalETHInPool = 4000$ (because 2000 * 2$)`
 `rsEthSupply = 2`
@@ -42,6 +46,12 @@ Manual Review
 
 ## Recommended Mitigation Steps
 getTotalAssetDeposits() should not be dependent of contract balance for an underlying asset, consider adding a state variable which tracks how much balance is deposited through protocol.
+
+
+
+
+
+
 
 
 
