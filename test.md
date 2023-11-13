@@ -546,10 +546,10 @@ Not all `IERC20` implementations are totally compliant, and some (e.g `UNI`, `CO
 ```solidity
 File: src/NodeDelegator.sol
 
-0: undefined
+45:         IERC20(asset).approve(eigenlayerStrategyManagerAddress, type(uint256).max);
 
 ```
-*Github:* [[0](https://github.com/code-423n4/2023-11-kelp/blob/4b34abc952205e2a34bff893a0de0c75b8052149/src/NodeDelegator.sol#L0)]
+*Github:* [[45](https://github.com/code-423n4/2023-11-kelp/blob/4b34abc952205e2a34bff893a0de0c75b8052149/src/NodeDelegator.sol#L45)]
 
 
 
