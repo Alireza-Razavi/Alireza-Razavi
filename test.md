@@ -165,6 +165,8 @@ File: 1155tech-contracts/src/Market.sol
 309:     function changeShareCreatorWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L6), [10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10), [91](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L91), [104](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L104), [118](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L118), [244](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L244), [300](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L300), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -174,6 +176,8 @@ File: asD/src/asD.sol
 72:     function withdrawCarry(uint256 _amount) external onlyOwner {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L72)]
+
 
 
 
@@ -201,6 +205,8 @@ File: 1155tech-contracts/src/Market.sol
 309:     function changeShareCreatorWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
 
 ```
+*Github:* [[104](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L104), [114](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L114), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309)]
+
 
 
 <a name="L-2"></a> 
@@ -214,6 +220,8 @@ File: asD/src/asD.sol
 51:         SafeERC20.safeApprove(note, cNote, _amount);
 
 ```
+*Github:* [[51](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L51)]
+
 
 
 <a name="L-3"></a> 
@@ -234,6 +242,8 @@ File: 1155tech-contracts/src/Market.sol
 290:             shareData[_id].shareHolderRewardsPerTokenScaled += (shareHolderFee * 1e18) / _tokenCount;
 
 ```
+*Github:* [[197](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L197), [275](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L275), [285](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L285), [286](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L286), [290](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L290)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -243,6 +253,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 35:         return 1e17 / divisor;
 
 ```
+*Github:* [[23](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L23), [35](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L35)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -250,6 +262,8 @@ File: asD/src/asD.sol
 75:         uint256 maximumWithdrawable = (CTokenInterface(cNote).balanceOf(address(this)) * exchangeRate) /
 
 ```
+*Github:* [[75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L75)]
+
 
 
 <a name="L-4"></a> 
@@ -264,6 +278,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 10:     constructor(uint256 _priceIncrease) {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L10)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -274,6 +290,8 @@ File: asD/src/asD.sol
 28:     constructor(
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L28)]
+
 
 
 <a name="L-5"></a> 
@@ -295,6 +313,8 @@ File: 1155tech-contracts/src/Market.sol
 290:             shareData[_id].shareHolderRewardsPerTokenScaled += (shareHolderFee * 1e18) / _tokenCount;
 
 ```
+*Github:* [[197](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L197), [275](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L275), [285](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L285), [286](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L286), [290](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L290)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -304,6 +324,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 35:         return 1e17 / divisor;
 
 ```
+*Github:* [[23](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L23), [35](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L35)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -311,6 +333,8 @@ File: asD/src/asD.sol
 75:         uint256 maximumWithdrawable = (CTokenInterface(cNote).balanceOf(address(this)) * exchangeRate) /
 
 ```
+*Github:* [[75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L75)]
+
 
 
 <a name="L-6"></a> 
@@ -331,6 +355,8 @@ File: 1155tech-contracts/src/Market.sol
 311:         whitelistedShareCreators[_address] = _isWhitelisted;
 
 ```
+*Github:* [[106](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L106), [302](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L302), [311](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L311)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -339,6 +365,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 11:         priceIncrease = _priceIncrease;
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L11)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -347,6 +375,8 @@ File: asD/src/asD.sol
 36:         cNote = _cNote;
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L36)]
+
 
 
 <a name="L-7"></a> 
@@ -367,6 +397,8 @@ File: asD/src/asD.sol
         ) ERC20(_name, _symbol) {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L28)]
+
 
 
 <a name="L-8"></a> 
@@ -381,6 +413,8 @@ File: asD/src/asD.sol
 36:         cNote = _cNote;
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L36)]
+
 
 
 <a name="L-9"></a> 
@@ -394,6 +428,8 @@ File: 1155tech-contracts/src/Market.sol
 96:             turnstile.register(tx.origin);
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L96)]
+
 
 
 <a name="L-10"></a> 
@@ -407,6 +443,8 @@ File: asD/src/asD.sol
 51:         SafeERC20.safeApprove(note, cNote, _amount);
 
 ```
+*Github:* [[51](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L51)]
+
 
 
 <a name="L-11"></a> 
@@ -419,6 +457,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 
@@ -435,6 +475,8 @@ File: 1155tech-contracts/src/Market.sol
 95:             Turnstile turnstile = Turnstile(0xEcf044C5B4b867CFda001101c617eCd347095B44);
 
 ```
+*Github:* [[95](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L95)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -442,6 +484,8 @@ File: asD/src/asD.sol
 39:             Turnstile turnstile = Turnstile(0xEcf044C5B4b867CFda001101c617eCd347095B44);
 
 ```
+*Github:* [[39](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L39)]
+
 
 
 <a name="NC-2"></a> 
@@ -491,6 +535,8 @@ File: 1155tech-contracts/src/Market.sol
 311:         whitelistedShareCreators[_address] = _isWhitelisted;
 
 ```
+*Github:* [[49](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L49), [60](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L60), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L64), [69](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L69), [82](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L82), [100](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L100), [101](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L101), [103](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L103), [105](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L105), [106](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L106), [112](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L112), [119](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L119), [306](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L306), [308](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L308), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309), [310](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L310), [311](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L311)]
+
 
 </details>
 
@@ -508,6 +554,8 @@ File: 1155tech-contracts/src/Market.sol
 55:     mapping(uint256 => mapping(address => uint256)) public rewardsLastClaimedValue;
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L52), [55](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L55)]
+
 
 
 <a name="NC-4"></a> 
@@ -521,6 +569,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -528,6 +578,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -535,6 +587,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-5"></a> 
@@ -548,6 +602,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -555,6 +611,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -562,6 +620,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-6"></a> 
@@ -576,6 +636,8 @@ Some tools that are currently available to perform these tests on smart contract
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/)]
+
 
 
 <a name="NC-7"></a> 
@@ -589,6 +651,8 @@ File: 1155tech-contracts/src/Market.sol
 120:         require(shareIDs[_shareName] == 0, "Share already exists");
 
 ```
+*Github:* [[120](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L120)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -602,6 +666,8 @@ File: asD/src/asD.sol
 86:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem
 
 ```
+*Github:* [[54](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L54), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L78), [86](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L86)]
+
 
 
 <a name="NC-8"></a> 
@@ -621,6 +687,8 @@ File: 1155tech-contracts/src/Market.sol
 32:     struct ShareData {
 
 ```
+*Github:* [[32](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L32)]
+
 
 
 <a name="NC-9"></a> 
@@ -634,6 +702,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-10"></a> 
@@ -679,6 +749,8 @@ File: 1155tech-contracts/src/Market.sol
 309:     function changeShareCreatorWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
 
 ```
+*Github:* [[104](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L104), [114](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L114), [132](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L132), [141](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L141), [150](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L150), [174](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L174), [194](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L194), [203](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L203), [226](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L226), [244](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L244), [253](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L253), [263](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L263), [300](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L300), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -688,6 +760,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 27:     function getFee(uint256 shareCount) public pure override returns (uint256) {
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L14), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -699,6 +773,8 @@ File: asD/src/asD.sol
 72:     function withdrawCarry(uint256 _amount) external onlyOwner {
 
 ```
+*Github:* [[47](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L47), [60](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L60), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L72)]
+
 
 </details>
 
@@ -713,6 +789,8 @@ While 100% code coverage does not guarantee that there are no bugs, it often wil
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/)]
+
 
 
 <a name="NC-12"></a> 
@@ -729,6 +807,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
                 divisor = 1;
 
 ```
+*Github:* [[29](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L29)]
+
 
 
 <a name="NC-13"></a> 
@@ -764,6 +844,8 @@ File: 1155tech-contracts/src/Market.sol
 303:         emit ShareCreationRestricted(_isRestricted);
 
 ```
+*Github:* [[107](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L107), [126](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L126), [168](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L168), [188](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L188), [220](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L220), [240](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L240), [248](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L248), [258](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L258), [269](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L269), [303](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L303)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -771,6 +853,8 @@ File: asD/src/asD.sol
 89:         emit CarryWithdrawal(_amount);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89)]
+
 
 </details>
 
@@ -802,6 +886,8 @@ File: 1155tech-contracts/src/Market.sol
 310:         require(whitelistedShareCreators[_address] != _isWhitelisted, "State already set");
 
 ```
+*Github:* [[105](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L105), [119](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L119), [120](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L120), [151](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L151), [254](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L254), [301](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L301), [310](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L310)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -815,6 +901,8 @@ File: asD/src/asD.sol
 86:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem
 
 ```
+*Github:* [[54](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L54), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64), [81](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L81), [86](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L86)]
+
 
 </details>
 
@@ -829,6 +917,8 @@ File: 1155tech-contracts/src/Market.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L2)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -836,6 +926,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="NC-16"></a> 
@@ -850,6 +942,8 @@ File: asD/src/asD.sol
 64:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem-underlying
 
 ```
+*Github:* [[64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64)]
+
 
 
 <a name="NC-17"></a> 
@@ -862,6 +956,8 @@ The IR-based code generator was introduced with an aim to not only allow code ge
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/)]
+
 
 
 <a name="NC-18"></a> 
@@ -877,6 +973,8 @@ File: 1155tech-contracts/src/Market.sol
 303:         emit ShareCreationRestricted(_isRestricted);
 
 ```
+*Github:* [[107](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L107), [303](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L303)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -884,6 +982,8 @@ File: asD/src/asD.sol
 89:         emit CarryWithdrawal(_amount);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89)]
+
 
 
 <a name="NC-19"></a> 
@@ -907,6 +1007,8 @@ File: asD/src/asD.sol
 89:         emit CarryWithdrawal(_amount);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89), [89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89), [89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89), [89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89)]
+
 
 
 <a name="NC-20"></a> 
@@ -965,6 +1067,8 @@ File: 1155tech-contracts/src/Market.sol
 309:     function changeShareCreatorWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
 
 ```
+*Github:* [[150](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L150), [174](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L174), [203](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L203), [226](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L226), [244](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L244), [253](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L253), [263](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L263), [300](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L300), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309)]
+
 
 
 <a name="NC-21"></a> 
@@ -978,6 +1082,8 @@ File: 1155tech-contracts/src/Market.sol
 20:     IERC20 public immutable token;
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L20)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -985,6 +1091,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 8:     uint256 public immutable priceIncrease;
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L8)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -992,6 +1100,8 @@ File: asD/src/asD.sol
 15:     address public immutable cNote; // Reference to the cNOTE token
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L15)]
+
 
 
 <a name="NC-22"></a> 
@@ -1009,6 +1119,8 @@ File: 1155tech-contracts/src/Market.sol
 68:     //////////////////////////////////////////////////////////////*/
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L13), [24](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L24), [68](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L68)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1018,6 +1130,8 @@ File: asD/src/asD.sol
 19:     //////////////////////////////////////////////////////////////*/
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L14), [19](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L19)]
+
 
 
 <a name="NC-23"></a> 
@@ -1030,6 +1144,8 @@ This includes: large code bases, or code with lots of inline-assembly, complicat
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/)]
+
 
 
 <a name="NC-24"></a> 
@@ -1047,6 +1163,8 @@ File: 1155tech-contracts/src/Market.sol
 286:         uint256 shareCreatorFee = (_fee * CREATOR_CUT_BPS) / 10_000;
 
 ```
+*Github:* [[197](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L197), [285](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L285), [286](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L286)]
+
 
 
 <a name="NC-25"></a> 
@@ -1086,6 +1204,8 @@ File: 1155tech-contracts/src/Market.sol
 290:             shareData[_id].shareHolderRewardsPerTokenScaled += (shareHolderFee * 1e18) / _tokenCount;
 
 ```
+*Github:* [[93](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L93), [93](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L93), [95](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L95), [197](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L197), [276](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L276), [285](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L285), [286](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L286), [290](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L290)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1097,6 +1217,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 35:         return 1e17 / divisor;
 
 ```
+*Github:* [[23](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L23), [35](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L35)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1114,6 +1236,8 @@ File: asD/src/asD.sol
 76:             1e28 -
 
 ```
+*Github:* [[37](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L37), [37](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L37), [39](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L39), [76](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L76)]
+
 
 </details>
 
@@ -1131,6 +1255,8 @@ File: 1155tech-contracts/src/Market.sol
 254:         require(shareData[_id].creator == msg.sender, "Not creator");
 
 ```
+*Github:* [[151](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L151), [254](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L254)]
+
 
 
 <a name="NC-27"></a> 
@@ -1156,6 +1282,8 @@ File: 1155tech-contracts/src/Market.sol
 64:     mapping(address => bool) public whitelistedShareCreators;
 
 ```
+*Github:* [[30](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L30), [43](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L43), [46](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L46), [49](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L49), [52](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L52), [55](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L55), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L64)]
+
 
 
 <a name="NC-28"></a> 
@@ -1169,6 +1297,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1176,6 +1306,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1183,6 +1315,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-29"></a> 
@@ -1196,6 +1330,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1203,6 +1339,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1210,6 +1348,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-30"></a> 
@@ -1223,6 +1363,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1230,6 +1372,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1237,6 +1381,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-31"></a> 
@@ -1272,6 +1418,8 @@ File: 1155tech-contracts/src/Market.sol
 78:     event ShareCreationRestricted(bool isRestricted);
 
 ```
+*Github:* [[69](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L69), [70](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L70), [71](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L71), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L72), [73](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L73), [74](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L74), [75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L75), [76](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L76), [77](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L77), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L78)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1279,6 +1427,8 @@ File: asD/src/asD.sol
 20:     event CarryWithdrawal(uint256 amount);
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L20)]
+
 
 </details>
 
@@ -1328,6 +1478,8 @@ File: 1155tech-contracts/src/Market.sol
 309:     function changeShareCreatorWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
 
 ```
+*Github:* [[91](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L91), [114](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L114), [132](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L132), [141](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L141), [150](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L150), [174](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L174), [194](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L194), [203](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L203), [226](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L226), [244](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L244), [253](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L253), [263](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L263), [272](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L272), [280](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L280), [300](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L300), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1339,6 +1491,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 27:     function getFee(uint256 shareCount) public pure override returns (uint256) {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L10), [14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L14), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1348,6 +1502,8 @@ File: asD/src/asD.sol
 60:     function burn(uint256 _amount) external {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L28), [60](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L60)]
+
 
 </details>
 
@@ -1363,6 +1519,8 @@ File: 1155tech-contracts/src/Market.sol
 80:     modifier onlyShareCreator() {
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L80)]
+
 
 
 <a name="NC-34"></a> 
@@ -1397,6 +1555,8 @@ File: 1155tech-contracts/src/Market.sol
 78:     event ShareCreationRestricted(bool isRestricted);
 
 ```
+*Github:* [[69](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L69), [70](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L70), [71](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L71), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L72), [73](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L73), [74](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L74), [75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L75), [76](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L76), [77](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L77), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L78)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1404,6 +1564,8 @@ File: asD/src/asD.sol
 20:     event CarryWithdrawal(uint256 amount);
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L20)]
+
 
 </details>
 
@@ -1419,6 +1581,8 @@ File: 1155tech-contracts/src/Market.sol
 272:     function _getRewardsSinceLastClaim(uint256 _id) internal view returns (uint256 amount) {
 
 ```
+*Github:* [[272](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L272)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1435,6 +1599,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 27:     function getFee(uint256 shareCount) public pure override returns (uint256) {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L10), [14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L14), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27)]
+
 
 
 <a name="NC-36"></a> 
@@ -1447,6 +1613,8 @@ File: 1155tech-contracts/src/Market.sol
 80:     modifier onlyShareCreator() {
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L80)]
+
 
 
 <a name="NC-37"></a> 
@@ -1463,6 +1631,8 @@ File: 1155tech-contracts/src/Market.sol
 16:     uint256 public constant CREATOR_CUT_BPS = 3_300; // 33%
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L14), [15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L15), [16](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L16)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1470,6 +1640,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 8:     uint256 public immutable priceIncrease;
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L8)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1477,6 +1649,8 @@ File: asD/src/asD.sol
 15:     address public immutable cNote; // Reference to the cNOTE token
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L15)]
+
 
 
 <a name="NC-38"></a> 
@@ -1490,6 +1664,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1497,6 +1673,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1504,6 +1682,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-39"></a> 
@@ -1539,6 +1719,8 @@ File: 1155tech-contracts/src/Market.sol
 78:     event ShareCreationRestricted(bool isRestricted);
 
 ```
+*Github:* [[69](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L69), [70](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L70), [71](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L71), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L72), [73](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L73), [74](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L74), [75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L75), [76](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L76), [77](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L77), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L78)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1546,6 +1728,8 @@ File: asD/src/asD.sol
 20:     event CarryWithdrawal(uint256 amount);
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L20)]
+
 
 </details>
 
@@ -1561,6 +1745,8 @@ File: 1155tech-contracts/src/Market.sol
 272:     function _getRewardsSinceLastClaim(uint256 _id) internal view returns (uint256 amount) {
 
 ```
+*Github:* [[272](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L272)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1572,6 +1758,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 27:     function getFee(uint256 shareCount) public pure override returns (uint256) {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L10), [14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L14), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27)]
+
 
 
 <a name="NC-41"></a> 
@@ -1585,6 +1773,8 @@ File: 1155tech-contracts/src/Market.sol
 80:     modifier onlyShareCreator() {
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L80)]
+
 
 
 <a name="NC-42"></a> 
@@ -1620,6 +1810,8 @@ File: 1155tech-contracts/src/Market.sol
 78:     event ShareCreationRestricted(bool isRestricted);
 
 ```
+*Github:* [[69](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L69), [70](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L70), [71](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L71), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L72), [73](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L73), [74](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L74), [75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L75), [76](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L76), [77](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L77), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L78)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1627,6 +1819,8 @@ File: asD/src/asD.sol
 20:     event CarryWithdrawal(uint256 amount);
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L20)]
+
 
 </details>
 
@@ -1652,6 +1846,8 @@ File: 1155tech-contracts/src/Market.sol
          ) internal {
 
 ```
+*Github:* [[272](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L272), [280](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L280)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1675,6 +1871,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 42:     function log2(uint256 x) internal pure returns (uint256 r) {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L10), [14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L14), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27), [42](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L42)]
+
 
 
 <a name="NC-44"></a> 
@@ -1700,6 +1898,8 @@ File: 1155tech-contracts/src/Market.sol
 272:     function _getRewardsSinceLastClaim(uint256 _id) internal view returns (uint256 amount) {
 
 ```
+*Github:* [[114](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L114), [132](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L132), [141](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L141), [194](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L194), [272](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L272)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1716,6 +1916,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 42:     function log2(uint256 x) internal pure returns (uint256 r) {
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L14), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27), [42](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L42)]
+
 
 
 <a name="NC-45"></a> 
@@ -1729,6 +1931,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1736,6 +1940,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1743,6 +1949,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="NC-46"></a> 
@@ -1756,6 +1964,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="NC-47"></a> 
@@ -1775,6 +1985,8 @@ File: 1155tech-contracts/src/Market.sol
 27:     uint256 public shareCount;
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L14), [15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L15), [16](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L16), [27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L27)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1782,6 +1994,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 8:     uint256 public immutable priceIncrease;
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L8)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1789,6 +2003,8 @@ File: asD/src/asD.sol
 15:     address public immutable cNote; // Reference to the cNOTE token
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L15)]
+
 
 
 <a name="NC-48"></a> 
@@ -1814,6 +2030,8 @@ File: 1155tech-contracts/src/Market.sol
 35:         uint256 shareHolderRewardsPerTokenScaled; // Accrued funds for the share holder per token, multiplied by 1e18 to avoid precision loss
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L4), [5](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L5), [6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L6), [34](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L34), [35](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L35)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1831,6 +2049,8 @@ File: asD/src/asD.sol
 86:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L7), [8](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L8), [9](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L9), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64), [73](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L73), [86](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L86)]
+
 
 </details>
 
@@ -1847,6 +2067,8 @@ File: asD/src/asD.sol
 5: import {IasDFactory} from "../interface/IasDFactory.sol";
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L5)]
+
 
 
 <a name="NC-50"></a> 
@@ -1860,6 +2082,8 @@ File: 1155tech-contracts/src/Market.sol
 16:     uint256 public constant CREATOR_CUT_BPS = 3_300; // 33%
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L16)]
+
 
 
 <a name="NC-51"></a> 
@@ -1873,6 +2097,8 @@ File: 1155tech-contracts/src/Market.sol
 256:         shareData[_id].shareCreatorPool = 0;
 
 ```
+*Github:* [[256](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L256)]
+
 
 
 <a name="NC-52"></a> 
@@ -1886,6 +2112,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="NC-53"></a> 
@@ -1903,6 +2131,8 @@ File: 1155tech-contracts/src/Market.sol
 16:     uint256 public constant CREATOR_CUT_BPS = 3_300; // 33%
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L14), [15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L15), [16](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L16)]
+
 
 
 <a name="NC-54"></a> 
@@ -1915,6 +2145,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 27:     function getFee(uint256 shareCount) public pure override returns (uint256) {
 
 ```
+*Github:* [[27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27)]
+
 
 
 <a name="NC-55"></a> 
@@ -1928,6 +2160,8 @@ File: 1155tech-contracts/src/Market.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L2)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -1935,6 +2169,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L2)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -1942,6 +2178,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="NC-56"></a> 
@@ -1955,6 +2193,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 27:     function getFee(uint256 shareCount) public pure override returns (uint256) {
 
 ```
+*Github:* [[27](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L27)]
+
 
 
 <a name="NC-57"></a> 
@@ -1968,6 +2208,8 @@ File: 1155tech-contracts/src/Market.sol
 196:         (uint256 priceForOne, ) = IBondingCurve(bondingCurve).getPriceAndFee(shareData[_id].tokenCount, 1);
 
 ```
+*Github:* [[196](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L196)]
+
 
 
 <a name="NC-58"></a> 
@@ -1981,6 +2223,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 42:     function log2(uint256 x) internal pure returns (uint256 r) {
 
 ```
+*Github:* [[42](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L42)]
+
 
 
 <a name="NC-59"></a> 
@@ -2010,6 +2254,8 @@ File: 1155tech-contracts/src/Market.sol
 78:     event ShareCreationRestricted(bool isRestricted);
 
 ```
+*Github:* [[69](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L69), [71](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L71), [72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L72), [73](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L73), [74](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L74), [75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L75), [76](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L76), [77](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L77), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L78)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2017,6 +2263,8 @@ File: asD/src/asD.sol
 20:     event CarryWithdrawal(uint256 amount);
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L20)]
+
 
 
 
@@ -2033,6 +2281,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 20:         for (uint256 i = shareCount; i < shareCount + amount; i++) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L20)]
+
 
 
 <a name="GAS-2"></a> 
@@ -2048,6 +2298,8 @@ File: 1155tech-contracts/src/Market.sol
 55:     mapping(uint256 => mapping(address => uint256)) public rewardsLastClaimedValue;
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L52), [55](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L55)]
+
 
 
 <a name="GAS-3"></a> 
@@ -2060,6 +2312,8 @@ By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advan
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/)]
+
 
 
 <a name="GAS-4"></a> 
@@ -2081,6 +2335,8 @@ File: 1155tech-contracts/src/Market.sol
 290:             shareData[_id].shareHolderRewardsPerTokenScaled += (shareHolderFee * 1e18) / _tokenCount;
 
 ```
+*Github:* [[197](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L197), [275](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L275), [285](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L285), [286](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L286), [290](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L290)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2090,6 +2346,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 35:         return 1e17 / divisor;
 
 ```
+*Github:* [[23](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L23), [35](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L35)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2097,6 +2355,8 @@ File: asD/src/asD.sol
 75:         uint256 maximumWithdrawable = (CTokenInterface(cNote).balanceOf(address(this)) * exchangeRate) /
 
 ```
+*Github:* [[75](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L75)]
+
 
 
 <a name="GAS-5"></a> 
@@ -2139,6 +2399,8 @@ File: 1155tech-contracts/src/Market.sol
 295:         platformPool += platformFee;
 
 ```
+*Github:* [[161](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L161), [162](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L162), [163](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L163), [182](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L182), [183](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L183), [184](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L184), [211](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L211), [212](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L212), [234](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L234), [235](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L235), [288](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L288), [290](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L290), [293](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L293), [295](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L295)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2148,6 +2410,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 23:             fee += (getFee(i) * tokenPrice) / 1e18;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L22), [23](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L23)]
+
 
 </details>
 
@@ -2164,6 +2428,8 @@ File: asD/src/asD.sol
 64:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem-underlying
 
 ```
+*Github:* [[64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64)]
+
 
 
 <a name="GAS-7"></a> 
@@ -2177,6 +2443,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 20:         for (uint256 i = shareCount; i < shareCount + amount; i++) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L20)]
+
 
 
 <a name="GAS-8"></a> 
@@ -2189,6 +2457,8 @@ File: 1155tech-contracts/src/Market.sol
 80:     modifier onlyShareCreator() {
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L80)]
+
 
 
 <a name="GAS-9"></a> 
@@ -2203,6 +2473,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 42:     function log2(uint256 x) internal pure returns (uint256 r) {
 
 ```
+*Github:* [[42](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L42)]
+
 
 
 <a name="GAS-10"></a> 
@@ -2275,6 +2547,8 @@ File: 1155tech-contracts/src/Market.sol
 311:         whitelistedShareCreators[_address] = _isWhitelisted;
 
 ```
+*Github:* [[106](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L106), [106](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L106), [122](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L122), [124](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L124), [125](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L125), [135](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L135), [144](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L144), [158](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L158), [161](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L161), [162](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L162), [182](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L182), [183](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L183), [196](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L196), [212](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L212), [235](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L235), [255](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L255), [256](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L256), [290](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L290), [311](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L311)]
+
 
 </details>
 
@@ -2290,6 +2564,8 @@ File: 1155tech-contracts/src/Market.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L2)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2297,6 +2573,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L2)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2304,6 +2582,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="GAS-12"></a> 
@@ -2323,6 +2603,8 @@ File: 1155tech-contracts/src/Market.sol
 289:         if (_tokenCount > 0) {
 
 ```
+*Github:* [[165](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L165), [216](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L216), [266](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L266), [289](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L289)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2332,6 +2614,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 29:         if (shareCount > 1) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L20), [29](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L29)]
+
 
 
 <a name="GAS-13"></a> 
@@ -2346,6 +2630,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2354,6 +2640,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 6: contract LinearBondingCurve is IBondingCurve {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L6)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2362,6 +2650,8 @@ File: asD/src/asD.sol
 11: contract asD is ERC20, Ownable2Step {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L11)]
+
 
 
 <a name="GAS-14"></a> 
@@ -2375,6 +2665,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="GAS-15"></a> 
@@ -2388,6 +2680,8 @@ File: 1155tech-contracts/src/Market.sol
 16:     uint256 public constant CREATOR_CUT_BPS = 3_300; // 33%
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L16)]
+
 
 
 <a name="GAS-16"></a> 
@@ -2415,6 +2709,8 @@ File: 1155tech-contracts/src/Market.sol
 10: contract Market is ERC1155, Ownable2Step {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L10)]
+
 
 
 <a name="GAS-17"></a> 
@@ -2436,6 +2732,8 @@ File: 1155tech-contracts/src/Market.sol
 96:             turnstile.register(tx.origin);
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L96), [96](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L96)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2447,6 +2745,8 @@ File: asD/src/asD.sol
 40:             turnstile.register(_csrRecipient);
 
 ```
+*Github:* [[40](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L40), [40](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L40)]
+
 
 
 <a name="GAS-18"></a> 
@@ -2486,6 +2786,8 @@ File: 1155tech-contracts/src/Market.sol
 303:         emit ShareCreationRestricted(_isRestricted);
 
 ```
+*Github:* [[107](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L107), [126](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L126), [168](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L168), [188](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L188), [220](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L220), [240](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L240), [248](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L248), [258](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L258), [269](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L269), [303](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L303)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2493,6 +2795,8 @@ File: asD/src/asD.sol
 89:         emit CarryWithdrawal(_amount);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L89)]
+
 
 </details>
 
@@ -2509,6 +2813,8 @@ File: 1155tech-contracts/src/Market.sol
 254:         require(shareData[_id].creator == msg.sender, "Not creator");
 
 ```
+*Github:* [[151](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L151), [254](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L254)]
+
 
 
 <a name="GAS-20"></a> 
@@ -2522,6 +2828,8 @@ File: 1155tech-contracts/src/Market.sol
 92:         token = IERC20(_paymentToken);
 
 ```
+*Github:* [[92](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L92)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2529,6 +2837,8 @@ File: asD/src/asD.sol
 36:         cNote = _cNote;
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L36)]
+
 
 
 <a name="GAS-21"></a> 
@@ -2545,6 +2855,8 @@ File: 1155tech-contracts/src/Market.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L2)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2552,6 +2864,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 2: pragma solidity 0.8.19;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L2)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2559,6 +2873,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="GAS-22"></a> 
@@ -2576,6 +2892,8 @@ File: 1155tech-contracts/src/Market.sol
 64:     mapping(address => bool) public whitelistedShareCreators;
 
 ```
+*Github:* [[49](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L49), [61](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L61), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L64)]
+
 
 
 <a name="GAS-23"></a> 
@@ -2591,6 +2909,8 @@ File: 1155tech-contracts/src/Market.sol
 64:     mapping(address => bool) public whitelistedShareCreators;
 
 ```
+*Github:* [[49](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L49), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L64)]
+
 
 
 <a name="GAS-24"></a> 
@@ -2608,6 +2928,8 @@ File: 1155tech-contracts/src/Market.sol
 64:     mapping(address => bool) public whitelistedShareCreators;
 
 ```
+*Github:* [[49](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L49), [61](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L61), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L64)]
+
 
 
 <a name="GAS-25"></a> 
@@ -2625,6 +2947,8 @@ File: 1155tech-contracts/src/Market.sol
 302:         shareCreationRestricted = _isRestricted;
 
 ```
+*Github:* [[246](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L246), [302](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L302)]
+
 
 
 <a name="GAS-26"></a> 
@@ -2642,6 +2966,8 @@ File: 1155tech-contracts/src/Market.sol
 117:         string memory _metadataURI
 
 ```
+*Github:* [[91](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L91), [115](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L115), [117](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L117)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2651,6 +2977,8 @@ File: asD/src/asD.sol
 30:         string memory _symbol,
 
 ```
+*Github:* [[29](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L29), [30](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L30)]
+
 
 
 <a name="GAS-27"></a> 
@@ -2681,6 +3009,8 @@ File: 1155tech-contracts/src/Market.sol
 310:         require(whitelistedShareCreators[_address] != _isWhitelisted, "State already set");
 
 ```
+*Github:* [[105](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L105), [119](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L119), [120](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L120), [151](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L151), [254](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L254), [301](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L301), [310](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L310)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2694,6 +3024,8 @@ File: asD/src/asD.sol
 86:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem
 
 ```
+*Github:* [[54](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L54), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64), [81](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L81), [86](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L86)]
+
 
 </details>
 
@@ -2709,6 +3041,8 @@ File: 1155tech-contracts/src/Market.sol
 91:     constructor(string memory _uri, address _paymentToken) ERC1155(_uri) Ownable() {
 
 ```
+*Github:* [[91](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L91)]
+
 
 ```solidity
 File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
@@ -2716,6 +3050,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 10:     constructor(uint256 _priceIncrease) {
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L10)]
+
 
 
 <a name="GAS-29"></a> 
@@ -2735,6 +3071,8 @@ File: 1155tech-contracts/src/Market.sol
 309:     function changeShareCreatorWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
 
 ```
+*Github:* [[104](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L104), [244](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L244), [300](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L300), [309](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L309)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2742,6 +3080,8 @@ File: asD/src/asD.sol
 72:     function withdrawCarry(uint256 _amount) external onlyOwner {
 
 ```
+*Github:* [[72](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L72)]
+
 
 
 <a name="GAS-30"></a> 
@@ -2755,6 +3095,8 @@ File: 1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol
 20:         for (uint256 i = shareCount; i < shareCount + amount; i++) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/bonding_curve/LinearBondingCurve.sol#L20)]
+
 
 
 <a name="GAS-31"></a> 
@@ -2772,6 +3114,8 @@ File: 1155tech-contracts/src/Market.sol
 16:     uint256 public constant CREATOR_CUT_BPS = 3_300; // 33%
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L14), [15](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L15), [16](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L16)]
+
 
 
 <a name="GAS-32"></a> 
@@ -2791,6 +3135,8 @@ File: 1155tech-contracts/src/Market.sol
 289:         if (_tokenCount > 0) {
 
 ```
+*Github:* [[165](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L165), [216](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L216), [266](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L266), [289](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L289)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2798,6 +3144,8 @@ File: asD/src/asD.sol
 2: pragma solidity >=0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L2)]
+
 
 
 <a name="GAS-33"></a> 
@@ -2811,6 +3159,8 @@ File: 1155tech-contracts/src/Market.sol
 120:         require(shareIDs[_shareName] == 0, "Share already exists");
 
 ```
+*Github:* [[120](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/1155tech-contracts/src/Market.sol#L120)]
+
 
 ```solidity
 File: asD/src/asD.sol
@@ -2824,5 +3174,7 @@ File: asD/src/asD.sol
 86:         require(returnCode == 0, "Error when redeeming"); // 0 on success: https://docs.compound.finance/v2/ctokens/#redeem
 
 ```
+*Github:* [[54](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L54), [64](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L64), [78](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L78), [86](https://github.com/code-423n4/2023-11-canto/blob/516099801101950ac9e1117a70e095b06f9bf6a1/asD/src/asD.sol#L86)]
+
 
 
