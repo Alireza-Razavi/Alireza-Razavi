@@ -174,6 +174,8 @@ File: src/UTB.sol
 216:             IERC20(bridgeToken).approve(address(bridgeAdapter), amt2Bridge);
 
 ```
+*Github:* [[152](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L152), [216](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L216)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -181,6 +183,8 @@ File: src/UTBExecutor.sol
 62:         IERC20(token).approve(paymentOperator, amount);
 
 ```
+*Github:* [[62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L62)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -188,6 +192,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 114:             IERC20(bridgeToken).approve(address(router), amt2Bridge);
 
 ```
+*Github:* [[114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L114)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -195,6 +201,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 89:         IERC20(bridgeToken).approve(address(router), amt2Bridge);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L89)]
+
 
 
 <a name="M-2"></a> 
@@ -208,6 +216,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 63:             payable(from).transfer(amount);
 
 ```
+*Github:* [[63](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L63)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -219,6 +229,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 318:         payable(msg.sender).transfer(amount);
 
 ```
+*Github:* [[276](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L276), [290](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L290), [318](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L318)]
+
 
 
 <a name="M-3"></a> 
@@ -233,6 +245,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -241,6 +255,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -249,6 +265,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 17: contract StargateBridgeAdapter is
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 
 <a name="M-4"></a> 
@@ -264,6 +282,8 @@ File: src/UTBExecutor.sol
 80:         IERC20(token).transfer(refund, remainingBalance);
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L80)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -273,6 +293,8 @@ File: src/swappers/UniSwapper.sol
 55:         IERC20(token).transfer(recipient, amount);
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L44), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L55)]
+
 
 
 <a name="M-5"></a> 
@@ -290,6 +312,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 31:         weth.approve(target, amount);
 
 ```
+*Github:* [[31](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L31)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -297,6 +321,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 279:             weth.approve(address(executor), _amount);
 
 ```
+*Github:* [[279](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L279)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -310,6 +336,8 @@ File: src/UTB.sol
 241:                 IERC20(fees.feeToken).approve(
 
 ```
+*Github:* [[90](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L90), [152](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L152), [216](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L216), [241](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L241)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -317,6 +345,8 @@ File: src/UTBExecutor.sol
 62:         IERC20(token).approve(paymentOperator, amount);
 
 ```
+*Github:* [[62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L62)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -326,6 +356,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 145:         IERC20(swapParams.tokenIn).approve(utb, swapParams.amountIn);
 
 ```
+*Github:* [[114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L114), [145](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L145)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -335,6 +367,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 207:         IERC20(swapParams.tokenIn).approve(utb, swapParams.amountIn);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L89), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L207)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -344,6 +378,8 @@ File: src/swappers/UniSwapper.sol
 158:         IERC20(swapParams.tokenIn).approve(uniswap_router, swapParams.amountIn);
 
 ```
+*Github:* [[137](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L137), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L158)]
+
 
 </details>
 
@@ -361,6 +397,8 @@ File: src/UTBExecutor.sol
 67:                 (refund.call{value: extraNative}(""));
 
 ```
+*Github:* [[54](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L54), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L67)]
+
 
 
 <a name="M-7"></a> 
@@ -382,6 +420,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 75:         weth.transferFrom(msg.sender, address(this), amount);
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L44), [75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L75)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -403,6 +443,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 334:         weth.transfer(msg.sender, amount);
 
 ```
+*Github:* [[181](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L181), [267](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L267), [273](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L273), [288](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L288), [297](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L297), [298](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L298), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L334)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -412,6 +454,8 @@ File: src/UTBExecutor.sol
 80:         IERC20(token).transfer(refund, remainingBalance);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L61), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L80)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -419,6 +463,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 88:         IERC20(bridgeToken).transferFrom(msg.sender, address(this), amt2Bridge);
 
 ```
+*Github:* [[88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L88)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -428,6 +474,8 @@ File: src/swappers/UniSwapper.sol
 55:         IERC20(token).transfer(recipient, amount);
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L44), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L55)]
+
 
 </details>
 
@@ -463,6 +511,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -495,6 +545,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L24), [54](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L54), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -565,6 +617,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) public payable {
 
 ```
+*Github:* [[73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -592,6 +646,8 @@ File: src/UTB.sol
          ) public {
 
 ```
+*Github:* [[134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L134), [311](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L311)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -624,6 +680,8 @@ File: src/UTBExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L19), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -632,6 +690,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -686,6 +746,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
          ) public onlyExecutor {
 
 ```
+*Github:* [[34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -742,6 +804,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) external override onlyExecutor {
 
 ```
+*Github:* [[37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -785,6 +849,8 @@ File: src/swappers/UniSwapper.sol
          ) public payable routerIsSet returns (uint256 amountIn) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [43](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L43), [47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L47), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143)]
+
 
 </details>
 
@@ -804,6 +870,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 31:         weth.approve(target, amount);
 
 ```
+*Github:* [[31](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L31)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -811,6 +879,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 279:             weth.approve(address(executor), _amount);
 
 ```
+*Github:* [[279](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L279)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -824,6 +894,8 @@ File: src/UTB.sol
 241:                 IERC20(fees.feeToken).approve(
 
 ```
+*Github:* [[90](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L90), [152](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L152), [216](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L216), [241](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L241)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -831,6 +903,8 @@ File: src/UTBExecutor.sol
 62:         IERC20(token).approve(paymentOperator, amount);
 
 ```
+*Github:* [[62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L62)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -840,6 +914,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 145:         IERC20(swapParams.tokenIn).approve(utb, swapParams.amountIn);
 
 ```
+*Github:* [[114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L114), [145](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L145)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -849,6 +925,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 207:         IERC20(swapParams.tokenIn).approve(utb, swapParams.amountIn);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L89), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L207)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -858,6 +936,8 @@ File: src/swappers/UniSwapper.sol
 158:         IERC20(swapParams.tokenIn).approve(uniswap_router, swapParams.amountIn);
 
 ```
+*Github:* [[137](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L137), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L158)]
+
 
 </details>
 
@@ -878,6 +958,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 20:     function setRouter(address _router) public {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L20)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -892,6 +974,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -912,6 +996,8 @@ File: src/UTB.sol
 334:     function registerBridge(address bridge) public onlyOwner {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L28), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L44), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -920,6 +1006,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -935,6 +1023,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -958,6 +1048,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
         ) external pure returns (address bridgeToken) {
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -969,6 +1061,8 @@ File: src/swappers/UniSwapper.sol
 24:     function setWrapped(address payable _wrapped) public onlyOwner {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24)]
+
 
 </details>
 
@@ -985,6 +1079,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 13:     constructor(
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -993,6 +1089,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 12:     constructor(address _weth, bool gasIsEth) Owned(msg.sender) {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1001,6 +1099,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 27:     constructor(
 
 ```
+*Github:* [[27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L27)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1010,6 +1110,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 21:     constructor(bool _gasIsEth, address _bridgeToken) BaseAdapter() {
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21)]
+
 
 
 <a name="L-5"></a> 
@@ -1029,6 +1131,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1038,6 +1142,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1047,6 +1153,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1056,6 +1164,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1065,6 +1175,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1074,6 +1186,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -1093,6 +1207,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 31:         weth.approve(target, amount);
 
 ```
+*Github:* [[31](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L31)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1100,6 +1216,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 279:             weth.approve(address(executor), _amount);
 
 ```
+*Github:* [[279](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L279)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1113,6 +1231,8 @@ File: src/UTB.sol
 241:                 IERC20(fees.feeToken).approve(
 
 ```
+*Github:* [[90](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L90), [152](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L152), [216](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L216), [241](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L241)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -1120,6 +1240,8 @@ File: src/UTBExecutor.sol
 62:         IERC20(token).approve(paymentOperator, amount);
 
 ```
+*Github:* [[62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L62)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1129,6 +1251,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 145:         IERC20(swapParams.tokenIn).approve(utb, swapParams.amountIn);
 
 ```
+*Github:* [[114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L114), [145](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L145)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1138,6 +1262,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 207:         IERC20(swapParams.tokenIn).approve(utb, swapParams.amountIn);
 
 ```
+*Github:* [[89](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L89), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L207)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1147,6 +1273,8 @@ File: src/swappers/UniSwapper.sol
 158:         IERC20(swapParams.tokenIn).approve(uniswap_router, swapParams.amountIn);
 
 ```
+*Github:* [[137](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L137), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L158)]
+
 
 </details>
 
@@ -1167,6 +1295,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 21:         router = _router;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L21)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -1175,6 +1305,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 14:         gasCurrencyIsEth = gasIsEth;
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L14)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1186,6 +1318,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 77:         destinationBridges[_dstChainId] = _routerAddress;
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L33), [77](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L77)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1197,6 +1331,8 @@ File: src/UTB.sol
 336:         bridgeAdapters[b.getId()] = bridge;
 
 ```
+*Github:* [[327](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L327), [336](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L336)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -1205,6 +1341,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 20:         bridgeExecutor = _executor;
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1225,6 +1363,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 41:         destinationBridgeAdapter[dstChainId] = decentBridgeAdapter;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L23), [39](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L39), [40](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L40), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1242,6 +1382,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 52:         destinationBridgeAdapter[dstChainId] = decentBridgeAdapter;
 
 ```
+*Github:* [[38](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L38), [50](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L50), [51](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L51), [52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L52)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1253,6 +1395,8 @@ File: src/swappers/UniSwapper.sol
 25:         wrapped = _wrapped;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L21), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L25)]
+
 
 </details>
 
@@ -1274,6 +1418,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1287,6 +1433,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45)]
+
 
 
 <a name="L-9"></a> 
@@ -1303,6 +1451,8 @@ File: lib/decent-bridge/src/DcntEth.sol
         ) OFTV2("Decent Eth", "DcntEth", 18, _layerZeroEndpoint) {}
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1311,6 +1461,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 21:     constructor(bool _gasIsEth, address _bridgeToken) BaseAdapter() {
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21)]
+
 
 
 <a name="L-10"></a> 
@@ -1325,6 +1477,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 21:         router = _router;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L21)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -1333,6 +1487,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 20:         bridgeExecutor = _executor;
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1341,6 +1497,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 23:         bridgeToken = _bridgeToken;
 
 ```
+*Github:* [[23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L23)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1349,6 +1507,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 38:         stargateEth = _sgEth;
 
 ```
+*Github:* [[38](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L38)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1360,6 +1520,8 @@ File: src/swappers/UniSwapper.sol
 25:         wrapped = _wrapped;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L21), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L25)]
+
 
 
 <a name="L-11"></a> 
@@ -1379,6 +1541,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1388,6 +1552,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1397,6 +1563,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1406,6 +1574,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1415,6 +1585,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1424,6 +1596,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -1439,6 +1613,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -1446,6 +1622,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1453,6 +1631,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L2)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1460,6 +1640,8 @@ File: src/UTB.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L2)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -1467,6 +1649,8 @@ File: src/UTBExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -1474,6 +1658,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1481,6 +1667,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1488,6 +1676,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -1495,6 +1685,8 @@ File: src/swappers/SwapParams.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L2)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1502,6 +1694,8 @@ File: src/swappers/UniSwapper.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L2)]
+
 
 
 <a name="L-13"></a> 
@@ -1523,6 +1717,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 75:         weth.transferFrom(msg.sender, address(this), amount);
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L44), [75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L75)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1544,6 +1740,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 334:         weth.transfer(msg.sender, amount);
 
 ```
+*Github:* [[181](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L181), [267](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L267), [273](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L273), [288](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L288), [297](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L297), [298](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L298), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L334)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -1553,6 +1751,8 @@ File: src/UTBExecutor.sol
 80:         IERC20(token).transfer(refund, remainingBalance);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L61), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L80)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1560,6 +1760,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 88:         IERC20(bridgeToken).transferFrom(msg.sender, address(this), amt2Bridge);
 
 ```
+*Github:* [[88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L88)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1569,6 +1771,8 @@ File: src/swappers/UniSwapper.sol
 55:         IERC20(token).transfer(recipient, amount);
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L44), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L55)]
+
 
 </details>
 
@@ -1592,6 +1796,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 75:         weth.transferFrom(msg.sender, address(this), amount);
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L44), [75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L75)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1613,6 +1819,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 334:         weth.transfer(msg.sender, amount);
 
 ```
+*Github:* [[181](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L181), [267](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L267), [273](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L273), [288](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L288), [297](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L297), [298](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L298), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L334)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -1622,6 +1830,8 @@ File: src/UTBExecutor.sol
 80:         IERC20(token).transfer(refund, remainingBalance);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L61), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L80)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1629,6 +1839,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 88:         IERC20(bridgeToken).transferFrom(msg.sender, address(this), amt2Bridge);
 
 ```
+*Github:* [[88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L88)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1638,6 +1850,8 @@ File: src/swappers/UniSwapper.sol
 55:         IERC20(token).transfer(recipient, amount);
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L44), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L55)]
+
 
 </details>
 
@@ -1654,6 +1868,8 @@ File: lib/decent-bridge/src/DcntEth.sol
         }
 
 ```
+*Github:* [[24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24)]
+
 
 
 <a name="L-16"></a> 
@@ -1667,6 +1883,8 @@ File: src/UTBExecutor.sol
 28:             execute(target, paymentOperator, payload, token, amount, refund, 0);
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L28)]
+
 
 
 <a name="L-17"></a> 
@@ -1690,6 +1908,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -1703,6 +1923,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1741,6 +1963,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) public onlyEthChain userIsWithdrawing(amount) {
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [302](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L302), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1756,6 +1980,8 @@ File: src/UTB.sol
 334:     function registerBridge(address bridge) public onlyOwner {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L28), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L44), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -1780,6 +2006,8 @@ File: src/UTBExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L19), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -1787,6 +2015,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -1819,6 +2049,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
          ) public onlyExecutor {
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1854,6 +2086,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) external override onlyExecutor {
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -1869,6 +2103,8 @@ File: src/swappers/UniSwapper.sol
             onlyUtb
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58)]
+
 
 </details>
 
@@ -1887,6 +2123,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 98:         adapterParams = abi.encodePacked(PT_SEND_AND_CALL, gasAmount);
 
 ```
+*Github:* [[98](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L98)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -1894,6 +2132,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 178:             abi.encodePacked(getDestAdapter(dstChainId)),
 
 ```
+*Github:* [[178](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L178)]
+
 
 
 <a name="NC-2"></a> 
@@ -1914,6 +2154,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) external override onlyLzApp {
 
 ```
+*Github:* [[237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237)]
+
 
 
 <a name="NC-3"></a> 
@@ -1957,6 +2199,8 @@ File: src/swappers/UniSwapper.sol
              swapParams = _receiveAndWrapIfNeeded(swapParams);
 
 ```
+*Github:* [[47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L47), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143)]
+
 
 
 <a name="NC-4"></a> 
@@ -1970,6 +2214,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 5: contract DcntEth is OFTV2 {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -1977,6 +2223,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -1984,6 +2232,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -1991,6 +2241,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -1998,6 +2250,8 @@ File: src/UTBExecutor.sol
 7: contract UTBExecutor is Owned {
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -2005,6 +2259,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 6: contract BaseAdapter is UTBOwned {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -2012,6 +2268,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -2023,6 +2281,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
     {
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2030,6 +2290,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="NC-5"></a> 
@@ -2043,6 +2305,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 5: contract DcntEth is OFTV2 {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -2050,6 +2314,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -2057,6 +2323,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2064,6 +2332,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2071,6 +2341,8 @@ File: src/UTBExecutor.sol
 7: contract UTBExecutor is Owned {
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -2078,6 +2350,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 6: contract BaseAdapter is UTBOwned {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -2085,6 +2359,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -2092,6 +2368,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 17: contract StargateBridgeAdapter is
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2099,6 +2377,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="NC-6"></a> 
@@ -2113,6 +2393,8 @@ Some tools that are currently available to perform these tests on smart contract
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/)]
+
 
 
 <a name="NC-7"></a> 
@@ -2126,6 +2408,8 @@ File: src/UTBExecutor.sol
 28:             execute(target, paymentOperator, payload, token, amount, refund, 0);
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L28)]
+
 
 
 <a name="NC-8"></a> 
@@ -2139,6 +2423,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2152,6 +2438,8 @@ File: src/UTBExecutor.sol
 67:                 (refund.call{value: extraNative}(""));
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L52), [54](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L54), [65](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L65), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L67)]
+
 
 
 <a name="NC-9"></a> 
@@ -2166,6 +2454,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 
 <a name="NC-10"></a> 
@@ -2193,6 +2483,8 @@ File: src/UTB.sol
 235:             if (fees.feeToken != address(0)) {
 
 ```
+*Github:* [[74](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L74), [97](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L97), [142](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L142), [215](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L215), [233](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L233), [235](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L235)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2202,6 +2494,8 @@ File: src/UTBExecutor.sol
 76:         if (remainingBalance == 0) {
 
 ```
+*Github:* [[51](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L51), [76](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L76)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2215,6 +2509,8 @@ File: src/swappers/UniSwapper.sol
 96:         require(uniswap_router != address(0), "router not set");
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L52), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L68), [82](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L82), [96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L96)]
+
 
 </details>
 
@@ -2230,6 +2526,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 13:     constructor(
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -2237,6 +2535,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 12:     constructor(address _weth, bool gasIsEth) Owned(msg.sender) {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -2244,6 +2544,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 27:     constructor(
 
 ```
+*Github:* [[27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L27)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2251,6 +2553,8 @@ File: src/UTB.sol
 16:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L16)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2258,6 +2562,8 @@ File: src/UTBExecutor.sol
 8:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L8)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -2265,6 +2571,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 9:     constructor() UTBOwned() {}
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L9)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -2272,6 +2580,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 21:     constructor(bool _gasIsEth, address _bridgeToken) BaseAdapter() {
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -2279,6 +2589,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 29:     constructor() BaseAdapter() {}
 
 ```
+*Github:* [[29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L29)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2286,6 +2598,8 @@ File: src/swappers/UniSwapper.sol
 14:     constructor() UTBOwned() {}
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L14)]
+
 
 
 <a name="NC-12"></a> 
@@ -2316,6 +2630,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 60:     modifier userIsWithdrawing(uint256 amount) {
 
 ```
+*Github:* [[37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L37), [42](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L42), [50](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L50), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L55), [60](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L60)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2348,6 +2664,8 @@ File: src/UTB.sol
 228:     modifier retrieveAndCollectFees(
 
 ```
+*Github:* [[18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L18), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L19), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L20), [21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L21), [22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L22), [228](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L228)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -2356,6 +2674,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 11:     modifier onlyExecutor() {
 
 ```
+*Github:* [[11](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L11)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -2364,6 +2684,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 31:     IStargateRouter public router;
 
 ```
+*Github:* [[31](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L31)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -2373,6 +2695,8 @@ File: src/swappers/SwapParams.sol
 9: struct SwapParams {
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L9)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2398,6 +2722,8 @@ File: src/swappers/UniSwapper.sol
 95:     modifier routerIsSet() {
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L18), [95](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L95)]
+
 
 </details>
 
@@ -2427,6 +2753,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -2434,6 +2762,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 68:     function execute(
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -2463,6 +2793,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 330:     function removeLiquidityWeth(
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [302](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L302), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313), [322](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L322), [330](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L330)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2484,6 +2816,8 @@ File: src/UTB.sol
 334:     function registerBridge(address bridge) public onlyOwner {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L28), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L44), [108](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L108), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259), [311](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L311), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2493,6 +2827,8 @@ File: src/UTBExecutor.sol
 41:     function execute(
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L19), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -2500,6 +2836,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -2521,6 +2859,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 127:     function receiveFromBridge(
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -2542,6 +2882,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 183:     function sgReceive(
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2563,6 +2905,8 @@ File: src/swappers/UniSwapper.sol
 143:     function swapExactOut(
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143)]
+
 
 </details>
 
@@ -2577,6 +2921,8 @@ While 100% code coverage does not guarantee that there are no bugs, it often wil
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/)]
+
 
 
 <a name="NC-15"></a> 
@@ -2593,6 +2939,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
                  payload = abi.encode(
 
 ```
+*Github:* [[100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L100)]
+
 
 
 <a name="NC-16"></a> 
@@ -2610,6 +2958,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 62:         require(balance >= amount, "not enough balance");
 
 ```
+*Github:* [[38](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L38), [51](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L51), [62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L62)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2617,6 +2967,8 @@ File: src/UTB.sol
 75:             require(msg.value >= swapParams.amountIn, "not enough native");
 
 ```
+*Github:* [[75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L75)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2624,6 +2976,8 @@ File: src/swappers/UniSwapper.sol
 96:         require(uniswap_router != address(0), "router not set");
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L96)]
+
 
 
 <a name="NC-17"></a> 
@@ -2636,6 +2990,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L2)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2643,6 +2999,8 @@ File: src/UTB.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L2)]
+
 
 
 <a name="NC-18"></a> 
@@ -2658,6 +3016,8 @@ File: src/swappers/UniSwapper.sol
 6: import {SwapDirection} from "./SwapParams.sol";
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L5), [6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L6)]
+
 
 
 <a name="NC-19"></a> 
@@ -2672,6 +3032,8 @@ File: src/UTB.sol
 52:     function performSwap(
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L52)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2680,6 +3042,8 @@ File: src/UTBExecutor.sol
 19:     function execute(
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L19)]
+
 
 
 <a name="NC-20"></a> 
@@ -2720,6 +3084,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L24), [54](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L54), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -2786,6 +3152,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) external override onlyLzApp {
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -2832,6 +3200,8 @@ File: src/UTB.sol
          ) public {
 
 ```
+*Github:* [[108](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L108), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L134), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259), [311](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L311)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -2858,6 +3228,8 @@ File: src/UTBExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L19), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -2899,6 +3271,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
          ) public onlyExecutor {
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -2969,6 +3343,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) external override onlyExecutor {
 
 ```
+*Github:* [[55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -2989,6 +3365,8 @@ File: src/swappers/UniSwapper.sol
         {
 
 ```
+*Github:* [[32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58)]
+
 
 </details>
 
@@ -3003,6 +3381,8 @@ The IR-based code generator was introduced with an aim to not only allow code ge
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/)]
+
 
 
 <a name="NC-22"></a> 
@@ -3016,6 +3396,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 257:         emit ReceivedDecentEth(
 
 ```
+*Github:* [[257](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L257)]
+
 
 
 <a name="NC-23"></a> 
@@ -3033,6 +3415,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 
 <a name="NC-24"></a> 
@@ -3062,6 +3446,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68), [85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -3146,6 +3532,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [302](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L302), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313), [322](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L322), [330](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L330), [337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -3218,6 +3606,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[108](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L108), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259), [311](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L311), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -3255,6 +3645,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3320,6 +3712,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -3378,6 +3772,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143), [171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -3393,6 +3789,8 @@ File: src/swappers/UniSwapper.sol
 153:                 //deadline: block.timestamp,
 
 ```
+*Github:* [[153](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L153)]
+
 
 
 <a name="NC-26"></a> 
@@ -3408,6 +3806,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -3415,6 +3815,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -3422,6 +3824,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3432,6 +3836,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
         IStargateReceiver
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -3439,6 +3845,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="NC-27"></a> 
@@ -3456,6 +3864,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -3467,6 +3877,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 308:         weth.deposit{value: msg.value}();
 
 ```
+*Github:* [[178](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L178), [185](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L185), [308](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L308)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -3478,6 +3890,8 @@ File: src/UTB.sol
 248:             feeCollector.collectFees{value: value}(fees, packedInfo, signature);
 
 ```
+*Github:* [[76](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L76), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L143), [248](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L248)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -3491,6 +3905,8 @@ File: src/UTBExecutor.sol
 67:                 (refund.call{value: extraNative}(""));
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L52), [54](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L54), [65](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L65), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L67)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -3498,6 +3914,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 117:         router.bridgeWithPayload{value: msg.value}(
 
 ```
+*Github:* [[117](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L117)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3505,6 +3923,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 170:         router.swap{value: msg.value}(
 
 ```
+*Github:* [[170](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L170)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -3512,6 +3932,8 @@ File: src/swappers/UniSwapper.sol
 91:         IWETH(wrapped).deposit{value: swapParams.amountIn}();
 
 ```
+*Github:* [[91](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L91)]
+
 
 </details>
 
@@ -3526,6 +3948,8 @@ This includes: large code bases, or code with lots of inline-assembly, complicat
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/)]
+
 
 
 <a name="NC-29"></a> 
@@ -3539,6 +3963,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 96:         uint256 GAS_FOR_RELAY = 100000;
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L96)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3548,6 +3974,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 176:             (amt2Bridge * (10000 - SG_FEE_BPS)) / 10000, // the min qty you would accept on the destination, fee is 6 bips
 
 ```
+*Github:* [[176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176), [176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176)]
+
 
 
 <a name="NC-30"></a> 
@@ -3562,6 +3990,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 15:     ) OFTV2("Decent Eth", "DcntEth", 18, _layerZeroEndpoint) {}
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L15)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -3573,6 +4003,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 172:             zroPaymentAddress: address(0x0),
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L96), [172](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L172)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3590,6 +4022,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 176:             (amt2Bridge * (10000 - SG_FEE_BPS)) / 10000, // the min qty you would accept on the destination, fee is 6 bips
 
 ```
+*Github:* [[66](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L66), [66](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L66), [176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176), [176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176)]
+
 
 
 <a name="NC-31"></a> 
@@ -3607,6 +4041,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 
 <a name="NC-32"></a> 
@@ -3620,6 +4056,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 9:         require(msg.sender == router);
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L9)]
+
 
 
 <a name="NC-33"></a> 
@@ -3635,6 +4073,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 25:     mapping(address => uint256) public balanceOf;
 
 ```
+*Github:* [[24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L24), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L25)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -3644,6 +4084,8 @@ File: src/UTB.sol
 22:     mapping(uint8 => address) public bridgeAdapters;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L21), [22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L22)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -3655,6 +4097,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 17:     mapping(uint16 => uint256) chainIdLookup;
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L14), [16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L16), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3666,6 +4110,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 27:     mapping(uint16 => uint256) chainIdLookup;
 
 ```
+*Github:* [[25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L25), [26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L26), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L27)]
+
 
 
 <a name="NC-34"></a> 
@@ -3697,6 +4143,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5), [8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L8), [13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -3710,6 +4158,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8), [12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12), [85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -3774,6 +4224,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L27), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L37), [42](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L42), [50](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L50), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L55), [60](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L60), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -3787,6 +4239,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15), [16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L16), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -3796,6 +4250,8 @@ File: src/UTBExecutor.sol
 8:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7), [8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L8)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -3809,6 +4265,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6), [9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L9), [11](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L11), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -3869,6 +4327,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12), [21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21), [26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127), [156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -3955,6 +4415,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17), [29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L29), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [154](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L154), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -3962,6 +4424,8 @@ File: src/swappers/SwapParams.sol
 4: library SwapDirection {
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L4)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -4025,6 +4489,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13), [14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L14), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [43](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L43), [47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L47), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79), [95](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L95), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143), [171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -4040,6 +4506,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 5: contract DcntEth is OFTV2 {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -4047,6 +4515,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -4054,6 +4524,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -4061,6 +4533,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -4068,6 +4542,8 @@ File: src/UTBExecutor.sol
 7: contract UTBExecutor is Owned {
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -4075,6 +4551,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 6: contract BaseAdapter is UTBOwned {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -4082,6 +4560,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -4089,6 +4569,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 17: contract StargateBridgeAdapter is
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -4096,6 +4578,8 @@ File: src/swappers/SwapParams.sol
 4: library SwapDirection {
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L4)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -4103,6 +4587,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="NC-36"></a> 
@@ -4134,6 +4620,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5), [8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L8), [13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -4149,6 +4637,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8), [12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68), [85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -4200,6 +4690,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L27), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L37), [42](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L42), [50](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L50), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L55), [60](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L60), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [302](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L302), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313), [322](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L322), [330](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L330), [337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -4213,6 +4705,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15), [16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L16), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -4222,6 +4716,8 @@ File: src/UTBExecutor.sol
 8:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7), [8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L8)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -4235,6 +4731,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6), [9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L9), [11](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L11), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -4264,6 +4762,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12), [21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21), [26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127), [156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -4307,6 +4807,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17), [29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L29), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [154](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L154), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -4314,6 +4816,8 @@ File: src/swappers/SwapParams.sol
 4: library SwapDirection {
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L4)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -4351,6 +4855,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13), [14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L14), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [43](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L43), [47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L47), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79), [95](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L95), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143), [171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -4369,6 +4875,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 6:     address public router;
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L6)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -4376,6 +4884,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 10:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L10)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -4399,6 +4909,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 25:     mapping(address => uint256) public balanceOf;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L13), [14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L14), [15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L15), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L18), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L20), [22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L22), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L24), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L25)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -4408,6 +4920,8 @@ File: src/UTB.sol
 22:     mapping(uint8 => address) public bridgeAdapters;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L21), [22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L22)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -4415,6 +4929,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 7:     address public bridgeExecutor;
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -4426,6 +4942,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 15:     IDecentEthRouter public router;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13), [14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L14), [15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L15)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -4441,6 +4959,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 31:     IStargateRouter public router;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L23), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L24), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L25), [31](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L31)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -4452,6 +4972,8 @@ File: src/swappers/UniSwapper.sol
 18:     address payable public wrapped;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L18)]
+
 
 </details>
 
@@ -4485,6 +5007,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5), [8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L8), [13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -4504,6 +5028,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8), [12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L24), [54](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L54), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68), [85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -4555,6 +5081,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L27), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L37), [42](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L42), [50](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L50), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L55), [60](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L60), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [302](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L302), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313), [322](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L322), [330](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L330), [337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -4598,6 +5126,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15), [16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L16), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L28), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L44), [52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L52), [63](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L63), [108](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L108), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L134), [168](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L168), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L207), [228](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L228), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259), [282](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L282), [311](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L311), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -4611,6 +5141,8 @@ File: src/UTBExecutor.sol
 41:     function execute(
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7), [8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L8), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L19), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -4624,6 +5156,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6), [9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L9), [11](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L11), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -4653,6 +5187,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12), [21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21), [26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127), [156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -4696,6 +5232,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17), [29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L29), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [154](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L154), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -4703,6 +5241,8 @@ File: src/swappers/SwapParams.sol
 4: library SwapDirection {
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L4)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -4740,6 +5280,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13), [14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L14), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [43](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L43), [47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L47), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79), [95](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L95), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143), [171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -4778,6 +5320,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L13), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -4800,6 +5344,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -4952,6 +5498,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) public userIsWithdrawing(amount) {
 
 ```
+*Github:* [[27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L27), [50](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L50), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L55), [60](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L60), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218), [237](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L237), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313), [322](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L322), [330](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L330)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -4960,6 +5508,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5033,6 +5583,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
          ) public onlyExecutor {
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21), [26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5137,6 +5689,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) external override onlyExecutor {
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [154](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L154), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163), [183](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L183)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5208,6 +5762,8 @@ File: src/swappers/UniSwapper.sol
          ) public payable routerIsSet returns (uint256 amountIn) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [43](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L43), [47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L47), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143)]
+
 
 </details>
 
@@ -5252,6 +5808,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) public view returns (uint nativeFee, uint zroFee) {
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L80), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -5298,6 +5856,8 @@ File: src/UTB.sol
          ) private returns (bytes memory) {
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L52), [63](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L63), [168](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L168), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L207), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259), [282](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L282)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5334,6 +5894,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public payable onlyUtb returns (bytes memory bridgePayload) {
 
 ```
+*Github:* [[30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L73), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5385,6 +5947,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 154:     function getDestAdapter(uint chainId) private view returns (address dstAddr) {
 
 ```
+*Github:* [[41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L55), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L61), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [154](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L154)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5426,6 +5990,8 @@ File: src/swappers/UniSwapper.sol
          ) public payable routerIsSet returns (uint256 amountIn) {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L32), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L58), [79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79), [100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L100), [123](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L123), [143](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L143)]
+
 
 </details>
 
@@ -5441,6 +6007,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 5: contract DcntEth is OFTV2 {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -5448,6 +6016,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -5455,6 +6025,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -5462,6 +6034,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -5469,6 +6043,8 @@ File: src/UTBExecutor.sol
 7: contract UTBExecutor is Owned {
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -5476,6 +6052,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 6: contract BaseAdapter is UTBOwned {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5483,6 +6061,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5490,6 +6070,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 17: contract StargateBridgeAdapter is
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -5497,6 +6079,8 @@ File: src/swappers/SwapParams.sol
 4: library SwapDirection {
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L4)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5504,6 +6088,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="NC-42"></a> 
@@ -5517,6 +6103,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 17:     uint8 public constant MT_ETH_TRANSFER = 0;
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -5524,6 +6112,8 @@ File: src/UTB.sol
 234:             uint value = 0;
 
 ```
+*Github:* [[234](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L234)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5531,6 +6121,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -5538,6 +6130,8 @@ File: src/swappers/SwapParams.sol
 5:     uint8 constant EXACT_IN = 0;
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L5)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5545,6 +6139,8 @@ File: src/swappers/UniSwapper.sol
 16:     uint8 public constant SWAPPER_ID = 0;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16)]
+
 
 
 <a name="NC-43"></a> 
@@ -5562,6 +6158,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 20:     uint16 public constant PT_SEND_AND_CALL = 1;
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L18), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5569,6 +6167,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5578,6 +6178,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 23:     uint8 public constant SG_FEE_BPS = 6;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L23)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -5587,6 +6189,8 @@ File: src/swappers/SwapParams.sol
 6:     uint8 constant EXACT_OUT = 1;
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L5), [6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L6)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5594,6 +6198,8 @@ File: src/swappers/UniSwapper.sol
 16:     uint8 public constant SWAPPER_ID = 0;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16)]
+
 
 
 <a name="NC-44"></a> 
@@ -5607,6 +6213,8 @@ File: src/swappers/UniSwapper.sol
 79:     function _receiveAndWrapIfNeeded(
 
 ```
+*Github:* [[79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79)]
+
 
 
 <a name="NC-45"></a> 
@@ -5620,6 +6228,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 
 <a name="NC-46"></a> 
@@ -5633,6 +6243,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 21:         router = _router;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L21)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -5640,6 +6252,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 20:         bridgeExecutor = _executor;
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5647,6 +6261,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 38:         stargateEth = _sgEth;
 
 ```
+*Github:* [[38](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L38)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5656,6 +6272,8 @@ File: src/swappers/UniSwapper.sol
 25:         wrapped = _wrapped;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L21), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L25)]
+
 
 
 <a name="NC-47"></a> 
@@ -5669,6 +6287,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 6:     address public router;
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L6)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -5680,6 +6300,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 20:     uint16 public constant PT_SEND_AND_CALL = 1;
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L18), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -5687,6 +6309,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 7:     address public bridgeExecutor;
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5694,6 +6318,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5705,6 +6331,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 24:     address public stargateEth;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L23), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L24)]
+
 
 
 <a name="NC-48"></a> 
@@ -5718,6 +6346,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 176:             (amt2Bridge * (10000 - SG_FEE_BPS)) / 10000, // the min qty you would accept on the destination, fee is 6 bips
 
 ```
+*Github:* [[176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176)]
+
 
 
 <a name="NC-49"></a> 
@@ -5732,6 +6362,8 @@ File: src/UTB.sol
 91:             address(swapper),
 
 ```
+*Github:* [[91](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L91)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -5740,6 +6372,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 13:             msg.sender == address(bridgeExecutor),
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L13)]
+
 
 
 <a name="NC-50"></a> 
@@ -5757,6 +6391,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 
 <a name="NC-51"></a> 
@@ -5775,6 +6411,8 @@ File: src/UTB.sol
 259:     function bridgeAndExecute(
 
 ```
+*Github:* [[108](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L108), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259)]
+
 
 
 <a name="NC-52"></a> 
@@ -5789,6 +6427,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 5: import {UTBOwned} from "../UTBOwned.sol";
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L5)]
+
 
 
 <a name="NC-53"></a> 
@@ -5812,6 +6452,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) public view returns (uint nativeFee, uint zroFee) {
 
 ```
+*Github:* [[113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -5823,6 +6465,8 @@ File: src/UTB.sol
         ) private returns (address tokenOut, uint256 amountOut) {
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L52)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5838,6 +6482,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public view returns (uint nativeFee, uint zroFee) {
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5849,6 +6495,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) private view returns (uint value) {
 
 ```
+*Github:* [[100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5859,6 +6507,8 @@ File: src/swappers/UniSwapper.sol
         ) private returns (SwapParams memory _swapParams) {
 
 ```
+*Github:* [[79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79)]
+
 
 
 <a name="NC-54"></a> 
@@ -5872,6 +6522,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -5879,6 +6531,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -5886,6 +6540,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L2)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -5893,6 +6549,8 @@ File: src/UTB.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L2)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -5900,6 +6558,8 @@ File: src/UTBExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -5907,6 +6567,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5914,6 +6576,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5921,6 +6585,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -5928,6 +6594,8 @@ File: src/swappers/SwapParams.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L2)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5935,6 +6603,8 @@ File: src/swappers/UniSwapper.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L2)]
+
 
 
 <a name="NC-55"></a> 
@@ -5952,6 +6622,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 20:     uint16 public constant PT_SEND_AND_CALL = 1;
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L18), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -5959,6 +6631,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -5968,6 +6642,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 23:     uint8 public constant SG_FEE_BPS = 6;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L23)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -5977,6 +6653,8 @@ File: src/swappers/SwapParams.sol
 6:     uint8 constant EXACT_OUT = 1;
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L5), [6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L6)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -5984,6 +6662,8 @@ File: src/swappers/UniSwapper.sol
 16:     uint8 public constant SWAPPER_ID = 0;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16)]
+
 
 
 <a name="NC-56"></a> 
@@ -5997,6 +6677,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -6004,6 +6686,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6011,6 +6695,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L2)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6018,6 +6704,8 @@ File: src/UTB.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L2)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6025,6 +6713,8 @@ File: src/UTBExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -6032,6 +6722,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6039,6 +6731,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6046,6 +6740,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -6053,6 +6749,8 @@ File: src/swappers/SwapParams.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L2)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -6060,6 +6758,8 @@ File: src/swappers/UniSwapper.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L2)]
+
 
 
 <a name="NC-57"></a> 
@@ -6075,6 +6775,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 5: contract DcntEth is OFTV2 {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -6082,6 +6784,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6089,6 +6793,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6096,6 +6802,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6103,6 +6811,8 @@ File: src/UTBExecutor.sol
 7: contract UTBExecutor is Owned {
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -6110,6 +6820,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 6: contract BaseAdapter is UTBOwned {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6117,6 +6829,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6124,6 +6838,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 17: contract StargateBridgeAdapter is
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -6131,6 +6847,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="NC-58"></a> 
@@ -6144,6 +6862,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 9:         require(msg.sender == router);
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L9)]
+
 
 
 <a name="NC-59"></a> 
@@ -6157,6 +6877,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 244:     ) external override onlyLzApp {
 
 ```
+*Github:* [[244](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L244)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6164,6 +6886,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 190:     ) external override onlyExecutor {
 
 ```
+*Github:* [[190](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L190)]
+
 
 
 <a name="NC-60"></a> 
@@ -6197,6 +6921,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) internal {
 
 ```
+*Github:* [[113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [148](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L148)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6213,6 +6939,8 @@ File: src/UTBExecutor.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L41)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6230,6 +6958,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public payable onlyUtb returns (bytes memory bridgePayload) {
 
 ```
+*Github:* [[81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6247,6 +6977,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
         ) public payable onlyUtb returns (bytes memory bridgePayload) {
 
 ```
+*Github:* [[69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69)]
+
 
 
 <a name="NC-61"></a> 
@@ -6264,6 +6996,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 19:     address bridgeToken;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L16), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L17), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6273,6 +7007,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 27:     mapping(uint16 => uint256) chainIdLookup;
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L26), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L27)]
+
 
 
 <a name="NC-62"></a> 
@@ -6288,6 +7024,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6299,6 +7037,8 @@ File: src/UTBExecutor.sol
 70:             (success, ) = target.call(payload);
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L52), [65](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L65), [70](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L70)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6310,6 +7050,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 147:         (, LzBridgeData memory lzBridgeData, ) = abi.decode(
 
 ```
+*Github:* [[127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L127), [137](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L137), [147](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L147)]
+
 
 
 <a name="NC-63"></a> 
@@ -6331,6 +7073,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6346,6 +7090,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
         ) public onlyOwner {
 
 ```
+*Github:* [[41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45)]
+
 
 
 <a name="NC-64"></a> 
@@ -6362,6 +7108,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 15:     ) OFTV2("Decent Eth", "DcntEth", 18, _layerZeroEndpoint) {}
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L15)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -6371,6 +7119,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 88:     fallback() external payable {}
 
 ```
+*Github:* [[85](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L85), [88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L88)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6380,6 +7130,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 339:     fallback() external payable {}
 
 ```
+*Github:* [[337](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L337), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L339)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6391,6 +7143,8 @@ File: src/UTB.sol
 341:     fallback() external payable {}
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L16), [339](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L339), [341](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L341)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6398,6 +7152,8 @@ File: src/UTBExecutor.sol
 8:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L8)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -6405,6 +7161,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 9:     constructor() UTBOwned() {}
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L9)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6414,6 +7172,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 158:     fallback() external payable {}
 
 ```
+*Github:* [[156](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L156), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6425,6 +7185,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 220:     fallback() external payable {}
 
 ```
+*Github:* [[29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L29), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L218), [220](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L220)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -6436,6 +7198,8 @@ File: src/swappers/UniSwapper.sol
 173:     fallback() external payable {}
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L14), [171](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L171), [173](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L173)]
+
 
 </details>
 
@@ -6483,6 +7247,8 @@ File: src/UTB.sol
          ) private returns (bytes memory) {
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L52), [63](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L63), [168](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L168), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L207), [282](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L282)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6519,6 +7285,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) private {
 
 ```
+*Github:* [[100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L114), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L124), [134](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L134), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L144), [154](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L154), [163](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L163)]
+
 
 </details>
 
@@ -6538,6 +7306,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 9:     IWETH weth;
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L9)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6549,6 +7319,8 @@ File: src/UTB.sol
 20:     IWETH wrapped;
 
 ```
+*Github:* [[18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L18), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L19), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6562,6 +7334,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 19:     address bridgeToken;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L16), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L18), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6571,6 +7345,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 27:     mapping(uint16 => uint256) chainIdLookup;
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L26), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L27)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -6580,6 +7356,8 @@ File: src/swappers/SwapParams.sol
 6:     uint8 constant EXACT_OUT = 1;
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L5), [6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L6)]
+
 
 </details>
 
@@ -6594,6 +7372,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 9:         require(msg.sender == router);
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L9)]
+
 
 
 <a name="NC-68"></a> 
@@ -6608,6 +7388,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 96:         uint256 GAS_FOR_RELAY = 100000;
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L96)]
+
 
 
 <a name="NC-69"></a> 
@@ -6632,6 +7414,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -6639,6 +7423,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 68:     function execute(
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L68)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6666,6 +7452,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 330:     function removeLiquidityWeth(
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68), [73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L73), [113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113), [197](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L197), [218](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L218), [285](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L285), [294](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L294), [302](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L302), [313](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L313), [322](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L322), [330](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L330)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6687,6 +7475,8 @@ File: src/UTB.sol
 334:     function registerBridge(address bridge) public onlyOwner {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L28), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L44), [108](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L108), [259](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L259), [311](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L311), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -6694,6 +7484,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6711,6 +7503,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 127:     function receiveFromBridge(
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L34), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L81), [127](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L127)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6726,6 +7520,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 69:     function bridge(
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L45), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L69)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -6737,6 +7533,8 @@ File: src/swappers/UniSwapper.sol
 28:     function getId() public pure returns (uint8) {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28)]
+
 
 </details>
 
@@ -6754,6 +7552,8 @@ By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advan
 Global finding
 
 ```
+*Github:* [[Global](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/)]
+
 
 
 <a name="GAS-2"></a> 
@@ -6769,6 +7569,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 176:             (amt2Bridge * (10000 - SG_FEE_BPS)) / 10000, // the min qty you would accept on the destination, fee is 6 bips
 
 ```
+*Github:* [[66](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L66), [176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176)]
+
 
 
 <a name="GAS-3"></a> 
@@ -6784,6 +7586,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 44:         weth.transfer(from, remainingAfterCall);
 
 ```
+*Github:* [[36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L44)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6797,6 +7601,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 334:         weth.transfer(msg.sender, amount);
 
 ```
+*Github:* [[267](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L267), [273](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L273), [298](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L298), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L334)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6804,6 +7610,8 @@ File: src/UTBExecutor.sol
 80:         IERC20(token).transfer(refund, remainingBalance);
 
 ```
+*Github:* [[80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L80)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -6813,6 +7621,8 @@ File: src/swappers/UniSwapper.sol
 55:         IERC20(token).transfer(recipient, amount);
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L44), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L55)]
+
 
 
 <a name="GAS-4"></a> 
@@ -6825,6 +7635,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 42:     modifier onlyLzApp() {
 
 ```
+*Github:* [[42](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L42)]
+
 
 
 <a name="GAS-5"></a> 
@@ -6842,6 +7654,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 
 <a name="GAS-6"></a> 
@@ -6856,6 +7670,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 119:             destinationBridgeAdapter[dstChainId],
 
 ```
+*Github:* [[119](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L119)]
+
 
 
 <a name="GAS-7"></a> 
@@ -6869,6 +7685,8 @@ File: src/UTBExecutor.sol
 64:         if (extraNative > 0) {
 
 ```
+*Github:* [[64](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L64)]
+
 
 
 <a name="GAS-8"></a> 
@@ -6883,6 +7701,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 5: contract DcntEth is OFTV2 {
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L5)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -6891,6 +7711,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 8: contract DecentBridgeExecutor is IDecentBridgeExecutor, Owned {
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L8)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6899,6 +7721,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 12: contract DecentEthRouter is IDecentEthRouter, IOFTReceiverV2, Owned {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6907,6 +7731,8 @@ File: src/UTB.sol
 15: contract UTB is Owned {
 
 ```
+*Github:* [[15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L15)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6915,6 +7741,8 @@ File: src/UTBExecutor.sol
 7: contract UTBExecutor is Owned {
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L7)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -6923,6 +7751,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 6: contract BaseAdapter is UTBOwned {
 
 ```
+*Github:* [[6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L6)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -6931,6 +7761,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 12: contract DecentBridgeAdapter is BaseAdapter, IBridgeAdapter {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L12)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -6939,6 +7771,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 17: contract StargateBridgeAdapter is
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L17)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -6947,6 +7781,8 @@ File: src/swappers/UniSwapper.sol
 13: contract UniSwapper is UTBOwned, ISwapper {
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L13)]
+
 
 
 <a name="GAS-9"></a> 
@@ -6960,6 +7796,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -6967,6 +7805,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -6974,6 +7814,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L2)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -6981,6 +7823,8 @@ File: src/UTB.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L2)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -6988,6 +7832,8 @@ File: src/UTBExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -6995,6 +7841,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7002,6 +7850,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7009,6 +7859,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -7016,6 +7868,8 @@ File: src/swappers/SwapParams.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L2)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7023,6 +7877,8 @@ File: src/swappers/UniSwapper.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L2)]
+
 
 
 <a name="GAS-10"></a> 
@@ -7045,6 +7901,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
             return bridgeToken;
 
 ```
+*Github:* [[30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [67](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L67)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7056,6 +7914,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
             return BRIDGE_ID;
 
 ```
+*Github:* [[41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7064,6 +7924,8 @@ File: src/swappers/UniSwapper.sol
             return SWAPPER_ID;
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28)]
+
 
 
 <a name="GAS-11"></a> 
@@ -7079,6 +7941,8 @@ File: src/UTB.sol
 7: import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L7)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -7086,6 +7950,8 @@ File: src/UTBExecutor.sol
 4: import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L4)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7093,6 +7959,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 4: import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L4)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7100,6 +7968,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 4: import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
 ```
+*Github:* [[4](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L4)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7107,6 +7977,8 @@ File: src/swappers/UniSwapper.sol
 7: import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
 ```
+*Github:* [[7](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L7)]
+
 
 
 <a name="GAS-12"></a> 
@@ -7122,6 +7994,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 10:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L9), [10](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L10)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7133,6 +8007,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 22:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L13), [15](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L15), [22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L22)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7142,6 +8018,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 19:     address bridgeToken;
 
 ```
+*Github:* [[18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L18), [19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L19)]
+
 
 
 <a name="GAS-13"></a> 
@@ -7159,6 +8037,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 61:         (bool success, ) = target.call{value: amount}(callPayload);
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L33), [61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L61)]
+
 
 
 <a name="GAS-14"></a> 
@@ -7182,6 +8062,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
          ) public view returns (uint nativeFee, uint zroFee) {
 
 ```
+*Github:* [[113](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L113)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7193,6 +8075,8 @@ File: src/UTB.sol
         ) private returns (address tokenOut, uint256 amountOut) {
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L52)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7208,6 +8092,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
         ) public view returns (uint nativeFee, uint zroFee) {
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L44)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7219,6 +8105,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
          ) private view returns (uint value) {
 
 ```
+*Github:* [[100](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L100)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7229,6 +8117,8 @@ File: src/swappers/UniSwapper.sol
         ) private returns (SwapParams memory _swapParams) {
 
 ```
+*Github:* [[79](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L79)]
+
 
 
 <a name="GAS-15"></a> 
@@ -7266,6 +8156,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 75:         weth.transferFrom(msg.sender, address(this), amount);
 
 ```
+*Github:* [[31](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L31), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L36), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L41), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L44), [60](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L60), [75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L75)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7325,6 +8217,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 334:         weth.transfer(msg.sender, amount);
 
 ```
+*Github:* [[136](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L136), [181](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L181), [267](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L267), [273](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L273), [275](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L275), [279](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L279), [280](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L280), [288](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L288), [289](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L289), [297](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L297), [298](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L298), [309](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L309), [316](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L316), [317](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L317), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L325), [326](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L326), [333](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L333), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L334)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7348,6 +8242,8 @@ File: src/UTB.sol
 216:             IERC20(bridgeToken).approve(address(bridgeAdapter), amt2Bridge);
 
 ```
+*Github:* [[83](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L83), [90](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L90), [98](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L98), [152](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L152), [153](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L153), [216](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L216)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -7362,6 +8258,8 @@ File: src/UTBExecutor.sol
 80:         IERC20(token).transfer(refund, remainingBalance);
 
 ```
+*Github:* [[61](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L61), [62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L62), [80](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L80)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7388,6 +8286,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 147:         IUTB(utb).receiveFromBridge(
 
 ```
+*Github:* [[56](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L56), [57](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L57), [109](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L109), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L114), [139](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L139), [145](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L145), [147](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L147)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7405,6 +8305,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 209:         IUTB(utb).receiveFromBridge(
 
 ```
+*Github:* [[88](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L88), [89](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L89), [207](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L207), [209](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L209)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7425,6 +8327,8 @@ File: src/swappers/UniSwapper.sol
 158:         IERC20(swapParams.tokenIn).approve(uniswap_router, swapParams.amountIn);
 
 ```
+*Github:* [[44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L44), [55](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L55), [83](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L83), [137](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L137), [158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L158)]
+
 
 </details>
 
@@ -7444,6 +8348,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 257:         emit ReceivedDecentEth(
 
 ```
+*Github:* [[257](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L257)]
+
 
 
 <a name="GAS-17"></a> 
@@ -7456,6 +8362,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 9:         require(msg.sender == router);
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L9)]
+
 
 
 <a name="GAS-18"></a> 
@@ -7473,6 +8381,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 21:         router = _router;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L21)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -7480,6 +8390,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 13:         weth = IWETH(payable(_weth));
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L13)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7491,6 +8403,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 69:         dcntEth = IDcntEth(_addr);
 
 ```
+*Github:* [[32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L32), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L34), [69](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L69)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7502,6 +8416,8 @@ File: src/UTB.sol
 45:         feeCollector = IUTBFeeCollector(_feeCollector);
 
 ```
+*Github:* [[29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L29), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L37), [45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L45)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -7509,6 +8425,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 20:         bridgeExecutor = _executor;
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7518,6 +8436,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 27:         router = IDecentEthRouter(payable(_router));
 
 ```
+*Github:* [[23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L23), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L27)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7529,6 +8449,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 58:         bridgeToken = abi.decode(additionalArgs, (address));
 
 ```
+*Github:* [[34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L34), [38](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L38), [58](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L58)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7538,6 +8460,8 @@ File: src/swappers/UniSwapper.sol
 25:         wrapped = _wrapped;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L21), [25](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L25)]
+
 
 </details>
 
@@ -7556,6 +8480,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentBridgeExecutor.sol
@@ -7563,6 +8489,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L2)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7570,6 +8498,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 2: pragma solidity ^0.8.13;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L2)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7577,6 +8507,8 @@ File: src/UTB.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L2)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -7584,6 +8516,8 @@ File: src/UTBExecutor.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -7591,6 +8525,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7598,6 +8534,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7605,6 +8543,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L2)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -7612,6 +8552,8 @@ File: src/swappers/SwapParams.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L2)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7619,6 +8561,8 @@ File: src/swappers/UniSwapper.sol
 2: pragma solidity ^0.8.0;
 
 ```
+*Github:* [[2](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L2)]
+
 
 
 <a name="GAS-20"></a> 
@@ -7632,6 +8576,8 @@ File: src/UTBExecutor.sol
 64:         if (extraNative > 0) {
 
 ```
+*Github:* [[64](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L64)]
+
 
 
 <a name="GAS-21"></a> 
@@ -7647,6 +8593,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 176:             (amt2Bridge * (10000 - SG_FEE_BPS)) / 10000, // the min qty you would accept on the destination, fee is 6 bips
 
 ```
+*Github:* [[66](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L66), [176](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L176)]
+
 
 
 <a name="GAS-22"></a> 
@@ -7660,6 +8608,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 10:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L10)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7667,6 +8617,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 22:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L22)]
+
 
 
 <a name="GAS-23"></a> 
@@ -7684,6 +8636,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 103:             payload = abi.encode(
 
 ```
+*Github:* [[99](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L99), [101](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L101), [103](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L103)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7693,6 +8647,8 @@ File: src/UTB.sol
 266:         retrieveAndCollectFees(fees, abi.encode(instructions, fees), signature)
 
 ```
+*Github:* [[115](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L115), [266](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L266)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7702,6 +8658,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 179:             bridgePayload // bytes param, if you wish to send additional payload you can abi.encode() them here
 
 ```
+*Github:* [[81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L81), [179](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L179)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7709,6 +8667,8 @@ File: src/swappers/UniSwapper.sol
 40:         return abi.encode(newSwapParams, receiver, refund);
 
 ```
+*Github:* [[40](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L40)]
+
 
 
 <a name="GAS-24"></a> 
@@ -7722,6 +8682,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 10:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[10](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L10)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7729,6 +8691,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 22:     bool public gasCurrencyIsEth; // for chains that use ETH as gas currency
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L22)]
+
 
 
 <a name="GAS-25"></a> 
@@ -7746,6 +8710,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 73:         bytes memory callPayload
 
 ```
+*Github:* [[73](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L73)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -7757,6 +8723,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 243:         bytes memory _payload
 
 ```
+*Github:* [[120](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L120), [203](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L203), [243](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L243)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7766,6 +8734,8 @@ File: src/UTB.sol
 315:         bytes memory payload,
 
 ```
+*Github:* [[312](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L312), [315](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L315)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -7775,6 +8745,8 @@ File: src/UTBExecutor.sol
 44:         bytes memory payload,
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L22), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L44)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7792,6 +8764,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 131:         bytes memory payload,
 
 ```
+*Github:* [[45](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L45), [49](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L49), [83](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L83), [87](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L87), [128](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L128), [131](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L131)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -7805,6 +8779,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 189:         bytes memory payload
 
 ```
+*Github:* [[71](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L71), [75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L75), [185](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L185), [189](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L189)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7822,6 +8798,8 @@ File: src/swappers/UniSwapper.sol
 144:         SwapParams memory swapParams,
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L33), [34](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L34), [59](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L59), [101](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L101), [124](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L124), [144](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L144)]
+
 
 </details>
 
@@ -7842,6 +8820,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 62:         require(balance >= amount, "not enough balance");
 
 ```
+*Github:* [[38](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L38), [51](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L51), [62](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L62)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7849,6 +8829,8 @@ File: src/UTB.sol
 75:             require(msg.value >= swapParams.amountIn, "not enough native");
 
 ```
+*Github:* [[75](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L75)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7856,6 +8838,8 @@ File: src/swappers/UniSwapper.sol
 96:         require(uniswap_router != address(0), "router not set");
 
 ```
+*Github:* [[96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L96)]
+
 
 
 <a name="GAS-27"></a> 
@@ -7868,6 +8852,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 17:     uint8 public constant MT_ETH_TRANSFER = 0;
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7875,6 +8861,8 @@ File: src/UTB.sol
 234:             uint value = 0;
 
 ```
+*Github:* [[234](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L234)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7882,6 +8870,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -7889,6 +8879,8 @@ File: src/swappers/SwapParams.sol
 5:     uint8 constant EXACT_IN = 0;
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L5)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -7896,6 +8888,8 @@ File: src/swappers/UniSwapper.sol
 16:     uint8 public constant SWAPPER_ID = 0;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16)]
+
 
 
 <a name="GAS-28"></a> 
@@ -7957,6 +8951,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 253:                 (uint8, address, address, bool, bytes)
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L18), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L24), [74](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L74), [81](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L81), [83](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L83), [84](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L84), [114](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L114), [115](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L115), [118](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L118), [149](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L149), [150](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L150), [153](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L153), [198](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L198), [202](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L202), [219](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L219), [222](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L222), [238](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L238), [240](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L240), [245](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L245), [246](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L246), [253](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L253)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -7966,6 +8962,8 @@ File: src/UTB.sol
 22:     mapping(uint8 => address) public bridgeAdapters;
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L21), [22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L22)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -7987,6 +8985,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 96:         uint64 dstGas = abi.decode(additionalArgs, (uint64));
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13), [16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L16), [17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L17), [30](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L30), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L36), [48](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L48), [96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L96), [96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L96)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -8008,6 +9008,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 184:         uint16, // _srcChainid
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L23), [26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L26), [27](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L27), [41](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L41), [47](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L47), [126](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L126), [184](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L184)]
+
 
 ```solidity
 File: src/swappers/SwapParams.sol
@@ -8019,6 +9021,8 @@ File: src/swappers/SwapParams.sol
 14:     uint8 direction;
 
 ```
+*Github:* [[5](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L5), [6](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L6), [14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/SwapParams.sol#L14)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -8028,6 +9032,8 @@ File: src/swappers/UniSwapper.sol
 28:     function getId() public pure returns (uint8) {
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L28)]
+
 
 </details>
 
@@ -8043,6 +9049,8 @@ File: lib/decent-bridge/src/DecentBridgeExecutor.sol
 12:     constructor(address _weth, bool gasIsEth) Owned(msg.sender) {
 
 ```
+*Github:* [[12](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentBridgeExecutor.sol#L12)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -8050,6 +9058,8 @@ File: src/UTB.sol
 16:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L16)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -8057,6 +9067,8 @@ File: src/UTBExecutor.sol
 8:     constructor() Owned(msg.sender) {}
 
 ```
+*Github:* [[8](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L8)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -8064,6 +9076,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 9:     constructor() UTBOwned() {}
 
 ```
+*Github:* [[9](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L9)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -8071,6 +9085,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 21:     constructor(bool _gasIsEth, address _bridgeToken) BaseAdapter() {
 
 ```
+*Github:* [[21](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L21)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -8078,6 +9094,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 29:     constructor() BaseAdapter() {}
 
 ```
+*Github:* [[29](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L29)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -8085,6 +9103,8 @@ File: src/swappers/UniSwapper.sol
 14:     constructor() UTBOwned() {}
 
 ```
+*Github:* [[14](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L14)]
+
 
 
 <a name="GAS-30"></a> 
@@ -8108,6 +9128,8 @@ File: lib/decent-bridge/src/DcntEth.sol
 36:     function burnByOwner(address _from, uint256 _amount) public onlyOwner {
 
 ```
+*Github:* [[24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L24), [28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L28), [32](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L32), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DcntEth.sol#L36)]
+
 
 ```solidity
 File: lib/decent-bridge/src/DecentEthRouter.sol
@@ -8115,6 +9137,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 68:     function registerDcntEth(address _addr) public onlyOwner {
 
 ```
+*Github:* [[68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L68)]
+
 
 ```solidity
 File: src/UTB.sol
@@ -8130,6 +9154,8 @@ File: src/UTB.sol
 334:     function registerBridge(address bridge) public onlyOwner {
 
 ```
+*Github:* [[28](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L28), [36](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L36), [44](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L44), [325](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L325), [334](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L334)]
+
 
 ```solidity
 File: src/bridge_adapters/BaseAdapter.sol
@@ -8137,6 +9163,8 @@ File: src/bridge_adapters/BaseAdapter.sol
 19:     function setBridgeExecutor(address _executor) public onlyOwner {
 
 ```
+*Github:* [[19](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/BaseAdapter.sol#L19)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -8144,6 +9172,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 26:     function setRouter(address _router) public onlyOwner {
 
 ```
+*Github:* [[26](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L26)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -8153,6 +9183,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 37:     function setStargateEth(address _sgEth) public onlyOwner {
 
 ```
+*Github:* [[33](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L33), [37](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L37)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -8162,6 +9194,8 @@ File: src/swappers/UniSwapper.sol
 24:     function setWrapped(address payable _wrapped) public onlyOwner {
 
 ```
+*Github:* [[20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L20), [24](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L24)]
+
 
 </details>
 
@@ -8181,6 +9215,8 @@ File: lib/decent-bridge/src/DecentEthRouter.sol
 20:     uint16 public constant PT_SEND_AND_CALL = 1;
 
 ```
+*Github:* [[17](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L17), [18](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L18), [20](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/lib/decent-bridge/src/DecentEthRouter.sol#L20)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -8188,6 +9224,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 13:     uint8 public constant BRIDGE_ID = 0;
 
 ```
+*Github:* [[13](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L13)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -8197,6 +9235,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 23:     uint8 public constant SG_FEE_BPS = 6;
 
 ```
+*Github:* [[22](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L22), [23](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L23)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -8204,6 +9244,8 @@ File: src/swappers/UniSwapper.sol
 16:     uint8 public constant SWAPPER_ID = 0;
 
 ```
+*Github:* [[16](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L16)]
+
 
 
 <a name="GAS-32"></a> 
@@ -8231,6 +9273,8 @@ File: src/UTB.sol
 235:             if (fees.feeToken != address(0)) {
 
 ```
+*Github:* [[74](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L74), [97](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L97), [142](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L142), [215](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L215), [233](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L233), [235](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTB.sol#L235)]
+
 
 ```solidity
 File: src/UTBExecutor.sol
@@ -8240,6 +9284,8 @@ File: src/UTBExecutor.sol
 76:         if (remainingBalance == 0) {
 
 ```
+*Github:* [[51](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L51), [76](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/UTBExecutor.sol#L76)]
+
 
 ```solidity
 File: src/bridge_adapters/DecentBridgeAdapter.sol
@@ -8247,6 +9293,8 @@ File: src/bridge_adapters/DecentBridgeAdapter.sol
 92:             destinationBridgeAdapter[dstChainId] != address(0),
 
 ```
+*Github:* [[92](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/DecentBridgeAdapter.sol#L92)]
+
 
 ```solidity
 File: src/bridge_adapters/StargateBridgeAdapter.sol
@@ -8254,6 +9302,8 @@ File: src/bridge_adapters/StargateBridgeAdapter.sol
 158:             dstAddr != address(0),
 
 ```
+*Github:* [[158](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/bridge_adapters/StargateBridgeAdapter.sol#L158)]
+
 
 ```solidity
 File: src/swappers/UniSwapper.sol
@@ -8267,6 +9317,8 @@ File: src/swappers/UniSwapper.sol
 96:         require(uniswap_router != address(0), "router not set");
 
 ```
+*Github:* [[52](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L52), [68](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L68), [82](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L82), [96](https://github.com/code-423n4/2024-01-decent/blob/c3c4c69166a852fa386997a79fb248109b0a43f8/src/swappers/UniSwapper.sol#L96)]
+
 
 </details>
 
